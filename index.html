@@ -311,13 +311,44 @@
                 font-size: 2rem;
             }
 
+            .hero p {
+                font-size: 1rem;
+            }
+
             .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            nav {
                 flex-direction: column;
-                gap: 0.5rem;
+                gap: 1rem;
+                text-align: center;
             }
 
             h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+
+            .journals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -354,11 +385,11 @@
         <h2>Our Flagship Books</h2>
         <p style="text-align: center; color: #666; margin-bottom: 3rem;">Therapeutic storybooks designed to support children's emotional growth and development</p>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
             <!-- Journey of Brave Friends -->
             <div style="background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                 <div style="text-align: center; margin-bottom: 1.5rem;">
-                    <img src="https://m.media-amazon.com/images/I/61m9iNlhgNL._SL1293_.jpg" alt="A Journey of Brave Friends Book Cover" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                    <img src="https://m.media-amazon.com/images/I/61m9iNlhgNL._SL1293_.jpg" alt="A Journey of Brave Friends Book Cover" style="max-width: 250px; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
                 </div>
                 <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">A Journey of Brave Friends</h3>
                 <p style="color: #666; margin-bottom: 0.5rem; font-style: italic;">Book One of Tales of the Resilient Forest</p>
@@ -387,7 +418,7 @@
             <!-- Maximilian's Cosmic Adventure -->
             <div style="background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                 <div style="text-align: center; margin-bottom: 1.5rem;">
-                    <img src="https://m.media-amazon.com/images/I/61zUTlLzRXL._SL1000_.jpg" alt="Maximilian's Cosmic Adventure Book Cover" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                    <img src="https://m.media-amazon.com/images/I/61zUTlLzRXL._SL1000_.jpg" alt="Maximilian's Cosmic Adventure Book Cover" style="max-width: 250px; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
                 </div>
                 <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Maximilian's Cosmic Adventure</h3>
                 <p style="color: var(--secondary); font-weight: 600; margin-bottom: 1rem;">A Bedtime Independence Story</p>
@@ -417,9 +448,9 @@
     <!-- About Section -->
     <section id="about">
         <h2>About the Author</h2>
-        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 3rem; align-items: center; max-width: 900px; margin: 0 auto;">
-            <img src="https://m.media-amazon.com/images/S/amzn-author-media-prod/sqclo9e9l3j326o732u41pf6ph._SY450_CR0%2C0%2C450%2C450_.jpg" alt="Joshua Fisherkeller" style="width: 100%; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-            <div>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; max-width: 900px; margin: 0 auto;">
+            <img src="https://m.media-amazon.com/images/S/amzn-author-media-prod/sqclo9e9l3j326o732u41pf6ph._SY450_CR0%2C0%2C450%2C450_.jpg" alt="Joshua Fisherkeller" style="width: 200px; height: 200px; margin: 0 auto; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+            <div style="text-align: center;">
                 <h3 style="margin-bottom: 1rem;">Joshua Fisherkeller</h3>
                 <p style="color: #666; line-height: 1.8; margin-bottom: 1rem;">
                     Joshua Fisherkeller is a dedicated author and advocate for children's mental health and well-being. Through the Tales of the Resilient Forest series and other therapeutic storybooks, Joshua creates resources that support children, families, and professionals in trauma recovery and emotional development.
