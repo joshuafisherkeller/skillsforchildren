@@ -3,10 +3,494 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills For Children</title>
+    <title>Skills for Children - Nurturing Well-being & Self-Efficacy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c5f4f;
+            --secondary: #6b9080;
+            --accent: #a4c3b2;
+            --light: #eaf4f4;
+            --dark: #1a3a2e;
+            --text: #333;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #fff;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--light) 0%, var(--accent) 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Journals Grid */
+        .journals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .journal-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .journal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .journal-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .journal-content {
+            padding: 1.5rem;
+        }
+
+        .journal-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .journal-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* Video Section */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Resources Section */
+        .resources-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .resource-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .resource-item:hover {
+            transform: translateX(5px);
+        }
+
+        .resource-item h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .resource-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: var(--secondary);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Skills For Children</h1>
-    <p>This site is under construction!</p>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Skills for Children</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#journals">Journals</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Skills for Children</h1>
+            <p>Our platform is dedicated to nurturing children's well-being and enhancing their self-efficacy. We offer practical resources for parents, therapists, educators, and professionals to support the development of essential life skills in young minds, especially those who have experienced trauma.</p>
+            <div class="cta-buttons">
+                <a href="https://www.youtube.com/@SkillsforChildren" target="_blank" class="btn btn-primary">Visit Our YouTube</a>
+                <a href="https://www.amazon.com/stores/page/YOUR-STORE-ID" target="_blank" class="btn btn-secondary">Shop Journals</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>Our Mission</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #666;">
+            Our YouTube channel features entertaining, calming, and educational videos that teach self-regulation and other crucial skills. Our premium creative journals provide therapeutic tools for emotional expression and growth.
+        </p>
+    </section>
+
+    <!-- Journals Section -->
+    <section id="journals">
+        <h2>Premium Creative Journals</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 2rem;">Beautifully designed journals for therapeutic expression and self-discovery</p>
+        
+        <div class="journals-grid">
+            <div class="journal-card">
+                <div class="journal-image">🌸</div>
+                <div class="journal-content">
+                    <h3>Flower Mountain</h3>
+                    <p>A beautiful journal featuring calming mountain and floral designs.</p>
+                    <a href="https://www.amazon.com/dp/YOUR-PRODUCT-ID" target="_blank" class="btn btn-primary">View on Amazon</a>
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-image">🏔️</div>
+                <div class="journal-content">
+                    <h3>The Original Mountain Journal</h3>
+                    <p>Classic mountain-themed journal for reflection and growth.</p>
+                    <a href="https://www.amazon.com/dp/YOUR-PRODUCT-ID" target="_blank" class="btn btn-primary">View on Amazon</a>
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-image">🏡</div>
+                <div class="journal-content">
+                    <h3>The Journey Home Journal</h3>
+                    <p>A journey of self-discovery and finding inner peace.</p>
+                    <a href="https://www.amazon.com/dp/YOUR-PRODUCT-ID" target="_blank" class="btn btn-primary">View on Amazon</a>
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-image">🌍</div>
+                <div class="journal-content">
+                    <h3>Mother Earth Journal</h3>
+                    <p>Nature-inspired journal for grounding and connection.</p>
+                    <a href="https://www.amazon.com/dp/YOUR-PRODUCT-ID" target="_blank" class="btn btn-primary">View on Amazon</a>
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-image">🔥</div>
+                <div class="journal-content">
+                    <h3>Wood-burned Mountains Journal</h3>
+                    <p>Unique wood-burned design for a rustic, authentic feel.</p>
+                    <a href="https://www.amazon.com/dp/YOUR-PRODUCT-ID" target="_blank" class="btn btn-primary">View on Amazon</a>
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-image">📚</div>
+                <div class="journal-content">
+                    <h3>TF-CBT Companion</h3>
+                    <p>Therapeutic journal for Trauma-Focused Cognitive Behavioral Therapy.</p>
+                    <a href="https://www.amazon.com/dp/YOUR-PRODUCT-ID" target="_blank" class="btn btn-primary">View on Amazon</a>
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-image">🛏️</div>
+                <div class="journal-content">
+                    <h3>Sleep in Your Own Bed</h3>
+                    <p>A supportive journal for bedtime routines and sleep independence.</p>
+                    <a href="https://www.amazon.com/dp/YOUR-PRODUCT-ID" target="_blank" class="btn btn-primary">View on Amazon</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos">
+        <h2>YouTube Videos</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 2rem;">Entertaining, calming, and educational content for children and families</p>
+        
+        <h3 style="text-align: center; margin-top: 3rem;">Featured: Beautiful Soundscape in the Resilient Forest</h3>
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="video-embed">
+                    <!-- Replace with your actual YouTube video ID -->
+                    <iframe src="https://www.youtube.com/embed/YOUR-VIDEO-ID" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Resilient Forest Soundscape</h3>
+                    <p>A calming journey through nature sounds for relaxation and focus.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="https://www.youtube.com/@SkillsforChildren" target="_blank" class="btn btn-primary">Visit Our YouTube Channel</a>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources">
+        <h2>Professional Resources</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 2rem;">Curated videos and resources for parents and professionals</p>
+        
+        <div class="resources-list">
+            <div class="resource-item">
+                <h3>How to Correctly Praise Children to Foster Growth Mindset</h3>
+                <p>Dr. Andrew Huberman</p>
+                <a href="https://www.youtube.com/watch?v=YOUR-VIDEO-ID" target="_blank">Watch Video →</a>
+            </div>
+
+            <div class="resource-item">
+                <h3>How Children and Adults Can Build Core Capabilities in Life</h3>
+                <p>Center on the Developing Child at Harvard University</p>
+                <a href="https://www.youtube.com/watch?v=YOUR-VIDEO-ID" target="_blank">Watch Video →</a>
+            </div>
+
+            <div class="resource-item">
+                <h3>How Early Childhood Experiences Affect Lifelong Health and Learning</h3>
+                <p>Center on the Developing Child at Harvard University</p>
+                <a href="https://www.youtube.com/watch?v=YOUR-VIDEO-ID" target="_blank">Watch Video →</a>
+            </div>
+
+            <div class="resource-item">
+                <h3>InBrief: The Science of Resilience</h3>
+                <p>Center on the Developing Child at Harvard University</p>
+                <a href="https://www.youtube.com/watch?v=YOUR-VIDEO-ID" target="_blank">Watch Video →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Skills for Children. All rights reserved.</p>
+        <p>Dedicated to nurturing children's well-being and self-efficacy.</p>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@SkillsforChildren" target="_blank">YouTube</a>
+            <a href="https://www.amazon.com/stores/page/YOUR-STORE-ID" target="_blank">Amazon Store</a>
+        </div>
+    </footer>
 </body>
 </html>
