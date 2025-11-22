@@ -22,6 +22,9 @@
             --blue-secondary: #4A9B8E;
             --blue-accent: #6BB6D6;
             --blue-light: #E3F2FD;
+            --trauma-primary: #8B5A8C;
+            --trauma-secondary: #A67BA7;
+            --trauma-light: #F5EBF5;
         }
 
         body {
@@ -31,7 +34,6 @@
             background-color: #fff;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
@@ -51,10 +53,7 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+        .logo { font-size: 1.5rem; font-weight: bold; }
 
         .nav-links {
             display: flex;
@@ -68,33 +67,39 @@
             transition: opacity 0.3s;
         }
 
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
+        .nav-links a:hover { opacity: 0.8; }
 
-        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--light) 0%, var(--accent) 100%);
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/SFK%20HERO.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             padding: 5rem 2rem;
             text-align: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .hero-content { max-width: 800px; margin: 0 auto; }
+
+        .hero-logo { max-width: 200px; height: auto; margin-bottom: 1.5rem; }
 
         .hero h1 {
             font-size: 3rem;
-            color: var(--dark);
+            color: white;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero p {
             font-size: 1.2rem;
-            color: var(--primary);
+            color: white;
             margin-bottom: 2rem;
             line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .cta-buttons {
@@ -115,43 +120,15 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-secondary { background: white; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-accent { background: var(--trauma-primary); color: white; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
+        section { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+        h2 { font-size: 2.5rem; color: var(--dark); margin-bottom: 2rem; text-align: center; }
+        h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem; }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Sections */
-        section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        /* Journals Grid */
         .journals-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -167,37 +144,11 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .journal-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
+        .journal-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .journal-content { padding: 1.5rem; }
+        .journal-content h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .journal-content p { color: #666; margin-bottom: 1rem; }
 
-        .journal-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-        }
-
-        .journal-content {
-            padding: 1.5rem;
-        }
-
-        .journal-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .journal-content p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        /* Video Section */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -212,57 +163,11 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .video-embed {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-
-        .video-embed iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .video-info {
-            padding: 1.5rem;
-        }
-
-        .video-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .video-info p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Resources Section - New Styles */
-        .filter-btn {
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--blue-secondary);
-            background: white;
-            color: var(--blue-primary);
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .filter-btn:hover {
-            background: var(--blue-light);
-            transform: translateY(-2px);
-        }
-
-        .filter-btn.active {
-            background: var(--blue-primary);
-            color: white;
-        }
+        .video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .video-info { padding: 1.5rem; }
+        .video-info h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .video-info p { color: #666; font-size: 0.9rem; }
 
         .resource-pillar {
             background: white;
@@ -283,31 +188,11 @@
             transition: all 0.3s;
         }
 
-        .pillar-header:hover {
-            background: linear-gradient(135deg, var(--blue-primary) 0%, var(--primary) 100%);
-        }
-
-        .pillar-header h3 {
-            color: white;
-            margin: 0;
-            font-size: 1.4rem;
-        }
-
-        .pillar-count {
-            background: rgba(255,255,255,0.2);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        .toggle-icon {
-            font-size: 1.2rem;
-            transition: transform 0.3s;
-        }
-
-        .pillar-header.active .toggle-icon {
-            transform: rotate(180deg);
-        }
+        .pillar-header:hover { background: linear-gradient(135deg, var(--blue-primary) 0%, var(--primary) 100%); }
+        .pillar-header h3 { color: white; margin: 0; font-size: 1.4rem; }
+        .pillar-count { background: rgba(255,255,255,0.2); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.9rem; }
+        .toggle-icon { font-size: 1.2rem; transition: transform 0.3s; }
+        .pillar-header.active .toggle-icon { transform: rotate(180deg); }
 
         .pillar-content {
             display: none;
@@ -317,9 +202,7 @@
             gap: 1.5rem;
         }
 
-        .pillar-content.active {
-            display: grid;
-        }
+        .pillar-content.active { display: grid; }
 
         .resource-card {
             background: var(--light);
@@ -329,65 +212,20 @@
             transition: all 0.3s;
         }
 
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            border-left-color: var(--blue-primary);
-        }
+        .resource-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); border-left-color: var(--blue-primary); }
+        .resource-card.hidden { display: none; }
+        .resource-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
 
-        .resource-card.hidden {
-            display: none;
-        }
+        .badge { padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
+        .badge-children { background: #FF9800; color: white; }
+        .badge-caregivers { background: #9C27B0; color: white; }
+        .badge-teens { background: #2196F3; color: white; }
+        .badge-professionals { background: #607D8B; color: white; }
 
-        .resource-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .badge {
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .badge-free {
-            background: #4caf50;
-            color: white;
-        }
-
-        .badge-paid {
-            background: var(--blue-primary);
-            color: white;
-        }
-
-        .format-icon {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .resource-card h4 {
-            font-size: 1.1rem;
-            color: var(--dark);
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
-        }
-
-        .resource-desc {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
-            line-height: 1.6;
-        }
-
-        .resource-source {
-            color: #999;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-        }
+        .format-icon { font-size: 0.9rem; color: #666; }
+        .resource-card h4 { font-size: 1.1rem; color: var(--dark); margin-bottom: 0.75rem; line-height: 1.4; }
+        .resource-desc { color: #666; font-size: 0.95rem; margin-bottom: 0.75rem; line-height: 1.6; }
+        .resource-source { color: #999; font-size: 0.85rem; margin-bottom: 1rem; }
 
         .resource-link {
             display: inline-block;
@@ -401,12 +239,77 @@
             transition: all 0.3s;
         }
 
-        .resource-link:hover {
-            background: var(--blue-accent);
-            transform: translateX(5px);
+        .resource-link:hover { background: var(--blue-accent); transform: translateX(5px); }
+
+        .trauma-section .pillar-header { background: linear-gradient(135deg, var(--trauma-primary) 0%, var(--trauma-secondary) 100%); }
+        .trauma-section .pillar-header:hover { background: linear-gradient(135deg, #7A4A7B 0%, var(--trauma-primary) 100%); }
+        .trauma-section .resource-card { background: var(--trauma-light); border-left-color: var(--trauma-secondary); }
+        .trauma-section .resource-card:hover { border-left-color: var(--trauma-primary); }
+        .trauma-section .resource-link { background: var(--trauma-primary); }
+        .trauma-section .resource-link:hover { background: var(--trauma-secondary); }
+
+        .resource-video-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 1rem; border-radius: 8px; }
+        .resource-video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px; }
+
+        .copy-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #f0f0f0;
+            color: #666;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-left: 0.5rem;
         }
 
-        /* Footer */
+        .copy-link-btn:hover { background: #e0e0e0; color: #333; }
+        .copy-link-btn.copied { background: #4caf50; color: white; }
+        .resource-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #333;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            z-index: 9999;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+        .resources-info-box {
+            background: linear-gradient(135deg, #fff 0%, var(--light) 100%);
+            border: 2px solid var(--accent);
+            border-radius: 15px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .resources-info-box p { color: #666; font-size: 1rem; margin: 0; }
+        .resources-info-box strong { color: var(--primary); }
+
+        .section-divider {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--light) 0%, #fff 100%);
+            border-radius: 15px;
+        }
+
+        .section-divider h3 { font-size: 1.8rem; color: var(--dark); margin-bottom: 0.5rem; }
+        .section-divider p { color: #666; }
+
         footer {
             background: var(--dark);
             color: white;
@@ -415,17 +318,10 @@
             margin-top: 4rem;
         }
 
-        footer p {
-            margin-bottom: 1rem;
-        }
+        .footer-logo { max-width: 150px; height: auto; margin-bottom: 1.5rem; }
+        footer p { margin-bottom: 1rem; }
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-
+        .social-links { display: flex; gap: 1rem; justify-content: center; margin-top: 1rem; }
         .social-links a {
             color: white;
             text-decoration: none;
@@ -434,472 +330,205 @@
             border-radius: 5px;
             transition: background 0.3s;
         }
+        .social-links a:hover { background: var(--primary); }
 
-        .social-links a:hover {
-            background: var(--primary);
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-
-            h3 {
-                font-size: 1.3rem;
-            }
-
-            .journals-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 3rem 1.5rem;
-            }
-
-            .btn {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.9rem;
-            }
+            .hero { min-height: 400px; padding: 3rem 1.5rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .hero-logo { max-width: 150px; }
+            .nav-links { gap: 1rem; font-size: 0.9rem; }
+            nav { flex-direction: column; gap: 1rem; text-align: center; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.3rem; }
+            .journals-grid { grid-template-columns: 1fr; }
+            .video-grid { grid-template-columns: 1fr; }
+            section { padding: 3rem 1.5rem; }
+            .btn { padding: 0.75rem 1.5rem; font-size: 0.9rem; }
+            .resource-actions { flex-direction: column; align-items: flex-start; }
+            .copy-link-btn { margin-left: 0; margin-top: 0.5rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav>
             <div class="logo">Skills for Children</div>
             <ul class="nav-links">
+                <li><a href="#resources">Resources</a></li>
                 <li><a href="#books">Books</a></li>
                 <li><a href="#journals">Journals</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="#videos">Videos</a></li>
-                <li><a href="#resources">Resources</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
+            <img src="https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/sfk%20logo%20transparent.png" alt="Skills for Children Logo" class="hero-logo">
             <h1>Welcome to Skills for Children</h1>
-            <p>Our platform is dedicated to nurturing children's well-being and enhancing their self-efficacy. We offer practical resources for parents, therapists, educators, and professionals to support the development of essential life skills in young minds, especially those who have experienced trauma.</p>
+            <p>Nurturing children's well-being and enhancing their self-efficacy. Practical resources for parents, therapists, educators, and professionals to support the development of essential life skills in young minds.</p>
             <div class="cta-buttons">
                 <a href="#books" class="btn btn-primary">Explore Our Books</a>
                 <a href="https://www.youtube.com/@SkillsforChildren" target="_blank" class="btn btn-secondary">Visit Our YouTube</a>
+                <a href="#resources" class="btn btn-accent">Find Resources</a>
             </div>
         </div>
     </section>
 
-    <!-- Featured Books Section -->
-    <section id="books" style="background: var(--light);">
-        <h2>Our Flagship Books</h2>
-        <p style="text-align: center; color: #666; margin-bottom: 3rem;">Therapeutic storybooks designed to support children's emotional growth and development</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
-            <!-- Journey of Brave Friends -->
-            <div style="background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <div style="text-align: center; margin-bottom: 1.5rem;">
-                    <img src="https://m.media-amazon.com/images/I/61m9iNlhgNL._SL1293_.jpg" alt="A Journey of Brave Friends Book Cover" style="max-width: 250px; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                </div>
-                <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">A Journey of Brave Friends</h3>
-                <p style="color: #666; margin-bottom: 0.5rem; font-style: italic;">Book One of Tales of the Resilient Forest</p>
-                <p style="color: var(--secondary); font-weight: 600; margin-bottom: 1rem;">A Trauma-Focused CBT Companion</p>
-                
-                <p style="color: #666; margin-bottom: 1rem; line-height: 1.8;">
-                    Embark on an enriching journey through the Resilient Forest, where Timothy the Turtle, Olive the Owl, and friends guide children through the PRAC skills of TF-CBT: Psychoeducation, Relaxation, Affective Modulation, and Cognitive Coping.
-                </p>
-                
-                <div style="background: var(--light); padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0;">
-                    <strong>Perfect for:</strong>
-                    <ul style="margin: 0.5rem 0 0 1.5rem; color: #666;">
-                        <li>Therapists and child welfare professionals</li>
-                        <li>Caregivers supporting trauma recovery</li>
-                        <li>Interactive therapy sessions</li>
-                        <li>Building resilience in children</li>
-                    </ul>
-                </div>
-                
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <a href="https://amzn.to/4qLZztE" target="_blank" class="btn btn-primary">Get the Book</a>
-                    <a href="https://amzn.to/4hRXwjZ" target="_blank" class="btn btn-secondary">Get Companion Journal</a>
-                </div>
-            </div>
-
-            <!-- Maximilian's Cosmic Adventure -->
-            <div style="background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <div style="text-align: center; margin-bottom: 1.5rem;">
-                    <img src="https://m.media-amazon.com/images/I/61zUTlLzRXL._SL1000_.jpg" alt="Maximilian's Cosmic Adventure Book Cover" style="max-width: 250px; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                </div>
-                <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Maximilian's Cosmic Adventure</h3>
-                <p style="color: var(--secondary); font-weight: 600; margin-bottom: 1rem;">A Bedtime Independence Story</p>
-                
-                <p style="color: #666; margin-bottom: 1rem; line-height: 1.8;">
-                    Join Maximilian as he explores the wonders of the universe from his own bed! Each night brings a new planetary adventure, from racing rovers on Mars to visiting diamond snowflakes on Uranus. Can Maximilian conquer his biggest challenge yet—sleeping in his own room?
-                </p>
-                
-                <div style="background: var(--light); padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0;">
-                    <strong>Perfect for:</strong>
-                    <ul style="margin: 0.5rem 0 0 1.5rem; color: #666;">
-                        <li>Children transitioning to their own bed</li>
-                        <li>Young readers who love space</li>
-                        <li>Building courage and independence</li>
-                        <li>Inspiring imagination and discovery</li>
-                    </ul>
-                </div>
-                
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <a href="https://amzn.to/4nKyLHE" target="_blank" class="btn btn-primary">Get the Book</a>
-                    <a href="https://youtu.be/obCWdl3VXLs" target="_blank" class="btn btn-secondary">Watch on YouTube</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2>About the Author</h2>
-        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; max-width: 900px; margin: 0 auto;">
-            <img src="https://m.media-amazon.com/images/S/amzn-author-media-prod/sqclo9e9l3j326o732u41pf6ph._SY450_CR0%2C0%2C450%2C450_.jpg" alt="Joshua Fisherkeller" style="width: 200px; height: 200px; margin: 0 auto; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-            <div style="text-align: center;">
-                <h3 style="margin-bottom: 1rem;">Joshua Fisherkeller</h3>
-                <p style="color: #666; line-height: 1.8; margin-bottom: 1rem;">
-                    Joshua Fisherkeller is a dedicated author and advocate for children's mental health and well-being. Through the Tales of the Resilient Forest series and other therapeutic storybooks, Joshua creates resources that support children, families, and professionals in trauma recovery and emotional development.
-                </p>
-                <p style="color: #666; line-height: 1.8;">
-                    Our YouTube channel features entertaining, calming, and educational videos that teach self-regulation and other crucial skills. Our therapeutic books and creative journals provide tools for emotional expression and growth.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Journals Section -->
-    <section id="journals">
-        <h2>Therapeutic Journals & Notebooks</h2>
-        <p style="text-align: center; color: #666; margin-bottom: 2rem;">Beautifully designed journals for therapeutic expression, nature connection, and creative writing</p>
-        
-        <div class="journals-grid">
-            <div class="journal-card">
-                <img src="https://m.media-amazon.com/images/I/61NtPVCFLGL._SL1293_.jpg" alt="Resilient Forest Notebook" style="width: 100%; height: 300px; object-fit: cover;">
-                <div class="journal-content">
-                    <h3>Resilient Forest Notebook</h3>
-                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>The Official TF-CBT Companion</strong></p>
-                    <p style="font-size: 0.95rem;">Journey with Timothy the Turtle, Kiki the Koala, Bella the Bear, Olive the Owl, and Rex the Rabbit. Designed as a companion for children undergoing TF-CBT.</p>
-                    <ul style="margin: 0.75rem 0; padding-left: 1.25rem; font-size: 0.9rem; color: #666;">
-                        <li>8.5" x 11" hardcover</li>
-                        <li>120 pages with forest characters</li>
-                    </ul>
-                    <a href="https://amzn.to/4hRXwjZ" target="_blank" class="btn btn-primary">Get on Amazon</a>
-                </div>
-            </div>
-
-            <div class="journal-card">
-                <img src="https://m.media-amazon.com/images/I/71TC-erVOcL._SL1293_.jpg" alt="Mother Earth in the Mountains" style="width: 100%; height: 300px; object-fit: cover;">
-                <div class="journal-content">
-                    <h3>Mother Earth in the Mountains</h3>
-                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Embrace Nature's Essence</strong></p>
-                    <p style="font-size: 0.95rem;">Mother Earth with mountains in the horizon, symbolizing the nurturing spirit of nature. Perfect for eco-conscious writers.</p>
-                    <ul style="margin: 0.75rem 0; padding-left: 1.25rem; font-size: 0.9rem; color: #666;">
-                        <li>8.5" x 11" paperback</li>
-                        <li>110 lined pages with Mother Earth illustration</li>
-                    </ul>
-                    <a href="https://amzn.to/3WLboCH" target="_blank" class="btn btn-primary">Get on Amazon</a>
-                </div>
-            </div>
-
-            <div class="journal-card">
-                <img src="https://m.media-amazon.com/images/I/71TC-erVOcL._SL1293_.jpg" alt="Flower Mountain" style="width: 100%; height: 300px; object-fit: cover;">
-                <div class="journal-content">
-                    <h3>Flower Mountain</h3>
-                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Paper Art Style Beauty</strong></p>
-                    <p style="font-size: 0.95rem;">Captivating matte cover illustrating a beautiful field of flowers and mystical mountains, inviting you to pen your thoughts in nature's serenity.</p>
-                    <ul style="margin: 0.75rem 0; padding-left: 1.25rem; font-size: 0.9rem; color: #666;">
-                        <li>8.5" x 11" paperback</li>
-                        <li>110 lined pages with flower motif</li>
-                    </ul>
-                    <a href="https://amzn.to/499JQP0" target="_blank" class="btn btn-primary">Get on Amazon</a>
-                </div>
-            </div>
-
-            <div class="journal-card">
-                <img src="https://m.media-amazon.com/images/I/71nR6aPbGgL._SL1293_.jpg" alt="Mushrooms and Mountains" style="width: 100%; height: 300px; object-fit: cover;">
-                <div class="journal-content">
-                    <h3>Mushrooms and Mountains</h3>
-                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Magical Mountain Landscape</strong></p>
-                    <p style="font-size: 0.95rem;">Enchanting cover featuring mushrooms and mystical mountains. Perfect for dreamers and thinkers capturing their unique voice.</p>
-                    <ul style="margin: 0.75rem 0; padding-left: 1.25rem; font-size: 0.9rem; color: #666;">
-                        <li>8.5" x 11" paperback</li>
-                        <li>110 lined pages with mushroom motif</li>
-                    </ul>
-                    <a href="https://amzn.to/43Zrcpj" target="_blank" class="btn btn-primary">Get on Amazon</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Videos Section -->
-    <section id="videos">
-        <h2>YouTube Videos</h2>
-        <p style="text-align: center; color: #666; margin-bottom: 2rem;">Entertaining, calming, and educational content for children and families</p>
-        
-        <h3 style="text-align: center; margin-top: 3rem; margin-bottom: 2rem;">Featured Story: Maximilian's Cosmic Adventure</h3>
-        <div class="video-grid">
-            <div class="video-card">
-                <div class="video-embed">
-                    <iframe src="https://www.youtube.com/embed/obCWdl3VXLs" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="video-info">
-                    <h3>Maximilian's Cosmic Adventure - Full Story</h3>
-                    <p>Join Maximilian on his journey through the solar system as he learns to sleep in his own bed!</p>
-                </div>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 2rem;">
-            <a href="https://www.youtube.com/@SkillsforChildren" target="_blank" class="btn btn-primary">Visit Our YouTube Channel</a>
-        </div>
-    </section>
-
-    <!-- Resources Section -->
     <section id="resources" style="background: var(--light);">
-        <h2>Professional Development Resources</h2>
-        <p style="text-align: center; color: #666; margin-bottom: 2rem;">30 curated K-5 resources across 6 essential pillars</p>
+        <h2>Resources for Professionals & Families</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 2rem;">Curated free resources for supporting children's development and trauma recovery</p>
         
-        <!-- Search and Filter Bar -->
-        <div style="max-width: 900px; margin: 0 auto 3rem; background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-            <input type="text" id="resourceSearch" placeholder="🔍 Search resources by name or description..." style="width: 100%; padding: 1rem; border: 2px solid var(--accent); border-radius: 10px; font-size: 1rem; margin-bottom: 1.5rem;">
-            
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-                <button class="filter-btn active" data-filter="all">All Resources</button>
-                <button class="filter-btn" data-filter="free">FREE Only</button>
-                <button class="filter-btn" data-filter="paid">PAID</button>
-                <button class="filter-btn" data-filter="video">Videos</button>
-                <button class="filter-btn" data-filter="pdf">PDFs</button>
-                <button class="filter-btn" data-filter="curriculum">Curriculum</button>
+        <div class="resources-info-box">
+            <p><strong>Share these resources!</strong> Use the "Copy Link" button on any resource to copy the URL to your clipboard. You can then paste and share it with clients, families, or colleagues.</p>
+        </div>
+
+        <div class="section-divider">
+            <h3>Resources on Childhood Trauma</h3>
+            <p>Videos and materials for children, teens, and caregivers</p>
+        </div>
+
+        <div id="traumaResourcesContainer" class="trauma-section">
+            <div class="resource-pillar">
+                <div class="pillar-header" onclick="togglePillar(this)">
+                    <h3>📚 Understanding Trauma (Psychoeducation)</h3>
+                    <span class="pillar-count">4 resources</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="pillar-content">
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-children">Children</span><span class="format-icon">🎬 Video</span></div><div class="resource-video-embed"><iframe src="https://www.youtube.com/embed/jJ8Hxglh0jQ" frameborder="0" allowfullscreen></iframe></div><h4>What is Trauma? Psychoeducation for Kids!</h4><p class="resource-desc">Kid-friendly explanation of what trauma is and how it affects us</p><p class="resource-source">YouTube</p><div class="resource-actions"><a href="https://www.youtube.com/watch?v=jJ8Hxglh0jQ" target="_blank" class="resource-link">Open in YouTube →</a><button class="copy-link-btn" onclick="copyLink('https://www.youtube.com/watch?v=jJ8Hxglh0jQ', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-children">Children/Teens</span><span class="format-icon">🎬 Video</span></div><div class="resource-video-embed"><iframe src="https://player.vimeo.com/video/109042767" frameborder="0" allowfullscreen></iframe></div><h4>Explaining the Brain to Children and Adolescents</h4><p class="resource-desc">The barking dog/wise owl and upstairs/downstairs brain concepts</p><p class="resource-source">Vimeo</p><div class="resource-actions"><a href="https://vimeo.com/109042767" target="_blank" class="resource-link">Open in Vimeo →</a><button class="copy-link-btn" onclick="copyLink('https://vimeo.com/109042767', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-children">Children</span><span class="format-icon">🎬 Video</span></div><div class="resource-video-embed"><iframe src="https://www.youtube.com/embed/50aO9Iu6btA" frameborder="0" allowfullscreen></iframe></div><h4>Brain Parts Song Kids</h4><p class="resource-desc">Fun song teaching brain anatomy: hippocampus, prefrontal cortex, amygdala, cerebellum, neurons</p><p class="resource-source">YouTube</p><div class="resource-actions"><a href="https://www.youtube.com/watch?v=50aO9Iu6btA" target="_blank" class="resource-link">Open in YouTube →</a><button class="copy-link-btn" onclick="copyLink('https://www.youtube.com/watch?v=50aO9Iu6btA', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-children">Children/Caregivers</span><span class="format-icon">🌐 Website</span></div><h4>Sesame Street in Communities: Traumatic Experiences</h4><p class="resource-desc">Comprehensive resource hub with videos, storybooks, printables, and guides</p><p class="resource-source">Sesame Workshop</p><div class="resource-actions"><a href="https://sesameworkshop.org/topics/traumatic-experiences/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://sesameworkshop.org/topics/traumatic-experiences/', this)">📋 Copy Link</button></div></div>
+                </div>
+            </div>
+
+            <div class="resource-pillar">
+                <div class="pillar-header" onclick="togglePillar(this)">
+                    <h3>🧘 Self-Regulation & Co-Regulation</h3>
+                    <span class="pillar-count">3 resources</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="pillar-content">
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-children">Children</span><span class="format-icon">🎬 Video</span></div><div class="resource-video-embed"><iframe src="https://www.youtube.com/embed/RVA2N6tX2cg" frameborder="0" allowfullscreen></iframe></div><h4>Just Breathe</h4><p class="resource-desc">Children explain emotions and demonstrate breathing and mindfulness techniques</p><p class="resource-source">Mindful Schools / Wavecrest Films</p><div class="resource-actions"><a href="https://www.youtube.com/watch?v=RVA2N6tX2cg" target="_blank" class="resource-link">Open in YouTube →</a><button class="copy-link-btn" onclick="copyLink('https://www.youtube.com/watch?v=RVA2N6tX2cg', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-children">Children</span><span class="format-icon">🎬 Video</span></div><div class="resource-video-embed"><iframe src="https://www.youtube.com/embed/KVQIXuX17U0" frameborder="0" allowfullscreen></iframe></div><h4>Grounding Technique for Kids (5-4-3-2-1)</h4><p class="resource-desc">The 5-4-3-2-1 grounding technique to help children manage stress and anxiety</p><p class="resource-source">Cheyenne Regional</p><div class="resource-actions"><a href="https://www.youtube.com/watch?v=KVQIXuX17U0" target="_blank" class="resource-link">Open in YouTube →</a><button class="copy-link-btn" onclick="copyLink('https://www.youtube.com/watch?v=KVQIXuX17U0', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-teens">Teens</span><span class="format-icon">🌐 Website</span></div><h4>Mindfulness for Teens</h4><p class="resource-desc">Collection of mindfulness videos and resources for teenagers</p><p class="resource-source">Mindfulness for Teens</p><div class="resource-actions"><a href="http://mindfulnessforteens.com/resources/videos-mindfulness/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('http://mindfulnessforteens.com/resources/videos-mindfulness/', this)">📋 Copy Link</button></div></div>
+                </div>
+            </div>
+
+            <div class="resource-pillar">
+                <div class="pillar-header" onclick="togglePillar(this)">
+                    <h3>💜 Identifying & Expressing Feelings</h3>
+                    <span class="pillar-count">1 resource</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="pillar-content">
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-children">Children</span><span class="format-icon">🎬 Video</span></div><div class="resource-video-embed"><iframe src="https://www.youtube.com/embed/JwmnHOzytIU" frameborder="0" allowfullscreen></iframe></div><h4>Elmo Manages New Emotions with "I Notice, I Feel, I Can"</h4><p class="resource-desc">Elmo learns an emotional awareness strategy for identifying and managing feelings</p><p class="resource-source">Sesame Street</p><div class="resource-actions"><a href="https://www.youtube.com/watch?v=JwmnHOzytIU" target="_blank" class="resource-link">Open in YouTube →</a><button class="copy-link-btn" onclick="copyLink('https://www.youtube.com/watch?v=JwmnHOzytIU', this)">📋 Copy Link</button></div></div>
+                </div>
+            </div>
+
+            <div class="resource-pillar">
+                <div class="pillar-header" onclick="togglePillar(this)">
+                    <h3>🛠️ Coping Skills & Strategies</h3>
+                    <span class="pillar-count">Coming soon</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="pillar-content"><div class="resource-card"><p style="text-align: center; color: #666; padding: 2rem;">Resources coming soon. Check back for updates!</p></div></div>
+            </div>
+
+            <div class="resource-pillar">
+                <div class="pillar-header" onclick="togglePillar(this)">
+                    <h3>🏠 Safety & Trusted People</h3>
+                    <span class="pillar-count">3 resources</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="pillar-content">
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-children">Children</span><span class="format-icon">🎬 Video</span></div><div class="resource-video-embed"><iframe src="https://www.youtube.com/embed/WXtFhqIhWwo" frameborder="0" allowfullscreen></iframe></div><h4>Rosita and Alan Talk about Community Violence</h4><p class="resource-desc">Sesame Street characters discuss safety and community violence with children</p><p class="resource-source">Sesame Street</p><div class="resource-actions"><a href="https://www.youtube.com/watch?v=WXtFhqIhWwo" target="_blank" class="resource-link">Open in YouTube →</a><button class="copy-link-btn" onclick="copyLink('https://www.youtube.com/watch?v=WXtFhqIhWwo', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-children">Children</span><span class="format-icon">🎬 Video</span></div><div class="resource-video-embed"><iframe src="https://www.youtube.com/embed/GF2w5qdn1-o" frameborder="0" allowfullscreen></iframe></div><h4>Sesame Street - Foster Care</h4><p class="resource-desc">Resources and support for children in foster care situations</p><p class="resource-source">Sesame Street</p><div class="resource-actions"><a href="https://www.youtube.com/watch?v=GF2w5qdn1-o" target="_blank" class="resource-link">Open in YouTube →</a><button class="copy-link-btn" onclick="copyLink('https://www.youtube.com/watch?v=GF2w5qdn1-o', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-children">Children</span><span class="format-icon">🎬 Video</span></div><div class="resource-video-embed"><iframe src="https://www.youtube.com/embed/-z8UyREHqcg" frameborder="0" allowfullscreen></iframe></div><h4>Alan Helps Big Bird Learn How to Overcome Trauma</h4><p class="resource-desc">Big Bird learns about healing from traumatic experiences with help from Alan</p><p class="resource-source">Sesame Street</p><div class="resource-actions"><a href="https://www.youtube.com/watch?v=-z8UyREHqcg" target="_blank" class="resource-link">Open in YouTube →</a><button class="copy-link-btn" onclick="copyLink('https://www.youtube.com/watch?v=-z8UyREHqcg', this)">📋 Copy Link</button></div></div>
+                </div>
+            </div>
+
+            <div class="resource-pillar">
+                <div class="pillar-header" onclick="togglePillar(this)">
+                    <h3>⚡ Managing Triggers & Trauma Reminders</h3>
+                    <span class="pillar-count">Coming soon</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="pillar-content"><div class="resource-card"><p style="text-align: center; color: #666; padding: 2rem;">Resources coming soon. Check back for updates!</p></div></div>
+            </div>
+
+            <div class="resource-pillar">
+                <div class="pillar-header" onclick="togglePillar(this)">
+                    <h3>👨‍👩‍👧 For Caregivers</h3>
+                    <span class="pillar-count">1 resource</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="pillar-content">
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-caregivers">Caregivers</span><span class="format-icon">🎬 Video</span></div><div class="resource-video-embed"><iframe src="https://www.youtube.com/embed/xYBUY1kZpf8" frameborder="0" allowfullscreen></iframe></div><h4>Childhood Trauma and the Brain</h4><p class="resource-desc">Understanding how childhood trauma affects brain development</p><p class="resource-source">UK Trauma Council</p><div class="resource-actions"><a href="https://www.youtube.com/watch?v=xYBUY1kZpf8" target="_blank" class="resource-link">Open in YouTube →</a><button class="copy-link-btn" onclick="copyLink('https://www.youtube.com/watch?v=xYBUY1kZpf8', this)">📋 Copy Link</button></div></div>
+                </div>
+            </div>
+
+            <div class="resource-pillar">
+                <div class="pillar-header" onclick="togglePillar(this)">
+                    <h3>🌱 Healing & Resilience</h3>
+                    <span class="pillar-count">Coming soon</span>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="pillar-content"><div class="resource-card"><p style="text-align: center; color: #666; padding: 2rem;">Resources coming soon. Check back for updates!</p></div></div>
             </div>
         </div>
 
-        <!-- Resource Pillars -->
+        <div class="section-divider">
+            <h3>Professional Development Resources</h3>
+            <p>27 curated K-5 resources across 6 essential pillars</p>
+        </div>
+
         <div id="resourcesContainer">
-            <!-- Pillar 1: Foundational Mindset & Emotional Wellness -->
             <div class="resource-pillar">
                 <div class="pillar-header" onclick="togglePillar(this)">
                     <h3>🌱 Foundational Mindset & Emotional Wellness</h3>
-                    <span class="pillar-count">7 resources</span>
+                    <span class="pillar-count">6 resources</span>
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="pillar-content">
-                    <div class="resource-card" data-access="free" data-format="video" data-pillar="mindset">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📹 Video</span>
-                        </div>
-                        <h4>Carol Dweck's TED Talk: "The Power of Believing That You Can Improve"</h4>
-                        <p class="resource-desc">Core introduction to growth vs fixed mindset</p>
-                        <p class="resource-source">TED / Stanford University • 10 min</p>
-                        <a href="https://www.ted.com/speakers/carol_dweck" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="paid" data-format="curriculum" data-pillar="mindset">
-                        <div class="resource-header">
-                            <span class="badge badge-paid">PAID</span>
-                            <span class="format-icon">📚 Curriculum</span>
-                        </div>
-                        <h4>Mindset Works Resources & Programs</h4>
-                        <p class="resource-desc">PreK-3 GEM curriculum, educator professional development</p>
-                        <p class="resource-source">Mindset Works (Founded by Carol Dweck)</p>
-                        <a href="https://sites.google.com/mindsetworks.com/mindsetworks/home" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="curriculum" data-pillar="mindset">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📚 Online Lessons</span>
-                        </div>
-                        <h4>Stanford PERTS Mindset Kit</h4>
-                        <p class="resource-desc">Free growth mindset lessons and practices for educators</p>
-                        <p class="resource-source">Stanford University PERTS</p>
-                        <a href="https://www.mindsetkit.org/" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="video" data-pillar="mindset">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📹 Course</span>
-                        </div>
-                        <h4>Growth Mindset for Teachers Course (PERTS)</h4>
-                        <p class="resource-desc">Teacher training on growth mindset concepts and practices</p>
-                        <p class="resource-source">Stanford University PERTS • 45 min</p>
-                        <a href="https://www.mindsetkit.org/" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="video" data-pillar="mindset">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📹 Course</span>
-                        </div>
-                        <h4>Growth Mindset for Parents Course (PERTS)</h4>
-                        <p class="resource-desc">Parent resources to develop growth mindset at home</p>
-                        <p class="resource-source">Stanford University PERTS • 30 min</p>
-                        <a href="https://www.mindsetkit.org/" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="pdf" data-pillar="mindset">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📄 Printables</span>
-                        </div>
-                        <h4>Big Life Journal Free Weekly Printables</h4>
-                        <p class="resource-desc">Free weekly growth mindset worksheets and Parent's Guide</p>
-                        <p class="resource-source">Big Life Journal • Registration required</p>
-                        <a href="https://biglifejournal.com/pages/freebies" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="other" data-pillar="mindset">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📖 Book List</span>
-                        </div>
-                        <h4>Growth Mindset Books List</h4>
-                        <p class="resource-desc">Bibliography: The Dot, Beautiful Oops!, Ish, etc.</p>
-                        <p class="resource-source">Big Life Journal</p>
-                        <a href="https://biglifejournal.com/blogs/blog/growth-mindset-books" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">🎬 Video</span></div><h4>Carol Dweck's TED Talk: "The Power of Believing That You Can Improve"</h4><p class="resource-desc">Core introduction to growth vs fixed mindset</p><p class="resource-source">TED / Stanford University • 10 min</p><div class="resource-actions"><a href="https://www.ted.com/speakers/carol_dweck" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.ted.com/speakers/carol_dweck', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">📚 Lessons</span></div><h4>Stanford PERTS Mindset Kit</h4><p class="resource-desc">Free growth mindset lessons and practices for educators</p><p class="resource-source">Stanford University PERTS</p><div class="resource-actions"><a href="https://www.mindsetkit.org/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.mindsetkit.org/', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">🎬 Course</span></div><h4>Growth Mindset for Teachers Course (PERTS)</h4><p class="resource-desc">Teacher training on growth mindset concepts and practices</p><p class="resource-source">Stanford University PERTS • 45 min</p><div class="resource-actions"><a href="https://www.mindsetkit.org/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.mindsetkit.org/', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-caregivers">Caregivers</span><span class="format-icon">🎬 Course</span></div><h4>Growth Mindset for Parents Course (PERTS)</h4><p class="resource-desc">Parent resources to develop growth mindset at home</p><p class="resource-source">Stanford University PERTS • 30 min</p><div class="resource-actions"><a href="https://www.mindsetkit.org/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.mindsetkit.org/', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-caregivers">Caregivers</span><span class="format-icon">📄 Printables</span></div><h4>Big Life Journal Free Weekly Printables</h4><p class="resource-desc">Free weekly growth mindset worksheets and Parent's Guide</p><p class="resource-source">Big Life Journal • Registration required</p><div class="resource-actions"><a href="https://biglifejournal.com/pages/freebies" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://biglifejournal.com/pages/freebies', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-caregivers">Caregivers</span><span class="format-icon">📖 Book List</span></div><h4>Growth Mindset Books List</h4><p class="resource-desc">Bibliography: The Dot, Beautiful Oops!, Ish, etc.</p><p class="resource-source">Big Life Journal</p><div class="resource-actions"><a href="https://biglifejournal.com/blogs/blog/growth-mindset-books" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://biglifejournal.com/blogs/blog/growth-mindset-books', this)">📋 Copy Link</button></div></div>
                 </div>
             </div>
 
-            <!-- Pillar 2: Communication & Collaboration -->
             <div class="resource-pillar">
                 <div class="pillar-header" onclick="togglePillar(this)">
                     <h3>💬 Communication & Collaboration</h3>
-                    <span class="pillar-count">4 resources</span>
+                    <span class="pillar-count">3 resources</span>
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="pillar-content">
-                    <div class="resource-card" data-access="free" data-format="pdf" data-pillar="communication">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📄 Worksheets</span>
-                        </div>
-                        <h4>I-Messages and Conflict Resolution Worksheets</h4>
-                        <p class="resource-desc">Structured communication tool for expressing feelings</p>
-                        <p class="resource-source">Free Printable Behavior Charts</p>
-                        <a href="https://www.freeprintablebehaviorcharts.com/conflict_resolution_charts.htm" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="curriculum" data-pillar="communication">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📚 Curriculum</span>
-                        </div>
-                        <h4>Harmony SEL Curriculum (PreK-6)</h4>
-                        <p class="resource-desc">Free comprehensive SEL curriculum covering diversity, empathy, communication</p>
-                        <p class="resource-source">Harmony Academy (National University) • Registration required</p>
-                        <a href="https://harmony-academy.org/" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="pdf" data-pillar="communication">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📄 Worksheets</span>
-                        </div>
-                        <h4>Conflict Resolution Worksheets</h4>
-                        <p class="resource-desc">Trust-building and problem-solving exercises for elementary</p>
-                        <p class="resource-source">Worksheet Place</p>
-                        <a href="https://worksheetplace.com/index.php?function=DisplayCategory&showCategory=Y&links=2&id=507&link1=31&link2=507" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="paid" data-format="video" data-pillar="communication">
-                        <div class="resource-header">
-                            <span class="badge badge-paid">PAID</span>
-                            <span class="format-icon">📹 Video</span>
-                        </div>
-                        <h4>Praising the Process Video</h4>
-                        <p class="resource-desc">Professional development on effective praise strategies</p>
-                        <p class="resource-source">Teaching Channel / PERTS • May require subscription</p>
-                        <a href="https://learn.teachingchannel.com/video/praise-the-process-perts" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">📄 Worksheets</span></div><h4>I-Messages and Conflict Resolution Worksheets</h4><p class="resource-desc">Structured communication tool for expressing feelings</p><p class="resource-source">Free Printable Behavior Charts</p><div class="resource-actions"><a href="https://www.freeprintablebehaviorcharts.com/conflict_resolution_charts.htm" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.freeprintablebehaviorcharts.com/conflict_resolution_charts.htm', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">📚 Curriculum</span></div><h4>Harmony SEL Curriculum (PreK-6)</h4><p class="resource-desc">Free comprehensive SEL curriculum covering diversity, empathy, communication</p><p class="resource-source">Harmony Academy • Registration required</p><div class="resource-actions"><a href="https://harmony-academy.org/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://harmony-academy.org/', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">📄 Worksheets</span></div><h4>Conflict Resolution Worksheets</h4><p class="resource-desc">Trust-building and problem-solving exercises for elementary</p><p class="resource-source">Worksheet Place</p><div class="resource-actions"><a href="https://worksheetplace.com/index.php?function=DisplayCategory&showCategory=Y&links=2&id=507&link1=31&link2=507" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://worksheetplace.com/index.php?function=DisplayCategory&showCategory=Y&links=2&id=507&link1=31&link2=507', this)">📋 Copy Link</button></div></div>
                 </div>
             </div>
 
-            <!-- Pillar 3: Critical Thinking & Problem-Solving -->
             <div class="resource-pillar">
                 <div class="pillar-header" onclick="togglePillar(this)">
                     <h3>🧠 Critical Thinking & Problem-Solving</h3>
-                    <span class="pillar-count">4 resources</span>
+                    <span class="pillar-count">3 resources</span>
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="pillar-content">
-                    <div class="resource-card" data-access="free" data-format="pdf" data-pillar="critical">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📄 PDF Guide</span>
-                        </div>
-                        <h4>Think:Kids Collaborative Problem Solving Resources</h4>
-                        <p class="resource-desc">CPS Assessment & Planning Tool for identifying behavior skill deficits</p>
-                        <p class="resource-source">Think:Kids, Mass General Hospital</p>
-                        <a href="https://thinkkids.org/books-resources/" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="pdf" data-pillar="critical">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📄 Assessment Tool</span>
-                        </div>
-                        <h4>CPS Assessment & Planning Tool (APT)</h4>
-                        <p class="resource-desc">Functional behavioral assessment tool</p>
-                        <p class="resource-source">Think:Kids, Mass General Hospital</p>
-                        <a href="https://thinkkids.org/wp-content/uploads/2025/01/Collaborative-Problem-Solving_Assessment-Planning-Tool_APT_ThinkKids.pdf" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="pdf" data-pillar="critical">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📄 Worksheets</span>
-                        </div>
-                        <h4>Problem-Solving Worksheets</h4>
-                        <p class="resource-desc">Simple visual frameworks for K-5 problem-solving</p>
-                        <p class="resource-source">English Worksheets Land</p>
-                        <a href="https://www.englishworksheetsland.com/conflict.html" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="paid" data-format="other" data-pillar="critical">
-                        <div class="resource-header">
-                            <span class="badge badge-paid">FREE/PAID</span>
-                            <span class="format-icon">📚 Teaching Method</span>
-                        </div>
-                        <h4>Question Formulation Technique (QFT)</h4>
-                        <p class="resource-desc">Teaching students to generate their own questions</p>
-                        <p class="resource-source">Right Question Institute</p>
-                        <a href="https://rightquestion.org/" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">📄 PDF Guide</span></div><h4>Think:Kids Collaborative Problem Solving Resources</h4><p class="resource-desc">CPS Assessment & Planning Tool for identifying behavior skill deficits</p><p class="resource-source">Think:Kids, Mass General Hospital</p><div class="resource-actions"><a href="https://thinkkids.org/books-resources/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://thinkkids.org/books-resources/', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">📄 Assessment</span></div><h4>CPS Assessment & Planning Tool (APT)</h4><p class="resource-desc">Functional behavioral assessment tool</p><p class="resource-source">Think:Kids, Mass General Hospital</p><div class="resource-actions"><a href="https://thinkkids.org/wp-content/uploads/2025/01/Collaborative-Problem-Solving_Assessment-Planning-Tool_APT_ThinkKids.pdf" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://thinkkids.org/wp-content/uploads/2025/01/Collaborative-Problem-Solving_Assessment-Planning-Tool_APT_ThinkKids.pdf', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">📄 Worksheets</span></div><h4>Problem-Solving Worksheets</h4><p class="resource-desc">Simple visual frameworks for K-5 problem-solving</p><p class="resource-source">English Worksheets Land</p><div class="resource-actions"><a href="https://www.englishworksheetsland.com/conflict.html" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.englishworksheetsland.com/conflict.html', this)">📋 Copy Link</button></div></div>
                 </div>
             </div>
 
-            <!-- Pillar 4: Financial Literacy -->
             <div class="resource-pillar">
                 <div class="pillar-header" onclick="togglePillar(this)">
                     <h3>💰 Financial Literacy & Responsible Decision-Making</h3>
@@ -907,42 +536,12 @@
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="pillar-content">
-                    <div class="resource-card" data-access="free" data-format="curriculum" data-pillar="financial">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📚 Curriculum</span>
-                        </div>
-                        <h4>FDIC Money Smart for Young People (PreK-2)</h4>
-                        <p class="resource-desc">Government-backed K-2 financial literacy with 6 lessons</p>
-                        <p class="resource-source">Federal Deposit Insurance Corporation (FDIC)</p>
-                        <a href="https://www.fdic.gov/resources/consumers/money-smart/teach-money-smart/money-smart-for-young-people/grades-pre-k-2.html" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="curriculum" data-pillar="financial">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📚 Resources</span>
-                        </div>
-                        <h4>FDIC Money Smart Main Page</h4>
-                        <p class="resource-desc">Access point for all grade levels (PreK-12)</p>
-                        <p class="resource-source">FDIC</p>
-                        <a href="https://www.fdic.gov/consumer-resource-center/money-smart-young-people" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="other" data-pillar="financial">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📚 Resource List</span>
-                        </div>
-                        <h4>Financial Education Resources (OSPI)</h4>
-                        <p class="resource-desc">Comprehensive list including PACED and needs vs wants activities</p>
-                        <p class="resource-source">Washington State Office of Superintendent</p>
-                        <a href="https://ospi.k12.wa.us/student-success/resources-subject-area/financial-education/financial-education-resources" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">📚 Curriculum</span></div><h4>FDIC Money Smart for Young People (PreK-2)</h4><p class="resource-desc">Government-backed K-2 financial literacy with 6 lessons</p><p class="resource-source">FDIC</p><div class="resource-actions"><a href="https://www.fdic.gov/resources/consumers/money-smart/teach-money-smart/money-smart-for-young-people/grades-pre-k-2.html" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.fdic.gov/resources/consumers/money-smart/teach-money-smart/money-smart-for-young-people/grades-pre-k-2.html', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">📚 Resources</span></div><h4>FDIC Money Smart Main Page</h4><p class="resource-desc">Access point for all grade levels (PreK-12)</p><p class="resource-source">FDIC</p><div class="resource-actions"><a href="https://www.fdic.gov/consumer-resource-center/money-smart-young-people" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.fdic.gov/consumer-resource-center/money-smart-young-people', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">📚 Resource List</span></div><h4>Financial Education Resources (OSPI)</h4><p class="resource-desc">Comprehensive list including PACED and needs vs wants activities</p><p class="resource-source">Washington State OSPI</p><div class="resource-actions"><a href="https://ospi.k12.wa.us/student-success/resources-subject-area/financial-education/financial-education-resources" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://ospi.k12.wa.us/student-success/resources-subject-area/financial-education/financial-education-resources', this)">📋 Copy Link</button></div></div>
                 </div>
             </div>
 
-            <!-- Pillar 5: Self-Regulation & Resilience -->
             <div class="resource-pillar">
                 <div class="pillar-header" onclick="togglePillar(this)">
                     <h3>🎯 Self-Regulation & Resilience Skills</h3>
@@ -950,86 +549,16 @@
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="pillar-content">
-                    <div class="resource-card" data-access="free" data-format="pdf" data-pillar="regulation">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📄 Visual Tools</span>
-                        </div>
-                        <h4>The Zones of Regulation Free Resources</h4>
-                        <p class="resource-desc">Official free emotion visuals and guides from creator</p>
-                        <p class="resource-source">Zones of Regulation (Leah Kuypers)</p>
-                        <a href="https://zonesofregulation.com/resources/" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="other" data-pillar="regulation">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📚 Framework</span>
-                        </div>
-                        <h4>CASEL SEL Framework</h4>
-                        <p class="resource-desc">Gold standard SEL framework with 5 core competencies</p>
-                        <p class="resource-source">CASEL (Collaborative for Academic, Social, and Emotional Learning)</p>
-                        <a href="https://casel.org/fundamentals-of-sel/what-is-the-casel-framework/" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="pdf" data-pillar="regulation">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📄 PDF Guide</span>
-                        </div>
-                        <h4>Trauma-Informed Schools Toolkit</h4>
-                        <p class="resource-desc">Creating safe and predictable learning environments</p>
-                        <p class="resource-source">National Center for School Safety</p>
-                        <a href="https://www.nc2s.org/resource/trauma-informed-resilience-oriented-schools-toolkit/" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="pdf" data-pillar="regulation">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📄 PDF Guide</span>
-                        </div>
-                        <h4>Trauma-Informed Classroom Guide</h4>
-                        <p class="resource-desc">Comprehensive framework for trauma-sensitive schools</p>
-                        <p class="resource-source">National Child Traumatic Stress Network</p>
-                        <a href="https://www.nctsn.org/sites/default/files/resources/creating_supporting_sustaining_trauma_informed_schools_a_systems_framework.pdf" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="pdf" data-pillar="regulation">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📄 Printables</span>
-                        </div>
-                        <h4>Calm Down Corner Free Printables</h4>
-                        <p class="resource-desc">Breathing exercises, calming strategies, visual supports</p>
-                        <p class="resource-source">Your Therapy Source</p>
-                        <a href="https://www.yourtherapysource.com/blog1/2019/09/08/calm-down-corner-ideas-2/" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="pdf" data-pillar="regulation">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📄 Printables</span>
-                        </div>
-                        <h4>Calm Down Corner Printables (Mental Health Center Kids)</h4>
-                        <p class="resource-desc">15 free breathing and coping strategy printables</p>
-                        <p class="resource-source">Mental Health Center Kids</p>
-                        <a href="https://mentalhealthcenterkids.com/blogs/articles/calm-down-corner-printables" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="other" data-pillar="regulation">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📚 Resource List</span>
-                        </div>
-                        <h4>Growth Mindset Resources (Grit & Perseverance)</h4>
-                        <p class="resource-desc">Curated list of lessons on sustained effort</p>
-                        <p class="resource-source">Big Life Journal</p>
-                        <a href="https://biglifejournal.com/blogs/blog/growth-mindset-resources" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">📄 Visual Tools</span></div><h4>The Zones of Regulation Free Resources</h4><p class="resource-desc">Official free emotion visuals and guides from creator</p><p class="resource-source">Zones of Regulation (Leah Kuypers)</p><div class="resource-actions"><a href="https://zonesofregulation.com/resources/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://zonesofregulation.com/resources/', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">📚 Framework</span></div><h4>CASEL SEL Framework</h4><p class="resource-desc">Gold standard SEL framework with 5 core competencies</p><p class="resource-source">CASEL</p><div class="resource-actions"><a href="https://casel.org/fundamentals-of-sel/what-is-the-casel-framework/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://casel.org/fundamentals-of-sel/what-is-the-casel-framework/', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">📄 PDF Guide</span></div><h4>Trauma-Informed Schools Toolkit</h4><p class="resource-desc">Creating safe and predictable learning environments</p><p class="resource-source">National Center for School Safety</p><div class="resource-actions"><a href="https://www.nc2s.org/resource/trauma-informed-resilience-oriented-schools-toolkit/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.nc2s.org/resource/trauma-informed-resilience-oriented-schools-toolkit/', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-professionals">Professionals</span><span class="format-icon">📄 PDF Guide</span></div><h4>Trauma-Informed Classroom Guide</h4><p class="resource-desc">Comprehensive framework for trauma-sensitive schools</p><p class="resource-source">National Child Traumatic Stress Network</p><div class="resource-actions"><a href="https://www.nctsn.org/sites/default/files/resources/creating_supporting_sustaining_trauma_informed_schools_a_systems_framework.pdf" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.nctsn.org/sites/default/files/resources/creating_supporting_sustaining_trauma_informed_schools_a_systems_framework.pdf', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-caregivers">Caregivers</span><span class="format-icon">📄 Printables</span></div><h4>Calm Down Corner Free Printables</h4><p class="resource-desc">Breathing exercises, calming strategies, visual supports</p><p class="resource-source">Your Therapy Source</p><div class="resource-actions"><a href="https://www.yourtherapysource.com/blog1/2019/09/08/calm-down-corner-ideas-2/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.yourtherapysource.com/blog1/2019/09/08/calm-down-corner-ideas-2/', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-caregivers">Caregivers</span><span class="format-icon">📄 Printables</span></div><h4>Calm Down Corner Printables (Mental Health Center Kids)</h4><p class="resource-desc">15 free breathing and coping strategy printables</p><p class="resource-source">Mental Health Center Kids</p><div class="resource-actions"><a href="https://mentalhealthcenterkids.com/blogs/articles/calm-down-corner-printables" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://mentalhealthcenterkids.com/blogs/articles/calm-down-corner-printables', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-caregivers">Caregivers</span><span class="format-icon">📚 Resource List</span></div><h4>Growth Mindset Resources (Grit & Perseverance)</h4><p class="resource-desc">Curated list of lessons on sustained effort</p><p class="resource-source">Big Life Journal</p><div class="resource-actions"><a href="https://biglifejournal.com/blogs/blog/growth-mindset-resources" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://biglifejournal.com/blogs/blog/growth-mindset-resources', this)">📋 Copy Link</button></div></div>
                 </div>
             </div>
 
-            <!-- Pillar 6: Physical Wellness -->
             <div class="resource-pillar">
                 <div class="pillar-header" onclick="togglePillar(this)">
                     <h3>💪 Physical Wellness - Foundation for Growth</h3>
@@ -1037,72 +566,68 @@
                     <span class="toggle-icon">▼</span>
                 </div>
                 <div class="pillar-content">
-                    <div class="resource-card" data-access="free" data-format="other" data-pillar="physical">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📄 Guidelines</span>
-                        </div>
-                        <h4>CDC Sleep Information</h4>
-                        <p class="resource-desc">Evidence-based sleep recommendations for school-age children</p>
-                        <p class="resource-source">Centers for Disease Control and Prevention</p>
-                        <a href="https://www.cdc.gov/" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="pdf" data-pillar="physical">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📄 Printables</span>
-                        </div>
-                        <h4>Calm Down Corner Sleep Routine Charts</h4>
-                        <p class="resource-desc">Visual supports for consistent bedtime routines</p>
-                        <p class="resource-source">Your Therapy Source</p>
-                        <a href="https://www.yourtherapysource.com/blog1/2019/09/08/calm-down-corner-ideas-2/" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="video" data-pillar="physical">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📹 Video Library</span>
-                        </div>
-                        <h4>GoNoodle Movement Break Videos</h4>
-                        <p class="resource-desc">Quick 3-5 minute movement breaks for classroom use</p>
-                        <p class="resource-source">GoNoodle • Freemium model</p>
-                        <a href="https://www.gonoodle.com/" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="video" data-pillar="physical">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📹 YouTube</span>
-                        </div>
-                        <h4>Cosmic Kids Yoga YouTube Channel</h4>
-                        <p class="resource-desc">Kid-friendly yoga, mindfulness, and relaxation videos</p>
-                        <p class="resource-source">Cosmic Kids Yoga (Jaime Amor)</p>
-                        <a href="https://www.youtube.com/c/CosmicKidsYoga" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
-
-                    <div class="resource-card" data-access="free" data-format="video" data-pillar="physical">
-                        <div class="resource-header">
-                            <span class="badge badge-free">FREE</span>
-                            <span class="format-icon">📹 Videos</span>
-                        </div>
-                        <h4>Cosmic Kids Yoga Website</h4>
-                        <p class="resource-desc">Official site with Peace Out guided relaxations</p>
-                        <p class="resource-source">Cosmic Kids Yoga</p>
-                        <a href="https://cosmickids.com/" target="_blank" class="resource-link">Open Resource →</a>
-                    </div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-caregivers">Caregivers</span><span class="format-icon">📄 Guidelines</span></div><h4>CDC Sleep Information</h4><p class="resource-desc">Evidence-based sleep recommendations for school-age children</p><p class="resource-source">CDC</p><div class="resource-actions"><a href="https://www.cdc.gov/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.cdc.gov/', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-caregivers">Caregivers</span><span class="format-icon">📄 Printables</span></div><h4>Calm Down Corner Sleep Routine Charts</h4><p class="resource-desc">Visual supports for consistent bedtime routines</p><p class="resource-source">Your Therapy Source</p><div class="resource-actions"><a href="https://www.yourtherapysource.com/blog1/2019/09/08/calm-down-corner-ideas-2/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.yourtherapysource.com/blog1/2019/09/08/calm-down-corner-ideas-2/', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-children">Children</span><span class="format-icon">🎬 Video Library</span></div><h4>GoNoodle Movement Break Videos</h4><p class="resource-desc">Quick 3-5 minute movement breaks for classroom use</p><p class="resource-source">GoNoodle</p><div class="resource-actions"><a href="https://www.gonoodle.com/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.gonoodle.com/', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-children">Children</span><span class="format-icon">🎬 YouTube</span></div><h4>Cosmic Kids Yoga YouTube Channel</h4><p class="resource-desc">Kid-friendly yoga, mindfulness, and relaxation videos</p><p class="resource-source">Cosmic Kids Yoga</p><div class="resource-actions"><a href="https://www.youtube.com/c/CosmicKidsYoga" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://www.youtube.com/c/CosmicKidsYoga', this)">📋 Copy Link</button></div></div>
+                    <div class="resource-card"><div class="resource-header"><span class="badge badge-children">Children</span><span class="format-icon">🎬 Videos</span></div><h4>Cosmic Kids Yoga Website</h4><p class="resource-desc">Official site with Peace Out guided relaxations</p><p class="resource-source">Cosmic Kids Yoga</p><div class="resource-actions"><a href="https://cosmickids.com/" target="_blank" class="resource-link">Open Resource →</a><button class="copy-link-btn" onclick="copyLink('https://cosmickids.com/', this)">📋 Copy Link</button></div></div>
                 </div>
             </div>
         </div>
 
         <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: white; border-radius: 15px;">
-            <p style="color: #666; font-size: 1.1rem;">✨ <strong>30 verified resources</strong> curated for K-5 educators and mental health professionals</p>
-            <p style="color: #666; margin-top: 0.5rem;">All resources verified and functional as of November 2025</p>
+            <p style="color: #666; font-size: 1.1rem;">✨ <strong>39 verified resources</strong> curated for professionals and families</p>
+            <p style="color: #666; margin-top: 0.5rem;">All resources verified and functional • 100% FREE</p>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section id="books">
+        <h2>Our Flagship Books</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 3rem;">Therapeutic storybooks designed to support children's emotional growth and development</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+            <div style="background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="text-align: center; margin-bottom: 1.5rem;"><img src="https://m.media-amazon.com/images/I/61m9iNlhgNL._SL1293_.jpg" alt="A Journey of Brave Friends" style="max-width: 250px; width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"></div>
+                <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">A Journey of Brave Friends</h3>
+                <p style="color: #666; margin-bottom: 0.5rem; font-style: italic;">Book One of Tales of the Resilient Forest</p>
+                <p style="color: var(--secondary); font-weight: 600; margin-bottom: 1rem;">A Trauma-Focused CBT Companion</p>
+                <p style="color: #666; margin-bottom: 1rem; line-height: 1.8;">Embark on an enriching journey through the Resilient Forest, where Timothy the Turtle, Olive the Owl, and friends guide children through the PRAC skills of TF-CBT.</p>
+                <div style="background: var(--light); padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0;"><strong>Perfect for:</strong><ul style="margin: 0.5rem 0 0 1.5rem; color: #666;"><li>Therapists and child welfare professionals</li><li>Caregivers supporting trauma recovery</li><li>Interactive therapy sessions</li><li>Building resilience in children</li></ul></div>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;"><a href="https://amzn.to/4qLZztE" target="_blank" class="btn btn-primary">Get the Book</a><a href="https://amzn.to/4hRXwjZ" target="_blank" class="btn btn-secondary">Get Companion Journal</a></div>
+            </div>
+            <div style="background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="text-align: center; margin-bottom: 1.5rem;"><img src="https://m.media-amazon.com/images/I/61zUTlLzRXL._SL1000_.jpg" alt="Maximilian's Cosmic Adventure" style="max-width: 250px; width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"></div>
+                <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Maximilian's Cosmic Adventure</h3>
+                <p style="color: var(--secondary); font-weight: 600; margin-bottom: 1rem;">A Bedtime Independence Story</p>
+                <p style="color: #666; margin-bottom: 1rem; line-height: 1.8;">Join Maximilian as he explores the wonders of the universe from his own bed! Each night brings a new planetary adventure.</p>
+                <div style="background: var(--light); padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0;"><strong>Perfect for:</strong><ul style="margin: 0.5rem 0 0 1.5rem; color: #666;"><li>Children transitioning to their own bed</li><li>Young readers who love space</li><li>Building courage and independence</li><li>Inspiring imagination and discovery</li></ul></div>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;"><a href="https://amzn.to/4nKyLHE" target="_blank" class="btn btn-primary">Get the Book</a><a href="https://youtu.be/obCWdl3VXLs" target="_blank" class="btn btn-secondary">Watch on YouTube</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="journals" style="background: var(--light);">
+        <h2>Therapeutic Journals & Notebooks</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 2rem;">Beautifully designed journals for therapeutic expression and creative writing</p>
+        <div class="journals-grid">
+            <div class="journal-card"><img src="https://m.media-amazon.com/images/I/61NtPVCFLGL._SL1293_.jpg" alt="Resilient Forest Notebook" style="width: 100%; height: 300px; object-fit: cover;"><div class="journal-content"><h3>Resilient Forest Notebook</h3><p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>The Official TF-CBT Companion</strong></p><p style="font-size: 0.95rem;">Journey with Timothy the Turtle, Kiki the Koala, Bella the Bear, Olive the Owl, and Rex the Rabbit.</p><ul style="margin: 0.75rem 0; padding-left: 1.25rem; font-size: 0.9rem; color: #666;"><li>8.5" x 11" hardcover</li><li>120 pages with forest characters</li></ul><a href="https://amzn.to/4hRXwjZ" target="_blank" class="btn btn-primary">Get on Amazon</a></div></div>
+            <div class="journal-card"><img src="https://m.media-amazon.com/images/I/71TC-erVOcL._SL1293_.jpg" alt="Mother Earth in the Mountains" style="width: 100%; height: 300px; object-fit: cover;"><div class="journal-content"><h3>Mother Earth in the Mountains</h3><p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Embrace Nature's Essence</strong></p><p style="font-size: 0.95rem;">Mother Earth with mountains in the horizon, symbolizing the nurturing spirit of nature.</p><ul style="margin: 0.75rem 0; padding-left: 1.25rem; font-size: 0.9rem; color: #666;"><li>8.5" x 11" paperback</li><li>110 lined pages</li></ul><a href="https://amzn.to/3WLboCH" target="_blank" class="btn btn-primary">Get on Amazon</a></div></div>
+            <div class="journal-card"><img src="https://m.media-amazon.com/images/I/71TC-erVOcL._SL1293_.jpg" alt="Flower Mountain" style="width: 100%; height: 300px; object-fit: cover;"><div class="journal-content"><h3>Flower Mountain</h3><p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Paper Art Style Beauty</strong></p><p style="font-size: 0.95rem;">A beautiful field of flowers and mystical mountains, inviting you to pen your thoughts.</p><ul style="margin: 0.75rem 0; padding-left: 1.25rem; font-size: 0.9rem; color: #666;"><li>8.5" x 11" paperback</li><li>110 lined pages</li></ul><a href="https://amzn.to/499JQP0" target="_blank" class="btn btn-primary">Get on Amazon</a></div></div>
+            <div class="journal-card"><img src="https://m.media-amazon.com/images/I/71nR6aPbGgL._SL1293_.jpg" alt="Mushrooms and Mountains" style="width: 100%; height: 300px; object-fit: cover;"><div class="journal-content"><h3>Mushrooms and Mountains</h3><p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Magical Mountain Landscape</strong></p><p style="font-size: 0.95rem;">Enchanting cover featuring mushrooms and mystical mountains.</p><ul style="margin: 0.75rem 0; padding-left: 1.25rem; font-size: 0.9rem; color: #666;"><li>8.5" x 11" paperback</li><li>110 lined pages</li></ul><a href="https://amzn.to/43Zrcpj" target="_blank" class="btn btn-primary">Get on Amazon</a></div></div>
+        </div>
+    </section>
+
+    <section id="videos">
+        <h2>YouTube Videos</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 2rem;">Entertaining, calming, and educational content for children and families</p>
+        <h3 style="text-align: center; margin-top: 3rem; margin-bottom: 2rem;">Featured Story: Maximilian's Cosmic Adventure</h3>
+        <div class="video-grid">
+            <div class="video-card"><div class="video-embed"><iframe src="https://www.youtube.com/embed/obCWdl3VXLs" frameborder="0" allowfullscreen></iframe></div><div class="video-info"><h3>Maximilian's Cosmic Adventure - Full Story</h3><p>Join Maximilian on his journey through the solar system as he learns to sleep in his own bed!</p></div></div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;"><a href="https://www.youtube.com/@SkillsforChildren" target="_blank" class="btn btn-primary">Visit Our YouTube Channel</a></div>
+    </section>
+
     <footer>
+        <img src="https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/sfk%20logo%20white%20background.png" alt="Skills for Children Logo" class="footer-logo">
         <p>&copy; 2025 Skills for Children. All rights reserved.</p>
         <p>Dedicated to nurturing children's well-being and self-efficacy.</p>
         <div class="social-links">
@@ -1110,84 +635,38 @@
             <a href="https://amzn.to/4qLZztE" target="_blank">Get the Book</a>
         </div>
     </footer>
+
+    <div id="toast" class="toast">Link copied to clipboard!</div>
+
     <script>
-        // Toggle pillar accordion
         function togglePillar(header) {
             const content = header.nextElementSibling;
-            const allContents = document.querySelectorAll('.pillar-content');
-            const allHeaders = document.querySelectorAll('.pillar-header');
-            
-            // Close all other pillars
-            allContents.forEach(c => {
-                if (c !== content) {
-                    c.classList.remove('active');
-                }
-            });
-            
-            allHeaders.forEach(h => {
-                if (h !== header) {
-                    h.classList.remove('active');
-                }
-            });
-            
-            // Toggle current pillar
+            document.querySelectorAll('.pillar-content').forEach(c => { if (c !== content) c.classList.remove('active'); });
+            document.querySelectorAll('.pillar-header').forEach(h => { if (h !== header) h.classList.remove('active'); });
             content.classList.toggle('active');
             header.classList.toggle('active');
         }
 
-        // Open first pillar by default
         document.addEventListener('DOMContentLoaded', function() {
-            const firstHeader = document.querySelector('.pillar-header');
-            if (firstHeader) {
-                togglePillar(firstHeader);
-            }
+            const traumaFirstHeader = document.querySelector('#traumaResourcesContainer .pillar-header');
+            if (traumaFirstHeader) togglePillar(traumaFirstHeader);
         });
 
-        // Search functionality
-        document.getElementById('resourceSearch').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const cards = document.querySelectorAll('.resource-card');
-            
-            cards.forEach(card => {
-                const title = card.querySelector('h4').textContent.toLowerCase();
-                const desc = card.querySelector('.resource-desc').textContent.toLowerCase();
-                const source = card.querySelector('.resource-source').textContent.toLowerCase();
-                
-                if (title.includes(searchTerm) || desc.includes(searchTerm) || source.includes(searchTerm)) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
+        function copyLink(url, button) {
+            navigator.clipboard.writeText(url).then(function() {
+                const originalText = button.innerHTML;
+                button.innerHTML = '✓ Copied!';
+                button.classList.add('copied');
+                document.getElementById('toast').classList.add('show');
+                setTimeout(function() {
+                    button.innerHTML = originalText;
+                    button.classList.remove('copied');
+                    document.getElementById('toast').classList.remove('show');
+                }, 2000);
+            }).catch(function(err) {
+                alert('Failed to copy link. Please try again.');
             });
-        });
-
-        // Filter functionality
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Update active button
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                
-                const filter = this.dataset.filter;
-                const cards = document.querySelectorAll('.resource-card');
-                
-                cards.forEach(card => {
-                    if (filter === 'all') {
-                        card.classList.remove('hidden');
-                    } else if (filter === 'free') {
-                        card.classList.toggle('hidden', card.dataset.access !== 'free');
-                    } else if (filter === 'paid') {
-                        card.classList.toggle('hidden', card.dataset.access !== 'paid');
-                    } else if (filter === 'video') {
-                        card.classList.toggle('hidden', card.dataset.format !== 'video');
-                    } else if (filter === 'pdf') {
-                        card.classList.toggle('hidden', card.dataset.format !== 'pdf');
-                    } else if (filter === 'curriculum') {
-                        card.classList.toggle('hidden', card.dataset.format !== 'curriculum');
-                    }
-                });
-            });
-        });
+        }
     </script>
 </body>
 </html>
