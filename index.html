@@ -53,7 +53,8 @@
             align-items: center;
         }
 
-        .logo { font-size: 1.5rem; font-weight: bold; }
+        .logo { font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem; }
+        .header-logo { height: 40px; width: auto; }
 
         .nav-links {
             display: flex;
@@ -197,7 +198,6 @@
         .pillar-content {
             display: none;
             padding: 2rem;
-            display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
         }
@@ -354,7 +354,9 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Skills for Children</div>
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/Skills%20for%20children%20White%20Logo%20transparent.png" alt="Skills for Children" class="header-logo">
+            </div>
             <ul class="nav-links">
                 <li><a href="#resources">Resources</a></li>
                 <li><a href="#books">Books</a></li>
@@ -675,8 +677,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            const traumaFirstHeader = document.querySelector('#traumaResourcesContainer .pillar-header');
-            if (traumaFirstHeader) togglePillar(traumaFirstHeader);
+            // All pillars start collapsed - user clicks to expand
         });
 
         function copyLink(url, button) {
