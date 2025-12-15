@@ -1,0 +1,43 @@
+{% assign resource = include.resource %}
+
+<div class="resource-card">
+    <div class="resource-header">
+        <span class="badge badge-{{ resource.audience | downcase | replace: ' ', '-' }}">{{ resource.audience }}</span>
+        <span class="format-icon">
+            {% if resource.format == "Video" %}🎬
+            {% elsif resource.format == "PDF" %}📄
+            {% elsif resource.format == "Website" %}🌐
+            {% elsif resource.format == "Interactive" %}🎮
+            {% elsif resource.format == "Worksheet" %}📝
+            {% elsif resource.format == "Guide" %}📖
+            {% else %}📌
+            {% endif %}
+            {{ resource.format }}
+        </span>
+    </div>
+    
+    {% if resource.video_embed %}
+    <div class="resource-video-embed">
+        <iframe src="{{ resource.video_embed }}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    {% endif %}
+    
+    <h4>{{ resource.title }}</h4>
+    
+    {% if resource.description %}
+    <p class="resource-desc">{{ resource.description }}</p>
+    {% endif %}
+    
+    {% if resource.source %}
+    <p class="resource-source">{{ resource.source }}</p>
+    {% endif %}
+    
+    <div class="resource-actions">
+        <a href="{{ resource.url }}" target="_blank" class="resource-link">
+            Open Resource →
+        </a>
+        <button class="copy-link-btn" onclick="copyLink('{{ resource.url }}', this)">
+            📋 Copy Link
+        </button>
+    </div>
+</div>

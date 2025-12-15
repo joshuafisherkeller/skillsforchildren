@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="author" content="Joshua Fisherkeller">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ page.title | default: site.title }}">
+    <meta property="og:description" content="{{ page.description | default: site.description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+    <meta name="twitter:description" content="{{ page.description | default: site.description }}">
+</head>
+<body>
+    <!-- Quick Exit Button -->
+    <a href="https://www.weather.com" class="quick-exit" target="_blank">Quick Exit</a>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/SFK%20LOGO.png" alt="Skills for Children Logo" class="header-logo">
+                Skills for Children
+            </div>
+            <ul class="nav-links">
+                <li><a href="/#skills-resources">Resources</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/#books">Books</a></li>
+                <li><a href="/#journals">Journals</a></li>
+                <li><a href="/#videos">Videos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Content -->
+    {{ content }}
+
+    <!-- Footer -->
+    <footer>
+        <img src="https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/SFK%20LOGO.png" alt="Skills for Children Logo" class="footer-logo">
+        <p>&copy; 2024 Skills for Children. All rights reserved.</p>
+        <p>Created by Joshua Fisherkeller</p>
+        
+        <div class="social-links">
+            <a href="https://youtube.com/@skillsforchildren" target="_blank">YouTube</a>
+            <a href="https://www.amazon.com/stores/Joshua-Fisherkeller/author/B0DFQWNCCW" target="_blank">Amazon Author Page</a>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div style="margin-top: 2rem;">
+            <script async data-uid="b87301277b" src="https://skillsforchildren.kit.com/b87301277b/index.js"></script>
+        </div>
+
+        <!-- Buy Me a Coffee -->
+        <div style="margin-top: 1rem;">
+            <a href="https://www.buymeacoffee.com/joshuafisher" target="_blank">
+                <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px; width: auto;">
+            </a>
+        </div>
+    </footer>
+
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+# Site Settings
+title: "Skills for Children"
+description: "Free evidence-based resources for childhood trauma recovery, resilience building, and emotional regulation"
+url: "https://skillsforchildren.com"
+baseurl: ""
+
+# Build Settings
+markdown: kramdown
+permalink: /:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# SEO Settings
+author: Joshua Fisherkeller
+logo: https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/sfk%20logo%20transparent.png
+
+# Social
+twitter:
+  username: SkillsforChildren
+youtube: SkillsforChildren
+amazon_author: https://www.amazon.com/stores/Joshua-Fisherkeller/author/B0DPXN44YW
+
+# Site Configuration
+show_excerpts: true

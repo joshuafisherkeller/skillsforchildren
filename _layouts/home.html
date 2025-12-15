@@ -1,0 +1,151 @@
+---
+layout: default
+---
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <img src="https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/SFK%20LOGO.png" alt="Skills for Children Logo" class="hero-logo">
+        <h1>{{ page.title }}</h1>
+        <p>{{ page.description }}</p>
+        <div class="cta-buttons">
+            <a href="#books" class="btn btn-primary">Explore Our Books</a>
+            <a href="https://www.youtube.com/@SkillsforChildren" target="_blank" class="btn btn-secondary">Visit Our YouTube</a>
+            <a href="#skills-resources" class="btn btn-accent">Find Resources</a>
+        </div>
+    </div>
+</section>
+
+<!-- Skills for Children Resources -->
+<section id="skills-resources">
+    <h2>{{ site.data.skills-resources.name }}</h2>
+    <div class="resources-info-box">
+        <p>{{ site.data.skills-resources.description }}</p>
+    </div>
+
+    {% for pillar in site.data.skills-resources.pillars %}
+    <div class="resource-pillar">
+        <div class="pillar-header" onclick="togglePillar(this)">
+            <div>
+                <span style="font-size: 1.5rem; margin-right: 0.5rem;">{{ pillar.icon }}</span>
+                <h3 style="display: inline;">{{ pillar.name }}</h3>
+                <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; opacity: 0.9;">{{ pillar.description }}</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <span class="pillar-count">{{ pillar.resources | size }} resources</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+        </div>
+        <div class="pillar-content">
+            {% for resource in pillar.resources %}
+                {% include resource-card.html resource=resource %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<!-- Trauma Resources Section -->
+<div class="section-divider">
+    <h3>🌟 Childhood Trauma Resources</h3>
+    <p>Evidence-based support for trauma recovery and healing</p>
+</div>
+
+<section id="trauma-resources" class="trauma-section">
+    <h2>{{ site.data.trauma-resources.name }}</h2>
+    
+    <!-- Definition Card -->
+    <div class="definition-card">
+        <h4>What is Childhood Trauma?</h4>
+        <p>Childhood trauma refers to experiences that threaten a child's physical or emotional safety, including abuse, neglect, household dysfunction, or exposure to violence. These experiences can have lasting effects on development, but with proper support and evidence-based treatment, <strong>healing is possible</strong>.</p>
+        <p>The resources below provide evidence-based information and support for understanding and healing from childhood trauma.</p>
+    </div>
+
+    {% for pillar in site.data.trauma-resources.pillars %}
+    <div class="resource-pillar">
+        <div class="pillar-header" onclick="togglePillar(this)">
+            <div>
+                <span style="font-size: 1.5rem; margin-right: 0.5rem;">{{ pillar.icon }}</span>
+                <h3 style="display: inline;">{{ pillar.name }}</h3>
+                <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; opacity: 0.9;">{{ pillar.description }}</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <span class="pillar-count">{{ pillar.resources | size }} resources</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+        </div>
+        <div class="pillar-content">
+            {% for resource in pillar.resources %}
+                {% include resource-card.html resource=resource %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<!-- Books Section -->
+<section id="books">
+    <h2>📚 Therapeutic Children's Books</h2>
+    <div class="journals-grid">
+        <div class="journal-card">
+            <img src="https://m.media-amazon.com/images/I/71VZ9pxCy0L._SY466_.jpg" alt="A Journey of Brave Friends" style="width: 100%; height: auto;">
+            <div class="journal-content">
+                <h3>A Journey of Brave Friends</h3>
+                <p>A TF-CBT companion book for children processing trauma through play and storytelling.</p>
+                <a href="https://www.amazon.com/dp/B0DGZPR1GB" target="_blank" class="btn btn-primary">View on Amazon</a>
+            </div>
+        </div>
+        <div class="journal-card">
+            <img src="https://m.media-amazon.com/images/I/71fxC0xe5VL._SY466_.jpg" alt="Maximilian's Cosmic Adventure" style="width: 100%; height: auto;">
+            <div class="journal-content">
+                <h3>Maximilian's Cosmic Adventure</h3>
+                <p>A space adventure teaching children about growth mindset and resilience.</p>
+                <a href="https://www.amazon.com/dp/B0DFQWNCCW" target="_blank" class="btn btn-primary">View on Amazon</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Journals Section -->
+<section id="journals">
+    <h2>📓 Therapeutic Journals</h2>
+    <div class="journals-grid">
+        <div class="journal-card">
+            <div class="journal-content">
+                <h3>Therapeutic Drawing Journal for Kids</h3>
+                <p>Creative expression through guided drawing prompts for emotional processing.</p>
+                <a href="https://www.amazon.com/dp/B0DPC5MGWZ" target="_blank" class="btn btn-primary">View on Amazon</a>
+            </div>
+        </div>
+        <div class="journal-card">
+            <div class="journal-content">
+                <h3>Feelings Journal for Kids</h3>
+                <p>Daily prompts to help children identify and express their emotions.</p>
+                <a href="https://www.amazon.com/dp/B0DPRZV4YF" target="_blank" class="btn btn-primary">View on Amazon</a>
+            </div>
+        </div>
+        <div class="journal-card">
+            <div class="journal-content">
+                <h3>Anxiety Workbook for Kids</h3>
+                <p>Evidence-based activities for managing worry and building coping skills.</p>
+                <a href="https://www.amazon.com/dp/B0DQ2ZKYZX" target="_blank" class="btn btn-primary">View on Amazon</a>
+            </div>
+        </div>
+        <div class="journal-card">
+            <div class="journal-content">
+                <h3>Mindfulness Journal for Kids</h3>
+                <p>Guided practices for developing present-moment awareness and calm.</p>
+                <a href="https://www.amazon.com/dp/B0DQ63W7VT" target="_blank" class="btn btn-primary">View on Amazon</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Videos Section -->
+<section id="videos">
+    <h2>🎥 Educational Videos</h2>
+    <p style="text-align: center; margin-bottom: 2rem;">Check out our YouTube channel for educational songs and content for children ages 4-8.</p>
+    <div style="text-align: center;">
+        <a href="https://youtube.com/@skillsforchildren" target="_blank" class="btn btn-primary">Visit YouTube Channel</a>
+    </div>
+</section>
