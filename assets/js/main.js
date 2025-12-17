@@ -1,65 +1,53 @@
-// Toggle pillar content
-function togglePillar(element) {
-    const content = element.nextElementSibling;
-    element.classList.toggle('active');
+/* ==========================================================================
+   Skills for Children - Main JavaScript
+   ========================================================================== */
+
+// Toggle Pillar Accordion
+function togglePillar(header) {
+    const content = header.nextElementSibling;
+    
+    // Close all other pillars
+    document.querySelectorAll('.pillar-content').forEach(c => {
+        if (c !== content) c.classList.remove('active');
+    });
+    document.querySelectorAll('.pillar-header').forEach(h => {
+        if (h !== header) h.classList.remove('active');
+    });
+    
+    // Toggle current pillar
     content.classList.toggle('active');
+    header.classList.toggle('active');
 }
 
-// Copy link to clipboard
+// Copy Link to Clipboard
 function copyLink(url, button) {
-    navigator.clipboard.writeText(url).then(() => {
+    navigator.clipboard.writeText(url).then(function() {
         const originalText = button.innerHTML;
         button.innerHTML = '✓ Copied!';
         button.classList.add('copied');
         
-        showToast('Link copied to clipboard!');
+        // Show toast notification
+        const toast = document.getElementById('toast');
+        if (toast) {
+            toast.classList.add('show');
+        }
         
-        setTimeout(() => {
+        // Reset after 2 seconds
+        setTimeout(function() {
             button.innerHTML = originalText;
             button.classList.remove('copied');
-        }, 2000);
-    }).catch(err => {
-        console.error('Failed to copy:', err);
-        showToast('Failed to copy link');
-    });
-}
-
-// Show toast notification
-function showToast(message) {
-    const existingToast = document.querySelector('.toast');
-    if (existingToast) {
-        existingToast.remove();
-    }
-    
-    const toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.textContent = message;
-    document.body.appendChild(toast);
-    
-    setTimeout(() => {
-        toast.classList.add('show');
-    }, 100);
-    
-    setTimeout(() => {
-        toast.classList.remove('show');
-        setTimeout(() => {
-            toast.remove();
-        }, 300);
-    }, 3000);
-}
-
-// Smooth scrolling for anchor links
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            if (toast) {
+                toast.classList.remove('show');
             }
-        });
+        }, 2000);
+    }).catch(function(err) {
+        console.error('Failed to copy:', err);
+        alert('Failed to copy link. Please try again.');
     });
+}
+
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', function() {
+    // All pillars start collapsed - user clicks to expand
+    console.log('Skills for Children site loaded');
 });

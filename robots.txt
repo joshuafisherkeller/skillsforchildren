@@ -1,0 +1,7 @@
+# robots.txt for skillsforchildren.com
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://skillsforchildren.com/sitemap.xml
