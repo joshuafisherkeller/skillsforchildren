@@ -86,6 +86,45 @@ description: "Nurturing children's well-being and enhancing their self-efficacy.
         <p><strong>Share these resources!</strong> Use the "Copy Link" button on any resource to copy the URL to your clipboard. You can then paste and share it with clients, families, or colleagues.</p>
     </div>
 
+    <!-- Search and Filter Bar -->
+    <div class="search-filter-container">
+        <div class="search-box">
+            <input type="text" id="resourceSearch" placeholder="🔍 Search resources by title, description, or source..." aria-label="Search resources">
+        </div>
+        
+        <div class="filter-controls">
+            <select id="audienceFilter" aria-label="Filter by audience">
+                <option value="">All Audiences</option>
+                <option value="Children">Children</option>
+                <option value="Caregivers">Caregivers</option>
+                <option value="Professionals">Professionals</option>
+                <option value="Teens">Teens</option>
+            </select>
+            
+            <select id="formatFilter" aria-label="Filter by format">
+                <option value="">All Formats</option>
+                <option value="Video">Video</option>
+                <option value="PDF">PDF</option>
+                <option value="Website">Website</option>
+                <option value="Interactive">Interactive</option>
+                <option value="Worksheet">Worksheet</option>
+                <option value="Guide">Guide</option>
+                <option value="Book">Book</option>
+                <option value="Curriculum">Curriculum</option>
+            </select>
+            
+            <select id="sectionFilter" aria-label="Filter by section">
+                <option value="">All Sections</option>
+                <option value="skills">Skills for Children</option>
+                <option value="trauma">Childhood Trauma</option>
+            </select>
+            
+            <button id="clearFilters" class="btn-clear-filters">Clear Filters</button>
+        </div>
+        
+        <div id="resultsCount" class="results-count"></div>
+    </div>
+
     <!-- Skills for Children Section -->
     <div class="section-divider">
         <h3>Skills for Children: K-5 Professional Development</h3>
@@ -95,7 +134,7 @@ description: "Nurturing children's well-being and enhancing their self-efficacy.
     <div id="skillsResourcesContainer">
         {% assign skills_data = site.data.skills-resources %}
         {% for pillar in skills_data.pillars %}
-        <div class="resource-pillar">
+        <div class="resource-pillar" data-section="skills">
             <div class="pillar-header" onclick="togglePillar(this)">
                 <h3>{{ pillar.icon }} {{ pillar.name }}</h3>
                 <span class="pillar-count">{{ pillar.resources.size }} resources</span>
@@ -103,7 +142,15 @@ description: "Nurturing children's well-being and enhancing their self-efficacy.
             </div>
             <div class="pillar-content">
                 {% for resource in pillar.resources %}
-                {% include resource-card.html resource=resource %}
+                <div class="resource-card-wrapper" 
+                     data-audience="{{ resource.audience }}" 
+                     data-format="{{ resource.format }}"
+                     data-section="skills"
+                     data-title="{{ resource.title | downcase }}"
+                     data-description="{{ resource.description | downcase }}"
+                     data-source="{{ resource.source | downcase }}">
+                    {% include resource-card.html resource=resource %}
+                </div>
                 {% endfor %}
             </div>
         </div>
@@ -126,7 +173,7 @@ description: "Nurturing children's well-being and enhancing their self-efficacy.
     <div id="traumaResourcesContainer" class="trauma-section">
         {% assign trauma_data = site.data.trauma-resources %}
         {% for pillar in trauma_data.pillars %}
-        <div class="resource-pillar {% if pillar.id == 'tfcbt' %}tfcbt-section{% endif %}">
+        <div class="resource-pillar {% if pillar.id == 'tfcbt' %}tfcbt-section{% endif %}" data-section="trauma">
             <div class="pillar-header" onclick="togglePillar(this)">
                 <h3>{{ pillar.icon }} {{ pillar.name }}</h3>
                 <span class="pillar-count">{{ pillar.resources.size }} resources</span>
@@ -134,7 +181,15 @@ description: "Nurturing children's well-being and enhancing their self-efficacy.
             </div>
             <div class="pillar-content">
                 {% for resource in pillar.resources %}
-                {% include resource-card.html resource=resource %}
+                <div class="resource-card-wrapper" 
+                     data-audience="{{ resource.audience }}" 
+                     data-format="{{ resource.format }}"
+                     data-section="trauma"
+                     data-title="{{ resource.title | downcase }}"
+                     data-description="{{ resource.description | downcase }}"
+                     data-source="{{ resource.source | downcase }}">
+                    {% include resource-card.html resource=resource %}
+                </div>
                 {% endfor %}
             </div>
         </div>
