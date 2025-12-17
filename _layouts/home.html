@@ -1,141 +1,156 @@
 ---
 layout: default
+title: "Welcome to Skills for Children"
+description: "Nurturing children's well-being and enhancing their self-efficacy. Practical resources for parents, therapists, educators, and professionals to support the development of essential life skills in young minds."
 ---
 
 <!-- Hero Section -->
 <section class="hero">
     <div class="hero-content">
-        <img src="https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/SFK%20LOGO.png" alt="Skills for Children Logo" class="hero-logo">
+        <img src="https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/Skills%20for%20children%20White%20Logo%20transparent.png" alt="Skills for Children Logo" class="hero-logo">
         <h1>{{ page.title }}</h1>
         <p>{{ page.description }}</p>
         <div class="cta-buttons">
             <a href="#books" class="btn btn-primary">Explore Our Books</a>
             <a href="https://www.youtube.com/@SkillsforChildren" target="_blank" class="btn btn-secondary">Visit Our YouTube</a>
-            <a href="#skills-resources" class="btn btn-accent">Find Resources</a>
+            <a href="#resources" class="btn btn-accent">Find Resources</a>
         </div>
     </div>
 </section>
 
-<!-- Skills for Children Resources -->
-<section id="skills-resources">
-    <h2>{{ site.data.skills-resources.name }}</h2>
-    <div class="resources-info-box">
-        <p>{{ site.data.skills-resources.description }}</p>
-    </div>
-
-    {% for pillar in site.data.skills-resources.pillars %}
-    <div class="resource-pillar">
-        <div class="pillar-header" onclick="togglePillar(this)">
+<!-- Resource Spotlight Section -->
+<section style="background: linear-gradient(135deg, var(--blue-light) 0%, #fff 100%); padding: 4rem 2rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="text-align: center; margin-bottom: 3rem;">🌟 Resource Spotlight</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+            <!-- Text Content - Left Side -->
             <div>
-                <span style="font-size: 1.5rem; margin-right: 0.5rem;">{{ pillar.icon }}</span>
-                <h3 style="display: inline;">{{ pillar.name }}</h3>
-                <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; opacity: 0.9;">{{ pillar.description }}</p>
+                <h3 style="color: var(--blue-primary); font-size: 2rem; margin-bottom: 1rem;">Try Something New</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 1rem;">
+                    A fun, upbeat song designed to teach children the power of a <strong>Growth Mindset</strong>. 
+                    Using bright piano, happy ukulele, and a catchy chorus, this video reminds kids that mistakes 
+                    are just part of learning and that their brains are getting stronger every time they try!
+                </p>
+                
+                <div style="background: var(--blue-light); padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem;">
+                    <p style="font-size: 0.95rem; color: #555; margin-bottom: 0.5rem;">
+                        <strong>🧩 Sensory-Friendly Design:</strong> Low-stimulation visuals with slow-paced animation 
+                        and gentle colors help children focus without becoming overstimulated.
+                    </p>
+                </div>
+                
+                <h4 style="color: var(--blue-primary); margin-bottom: 0.75rem;">🧠 What This Song Teaches:</h4>
+                <ul style="list-style: none; padding: 0; color: #555;">
+                    <li style="margin-bottom: 0.5rem;">✓ <strong>The Power of "YET"</strong> - You can't do it... yet!</li>
+                    <li style="margin-bottom: 0.5rem;">✓ <strong>Neuroplasticity</strong> - Your brain grows like a muscle</li>
+                    <li style="margin-bottom: 0.5rem;">✓ <strong>Resilience</strong> - Getting back up when you fall</li>
+                    <li style="margin-bottom: 0.5rem;">✓ <strong>Patience</strong> - It's okay to go slow</li>
+                </ul>
             </div>
-            <div style="display: flex; align-items: center; gap: 1rem;">
-                <span class="pillar-count">{{ pillar.resources | size }} resources</span>
-                <span class="toggle-icon">▼</span>
+            
+            <!-- Video - Right Side -->
+            <div>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <iframe 
+                        src="https://www.youtube.com/embed/fITPTH62DAo" 
+                        frameborder="0" 
+                        allowfullscreen
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px;"
+                    ></iframe>
+                </div>
             </div>
-        </div>
-        <div class="pillar-content">
-            {% for resource in pillar.resources %}
-                {% include resource-card.html resource=resource %}
-            {% endfor %}
         </div>
     </div>
-    {% endfor %}
 </section>
 
-<!-- Trauma Resources Section -->
-<div class="section-divider">
-    <h3>🌟 Childhood Trauma Resources</h3>
-    <p>Evidence-based support for trauma recovery and healing</p>
-</div>
+<!-- Buy Me a Coffee - Above Resources -->
+<section style="background: #fff; padding: 2rem; text-align: center;">
+    <div style="max-width: 600px; margin: 0 auto;">
+        <p style="font-size: 1.1rem; color: #666; margin-bottom: 1rem;">
+            <strong>Curating resources is hard work! Keep the site alive and ad-free!</strong><br>
+            Even a buck helps! ☕
+        </p>
+        <a href="https://www.buymeacoffee.com/skillsforchildren" target="_blank">
+            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;">
+        </a>
+    </div>
+</section>
 
-<section id="trauma-resources" class="trauma-section">
-    <h2>{{ site.data.trauma-resources.name }}</h2>
+<!-- Resources Section -->
+<section id="resources" style="background: var(--light);">
+    <h2>Resources for Professionals & Families</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 2rem;">Curated free resources for supporting children's development and trauma recovery</p>
     
-    <!-- Definition Card -->
-    <div class="definition-card">
-        <h4>What is Childhood Trauma?</h4>
-        <p>Childhood trauma refers to experiences that threaten a child's physical or emotional safety, including abuse, neglect, household dysfunction, or exposure to violence. These experiences can have lasting effects on development, but with proper support and evidence-based treatment, <strong>healing is possible</strong>.</p>
-        <p>The resources below provide evidence-based information and support for understanding and healing from childhood trauma.</p>
+    <div class="resources-info-box">
+        <p><strong>Share these resources!</strong> Use the "Copy Link" button on any resource to copy the URL to your clipboard. You can then paste and share it with clients, families, or colleagues.</p>
     </div>
 
-    {% for pillar in site.data.trauma-resources.pillars %}
-    <div class="resource-pillar">
-        <div class="pillar-header" onclick="togglePillar(this)">
-            <div>
-                <span style="font-size: 1.5rem; margin-right: 0.5rem;">{{ pillar.icon }}</span>
-                <h3 style="display: inline;">{{ pillar.name }}</h3>
-                <p style="margin: 0.5rem 0 0 0; font-size: 0.95rem; opacity: 0.9;">{{ pillar.description }}</p>
-            </div>
-            <div style="display: flex; align-items: center; gap: 1rem;">
-                <span class="pillar-count">{{ pillar.resources | size }} resources</span>
+    <!-- Skills for Children Section -->
+    <div class="section-divider">
+        <h3>Skills for Children: K-5 Professional Development</h3>
+        <p>Essential resources supporting children's development across eight foundational areas</p>
+    </div>
+
+    <div id="skillsResourcesContainer">
+        {% assign skills_data = site.data.skills-resources %}
+        {% for pillar in skills_data.pillars %}
+        <div class="resource-pillar">
+            <div class="pillar-header" onclick="togglePillar(this)">
+                <h3>{{ pillar.icon }} {{ pillar.name }}</h3>
+                <span class="pillar-count">{{ pillar.resources.size }} resources</span>
                 <span class="toggle-icon">▼</span>
             </div>
-        </div>
-        <div class="pillar-content">
-            {% for resource in pillar.resources %}
+            <div class="pillar-content">
+                {% for resource in pillar.resources %}
                 {% include resource-card.html resource=resource %}
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+
+    <!-- Childhood Trauma Section -->
+    <div class="section-divider">
+        <h3>Resources on Childhood Trauma</h3>
+        <p>Evidence-based tools for children, teens, caregivers, and professionals</p>
+    </div>
+
+    <div class="definition-card">
+        <h4>📖 What is Childhood Trauma?</h4>
+        <p><strong>Childhood trauma</strong> refers to experiences that overwhelm a child's ability to cope—including abuse, neglect, loss of a caregiver, witnessing violence, or natural disasters. Trauma affects brain development, particularly the amygdala (fear response), hippocampus (memory), and prefrontal cortex (decision-making).</p>
+        <p><strong>The good news:</strong> With evidence-based support like TF-CBT (Trauma-Focused Cognitive Behavioral Therapy), co-regulation with trusted adults, and skills like grounding techniques, children's brains can heal and build resilience.</p>
+        <p>Below are free, curated resources organized by skill area to support trauma recovery in children ages 3-18.</p>
+    </div>
+
+    <div id="traumaResourcesContainer" class="trauma-section">
+        {% assign trauma_data = site.data.trauma-resources %}
+        {% for pillar in trauma_data.pillars %}
+        <div class="resource-pillar {% if pillar.id == 'tfcbt' %}tfcbt-section{% endif %}">
+            <div class="pillar-header" onclick="togglePillar(this)">
+                <h3>{{ pillar.icon }} {{ pillar.name }}</h3>
+                <span class="pillar-count">{{ pillar.resources.size }} resources</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="pillar-content">
+                {% for resource in pillar.resources %}
+                {% include resource-card.html resource=resource %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </section>
 
 <!-- Books Section -->
 <section id="books">
-    <h2>📚 Therapeutic Children's Books</h2>
+    <h2>Our Books</h2>
     <div class="journals-grid">
         <div class="journal-card">
-            <img src="https://m.media-amazon.com/images/I/71VZ9pxCy0L._SY466_.jpg" alt="A Journey of Brave Friends" style="width: 100%; height: auto;">
             <div class="journal-content">
                 <h3>A Journey of Brave Friends</h3>
-                <p>A TF-CBT companion book for children processing trauma through play and storytelling.</p>
-                <a href="https://www.amazon.com/dp/B0DGZPR1GB" target="_blank" class="btn btn-primary">View on Amazon</a>
-            </div>
-        </div>
-        <div class="journal-card">
-            <img src="https://m.media-amazon.com/images/I/71fxC0xe5VL._SY466_.jpg" alt="Maximilian's Cosmic Adventure" style="width: 100%; height: auto;">
-            <div class="journal-content">
-                <h3>Maximilian's Cosmic Adventure</h3>
-                <p>A space adventure teaching children about growth mindset and resilience.</p>
-                <a href="https://www.amazon.com/dp/B0DFQWNCCW" target="_blank" class="btn btn-primary">View on Amazon</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Journals Section -->
-<section id="journals">
-    <h2>📓 Therapeutic Journals</h2>
-    <div class="journals-grid">
-        <div class="journal-card">
-            <div class="journal-content">
-                <h3>Therapeutic Drawing Journal for Kids</h3>
-                <p>Creative expression through guided drawing prompts for emotional processing.</p>
-                <a href="https://www.amazon.com/dp/B0DPC5MGWZ" target="_blank" class="btn btn-primary">View on Amazon</a>
-            </div>
-        </div>
-        <div class="journal-card">
-            <div class="journal-content">
-                <h3>Feelings Journal for Kids</h3>
-                <p>Daily prompts to help children identify and express their emotions.</p>
-                <a href="https://www.amazon.com/dp/B0DPRZV4YF" target="_blank" class="btn btn-primary">View on Amazon</a>
-            </div>
-        </div>
-        <div class="journal-card">
-            <div class="journal-content">
-                <h3>Anxiety Workbook for Kids</h3>
-                <p>Evidence-based activities for managing worry and building coping skills.</p>
-                <a href="https://www.amazon.com/dp/B0DQ2ZKYZX" target="_blank" class="btn btn-primary">View on Amazon</a>
-            </div>
-        </div>
-        <div class="journal-card">
-            <div class="journal-content">
-                <h3>Mindfulness Journal for Kids</h3>
-                <p>Guided practices for developing present-moment awareness and calm.</p>
-                <a href="https://www.amazon.com/dp/B0DQ63W7VT" target="_blank" class="btn btn-primary">View on Amazon</a>
+                <p>TF-CBT companion book for children processing trauma</p>
+                <a href="https://amzn.to/4qLZztE" target="_blank" class="btn btn-primary">View on Amazon</a>
             </div>
         </div>
     </div>
@@ -143,9 +158,20 @@ layout: default
 
 <!-- Videos Section -->
 <section id="videos">
-    <h2>🎥 Educational Videos</h2>
-    <p style="text-align: center; margin-bottom: 2rem;">Check out our YouTube channel for educational songs and content for children ages 4-8.</p>
+    <h2>Educational Videos</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 2rem;">Visit our YouTube channel for more trauma-informed content and growth mindset songs</p>
     <div style="text-align: center;">
-        <a href="https://youtube.com/@skillsforchildren" target="_blank" class="btn btn-primary">Visit YouTube Channel</a>
+        <a href="https://www.youtube.com/@SkillsforChildren" target="_blank" class="btn btn-secondary">Visit YouTube Channel</a>
+    </div>
+</section>
+
+<!-- Newsletter Section - Above Footer -->
+<section style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding: 4rem 2rem; text-align: center;">
+    <div style="max-width: 600px; margin: 0 auto;">
+        <h2 style="color: white; margin-bottom: 1rem;">Stay Connected</h2>
+        <p style="color: white; margin-bottom: 2rem; font-size: 1.1rem;">
+            Get updates on new resources, trauma-informed strategies, and growth mindset content delivered to your inbox.
+        </p>
+        <script async data-uid="52934f03c9" src="https://skills-for-children.kit.com/52934f03c9/index.js"></script>
     </div>
 </section>

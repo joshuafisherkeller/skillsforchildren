@@ -103,6 +103,8 @@ nav {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: scroll;
+    width: 100%;
     padding: 5rem 2rem;
     text-align: center;
     min-height: 500px;
@@ -754,5 +756,10 @@ footer {
         right: 1rem;
         font-size: 0.8rem;
         padding: 0.4rem 0.8rem;
+    }
+    
+    /* Resource Spotlight Mobile */
+    section div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
     }
 }
