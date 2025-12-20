@@ -1,0 +1,91 @@
+---
+layout: default
+title: Blog
+description: Articles, guides, and resources about childhood trauma, child development, and evidence-based strategies for supporting children's wellbeing.
+---
+
+<section style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding: 4rem 2rem; text-align: center;">
+    <div style="max-width: 800px; margin: 0 auto;">
+        <h1 style="color: white; font-size: 3rem; margin-bottom: 1rem;">Skills for Children Blog</h1>
+        <p style="color: white; font-size: 1.2rem; line-height: 1.8;">
+            Evidence-based articles about childhood trauma, child development, and practical strategies for parents, educators, and professionals.
+        </p>
+    </div>
+</section>
+
+<section style="max-width: 900px; margin: 0 auto; padding: 4rem 2rem;">
+    {% if site.posts.size > 0 %}
+        <div style="display: grid; gap: 3rem;">
+            {% for post in site.posts %}
+            <article style="background: white; border-radius: 15px; padding: 2.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s;" 
+                     onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.15)';" 
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';">
+                
+                <header style="margin-bottom: 1.5rem;">
+                    <h2 style="font-size: 2rem; color: var(--dark); margin-bottom: 0.75rem;">
+                        <a href="{{ post.url | relative_url }}" style="color: var(--dark); text-decoration: none;">
+                            {{ post.title }}
+                        </a>
+                    </h2>
+                    
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; color: #666; font-size: 0.95rem;">
+                        <time datetime="{{ post.date | date_to_xmlschema }}">
+                            {{ post.date | date: "%B %d, %Y" }}
+                        </time>
+                        
+                        {% if post.categories %}
+                        <span style="color: #999;">•</span>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            {% for category in post.categories %}
+                            <span style="background: var(--blue-light); color: var(--blue-primary); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.85rem;">
+                                {{ category }}
+                            </span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        
+                        {% if post.author %}
+                        <span style="color: #999;">•</span>
+                        <span>By {{ post.author }}</span>
+                        {% endif %}
+                    </div>
+                </header>
+                
+                {% if post.description %}
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 1.5rem;">
+                    {{ post.description }}
+                </p>
+                {% else %}
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 1.5rem;">
+                    {{ post.excerpt | strip_html | truncatewords: 40 }}
+                </p>
+                {% endif %}
+                
+                <a href="{{ post.url | relative_url }}" 
+                   class="btn btn-primary" 
+                   style="display: inline-block;">
+                    Read Full Article →
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div style="text-align: center; padding: 4rem 2rem; background: var(--light); border-radius: 15px;">
+            <h2 style="color: var(--dark); margin-bottom: 1rem;">No Posts Yet</h2>
+            <p style="color: #666; font-size: 1.1rem;">
+                Check back soon for evidence-based articles about childhood trauma and child development.
+            </p>
+        </div>
+    {% endif %}
+</section>
+
+<!-- Newsletter CTA -->
+<section style="background: linear-gradient(135deg, var(--trauma-primary) 0%, var(--trauma-secondary) 100%); padding: 4rem 2rem; text-align: center; margin-top: 4rem;">
+    <div style="max-width: 600px; margin: 0 auto;">
+        <h2 style="color: white; margin-bottom: 1rem;">Never Miss an Article</h2>
+        <p style="color: white; margin-bottom: 2rem; font-size: 1.1rem;">
+            Get notified when we publish new evidence-based content about supporting children's wellbeing.
+        </p>
+        <script async data-uid="52934f03c9" src="https://skills-for-children.kit.com/52934f03c9/index.js"></script>
+    </div>
+</section>
