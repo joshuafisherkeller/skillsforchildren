@@ -4,8 +4,9 @@ title: Blog
 description: Articles, guides, and resources about childhood trauma, child development, and evidence-based strategies for supporting children's wellbeing.
 ---
 
-<section style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding: 4rem 2rem; text-align: center;">
-    <div style="max-width: 800px; margin: 0 auto;">
+<!-- Hero Section - Same as Main Page -->
+<section class="hero">
+    <div class="hero-content">
         <h1 style="color: white; font-size: 3rem; margin-bottom: 1rem;">Skills for Children Blog</h1>
         <p style="color: white; font-size: 1.2rem; line-height: 1.8;">
             Evidence-based articles about childhood trauma, child development, and practical strategies for parents, educators, and professionals.
@@ -13,11 +14,11 @@ description: Articles, guides, and resources about childhood trauma, child devel
     </div>
 </section>
 
-<section style="max-width: 900px; margin: 0 auto; padding: 4rem 2rem;">
+<section style="max-width: 900px; margin: 0 auto; padding: 4rem 2rem; background: white;">
     {% if site.posts.size > 0 %}
         <div style="display: grid; gap: 3rem;">
             {% for post in site.posts %}
-            <article style="background: white; border-radius: 15px; padding: 2.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-left: 5px solid var(--trauma-primary); transition: all 0.3s;" 
+            <article style="background: #f8f9fa; border-radius: 15px; padding: 2.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-left: 5px solid var(--trauma-primary); transition: all 0.3s;" 
                      onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.15)';" 
                      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.1)';">
                 
@@ -72,7 +73,7 @@ description: Articles, guides, and resources about childhood trauma, child devel
             {% endfor %}
         </div>
     {% else %}
-        <div style="text-align: center; padding: 4rem 2rem; background: var(--light); border-radius: 15px;">
+        <div style="text-align: center; padding: 4rem 2rem; background: #f8f9fa; border-radius: 15px;">
             <h2 style="color: var(--dark); margin-bottom: 1rem;">No Posts Yet</h2>
             <p style="color: #666; font-size: 1.1rem;">
                 Check back soon for evidence-based articles about childhood trauma and child development.
