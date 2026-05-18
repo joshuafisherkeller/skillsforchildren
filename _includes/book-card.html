@@ -1,0 +1,31 @@
+{% assign book = include.book %}
+
+<article class="book-card reveal"{% if book.status == 'upcoming' %} style="opacity:0.7"{% endif %}>
+  <div class="book-cover-frame"{% if book.status == 'upcoming' %} style="background:repeating-linear-gradient(45deg,var(--paper-2) 0 14px,var(--paper) 14px 28px)"{% endif %}>
+    {% if book.cover %}
+      <img src="{{ book.cover | relative_url }}" alt="{{ book.title }} cover" style="width:100%;height:100%;object-fit:cover">
+    {% else %}
+      <div class="book-placeholder-label">
+        {% if book.status == 'upcoming' %}{{ book.coming_label | default: 'Coming soon' }}{% else %}Cover art{% endif %}
+      </div>
+    {% endif %}
+  </div>
+  <div>
+    <h3>{{ book.title }}</h3>
+    {% if book.meta %}
+      <div class="book-card-meta">{{ book.meta }}</div>
+    {% endif %}
+  </div>
+  <p class="book-card-desc">{{ book.description }}</p>
+  <div class="book-card-actions">
+    {% if book.affiliate_url %}
+      <a href="{{ book.affiliate_url }}" target="_blank" rel="noopener" class="btn btn--primary btn--sm">View on Amazon</a>
+    {% endif %}
+    {% if book.sample_url %}
+      <a href="{{ book.sample_url }}" class="btn btn--ghost btn--sm">Sample</a>
+    {% endif %}
+    {% if book.status == 'upcoming' %}
+      <a href="#newsletter" class="btn btn--ghost btn--sm">Notify me</a>
+    {% endif %}
+  </div>
+</article>

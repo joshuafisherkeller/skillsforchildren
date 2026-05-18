@@ -1,0 +1,22 @@
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="{{ '/' | relative_url }}" class="brand">
+      <img src="{{ '/assets/img/logos/sfk-logo-icon.png' | relative_url }}" alt="Skills for Children logo" width="36" height="36">
+      <span>Skills for Children</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="is-active"{% endif %}>Home</a></li>
+      <li><a href="{{ '/#resources' | relative_url }}" >Resources</a></li>
+      <li><a href="{{ '/books' | relative_url }}" {% if page.url contains '/books' %}class="is-active"{% endif %}>Books</a></li>
+      <li><a href="{{ '/blog' | relative_url }}" {% if page.url contains '/blog' %}class="is-active"{% endif %}>Blog</a></li>
+      <li><a href="https://www.youtube.com/@SkillsforChildren" target="_blank" rel="noopener">Videos</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="icon-moon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></span>
+        <span class="icon-sun"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
+      </button>
+      <a href="{{ '/#newsletter' | relative_url }}" class="btn btn--primary btn--sm">Subscribe<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="arrow"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</header>

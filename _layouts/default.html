@@ -1,107 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" {% unless page.theme %}{% endunless %}>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    {% if page.title %}
-        <title>{{ page.title }} - {{ site.title }}</title>
-    {% else %}
-        <title>{{ site.title }} - Free Trauma-Informed Resources for Kids & Families</title>
-    {% endif %}
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    <meta name="keywords" content="childhood trauma resources, trauma-informed care, resilience for kids, coping skills for children, TF-CBT, adverse childhood experiences, ACEs, emotional regulation, grounding techniques for kids, 5-4-3-2-1 technique, co-regulation, felt safety, butterfly hug">
-    <meta name="author" content="{{ site.author }}">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="{{ page.url | absolute_url }}">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
-    <meta property="og:url" content="{{ page.url | absolute_url }}">
-    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    <meta property="og:image" content="https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/SFK%20HERO.png">
-    <meta property="og:site_name" content="{{ site.title }}">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="{{ page.url | absolute_url }}">
-    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/SFK%20HERO.png">
-    
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "{{ site.title }}",
-        "url": "{{ site.url }}",
-        "logo": "{{ site.logo }}",
-        "description": "{{ site.description }}",
-        "founder": {
-            "@type": "Person",
-            "name": "{{ site.author }}",
-            "jobTitle": "Author & Child Mental Health Advocate",
-            "worksFor": {
-                "@type": "Organization",
-                "name": "Children's Trauma Assessment Center (CTAC)"
-            }
-        },
-        "sameAs": [
-            "https://www.youtube.com/@{{ site.youtube }}",
-            "{{ site.amazon_author }}"
-        ]
-    }
-    </script>
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FOUC prevention: set theme before first paint -->
+  {% include theme-script.html %}
+
+  {% if page.title %}
+    <title>{{ page.title }} — {{ site.title }}</title>
+  {% else %}
+    <title>{{ site.title }} — Free Evidence-Based Resources for Kids &amp; Families</title>
+  {% endif %}
+
+  <!-- SEO Meta -->
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="keywords" content="childhood trauma resources, trauma-informed care, resilience for kids, coping skills for children, TF-CBT, adverse childhood experiences, ACEs, emotional regulation, grounding techniques for kids, 5-4-3-2-1 technique, co-regulation, felt safety, butterfly hug, growth mindset, executive function">
+  <meta name="author" content="Joshua Fisherkeller, MSW | Skills for Children">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:image" content="{{ site.url }}/assets/img/SFK HERO.png">
+  <meta property="og:site_name" content="{{ site.title }}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="{{ page.url | absolute_url }}">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="twitter:image" content="{{ site.url }}/assets/img/SFK HERO.png">
+
+  <!-- jekyll-seo-tag (handles additional structured meta) -->
+  {% seo %}
+
+  <!-- Schema.org Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Skills for Children",
+    "url": "https://skillsforchildren.com",
+    "logo": "https://skillsforchildren.com/assets/img/logos/sfk-logo-transparent.png",
+    "description": "{{ site.description | escape }}",
+    "founder": {
+      "@type": "Person",
+      "name": "Joshua Fisherkeller",
+      "honorificSuffix": "MSW",
+      "jobTitle": "Children's Mental Health Author & Educator"
+    },
+    "sameAs": [
+      "https://www.youtube.com/@SkillsforChildren",
+      "https://www.amazon.com/stores/Joshua-Fisherkeller/author/B0DPXN44YW"
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 </head>
 <body>
-    <!-- Quick Exit Button -->
-    <a href="https://www.weather.com" class="quick-exit" title="Click to quickly leave this site">⚡ Quick Exit</a>
-    
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="{{ '/' | relative_url }}">
-                    <img src="https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/Skills%20for%20children%20White%20Logo%20transparent.png" alt="Skills for Children" class="header-logo">
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="{{ '/' | relative_url }}#resources">Resources</a></li>
-                <li><a href="{{ '/blog' | relative_url }}">Blog</a></li>
-                <li><a href="{{ '/' | relative_url }}#books">Books</a></li>
-                <li><a href="{{ '/' | relative_url }}#journals">Journals</a></li>
-                <li><a href="{{ '/' | relative_url }}#videos">Videos</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Main Content -->
-    <main>
-        {{ content }}
-    </main>
+  {% include quick-exit.html %}
+  {% include header.html %}
 
-    <!-- Footer -->
-    <footer>
-        <img src="https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/Skills%20for%20children%20White%20Logo%20transparent.png" alt="Skills for Children" class="footer-logo">
-        <p>&copy; {{ 'now' | date: "%Y" }} Skills for Children. All rights reserved.</p>
-        <p>Created by {{ site.author }}</p>
-        <div class="social-links">
-            <a href="https://www.youtube.com/@{{ site.youtube }}" target="_blank">YouTube</a>
-            <a href="{{ site.amazon_author }}" target="_blank">Amazon</a>
-        </div>
-    </footer>
+  <main>
+    {{ content }}
+  </main>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="toast">Link copied to clipboard!</div>
+  {% include footer.html %}
 
-    <!-- JavaScript -->
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <!-- Toast notification -->
+  <div class="toast" id="toast">Copied to clipboard</div>
+
+  <!-- JS bundle -->
+  <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+
 </body>
 </html>

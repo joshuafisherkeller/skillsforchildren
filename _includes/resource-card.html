@@ -1,43 +1,49 @@
 {% assign resource = include.resource %}
+{% assign section_id = include.section %}
 
-<div class="resource-card">
-    <div class="resource-header">
-        <span class="badge badge-{{ resource.audience | downcase | replace: ' ', '-' }}">{{ resource.audience }}</span>
-        <span class="format-icon">
-            {% if resource.format == "Video" %}🎬
-            {% elsif resource.format == "PDF" %}📄
-            {% elsif resource.format == "Website" %}🌐
-            {% elsif resource.format == "Interactive" %}🎮
-            {% elsif resource.format == "Worksheet" %}📝
-            {% elsif resource.format == "Guide" %}📖
-            {% else %}📌
-            {% endif %}
-            {{ resource.format }}
-        </span>
-    </div>
-    
+<div class="rcard-wrapper"
+     data-audience="{{ resource.audience | downcase }}"
+     data-format="{{ resource.format | downcase }}"
+     data-section="{{ section_id }}"
+     data-title="{{ resource.title | downcase | escape }}"
+     data-desc="{{ resource.description | downcase | escape }}"
+     data-source="{{ resource.source | downcase | escape }}">
+
+  <article class="rcard{% if resource.video_embed %} rcard--video{% endif %}"
+           data-audience="{{ resource.audience | downcase }}"
+           data-format="{{ resource.format | downcase }}"
+           data-section="{{ section_id }}"
+           data-title="{{ resource.title | downcase | escape }}"
+           data-desc="{{ resource.description | downcase | escape }}"
+           data-source="{{ resource.source | downcase | escape }}">
+
     {% if resource.video_embed %}
-    <div class="resource-video-embed">
-        <iframe src="{{ resource.video_embed }}" frameborder="0" allowfullscreen></iframe>
-    </div>
+      <div class="rvideo">
+        <iframe src="{{ resource.video_embed }}" loading="lazy" allowfullscreen title="{{ resource.title | escape }}"></iframe>
+      </div>
     {% endif %}
-    
+
+    <div class="rcard-top">
+      <span class="badge badge--{{ resource.audience | downcase | replace: ' ', '-' }}">{{ resource.audience }}</span>
+      <span class="rcard-fmt">{{ resource.format }}</span>
+    </div>
+
     <h4>{{ resource.title }}</h4>
-    
+
     {% if resource.description %}
-    <p class="resource-desc">{{ resource.description }}</p>
+      <p class="rcard-desc">{{ resource.description }}</p>
     {% endif %}
-    
+
     {% if resource.source %}
-    <p class="resource-source">{{ resource.source }}</p>
+      <p class="rcard-source">{{ resource.source }}</p>
     {% endif %}
-    
-    <div class="resource-actions">
-        <a href="{{ resource.url }}" target="_blank" class="resource-link">
-            Open Resource →
-        </a>
-        <button class="copy-link-btn" onclick="copyLink('{{ resource.url }}', this)">
-            📋 Copy Link
-        </button>
+
+    <div class="rcard-actions">
+      <a href="{{ resource.url }}" target="_blank" rel="noopener" class="rcard-link">Open resource
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" class="arrow"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+      <button class="rcard-copy" data-copy="{{ resource.url | escape }}" type="button">Copy link</button>
     </div>
+
+  </article>
 </div>

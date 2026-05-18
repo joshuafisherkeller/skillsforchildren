@@ -21,6 +21,7 @@ exclude:
   - node_modules
   - vendor
   - README.md
+  - _relaunch_inspect
 
 # Plugins
 plugins:
@@ -28,8 +29,8 @@ plugins:
   - jekyll-seo-tag
 
 # SEO Settings
-author: Joshua Fisherkeller
-logo: https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/sfk%20logo%20transparent.png
+author: "Joshua Fisherkeller, MSW | Skills for Children"
+logo: /assets/img/logos/sfk-logo-transparent.png
 
 # Social
 twitter:

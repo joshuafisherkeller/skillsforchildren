@@ -1,0 +1,35 @@
+<!-- Newsletter section — dark ink background with Kit form embed -->
+<!-- TODO: Kit form (data-uid="52934f03c9") is wired below. If the Kit embed
+     renders its own form, remove the .newsletter-form below and let Kit's
+     script render inline. To switch, add data-kit-handled="true" to the form. -->
+<section class="container section" id="newsletter">
+  <div class="newsletter reveal">
+    <div class="newsletter-inner">
+      <div>
+        <div class="eyebrow">Stay connected</div>
+        {% if include.headline %}
+          <h2 style="margin-top:14px">{{ include.headline }}</h2>
+        {% else %}
+          <h2 style="margin-top:14px">A monthly note &mdash;<br>resources, not noise.</h2>
+        {% endif %}
+      </div>
+      <div>
+        {% if include.body %}
+          <p>{{ include.body }}</p>
+        {% else %}
+          <p>One thoughtful email each month: new resources, trauma-informed strategies, and growth-mindset stories. No spam. Unsubscribe with one click.</p>
+        {% endif %}
+        <!-- Kit (ConvertKit) embed — data-uid="52934f03c9" -->
+        <script async data-uid="52934f03c9" src="https://skills-for-children.kit.com/52934f03c9/index.js"></script>
+        <!-- Fallback inline form shown if Kit script is slow or blocked -->
+        <noscript>
+          <form class="newsletter-form" style="margin-top:24px" action="https://skills-for-children.kit.com/52934f03c9/index.js" method="post">
+            <input type="email" name="email_address" placeholder="you@email.com" required aria-label="Email address">
+            <button class="btn btn--tan" type="submit">Subscribe</button>
+          </form>
+        </noscript>
+        <p class="newsletter-meta">Joining 3,400+ parents, educators, and therapists.</p>
+      </div>
+    </div>
+  </div>
+</section>

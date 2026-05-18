@@ -1,0 +1,35 @@
+{% assign post = include.post %}
+{% assign featured = include.featured %}
+
+<article class="post-card{% if featured %} post-card--featured{% endif %} reveal">
+  <div class="post-thumb">
+    {% if post.image %}
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" style="width:100%;height:100%;object-fit:cover">
+    {% else %}
+      <div class="post-thumb-label">
+        {% if featured %}Featured · {% endif %}{{ post.categories | first | default: 'Article' }}
+      </div>
+    {% endif %}
+  </div>
+  <div>
+    <div class="post-meta">
+      {% if post.categories %}
+        <span class="post-cat">{{ post.categories | first }}</span>
+      {% endif %}
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+      {% if post.read_time %}
+        <span>&middot;</span>
+        <span>{{ post.read_time }} min read</span>
+      {% endif %}
+      {% if post.author %}
+        <span>&middot;</span>
+        <span>{{ post.author }}</span>
+      {% endif %}
+    </div>
+    <h3>{{ post.title }}</h3>
+    <p>{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt | strip_html | truncatewords: 35 }}{% endif %}</p>
+    <a href="{{ post.url | relative_url }}" class="post-card-link">Read article
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" class="arrow"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>

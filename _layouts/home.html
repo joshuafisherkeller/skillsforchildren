@@ -1,273 +1,293 @@
 ---
 layout: default
-title: "Welcome to Skills for Children"
-description: "Nurturing children's well-being and enhancing their self-efficacy. Practical resources for parents, therapists, educators, and professionals to support the development of essential life skills in young minds."
 ---
 
-<!-- Hero Section -->
-<section class="hero">
-    <div class="hero-content">
-        <img src="https://raw.githubusercontent.com/joshuafisherkeller/skillsforchildren/main/Skills%20for%20children%20White%20Logo%20transparent.png" alt="Skills for Children Logo" class="hero-logo">
-        <h1>{{ page.title }}</h1>
-        <p>{{ page.description }}</p>
-        <div class="cta-buttons">
-            <a href="#books" class="btn btn-primary">Explore Our Books</a>
-            <a href="https://www.youtube.com/@SkillsforChildren" target="_blank" class="btn btn-secondary">Visit Our YouTube</a>
-            <a href="#resources" class="btn btn-accent">Find Resources</a>
-        </div>
-    </div>
-</section>
-
-<!-- Resource Spotlight Section -->
-<section style="background: linear-gradient(135deg, var(--blue-light) 0%, #fff 100%); padding: 4rem 2rem;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <h2 style="text-align: center; margin-bottom: 3rem;">🌟 Resource Spotlight</h2>
-        
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
-            <!-- Text Content - Left Side -->
-            <div>
-                <h3 style="color: var(--blue-primary); font-size: 2rem; margin-bottom: 1rem;">Try Something New</h3>
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 1rem;">
-                    A fun, upbeat song designed to teach children the power of a <strong>Growth Mindset</strong>. 
-                    Using bright piano, happy ukulele, and a catchy chorus, this video reminds kids that mistakes 
-                    are just part of learning and that their brains are getting stronger every time they try!
-                </p>
-                
-                <div style="background: var(--blue-light); padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem;">
-                    <p style="font-size: 0.95rem; color: #555; margin-bottom: 0.5rem;">
-                        <strong>🧩 Sensory-Friendly Design:</strong> Low-stimulation visuals with slow-paced animation 
-                        and gentle colors help children focus without becoming overstimulated.
-                    </p>
-                </div>
-                
-                <h4 style="color: var(--blue-primary); margin-bottom: 0.75rem;">🧠 What This Song Teaches:</h4>
-                <ul style="list-style: none; padding: 0; color: #555;">
-                    <li style="margin-bottom: 0.5rem;">✓ <strong>The Power of "YET"</strong> - You can't do it... yet!</li>
-                    <li style="margin-bottom: 0.5rem;">✓ <strong>Neuroplasticity</strong> - Your brain grows like a muscle</li>
-                    <li style="margin-bottom: 0.5rem;">✓ <strong>Resilience</strong> - Getting back up when you fall</li>
-                    <li style="margin-bottom: 0.5rem;">✓ <strong>Patience</strong> - It's okay to go slow</li>
-                </ul>
-            </div>
-            
-            <!-- Video - Right Side -->
-            <div>
-                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    <iframe 
-                        src="https://www.youtube.com/embed/fITPTH62DAo" 
-                        frameborder="0" 
-                        allowfullscreen
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px;"
-                    ></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Buy Me a Coffee - Above Resources -->
-<section style="background: #fff; padding: 2rem; text-align: center;">
-    <div style="max-width: 600px; margin: 0 auto;">
-        <p style="font-size: 1.1rem; color: #666; margin-bottom: 1rem;">
-            <strong>Curating resources is hard work! Keep the site alive and ad-free!</strong><br>
-            Even a buck helps! ☕
-        </p>
-        <a href="https://www.buymeacoffee.com/skillsforchildren" target="_blank">
-            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;">
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero container">
+  <div class="hero-grid">
+    <div class="reveal">
+      <div class="eyebrow hero-eyebrow">For parents &middot; educators &middot; therapists</div>
+      <h1>Helping kids grow the <em>skills</em> that help them through life.</h1>
+      <p class="hero-lede">A curated home for evidence-based books, songs, and free resources — from growth mindset and self-regulation to trauma recovery and everyday life skills.</p>
+      <div class="hero-ctas">
+        <a href="#resources" class="btn btn--primary">Browse resources
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="arrow"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
+        <a href="https://www.youtube.com/@SkillsforChildren" target="_blank" rel="noopener" class="btn btn--ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.4A3 3 0 0 0 1 7C.5 9 .5 12 .5 12s0 3 .5 5a3 3 0 0 0 2.1 2.1c1.9.4 8.9.4 8.9.4s7 0 8.9-.4A3 3 0 0 0 23 17c.5-2 .5-5 .5-5s0-3-.5-5zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+          Watch on YouTube
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-dots"><span></span><span></span><span></span><span></span></div>
+        <span>Trusted by parents, educators &amp; clinicians across the U.S.</span>
+      </div>
     </div>
+
+    <div class="hero-photo reveal" style="transition-delay:0.1s">
+      <img src="{{ '/assets/img/SFK HERO.png' | relative_url }}" alt="A child jumping with arms outstretched, full of energy and joy">
+      <div class="hero-floater hero-floater--tl">
+        <div class="hero-floater-dot">&#10022;</div>
+        <div>
+          <div>207 free resources</div>
+          <div class="hero-floater-meta">Evidence-based, vetted</div>
+        </div>
+      </div>
+      <div class="hero-floater hero-floater--br">
+        <div class="hero-floater-dot">&#9825;</div>
+        <div>
+          <div>17 skill pillars</div>
+          <div class="hero-floater-meta">Skills &middot; trauma &middot; life</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Resources Section -->
-<section id="resources" style="background: var(--light);">
-    <h2>Resources for Professionals & Families</h2>
-    <p style="text-align: center; color: #666; margin-bottom: 2rem;">Curated free resources for supporting children's development and trauma recovery</p>
-    
-    <div class="resources-info-box">
-        <p><strong>Share these resources!</strong> Use the "Copy Link" button on any resource to copy the URL to your clipboard. You can then paste and share it with clients, families, or colleagues.</p>
+<!-- ============================================================
+     STATS STRIP
+     ============================================================ -->
+<section class="container">
+  <div class="stats">
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-num">207</div><div class="stat-label">Curated free resources</div></div>
+      <div class="stat"><div class="stat-num">17</div><div class="stat-label">Skill pillars</div></div>
+      <div class="stat"><div class="stat-num">K&ndash;5</div><div class="stat-label">Age range focus</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free &amp; ad-free</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURED RESOURCE
+     ============================================================ -->
+<section class="container section">
+  <div class="section-head reveal">
+    <div class="section-head-text">
+      <div class="eyebrow">Resource spotlight</div>
+      <h2 style="margin-top:14px">A resource we keep coming back to.</h2>
+      <p>This week &mdash; a song that teaches kids the power of <em>"yet"</em>.</p>
+    </div>
+    <a href="#resources" class="btn btn--ghost btn--sm">See all resources
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" class="arrow"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <div class="featured reveal">
+    <div>
+      <div class="featured-tag">Now playing &middot; Growth mindset</div>
+      <h3>Try Something New</h3>
+      <p class="featured-desc">A fun, upbeat song designed to teach children the power of a growth mindset. Bright piano, happy ukulele, and a chorus that reminds kids that mistakes are part of learning &mdash; and their brains get stronger every time they try.</p>
+      <ul class="featured-list">
+        <li><strong>The power of &ldquo;YET&rdquo;</strong>&nbsp;&mdash; you can&rsquo;t do it&hellip; <em>yet</em>.</li>
+        <li><strong>Neuroplasticity</strong>&nbsp;&mdash; your brain grows like a muscle.</li>
+        <li><strong>Resilience</strong>&nbsp;&mdash; getting back up when you fall.</li>
+        <li><strong>Sensory-friendly design</strong>&nbsp;&mdash; slow pacing, gentle visuals.</li>
+      </ul>
+      <a href="https://www.youtube.com/@SkillsforChildren" target="_blank" rel="noopener" class="btn btn--primary">More songs like this
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="arrow"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="featured-video">
+      <iframe src="https://www.youtube.com/embed/fITPTH62DAo" title="Try Something New — Skills for Children" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BUY ME A COFFEE STRIP
+     ============================================================ -->
+<section class="container">
+  <div class="coffee reveal">
+    <div class="coffee-msg">
+      <div class="coffee-msg-icon">&#9749;</div>
+      <div class="coffee-msg-text">
+        <strong>Curating resources is hard work &mdash; and this site stays ad-free.</strong>
+        <span>Even a buck helps keep it growing.</span>
+      </div>
+    </div>
+    <a href="https://www.buymeacoffee.com/skillsforchildren" target="_blank" rel="noopener" class="btn btn--tan">Buy me a coffee
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="arrow"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
+     RESOURCES LIBRARY
+     ============================================================ -->
+<section class="container section" id="resources">
+  <div class="section-head reveal">
+    <div class="section-head-text">
+      <div class="eyebrow">The library</div>
+      <h2 style="margin-top:14px">Curated resources, organized by skill.</h2>
+      <p>207 free, evidence-based resources from organizations like Harvard&rsquo;s Center on the Developing Child, NCTSN, the CDC, and Zero to Three &mdash; sorted into 17 pillars so you can find what you need fast.</p>
+    </div>
+  </div>
+
+  <div class="resources-intro reveal">
+    <p><strong>Share these resources.</strong> Use Copy Link on any card to grab the URL &mdash; then paste it for clients, families, or colleagues.</p>
+    <a href="#submit" class="btn btn--ghost btn--sm">Suggest one &rarr;</a>
+  </div>
+
+  <!-- Search + filter bar -->
+  <div class="search-bar reveal">
+    <label class="search-input">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" id="searchInput" placeholder="Search 207 resources by title, source, or topic&hellip;" aria-label="Search resources">
+    </label>
+    <div class="filter-chip">
+      <select id="audienceFilter" aria-label="Audience">
+        <option value="">Any audience</option>
+        <option value="children">Children</option>
+        <option value="caregivers">Caregivers</option>
+        <option value="professionals">Professionals</option>
+        <option value="teens">Teens</option>
+      </select>
+    </div>
+    <div class="filter-chip">
+      <select id="formatFilter" aria-label="Format">
+        <option value="">Any format</option>
+        <option value="video">Video</option>
+        <option value="pdf">PDF</option>
+        <option value="website">Website</option>
+        <option value="interactive">Interactive</option>
+        <option value="worksheet">Worksheet</option>
+        <option value="guide">Guide</option>
+        <option value="book">Book</option>
+        <option value="curriculum">Curriculum</option>
+        <option value="article">Article</option>
+        <option value="activity list">Activity List</option>
+      </select>
+    </div>
+    <div class="filter-chip">
+      <select id="sectionFilter" aria-label="Section">
+        <option value="">All sections</option>
+        <option value="Skills for Children">Skills for Children</option>
+        <option value="Childhood Trauma">Childhood Trauma</option>
+      </select>
+    </div>
+    <button class="filter-clear" id="clearFilters" type="button">Clear</button>
+  </div>
+
+  <!-- ── Skills for Children pillars ── -->
+  <div class="pillar-section">
+    <div class="pillar-section-head reveal">
+      <div>
+        <h3>Skills for Children &mdash; K&ndash;5 Development</h3>
+        <p>Essential resources across eight foundational skill areas.</p>
+      </div>
+      <span class="pillar-section-count">108 resources &middot; 8 pillars</span>
     </div>
 
-    <!-- Search and Filter Bar -->
-    <div class="search-filter-container">
-        <div class="search-box">
-            <input type="text" id="resourceSearch" placeholder="🔍 Search resources by title, description, or source..." aria-label="Search resources">
-        </div>
-        
-        <div class="filter-controls">
-            <select id="audienceFilter" aria-label="Filter by audience">
-                <option value="">All Audiences</option>
-                <option value="Children">Children</option>
-                <option value="Caregivers">Caregivers</option>
-                <option value="Professionals">Professionals</option>
-                <option value="Teens">Teens</option>
-            </select>
-            
-            <select id="formatFilter" aria-label="Filter by format">
-                <option value="">All Formats</option>
-                <option value="Video">Video</option>
-                <option value="PDF">PDF</option>
-                <option value="Website">Website</option>
-                <option value="Interactive">Interactive</option>
-                <option value="Worksheet">Worksheet</option>
-                <option value="Guide">Guide</option>
-                <option value="Book">Book</option>
-                <option value="Curriculum">Curriculum</option>
-            </select>
-            
-            <select id="sectionFilter" aria-label="Filter by section">
-                <option value="">All Sections</option>
-                <option value="skills">Skills for Children</option>
-                <option value="trauma">Childhood Trauma</option>
-            </select>
-            
-            <button id="clearFilters" class="btn-clear-filters">Clear Filters</button>
-        </div>
-        
-        <div id="resultsCount" class="results-count"></div>
-    </div>
+    {% assign skills_data = site.data.skills-resources %}
+    {% for pillar in skills_data.pillars %}
+      {% include pillar.html pillar=pillar section="skills" %}
+    {% endfor %}
+  </div>
 
-    <!-- Skills for Children Section -->
-    <div class="section-divider">
-        <h3>Skills for Children: K-5 Professional Development</h3>
-        <p>Essential resources supporting children's development across eight foundational areas</p>
-    </div>
-
-    <div id="skillsResourcesContainer">
-        {% assign skills_data = site.data.skills-resources %}
-        {% for pillar in skills_data.pillars %}
-        <div class="resource-pillar" data-section="skills">
-            <div class="pillar-header" onclick="togglePillar(this)">
-                <h3>{{ pillar.icon }} {{ pillar.name }}</h3>
-                <span class="pillar-count">{{ pillar.resources.size }} resources</span>
-                <span class="toggle-icon">▼</span>
-            </div>
-            <div class="pillar-content">
-                {% for resource in pillar.resources %}
-                <div class="resource-card-wrapper" 
-                     data-audience="{{ resource.audience }}" 
-                     data-format="{{ resource.format }}"
-                     data-section="skills"
-                     data-title="{{ resource.title | downcase }}"
-                     data-description="{{ resource.description | downcase }}"
-                     data-source="{{ resource.source | downcase }}">
-                    {% include resource-card.html resource=resource %}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-
-    <!-- Childhood Trauma Section -->
-    <div class="section-divider">
+  <!-- ── Childhood Trauma pillars ── -->
+  <div class="pillar-section">
+    <div class="pillar-section-head reveal">
+      <div>
         <h3>Resources on Childhood Trauma</h3>
-        <p>Evidence-based tools for children, teens, caregivers, and professionals</p>
+        <p>Evidence-based tools for children, teens, caregivers, and clinicians.</p>
+      </div>
+      <span class="pillar-section-count">99 resources &middot; 9 pillars</span>
     </div>
 
-    <div class="definition-card">
-        <h4>📖 What is Childhood Trauma?</h4>
-        <p><strong>Childhood trauma</strong> refers to experiences that overwhelm a child's ability to cope—including abuse, neglect, loss of a caregiver, witnessing violence, or natural disasters. Trauma affects brain development, particularly the amygdala (fear response), hippocampus (memory), and prefrontal cortex (decision-making).</p>
-        <p><strong>The good news:</strong> With evidence-based support like TF-CBT (Trauma-Focused Cognitive Behavioral Therapy), co-regulation with trusted adults, and skills like grounding techniques, children's brains can heal and build resilience.</p>
-        <p>Below are free, curated resources organized by skill area to support trauma recovery in children ages 3-18.</p>
+    <div class="def-card reveal">
+      <div class="def-card-icon">&#128214;</div>
+      <div>
+        <h4>What is childhood trauma?</h4>
+        <p><strong>Childhood trauma</strong> refers to experiences that overwhelm a child&rsquo;s ability to cope &mdash; abuse, neglect, loss of a caregiver, witnessing violence, or natural disasters. Trauma affects brain development, particularly the amygdala, hippocampus, and prefrontal cortex.</p>
+        <p><strong>The good news:</strong> with evidence-based support like TF-CBT, co-regulation with trusted adults, and grounding techniques, children&rsquo;s brains can heal and build resilience. Below are free, curated resources organized by skill area for ages 3&ndash;18.</p>
+      </div>
     </div>
 
-    <div id="traumaResourcesContainer" class="trauma-section">
-        {% assign trauma_data = site.data.trauma-resources %}
-        {% for pillar in trauma_data.pillars %}
-        <div class="resource-pillar {% if pillar.id == 'tfcbt' %}tfcbt-section{% endif %}" data-section="trauma">
-            <div class="pillar-header" onclick="togglePillar(this)">
-                <h3>{{ pillar.icon }} {{ pillar.name }}</h3>
-                <span class="pillar-count">{{ pillar.resources.size }} resources</span>
-                <span class="toggle-icon">▼</span>
-            </div>
-            <div class="pillar-content">
-                {% for resource in pillar.resources %}
-                <div class="resource-card-wrapper" 
-                     data-audience="{{ resource.audience }}" 
-                     data-format="{{ resource.format }}"
-                     data-section="trauma"
-                     data-title="{{ resource.title | downcase }}"
-                     data-description="{{ resource.description | downcase }}"
-                     data-source="{{ resource.source | downcase }}">
-                    {% include resource-card.html resource=resource %}
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    {% assign trauma_data = site.data.trauma-resources %}
+    {% for pillar in trauma_data.pillars %}
+      {% include pillar.html pillar=pillar section="trauma" %}
+    {% endfor %}
+  </div>
 </section>
 
-<!-- Help Us Grow Section -->
-<section style="background: linear-gradient(135deg, var(--accent) 0%, var(--light) 100%); padding: 4rem 2rem;">
-    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-        <h2 style="color: var(--dark); margin-bottom: 1rem;">Help Us Grow</h2>
-        <p style="color: #666; font-size: 1.1rem; margin-bottom: 3rem; line-height: 1.8;">
-            Your feedback helps us curate the best resources for children, families, and professionals. 
-            Share your favorite resources or tell us what you need!
-        </p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-            <!-- Suggest a Resource -->
-            <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <h3 style="color: var(--blue-primary); margin-bottom: 1rem;">💡 Suggest a Resource</h3>
-                <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.6;">
-                    Know a great resource we should add? Share it with our community!
-                </p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScoF2tXwuGt-QduA_ZmUbhquOfx3C2KoSZcyE064N77bZIG-Q/viewform" 
-                   target="_blank" 
-                   class="btn btn-primary" 
-                   style="display: inline-block; width: auto;">
-                    Submit a Resource
-                </a>
-            </div>
-            
-            <!-- Request a Resource -->
-            <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <h3 style="color: var(--trauma-primary); margin-bottom: 1rem;">📝 Request a Resource</h3>
-                <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.6;">
-                    Looking for something specific? Let us know and we'll find it for you!
-                </p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc7DO6vJiPIENS_qc6cCzkFPBy53nGmJ6bEg43Mfc4W7zGZoA/viewform" 
-                   target="_blank" 
-                   class="btn btn-accent" 
-                   style="display: inline-block; width: auto;">
-                    Request a Resource
-                </a>
-            </div>
-        </div>
+<!-- ============================================================
+     HELP US GROW
+     ============================================================ -->
+<section class="container section" id="submit">
+  <div class="section-head reveal">
+    <div class="section-head-text">
+      <div class="eyebrow">Help us grow</div>
+      <h2 style="margin-top:14px">Got a favorite? Send it our way.</h2>
+      <p>This library lives and breathes because clinicians, parents, and educators share what&rsquo;s actually working in the room.</p>
     </div>
+  </div>
+  <div class="duo-grid">
+    <a class="duo-card reveal" href="https://docs.google.com/forms/d/e/1FAIpQLScoF2tXwuGt-QduA_ZmUbhquOfx3C2KoSZcyE064N77bZIG-Q/viewform" target="_blank" rel="noopener">
+      <div class="duo-card-mark">&#128161;</div>
+      <h3>Suggest a resource</h3>
+      <p>Know a great resource we should add? Share it and we&rsquo;ll review it for the library.</p>
+      <div class="duo-card-spacer"></div>
+      <span class="rcard-link">Submit a resource
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" class="arrow"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </span>
+    </a>
+    <a class="duo-card reveal" href="https://docs.google.com/forms/d/e/1FAIpQLSc7DO6vJiPIENS_qc6cCzkFPBy53nGmJ6bEg43Mfc4W7zGZoA/viewform" target="_blank" rel="noopener">
+      <div class="duo-card-mark">&#128221;</div>
+      <h3>Request a resource</h3>
+      <p>Looking for something specific? Tell us what you need and we&rsquo;ll find or build it.</p>
+      <div class="duo-card-spacer"></div>
+      <span class="rcard-link">Request a resource
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" class="arrow"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </span>
+    </a>
+  </div>
 </section>
 
-<!-- Books Section -->
-<section id="books">
-    <h2>Our Books</h2>
-    <div class="journals-grid">
-        <div class="journal-card">
-            <div class="journal-content">
-                <h3>A Journey of Brave Friends</h3>
-                <p>TF-CBT companion book for children processing trauma</p>
-                <a href="https://amzn.to/4qLZztE" target="_blank" class="btn btn-primary">View on Amazon</a>
-            </div>
-        </div>
+<!-- ============================================================
+     BOOKS FEATURE
+     ============================================================ -->
+<section class="container section" id="books">
+  <div class="section-head reveal">
+    <div class="section-head-text">
+      <div class="eyebrow">From our library</div>
+      <h2 style="margin-top:14px">Books written for big feelings.</h2>
+      <p>Story-led companion books that work alongside therapy and at-home routines.</p>
     </div>
+    <a href="{{ '/books' | relative_url }}" class="btn btn--ghost btn--sm">See all books
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" class="arrow"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="book-feature reveal">
+    <div class="book-cover-frame">
+      <div class="book-placeholder-label">Book cover &mdash; replace with real artwork</div>
+    </div>
+    <div>
+      <div class="eyebrow">TF-CBT companion &middot; ages 6&ndash;11</div>
+      <h3 style="margin:14px 0 16px">A Journey of Brave Friends</h3>
+      <p style="font-size:16px;line-height:1.65;color:var(--ink-soft);margin-bottom:24px">
+        A story-led companion for children processing trauma. Designed to sit alongside Trauma-Focused Cognitive Behavioral Therapy, it walks young readers through the stages of healing using characters they want to come back to &mdash; gently, at their own pace.
+      </p>
+      <ul class="featured-list" style="margin-bottom:28px">
+        <li><strong>Therapist-ready</strong>&nbsp;&mdash; maps to the PRACTICE protocol.</li>
+        <li><strong>Parent-friendly</strong>&nbsp;&mdash; includes a 4-page caregiver guide.</li>
+        <li><strong>Read-aloud tested</strong>&nbsp;&mdash; under 15 minutes per chapter.</li>
+      </ul>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="https://amzn.to/4qLZztE" target="_blank" rel="noopener" class="btn btn--primary">View on Amazon
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="arrow"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+        <a href="{{ '/books' | relative_url }}" class="btn btn--ghost">See all books</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Videos Section -->
-<section id="videos">
-    <h2>Educational Videos</h2>
-    <p style="text-align: center; color: #666; margin-bottom: 2rem;">Visit our YouTube channel for more trauma-informed content and growth mindset songs</p>
-    <div style="text-align: center;">
-        <a href="https://www.youtube.com/@SkillsforChildren" target="_blank" class="btn btn-secondary">Visit YouTube Channel</a>
-    </div>
-</section>
-
-<!-- Newsletter Section - Above Footer -->
-<section style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding: 4rem 2rem; text-align: center;">
-    <div style="max-width: 600px; margin: 0 auto;">
-        <h2 style="color: white; margin-bottom: 1rem;">Stay Connected</h2>
-        <p style="color: white; margin-bottom: 2rem; font-size: 1.1rem;">
-            Get updates on new resources, trauma-informed strategies, and growth mindset content delivered to your inbox.
-        </p>
-        <script async data-uid="52934f03c9" src="https://skills-for-children.kit.com/52934f03c9/index.js"></script>
-    </div>
-</section>
+<!-- ============================================================
+     NEWSLETTER
+     ============================================================ -->
+{% include newsletter.html
+   headline="A monthly note —<br>resources, not noise."
+   body="One thoughtful email each month: new resources, trauma-informed strategies, and growth-mindset stories. No spam. Unsubscribe with one click." %}

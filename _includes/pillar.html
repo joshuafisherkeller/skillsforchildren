@@ -1,0 +1,23 @@
+{% assign pillar = include.pillar %}
+{% assign section_id = include.section %}
+
+<details class="pillar reveal">
+  <summary>
+    <div class="pillar-icon">{{ pillar.icon }}</div>
+    <div class="pillar-title-wrap">
+      <div class="pillar-title">{{ pillar.name }}</div>
+      {% if pillar.description %}
+        <div class="pillar-desc">{{ pillar.description }}</div>
+      {% endif %}
+    </div>
+    <span class="pillar-count">{{ pillar.resources.size }} resources</span>
+    <div class="pillar-chevron">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+  </summary>
+  <div class="pillar-body">
+    {% for resource in pillar.resources %}
+      {% include resource-card.html resource=resource section=section_id %}
+    {% endfor %}
+  </div>
+</details>

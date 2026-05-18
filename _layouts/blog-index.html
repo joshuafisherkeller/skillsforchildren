@@ -1,0 +1,111 @@
+---
+layout: default
+---
+
+<!-- ============================================================
+     PAGE HERO
+     ============================================================ -->
+<section class="page-hero container reveal">
+  <div class="eyebrow">The journal</div>
+  <h1 style="margin-top:18px">Notes for the people raising&nbsp;the&nbsp;next generation.</h1>
+  <p>Evidence-based articles about childhood trauma, development, and the practical things that actually help &mdash; written for parents, educators, and clinicians.</p>
+  <div class="page-hero-meta">
+    <span style="font-family:var(--font-mono);letter-spacing:0.08em">{{ site.posts.size }} articles</span>
+    <span>&middot;</span>
+    <span>Updated monthly</span>
+    <span>&middot;</span>
+    <a href="#newsletter" style="color:var(--sage);font-weight:500">Subscribe to the newsletter &rarr;</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     BLOG GRID + SIDEBAR
+     ============================================================ -->
+<section class="container">
+  <div class="blog-grid">
+
+    <div class="blog-main">
+      {% if site.posts.size > 0 %}
+        {% assign first_post = site.posts.first %}
+        {% include post-card.html post=first_post featured=true %}
+
+        {% assign remaining = site.posts | slice: 1, 100 %}
+        {% for post in remaining %}
+          {% include post-card.html post=post %}
+        {% endfor %}
+      {% else %}
+        <div class="post-card reveal" style="grid-column:1/-1;padding:clamp(40px,5vw,64px);text-align:center">
+          <h3>No posts yet</h3>
+          <p style="margin-top:12px">Check back soon for evidence-based articles about childhood trauma and child development.</p>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- ── Sidebar ── -->
+    <aside class="blog-sidebar">
+
+      <!-- Categories -->
+      {% if site.posts.size > 0 %}
+      <div class="sidebar-card">
+        <h4>Categories</h4>
+        {% assign all_cats = site.posts | map: "categories" | flatten | uniq | sort %}
+        <ul>
+          {% for cat in all_cats %}
+            {% assign cat_count = site.posts | where_exp: "post", "post.categories contains cat" | size %}
+            <li>
+              <a href="{{ '/blog' | relative_url }}?category={{ cat | slugify }}">
+                {{ cat }}
+                <span>{{ cat_count }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <!-- Newsletter card -->
+      <div class="sidebar-card" style="background:linear-gradient(135deg,var(--wash-sage),var(--wash-tan));border-color:transparent">
+        <div class="eyebrow" style="color:var(--ink-soft)">Newsletter</div>
+        <h4 style="margin-top:10px">Never miss an article.</h4>
+        <p style="font-size:13.5px;color:var(--ink-soft);margin:6px 0 14px">One thoughtful email a month. No spam.</p>
+        <!-- Kit embed in sidebar -->
+        <script async data-uid="52934f03c9" src="https://skills-for-children.kit.com/52934f03c9/index.js"></script>
+        <noscript>
+          <form style="display:flex;flex-direction:column;gap:8px" action="https://skills-for-children.kit.com/52934f03c9/index.js" method="post">
+            <input type="email" name="email_address" placeholder="you@email.com" required aria-label="Email"
+              style="padding:11px 14px;border-radius:var(--r-pill);border:1px solid var(--border);font:inherit;font-size:14px;background:var(--paper);outline:none">
+            <button class="btn btn--primary btn--sm" style="justify-content:center">Subscribe</button>
+          </form>
+        </noscript>
+      </div>
+
+      <!-- Tag cloud -->
+      {% if site.posts.size > 0 %}
+      <div class="sidebar-card">
+        <h4>Popular tags</h4>
+        {% assign all_tags = site.posts | map: "tags" | flatten | uniq | sort %}
+        {% if all_tags.size > 0 %}
+          <div class="tag-cloud">
+            {% for tag in all_tags %}
+              <a href="{{ '/blog' | relative_url }}?tag={{ tag | slugify }}">{{ tag }}</a>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="tag-cloud">
+            <a href="#">TF-CBT</a>
+            <a href="#">Co-regulation</a>
+            <a href="#">Grounding</a>
+            <a href="#">Felt safety</a>
+            <a href="#">ACEs</a>
+            <a href="#">Resilience</a>
+            <a href="#">Brain breaks</a>
+            <a href="#">Bedtime</a>
+            <a href="#">Sensory diet</a>
+          </div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+    </aside>
+  </div>
+</section>
