@@ -1,2 +1,2 @@
-<!-- FOUC prevention: read theme from localStorage before first paint -->
-<script>(function(){try{var t=localStorage.getItem('sfk-theme');if(!t){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<!-- FOUC prevention: read theme from localStorage before first paint; dark is the brand default -->
+<script>(function(){try{var t=localStorage.getItem('sfk-theme');if(!t){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
