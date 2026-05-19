@@ -74,10 +74,53 @@
 
 ---
 
+### Session 2 — May 18, 2026
+**Task:** Books data cleanup — removed 3 fictitious book entries from `_data/books.yml`.
+**Files changed:** `_data/books.yml`
+**Commit:** b464410
+**Pushed to GitHub:** Yes
+
+Books removed:
+- `Try Something New` — exists as a song, not a book
+- `The Worry Garden` — not a real book
+- `When Mom Gets Big Feelings Too` — not a real book
+
+Books remaining: A Journey of Brave Friends (featured), Maximilian's Cosmic Adventure.
+
+---
+
+### Session 3 — May 18, 2026
+**Task:** 5-phase batch of changes: book-cover bugfix, brand wording, dark mode default, trauma page split, trauma article extraction.
+**Pushed to GitHub:** Yes
+
+#### Phase 1 — Book cover fix
+Fixed `_layouts/home.html` book feature section to render the real cover art (`assets/img/books/a-journey-of-brave-friends.jpg`) instead of a placeholder div.
+
+#### Phase 2 — Evidence-informed wording
+Replaced all instances of `evidence-based` → `evidence-informed` sitewide (excluding `_relaunch_inspect/`). Files touched: `_config.yml`, `_layouts/home.html`, `_layouts/blog-index.html`, `_layouts/default.html`, `_includes/footer.html`, `_data/skills-resources.yml`, `_data/trauma-resources.yml`, `_posts/2024-12-15-understanding-childhood-trauma.md`, `about.markdown`, `blog.html`, `index.html`, `IMPLEMENTATION_GUIDE.md`.
+
+#### Phase 3 — Dark mode default
+Changed `_includes/theme-script.html` so new visitors (no localStorage) get dark mode by default. The `prefers-color-scheme` check was removed entirely.
+
+#### Phase 4 — Homepage restructure
+- Removed the Childhood Trauma pillar section from `_layouts/home.html`
+- Added a 9th hub pillar (`<a class="pillar pillar--hub" href="/trauma/">`) after the 8 Skills pillars
+- Added `.pillar--hub` CSS rules to `assets/css/site.css`
+- Updated stats, floater text, and resource browser intro copy
+
+#### Phase 5 — /trauma page
+- Created `trauma.html` (front matter, permalink `/trauma/`)
+- Created `_layouts/trauma.html` (hero, search/filter, 9 trauma pillars, TORF book feature, article section, newsletter)
+- Created `_includes/articles/understanding-childhood-trauma.md` (extracted article body — single source of truth)
+- Updated `_posts/2024-12-15-understanding-childhood-trauma.md` to include the shared article file and added `canonical_url: https://skillsforchildren.com/trauma/`
+
+---
+
 ## Pending / TODOs (Josh's Action Items)
 
-- [ ] **Book cover images** — `_data/books.yml` still has empty `cover:` for Maximilian's Cosmic Adventure and Try Something New. Add real artwork to `assets/img/books/` and fill in the paths.
-- [ ] **Affiliate link discrepancy** — `SECOND_BRAIN.md` lists Maximilian's as `https://amzn.to/4nKyLHE` but the design handoff used `https://amzn.to/3MYO02Q`. Confirm which is the active affiliate link and update `_data/books.yml`.
+- [ ] **Book cover images** — `_data/books.yml` still has empty `cover:` for Maximilian's Cosmic Adventure. Add real artwork to `assets/img/books/` and fill in the path.
+- [ ] **Maximilian's affiliate link** — confirm whether the current link in books.yml (3MYO02Q) or the SECOND_BRAIN listing (4nKyLHE) is the active link. Update books.yml if needed.
+- [ ] **Prose styling on /trauma article section** — the article renders inside `.prose` class. Verify that the blog-post typography styles (line-height, h2/h3 sizing, blockquotes) apply correctly in the `.prose` container on the /trauma page. Add `.prose` CSS rules to site.css if needed.
 - [ ] **Missing products in books.yml** — `SECOND_BRAIN.md` lists 4 more products not yet in the site: *Resilient Forest Notebook* (`amzn.to/4hRXwjZ`), *Mother Earth in the Mountains* (`amzn.to/3WLboCH`), *Flower Mountain* (`amzn.to/499JQP0`), *Mushrooms and Mountains* (`amzn.to/43Zrcpj`). Decide whether to add these to the Books page or keep them separate.
 - [ ] **Kit newsletter** — Confirm Kit's embed script is rendering its form correctly on the live site. If it is, the noscript fallback is fine as-is.
 - [ ] **Google Analytics 4** — No GA4 snippet in site. If you want analytics, provide the `gtag.js` snippet and it goes in `_layouts/default.html` inside `<head>`.
@@ -96,11 +139,13 @@ JS file:        assets/js/site.js
 Fonts:          DM Sans (headings), Inter (body), JetBrains Mono (eyebrows/badges/meta)
 Light palette:  --cream #f6f4ef | --ink #1a3a2e | --sage #3d6b5a | --tan #c9a96e
 Dark mode:      [data-theme="dark"] block in site.css, toggled by JS, persisted to localStorage
+Theme default:  dark (new visitors). Toggle persists via localStorage['sfk-theme'].
 Breakpoints:    <980px (tablet collapse), <640px (mobile — nav links hidden)
 Scroll reveal:  .reveal class → .is-in added by IntersectionObserver (only if prefers-reduced-motion: no-preference)
 Resource cards: .rcard with data-audience, data-format, data-section, data-title, data-desc, data-source
 Pillars:        <details class="pillar"> — native HTML collapse, no JS required
 Toast:          window.showToast(msg) — #toast element in default layout
+Homepage:       8 skills pillars + 1 trauma hub pillar → /trauma/. Trauma page: 9 trauma pillars.
 ```
 
 ---
@@ -110,4 +155,199 @@ Toast:          window.showToast(msg) — #toast element in default layout
 > **Claude Cowork:** Paste any prompts you generate for Claude Code here, with a date and description header.
 > Format: `### [Date] — [Brief description of what the prompt is for]` then the prompt text.
 
-*(No Cowork prompts yet — add them here as they are generated.)*
+---
+
+### May 18, 2026 — Remove fictitious books from `_data/books.yml`
+
+**Context:** During the May 18 relaunch, three book entries were seeded into `_data/books.yml` that do not correspond to real books in Josh's catalog. They need to be removed before the books page can go live with accurate inventory.
+
+**Books to remove (all three entries in `_data/books.yml`):**
+1. `Try Something New` — exists as a *song* (live on Spotify), not a book. The book version is a future idea on the back burner. Do not leave a placeholder.
+2. `The Worry Garden` — not a real book; remove entirely.
+3. `When Mom Gets Big Feelings Too` — not a real book; remove entirely.
+
+**Books that stay (verify these remain untouched):**
+- `A Journey of Brave Friends` — published, featured. Affiliate link `https://amzn.to/4qLZztE` must be preserved exactly.
+- `Maximilian's Cosmic Adventure` — published. Affiliate link in the file is currently `https://amzn.to/3MYO02Q` but `SECOND_BRAIN.md` lists `https://amzn.to/4nKyLHE`. **Do not change this link** — Josh will resolve the discrepancy separately. Leave whatever is currently in the file.
+
+**Steps:**
+1. Open `_data/books.yml`.
+2. Delete the three entries listed above (the `Try Something New`, `The Worry Garden`, and `When Mom Gets Big Feelings Too` blocks, including any blank lines between them).
+3. Run `bundle exec jekyll serve` and visit `/books.html`. Confirm:
+   - Only two book cards render (A Journey of Brave Friends as featured hero + Maximilian's in the grid).
+   - No empty/upcoming card slots are left dangling. If the books layout has a special "upcoming" section that's now empty, hide it via a `{% if %}` check rather than leaving a visible empty container.
+   - Books page still has the praise/testimonials section and newsletter at the bottom.
+4. Update `Working_File.md`:
+   - Add a new "Session 2 — May 18, 2026" entry to the Session Log section above describing this cleanup and the commit hash.
+   - In "Pending / TODOs (Josh's Action Items)", **remove** the line about book cover for "Try Something New" (book doesn't exist) and **rewrite** the affiliate-link-discrepancy line to read: `**Maximilian's affiliate link** — confirm whether the current link in books.yml (3MYO02Q) or the SECOND_BRAIN listing (4nKyLHE) is the active link. Update books.yml if needed.` Leave all other TODOs untouched.
+5. Commit message: `chore(books): remove fictitious book entries from books.yml`
+6. Push to `main` and verify GitHub Pages deploy succeeds.
+
+**Brand rules in effect (do not violate):**
+- Preserve `https://amzn.to/4qLZztE` exactly.
+- Do not modify any other content on the books page — this is a data-only cleanup.
+- Do not mention CTAC anywhere.
+
+---
+
+### May 18, 2026 — Dark-mode default, wording change, trauma-page split, book-image bugfix
+
+**Context:** Josh reviewed the relaunch and has a batch of changes: a theme-default flip, a brand-wording change, an architectural restructure (split trauma resources out to their own page), and a bugfix. Execute in phases, commit each phase separately so it's easy to revert any one piece.
+
+---
+
+#### Phase 1 — Fix the book cover image on the homepage
+
+The *A Journey of Brave Friends* cover image (`assets/img/books/a-journey-of-brave-friends.jpg`) is not rendering on the homepage book-feature section. Diagnose and fix.
+
+Likely causes (check in this order):
+1. The file isn't actually committed to the repo (run `git ls-files | grep -i journey` — if empty, it was never committed).
+2. The path is hardcoded in `_layouts/home.html` instead of reading from `_data/books.yml`, and the hardcoded path is wrong.
+3. Case-sensitivity: GitHub Pages is case-sensitive. The file on disk vs. the path referenced in the layout may have a casing mismatch.
+4. The `.book-cover-frame` CSS may be sized 0×0 if no `aspect-ratio` or explicit dimensions are applied when an `<img>` is present (vs. when the placeholder frame is shown).
+5. The book-feature section may be reading from a different data source (hardcoded markup) rather than `_data/books.yml`.
+
+Fix the actual issue, then visually verify on a local `bundle exec jekyll serve` build. Commit: `fix(home): render book cover image in featured book section`
+
+---
+
+#### Phase 2 — Replace "evidence-based" with "evidence-informed" sitewide
+
+Josh's brand voice change (he's MSW — "evidence-informed" is the more accurate clinical claim for a resource-curation brand than "evidence-based").
+
+Find every occurrence of `evidence-based` (case-insensitive) across the entire repo and replace with `evidence-informed`. Match the casing pattern (e.g., `Evidence-Based` → `Evidence-Informed`).
+
+Search across:
+- `_config.yml` (site description likely has it)
+- `_layouts/*.html`
+- `_includes/*.html`
+- `_data/*.yml`
+- `_posts/*.md`
+- `*.html`, `*.markdown` at repo root
+- `README.md` if it exists in the repo
+
+Do NOT touch:
+- `_relaunch_inspect/` (excluded folder)
+- `assets/js/site.js` unless there's actually a string there
+- Anything inside `.git/`
+
+Use `grep -ri "evidence-based" .` (or `rg` if installed) to find every hit before you start. After the replace, re-run the grep to confirm zero remaining hits.
+
+Commit: `content: change brand wording from "evidence-based" to "evidence-informed"`
+
+---
+
+#### Phase 3 — Make dark mode the default theme
+
+Currently `_includes/theme-script.html` defaults to either system preference (`prefers-color-scheme`) or light. Flip this so dark is the default for first-time visitors, with the toggle still available to switch to light. Light preference, once chosen, persists via `localStorage['sfk-theme']` as before.
+
+Spec:
+- First-time visitor (no `localStorage['sfk-theme']` value): page renders dark.
+- Disregard `prefers-color-scheme` entirely. Brand wants dark by default regardless of OS setting.
+- Toggle button: clicking toggles between dark and light, persists choice to `localStorage`.
+- The toggle icon should start in the "show light option" state (sun icon visible on dark) for first-time visitors.
+- The FOUC-prevention script in `<head>` must set `data-theme="dark"` *before first paint* when no stored preference exists. No flash of light.
+
+After implementing, hard-refresh in an incognito window (no localStorage) to confirm dark loads first.
+
+Commit: `feat(theme): make dark mode the default for new visitors`
+
+---
+
+#### Phase 4 — Restructure homepage: 8 Skills pillars + 1 Trauma Resources hub pillar
+
+The homepage currently has two pillar sections: Skills (8 pillars) and Trauma (9 pillars) = 17 total. Restructure as follows:
+
+1. **Remove the entire Trauma pillar section from `_layouts/home.html`.** The trauma pillars no longer render on the homepage.
+
+2. **Add a 9th pillar to the Skills section** (after the existing 8). This pillar is a *navigation hub*, not an expandable accordion:
+   - **Title:** "Resources for Children Who Experienced a Traumatic Event"
+   - **Description:** "Curated resources, articles, and tools for caregivers, educators, and clinicians supporting children through trauma recovery."
+   - **Visual treatment:** Match the 8 Skills pillars in size, padding, and shadow — but use a `<a class="pillar pillar--hub" href="/trauma">` wrapper instead of `<details>`. No expand chevron; instead use a right-pointing arrow (`→`) icon to signal "navigate."
+   - **Eyebrow/badge:** Add a small mono-styled tag inside the card reading "Trauma resources hub" so visitors understand this pillar is different.
+   - Add a `.pillar--hub` CSS rule in `assets/css/site.css` if needed — minimal styling, mostly reuses the existing `.pillar` styles.
+   - Important: this is a *hub*, not a topic. Frame it visually so it doesn't read as another "skill."
+
+3. **Update the homepage resource browser intro text** — currently references "17 pillars" or similar. Update copy to reflect the new structure (e.g., "Browse our resource library, organized by 8 developmental focus areas plus a dedicated trauma resources hub.") — adjust to match the existing copy style.
+
+4. **Search across the entire codebase for "17 pillars" / "17-pillar" / "9 pillars" (in the trauma context) and update** copy, comments, and any data-driven counts. Working_File.md's "Key Design System Facts" section has a `17-pillar resource browser` reference — update it to `9-pillar homepage (8 skills + 1 trauma hub) + dedicated /trauma library page`.
+
+5. **Search/filter on homepage:** the filter dropdowns currently include "Section" with options "Skills" and "Trauma." Remove "Trauma" from the section filter on the homepage (no trauma cards left to filter). Or simpler: remove the section filter entirely on the homepage since all visible cards are skills.
+
+Commit: `feat(home): split trauma resources to dedicated hub pillar`
+
+---
+
+#### Phase 5 — Create `/trauma` page
+
+New page that hosts the full trauma resource library + the trauma article + the TORF book feature.
+
+**File: `trauma.html` at repo root** — front matter only, points to a new `trauma` layout.
+
+**File: `_layouts/trauma.html`** — new layout with this section order:
+
+1. **Header** (shared via `_includes/header.html`)
+2. **Quick-exit** (shared, must be present on this page — it's the trauma page, the trauma-safety pattern matters most here)
+3. **Page hero** — eyebrow "Trauma resources", h1 "Resources for Children Who Experienced a Traumatic Event", lede paragraph explaining the page (something like: "Free, evidence-informed resources from trusted institutions to support children, caregivers, educators, and clinicians through trauma recovery. Curated by Joshua Fisherkeller, MSW.")
+4. **Resource library section** — full search/filter bar (same UI as homepage) + all 9 trauma pillars rendered from `_data/trauma-resources.yml`. Reuse `_includes/pillar.html` (`section: "trauma"`) and `_includes/resource-card.html`. The search/filter JS on this page filters only the trauma cards.
+5. **Featured book section** — featured *A Journey of Brave Friends*. Reuse the home page's book-feature markup (the `.book-feature` block) reading from `_data/books.yml` (the entry with `is_featured: true`). This is the TORF book ad that Josh wants moved/duplicated to this page.
+6. **Article section** — full content of the existing trauma blog post (`_posts/2024-12-15-understanding-childhood-trauma.md`). See "Article handling" below.
+7. **Newsletter** (shared via `_includes/newsletter.html`)
+8. **Footer** (shared via `_includes/footer.html`)
+
+**Article handling — single source of truth:**
+
+To avoid duplicate-content issues (the trauma article would otherwise live at both `/blog/understanding-childhood-trauma/` and `/trauma/`), do the following:
+
+1. Move the *article body* (the markdown content, NOT the post itself) into a new file `_includes/articles/understanding-childhood-trauma.html` (converted from markdown to HTML — or keep as `.md` and use Jekyll's `markdownify` filter when including).
+2. Update `_posts/2024-12-15-understanding-childhood-trauma.md` to use `{% include articles/understanding-childhood-trauma.html %}` (or equivalent) as its body, so the blog post renders the same content.
+3. The new `_layouts/trauma.html` also includes the same file.
+4. Add `<link rel="canonical" href="https://skillsforchildren.com/trauma/">` to the *blog post* page (via `_layouts/post.html` checking front matter `canonical_url`, OR by setting `canonical_url` in the post's front matter and having the layout output it). This tells search engines `/trauma/` is the primary URL for this content.
+5. At the top of the blog post page, add a small notice block: "→ This article is part of our Trauma Resources hub. <a href='/trauma/'>View it there with linked resources.</a>"
+
+**Stretch goal — contextual hyperlinks:**
+
+In the article content (in the new shared include file), add 3–5 contextual hyperlinks from terms in the article body to specific trauma pillars/resources. Suggested anchor terms and targets (pick those that actually appear in the article):
+- "TF-CBT" / "Trauma-Focused Cognitive Behavioral Therapy" → `/trauma/#tf-cbt-core` (or whichever pillar ID covers TF-CBT)
+- "PRACTICE" / "PRACTICE protocol" → same TF-CBT pillar
+- "psychoeducation" → the Psychoeducation pillar
+- "grounding" / "grounding techniques" → the Relaxation pillar (or wherever grounding lives)
+- "co-regulation" → the Affective Modulation pillar
+- "trauma narrative" → the Trauma Narrative pillar
+
+Read `_data/trauma-resources.yml` first to map pillar IDs and pick the right anchor IDs. If the pillars don't have stable IDs yet, add them.
+
+Commit: `feat(trauma): create dedicated /trauma resource library page`
+
+---
+
+#### Phase 6 — Update Working_File.md and push
+
+1. Add a "Session 3 — May 18, 2026" entry to the Session Log section above. Cover all six phases. Note the new files created (`trauma.html`, `_layouts/trauma.html`, `_includes/articles/understanding-childhood-trauma.html`), the wording change, the theme flip, and the bugfix.
+2. Update the "Pending / TODOs" section: mark the book-cover-for-Maximilian's and 4-missing-journals items as still open. Add new items if any TODOs surfaced during execution.
+3. Update the "Key Design System Facts" block: change the pillars count description and add a line about `dark` being the default theme.
+4. Final commit covering Working_File.md updates: `docs: log Session 3 changes in Working_File.md`
+5. Push all commits to `main`. Verify GitHub Pages deploys and the live site reflects every change. Test in incognito for the dark-default behavior.
+
+---
+
+**Brand rules in effect across all phases:**
+- Preserve all Amazon affiliate links exactly (`amzn.to/4qLZztE`, `amzn.to/3MYO02Q` — do not modify).
+- Preserve Kit embed (`data-uid="52934f03c9"`), Buy Me a Coffee, Google Forms links, YouTube channel link.
+- Never mention CTAC.
+- Maintain "Joshua Fisherkeller, MSW" attribution where clinical credentials are relevant; default to "Skills for Children" otherwise.
+- Keep the Quick Exit pattern intact on every page (especially `/trauma`).
+- Use institutional sources only — do not add new resources or change source attributions during this work.
+
+**Test plan before considering done:**
+- [ ] Hard refresh homepage in incognito — loads dark.
+- [ ] Toggle to light, refresh — stays light. Toggle back, refresh — stays dark.
+- [ ] Homepage shows 9 pillars in the Skills section. 9th pillar is visually distinct (hub treatment), clicking it navigates to `/trauma`.
+- [ ] No trauma pillars render on the homepage outside the hub pillar.
+- [ ] `/trauma` loads: hero, search/filter, 9 trauma pillars, TORF book feature, article, newsletter, footer.
+- [ ] Search on `/trauma` filters only trauma cards (and works correctly).
+- [ ] Quick Exit button visible and functional on `/trauma`.
+- [ ] The book-cover image now renders on the homepage book feature.
+- [ ] `grep -ri "evidence-based"` across repo returns zero matches.
+- [ ] Blog post for trauma article still loads at its original URL, shows the "moved to hub" notice, has canonical pointing to `/trauma/`.
+- [ ] No console errors on any of the three pages.
