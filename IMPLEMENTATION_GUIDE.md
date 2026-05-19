@@ -2,7 +2,7 @@
 
 ## ✅ Mission Accomplished
 
-You now have **207 high-quality, evidence-based resources** across **17 pillars** ready for your Jekyll site!
+You now have **207 high-quality, evidence-informed resources** across **17 pillars** ready for your Jekyll site!
 
 ---
 
@@ -89,7 +89,7 @@ Two complete YAML data files ready to use:
 - 8 complete pillars
 - 108 resources with full metadata
 - NEW structure addressing all priority gaps
-- Evidence-based resources only
+- Evidence-informed resources only
 
 ---
 
@@ -201,7 +201,7 @@ Your current `home.html` layout is missing the hero section. Here's how to add i
 
 All 207 resources meet these criteria:
 
-✅ **Evidence-Based** - From authoritative organizations  
+✅ **Evidence-Informed** - From authoritative organizations  
 ✅ **Free or Freemium** - Accessible to all users  
 ✅ **Age-Appropriate** - Designed for K-5 or families  
 ✅ **Reputable Sources** - CDC, Harvard, NCTSN, AAP, etc.  
@@ -292,7 +292,7 @@ This migration taught:
 - Liquid templating with loops and includes
 - Reusable component design
 - Pillar-based content organization
-- Evidence-based resource curation
+- Evidence-informed resource curation
 
 ---
 

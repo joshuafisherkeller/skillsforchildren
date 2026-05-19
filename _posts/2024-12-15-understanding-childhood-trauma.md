@@ -2,7 +2,7 @@
 layout: post
 title: "Understanding Childhood Trauma: A Complete Guide for Parents and Professionals"
 date: 2024-12-15
-description: "Evidence-based information about childhood trauma, its effects on development, and effective strategies to help children heal. Learn about ACEs, trauma symptoms, and trauma-focused treatment options."
+description: "Evidence-informed information about childhood trauma, its effects on development, and effective strategies to help children heal. Learn about ACEs, trauma symptoms, and trauma-focused treatment options."
 categories: [Trauma Recovery, Child Development]
 author: Skills for Children
 ---
@@ -11,7 +11,7 @@ author: Skills for Children
 
 - Childhood trauma includes any experience that overwhelms a child's ability to cope, affecting brain development and emotional regulation
 - Most trauma-exposed children can recover with proper support, but early identification and intervention are critical
-- Evidence-based treatments like TF-CBT effectively reduce trauma symptoms in children and adolescents
+- Evidence-informed treatments like TF-CBT effectively reduce trauma symptoms in children and adolescents
 - Caregivers play a vital role in trauma recovery through co-regulation, safety, and support
 - Free, professional resources are available to help children heal from traumatic experiences
 
@@ -57,7 +57,7 @@ Traumatic experiences evoke strong biological responses that can persist and alt
 - **Hippocampus (Memory Processing):** May be impaired, causing fragmented memories and difficulty organizing traumatic experiences
 - **Prefrontal Cortex (Executive Functioning):** Development can be disrupted, affecting decision-making, impulse control, and emotional regulation
 
-The good news is that children's brains have remarkable plasticity. Ongoing neurobiological maturation and neural plasticity create continuing opportunities for recovery and adaptive developmental progression. With appropriate support and evidence-based treatment, children's brains can heal and develop healthier patterns.
+The good news is that children's brains have remarkable plasticity. Ongoing neurobiological maturation and neural plasticity create continuing opportunities for recovery and adaptive developmental progression. With appropriate support and evidence-informed treatment, children's brains can heal and develop healthier patterns.
 
 ### Common Trauma Responses in Children
 
@@ -121,7 +121,7 @@ While many children naturally recover from traumatic experiences with the suppor
 
 ---
 
-## Evidence-Based Treatment: Trauma-Focused Cognitive Behavioral Therapy (TF-CBT)
+## Evidence-Informed Treatment: Trauma-Focused Cognitive Behavioral Therapy (TF-CBT)
 
 Trauma-Focused Cognitive Behavioral Therapy (TF-CBT) is the most widely researched and effective treatment for childhood trauma. It has strong evidence supporting its effectiveness across diverse populations and trauma types.
 
@@ -235,4 +235,4 @@ For comprehensive, free resources on childhood trauma recovery, including:
 
 **References:**
 - NCTSN Core Curriculum Task Force. (2012). The 12 Core Concepts: Concepts for Understanding Traumatic Stress Responses in Children and Families. National Child Traumatic Stress Network.
-- Sachser, C., Berliner, L., Holt, T., Jensen, T. K., Jungbluth, N., Risch, E., Rosner, R., & Goldbeck, L. (2025). Improving access to evidence-based treatment for trauma-exposed children and youth: A primer. *European Journal of Psychotraumatology*.
+- Sachser, C., Berliner, L., Holt, T., Jensen, T. K., Jungbluth, N., Risch, E., Rosner, R., & Goldbeck, L. (2025). Improving access to evidence-informed treatment for trauma-exposed children and youth: A primer. *European Journal of Psychotraumatology*.

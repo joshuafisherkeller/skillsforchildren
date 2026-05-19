@@ -1,7 +1,7 @@
 name: "Childhood Trauma Resources"
 id: "trauma-resources"
 theme: "purple"
-description: "Evidence-based resources for understanding and healing from childhood trauma"
+description: "Evidence-informed resources for understanding and healing from childhood trauma"
 
 pillars:
   - id: "understanding-trauma"
@@ -187,7 +187,7 @@ pillars:
 
       - title: "Healthy Minds, Thriving Kids: Understanding Feelings"
         url: "https://childmind.org/healthyminds/"
-        description: "Free evidence-based video series teaching kids to recognize and understand their emotions"
+        description: "Free evidence-informed video series teaching kids to recognize and understand their emotions"
         audience: "Children"
         format: "Website"
         source: "Child Mind Institute"
@@ -593,7 +593,7 @@ pillars:
   - id: "tfcbt"
     name: "TF-CBT (Trauma-Focused Cognitive Behavioral Therapy)"
     icon: "🎓"
-    description: "Gold-standard evidence-based treatment for childhood trauma"
+    description: "Gold-standard evidence-informed treatment for childhood trauma"
     resources:
       - title: "TF-CBT: At-A-Glance"
         url: "https://tfcbt.org/tf-cbt-at-a-glance/"

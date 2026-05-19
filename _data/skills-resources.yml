@@ -1,7 +1,7 @@
 name: "Skills for Children"
 id: "skills-resources"
 theme: "blue"
-description: "Evidence-based resources to support child development across 8 key skill areas"
+description: "Evidence-informed resources to support child development across 8 key skill areas"
 
 pillars:
   - id: "executive-function"
@@ -60,7 +60,7 @@ pillars:
 
       - title: "Attention and Focus Exercises"
         url: "https://childmind.org/article/how-to-help-kids-with-focus-issues/"
-        description: "Evidence-based strategies to improve sustained attention in children"
+        description: "Evidence-informed strategies to improve sustained attention in children"
         audience: "Caregivers"
         format: "Article"
         source: "Child Mind Institute"
@@ -196,7 +196,7 @@ pillars:
 
       - title: "Coping Skills for Kids"
         url: "https://childmind.org/article/anxiety-and-coping-skills/"
-        description: "Evidence-based coping strategies for children experiencing anxiety"
+        description: "Evidence-informed coping strategies for children experiencing anxiety"
         audience: "Caregivers"
         format: "Website"
         source: "Child Mind Institute"
@@ -498,7 +498,7 @@ pillars:
     resources:
       - title: "CDC Physical Activity Guidelines for Children"
         url: "https://www.cdc.gov/physicalactivity/basics/children/index.htm"
-        description: "Evidence-based recommendations for daily physical activity by age"
+        description: "Evidence-informed recommendations for daily physical activity by age"
         audience: "Caregivers"
         format: "Guidelines"
         source: "Centers for Disease Control and Prevention"
@@ -580,7 +580,7 @@ pillars:
     resources:
       - title: "CDC Sleep Recommendations by Age"
         url: "https://www.cdc.gov/sleep/about/index.html"
-        description: "Evidence-based sleep duration guidelines for children ages 3-12"
+        description: "Evidence-informed sleep duration guidelines for children ages 3-12"
         audience: "Caregivers"
         format: "Fact Sheet"
         source: "Centers for Disease Control and Prevention"

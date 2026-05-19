@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "About — Skills for Children"
-description: "Skills for Children is a free, evidence-based resource library for parents, educators, and therapists — founded by Joshua Fisherkeller, MSW."
+description: "Skills for Children is a free, evidence-informed resource library for parents, educators, and therapists — founded by Joshua Fisherkeller, MSW."
 permalink: /about/
 ---
 
@@ -18,7 +18,7 @@ permalink: /about/
 
 ## Why this exists
 
-Every resource on this site is free, ungated, and evidence-based. No paywalls. No email-required downloads. No "buy our curriculum" content.
+Every resource on this site is free, ungated, and evidence-informed. No paywalls. No email-required downloads. No "buy our curriculum" content.
 
 The site draws from trusted institutions: Harvard's Center on the Developing Child, the National Child Traumatic Stress Network (NCTSN), the CDC, CASEL, Child Mind Institute, Understood.org, Stanford PERTS, and Zero to Three — because credibility matters when you're working with vulnerable kids and families.
 
