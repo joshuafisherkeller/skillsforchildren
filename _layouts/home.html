@@ -38,8 +38,8 @@ layout: default
       <div class="hero-floater hero-floater--br">
         <div class="hero-floater-dot">&#9825;</div>
         <div>
-          <div>17 skill pillars</div>
-          <div class="hero-floater-meta">Skills &middot; trauma &middot; life</div>
+          <div>8 skill pillars</div>
+          <div class="hero-floater-meta">Skills &middot; trauma hub &middot; life</div>
         </div>
       </div>
     </div>
@@ -53,7 +53,7 @@ layout: default
   <div class="stats">
     <div class="stats-grid">
       <div class="stat"><div class="stat-num">207</div><div class="stat-label">Curated free resources</div></div>
-      <div class="stat"><div class="stat-num">17</div><div class="stat-label">Skill pillars</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">Resource pillars</div></div>
       <div class="stat"><div class="stat-num">K&ndash;5</div><div class="stat-label">Age range focus</div></div>
       <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free &amp; ad-free</div></div>
     </div>
@@ -122,7 +122,7 @@ layout: default
     <div class="section-head-text">
       <div class="eyebrow">The library</div>
       <h2 style="margin-top:14px">Curated resources, organized by skill.</h2>
-      <p>207 free, evidence-informed resources from organizations like Harvard&rsquo;s Center on the Developing Child, NCTSN, the CDC, and Zero to Three &mdash; sorted into 17 pillars so you can find what you need fast.</p>
+      <p>207 free, evidence-informed resources from organizations like Harvard&rsquo;s Center on the Developing Child, NCTSN, the CDC, and Zero to Three &mdash; organized across 8 developmental skill areas plus a dedicated <a href="/trauma/">trauma resources hub</a>.</p>
     </div>
   </div>
 
@@ -165,7 +165,7 @@ layout: default
       <select id="sectionFilter" aria-label="Section">
         <option value="">All sections</option>
         <option value="Skills for Children">Skills for Children</option>
-        <option value="Childhood Trauma">Childhood Trauma</option>
+
       </select>
     </div>
     <button class="filter-clear" id="clearFilters" type="button">Clear</button>
@@ -178,7 +178,7 @@ layout: default
         <h3>Skills for Children &mdash; K&ndash;5 Development</h3>
         <p>Essential resources across eight foundational skill areas.</p>
       </div>
-      <span class="pillar-section-count">108 resources &middot; 8 pillars</span>
+      <span class="pillar-section-count">108 resources &middot; 8 pillars + trauma hub</span>
     </div>
 
     {% assign skills_data = site.data.skills-resources %}
@@ -187,29 +187,18 @@ layout: default
     {% endfor %}
   </div>
 
-  <!-- ── Childhood Trauma pillars ── -->
-  <div class="pillar-section">
-    <div class="pillar-section-head reveal">
-      <div>
-        <h3>Resources on Childhood Trauma</h3>
-        <p>Evidence-informed tools for children, teens, caregivers, and clinicians.</p>
-      </div>
-      <span class="pillar-section-count">99 resources &middot; 9 pillars</span>
-    </div>
 
-    <div class="def-card reveal">
-      <div class="def-card-icon">&#128214;</div>
-      <div>
-        <h4>What is childhood trauma?</h4>
-        <p><strong>Childhood trauma</strong> refers to experiences that overwhelm a child&rsquo;s ability to cope &mdash; abuse, neglect, loss of a caregiver, witnessing violence, or natural disasters. Trauma affects brain development, particularly the amygdala, hippocampus, and prefrontal cortex.</p>
-        <p><strong>The good news:</strong> with evidence-informed support like TF-CBT, co-regulation with trusted adults, and grounding techniques, children&rsquo;s brains can heal and build resilience. Below are free, curated resources organized by skill area for ages 3&ndash;18.</p>
+    <!-- Trauma hub pillar — navigates to /trauma page -->
+    <a class="pillar pillar--hub" href="/trauma/">
+      <div class="pillar-header">
+        <div class="pillar-title-wrap">
+          <span class="pillar-eyebrow">Trauma resources hub</span>
+          <span class="pillar-title">Resources for Children Who Experienced a Traumatic Event</span>
+        </div>
+        <span class="pillar-hub-arrow">→</span>
       </div>
-    </div>
-
-    {% assign trauma_data = site.data.trauma-resources %}
-    {% for pillar in trauma_data.pillars %}
-      {% include pillar.html pillar=pillar section="trauma" %}
-    {% endfor %}
+      <p class="pillar-desc">Curated resources, articles, and tools for caregivers, educators, and clinicians supporting children through trauma recovery.</p>
+    </a>
   </div>
 </section>
 

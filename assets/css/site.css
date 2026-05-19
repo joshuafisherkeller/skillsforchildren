@@ -1439,3 +1439,40 @@ img, svg, video { display: block; max-width: 100%; }
   outline-offset: 3px;
   border-radius: 6px;
 }
+
+/* Trauma hub pillar */
+.pillar--hub {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid var(--sage);
+  cursor: pointer;
+}
+.pillar--hub:hover {
+  background: color-mix(in srgb, var(--sage) 8%, transparent);
+  border-color: var(--ink);
+}
+.pillar--hub .pillar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.pillar-hub-arrow {
+  font-size: 1.4rem;
+  color: var(--sage);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.pillar--hub:hover .pillar-hub-arrow {
+  transform: translateX(4px);
+}
+.pillar-eyebrow {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 4px;
+}
