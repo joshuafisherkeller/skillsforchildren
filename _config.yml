@@ -22,6 +22,8 @@ exclude:
   - vendor
   - README.md
   - _relaunch_inspect
+  - Working_File.md
+  - IMPLEMENTATION_GUIDE.md
 
 # Plugins
 plugins:
