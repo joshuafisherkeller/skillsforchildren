@@ -42,35 +42,3 @@
   status: published
   is_featured: false
 
-- title: "Try Something New"
-  cover: ""
-  meta: "Growth mindset · ages 4–9"
-  description: >
-    A picture-book companion to the song — about the power of "yet," patience, and
-    brains that get stronger every time you try.
-  affiliate_url: ""
-  sample_url: ""
-  status: published
-  is_featured: false
-
-- title: "The Worry Garden"
-  cover: ""
-  meta: "Anxiety · ages 5–10"
-  description: >
-    A picture-book metaphor for how worries grow — and what happens when we tend them
-    with curiosity instead of fear.
-  affiliate_url: ""
-  status: upcoming
-  is_featured: false
-  coming_label: "Coming late 2026"
-
-- title: "When Mom Gets Big Feelings Too"
-  cover: ""
-  meta: "Co-regulation · ages 4–8"
-  description: >
-    A book about the messy, beautiful truth that grown-ups have feelings — and that's
-    how kids learn to ride them out.
-  affiliate_url: ""
-  status: upcoming
-  is_featured: false
-  coming_label: "Coming 2027"
