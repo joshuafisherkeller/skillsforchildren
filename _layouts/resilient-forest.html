@@ -1,0 +1,774 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{% if page.title %}{{ page.title }}{% else %}A Journey of Brave Friends — Tales of the Resilient Forest{% endif %}</title>
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}A Trauma-Focused Cognitive Behavioral Therapy companion for children and trusted adults.{% endif %}">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Nunito:wght@300;400;500;600;700&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<!-- FOUC: read stored theme but this page always uses its own light palette -->
+<script>(function(){try{var t=localStorage.getItem('sfk-theme');}catch(e){}})();</script>
+
+<style>
+  :root {
+    --ink: #20281d;
+    --ink-soft: #3d4a36;
+    --cream: #f5ecd6;
+    --cream-deep: #ead9b3;
+    --paper: #fbf5e3;
+    --moss: #4d6b3a;
+    --moss-deep: #2f4524;
+    --leaf: #6b8a47;
+    --meadow: #b9cf7c;
+    --ember: #d97b3a;
+    --ember-soft: #e8a85c;
+    --sky: #8fb9d6;
+    --sky-deep: #5a8bb0;
+    --stone: #7d8a8e;
+    --rose: #cf8b8b;
+    --font-display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+    --font-body: "Nunito", system-ui, sans-serif;
+    --font-hand: "Caveat", "Segoe Script", cursive;
+    --max-w: 1180px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .paper-texture {
+    position: relative;
+    background:
+      radial-gradient(at 20% 30%, rgba(217,123,58,.04) 0,transparent 50%),
+      radial-gradient(at 80% 70%, rgba(77,107,58,.04) 0,transparent 50%),
+      var(--paper);
+  }
+  .paper-texture::before {
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(circle at 1px 1px,rgba(32,40,29,.04) 1px,transparent 0);
+    background-size:24px 24px;pointer-events:none;opacity:.6;
+  }
+  nav.top {
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 36px;
+    transition:background-color .4s ease,backdrop-filter .4s ease,border-color .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  nav.top.scrolled {
+    background:rgba(251,245,227,.85);
+    backdrop-filter:blur(12px) saturate(1.1);
+    -webkit-backdrop-filter:blur(12px) saturate(1.1);
+    border-bottom-color:rgba(32,40,29,.08);
+  }
+  nav.top .brand {
+    font-family:var(--font-display);font-style:italic;font-weight:500;
+    font-size:20px;color:var(--cream);letter-spacing:.01em;
+    transition:color .4s ease;text-decoration:none;
+  }
+  nav.top.scrolled .brand { color:var(--moss-deep); }
+  nav.top .brand small {
+    display:block;font-family:var(--font-body);font-style:normal;
+    font-size:10px;letter-spacing:.22em;text-transform:uppercase;opacity:.8;margin-top:2px;
+  }
+  nav.top ul { display:flex;gap:32px;list-style:none;margin:0;padding:0; }
+  nav.top ul a {
+    color:var(--cream);text-decoration:none;font-size:13px;letter-spacing:.06em;
+    font-weight:500;text-transform:uppercase;transition:color .4s ease,opacity .2s ease;
+    opacity:.92;text-shadow:0 1px 8px rgba(32,40,29,.35);
+  }
+  nav.top ul a:hover { opacity:1; }
+  nav.top.scrolled ul a { color:var(--ink-soft);text-shadow:none; }
+  nav.top .back-link {
+    font-family:var(--font-body);font-size:12px;letter-spacing:.06em;font-weight:600;
+    text-transform:uppercase;color:var(--cream);text-decoration:none;opacity:.85;
+    transition:opacity .2s ease,color .4s ease;display:flex;align-items:center;gap:6px;
+  }
+  nav.top.scrolled .back-link { color:var(--ink-soft); }
+  nav.top .back-link:hover { opacity:1; }
+
+  header.hero {
+    position:relative;height:100vh;min-height:720px;overflow:hidden;
+    display:flex;align-items:flex-end;justify-content:center;
+    color:var(--cream);isolation:isolate;
+  }
+  .hero-bg {
+    position:absolute;inset:-8% 0 0 0;
+    background-image:url("{{ '/assets/img/resilient-forest/cover.png' | relative_url }}");
+    background-size:cover;background-position:center 30%;will-change:transform;z-index:-2;
+  }
+  .hero-vignette {
+    position:absolute;inset:0;
+    background:linear-gradient(to bottom,rgba(32,40,29,.05) 0%,rgba(32,40,29,0) 30%,rgba(32,40,29,.25) 70%,rgba(32,40,29,.7) 100%);
+    z-index:-1;
+  }
+  .hero-grain {
+    position:absolute;inset:0;
+    background-image:radial-gradient(circle at 30% 20%,rgba(245,236,214,.08),transparent 60%),radial-gradient(circle at 70% 80%,rgba(217,123,58,.1),transparent 60%);
+    mix-blend-mode:soft-light;pointer-events:none;z-index:-1;
+  }
+  .hero-content { text-align:center;padding:0 32px 96px;max-width:920px; }
+  .hero-eyebrow {
+    font-family:var(--font-body);font-size:11px;letter-spacing:.36em;
+    text-transform:uppercase;font-weight:600;opacity:.88;margin-bottom:28px;
+    display:inline-flex;align-items:center;gap:14px;
+  }
+  .hero-eyebrow::before,.hero-eyebrow::after {
+    content:"";height:1px;width:36px;background:currentColor;opacity:.5;
+  }
+  .hero-title {
+    font-family:var(--font-display);font-weight:500;font-style:italic;
+    font-size:clamp(48px,8vw,116px);line-height:.95;letter-spacing:-.01em;
+    margin:0 0 24px;text-shadow:0 4px 32px rgba(32,40,29,.45);text-wrap:balance;
+  }
+  .hero-title .amp { font-weight:400;font-style:italic;opacity:.85; }
+  .hero-subtitle {
+    font-family:var(--font-display);font-style:italic;font-weight:400;
+    font-size:clamp(17px,1.6vw,22px);opacity:.92;margin:0 auto 18px;
+    max-width:640px;text-shadow:0 2px 16px rgba(32,40,29,.45);text-wrap:pretty;
+  }
+  .hero-byline {
+    font-family:var(--font-hand);font-size:clamp(22px,2vw,28px);
+    color:var(--ember-soft);margin-bottom:36px;text-shadow:0 2px 16px rgba(32,40,29,.45);
+  }
+  .hero-ctas { display:flex;gap:14px;justify-content:center;flex-wrap:wrap; }
+  .scroll-cue {
+    position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+    color:var(--cream);font-family:var(--font-body);font-size:10px;
+    letter-spacing:.32em;text-transform:uppercase;opacity:.7;
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+    animation:bob 3s ease-in-out infinite;
+  }
+  .scroll-cue::after { content:"";width:1px;height:36px;background:linear-gradient(to bottom,var(--cream),transparent); }
+  @keyframes bob {
+    0%,100%{transform:translate(-50%,0);opacity:.7;}
+    50%{transform:translate(-50%,6px);opacity:1;}
+  }
+  .leaves { position:fixed;inset:0;pointer-events:none;z-index:30;overflow:hidden; }
+  .leaf { position:absolute;top:-40px;will-change:transform,opacity;opacity:0; }
+  .btn {
+    display:inline-flex;align-items:center;gap:10px;padding:14px 28px;
+    border-radius:999px;font-family:var(--font-body);font-weight:600;font-size:14px;
+    letter-spacing:.04em;text-decoration:none;cursor:pointer;border:1.5px solid transparent;
+    transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease,border-color .2s ease;
+    white-space:nowrap;
+  }
+  .btn:hover { transform:translateY(-2px); }
+  .btn-primary {
+    background:var(--ember);color:var(--paper);
+    box-shadow:0 8px 28px -8px rgba(217,123,58,.6),inset 0 1px 0 rgba(255,255,255,.2);
+  }
+  .btn-primary:hover {
+    background:#c46d2f;
+    box-shadow:0 14px 36px -10px rgba(217,123,58,.7),inset 0 1px 0 rgba(255,255,255,.25);
+  }
+  .btn-ghost {
+    background:rgba(245,236,214,.08);color:var(--cream);
+    border-color:rgba(245,236,214,.6);backdrop-filter:blur(4px);
+  }
+  .btn-ghost:hover { background:rgba(245,236,214,.18);border-color:var(--cream); }
+  .btn-outline { background:transparent;color:var(--moss-deep);border-color:var(--moss); }
+  .btn-outline:hover { background:var(--moss);color:var(--paper); }
+
+  section { position:relative;padding:120px 32px; }
+  .container { max-width:var(--max-w);margin:0 auto;position:relative; }
+  .section-eyebrow {
+    font-family:var(--font-body);font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    font-weight:700;color:var(--ember);margin-bottom:18px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .section-eyebrow::before { content:"";height:1px;width:32px;background:currentColor;opacity:.6; }
+  .section-title {
+    font-family:var(--font-display);font-style:italic;font-weight:500;
+    font-size:clamp(36px,5vw,64px);line-height:1.05;margin:0 0 24px;
+    color:var(--moss-deep);letter-spacing:-.01em;text-wrap:balance;
+  }
+  .section-lede {
+    font-family:var(--font-display);font-size:clamp(19px,1.7vw,24px);line-height:1.5;
+    color:var(--ink-soft);max-width:680px;margin-bottom:48px;
+    font-style:italic;font-weight:400;text-wrap:pretty;
+  }
+
+  .story { background:var(--paper); }
+  .story-grid { display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:center; }
+  .story-prose p { font-size:17px;line-height:1.75;color:var(--ink-soft);margin:0 0 20px; }
+  .story-prose p:first-of-type::first-letter {
+    font-family:var(--font-display);font-style:italic;font-size:5.4em;float:left;
+    line-height:.85;margin:6px 12px 0 -2px;color:var(--ember);font-weight:500;
+  }
+  .pullquote {
+    font-family:var(--font-display);font-style:italic;font-size:26px;line-height:1.35;
+    color:var(--moss-deep);border-left:2px solid var(--ember);padding:8px 0 8px 24px;
+    margin:32px 0;text-wrap:pretty;
+  }
+  .pullquote cite { display:block;font-family:var(--font-hand);font-style:normal;font-size:20px;color:var(--ember);margin-top:12px; }
+
+  .book-mockup { position:relative;perspective:1600px; }
+  .book-mockup .cover-frame {
+    position:relative;aspect-ratio:3/4;border-radius:4px 6px 6px 4px;overflow:hidden;
+    transform:rotateY(-8deg) rotateX(2deg);
+    box-shadow:0 30px 80px -20px rgba(32,40,29,.45),0 60px 120px -40px rgba(77,107,58,.35),inset 8px 0 18px -10px rgba(0,0,0,.45),inset -2px 0 0 rgba(255,255,255,.2);
+    transition:transform .6s cubic-bezier(.2,.8,.2,1);
+  }
+  .book-mockup:hover .cover-frame { transform:rotateY(-3deg) rotateX(1deg) translateY(-6px); }
+  .book-mockup .cover-frame img { width:100%;height:100%;object-fit:cover;display:block; }
+  .book-mockup .pages {
+    position:absolute;top:6px;bottom:6px;right:-8px;width:14px;
+    background:linear-gradient(to right,rgba(255,255,255,0),rgba(245,236,214,.95) 40%,var(--cream-deep) 100%);
+    border-radius:0 3px 3px 0;
+    transform:rotateY(-8deg) rotateX(2deg);transform-origin:left center;
+    box-shadow:0 12px 30px -10px rgba(32,40,29,.3);
+  }
+
+  .friends {
+    background:radial-gradient(at 50% 0%,rgba(185,207,124,.25),transparent 60%),linear-gradient(to bottom,var(--paper),#ede2c3);
+  }
+  .friends-grid { display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:56px; }
+  .friend-card {
+    background:var(--cream);border-radius:14px;overflow:hidden;
+    box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 2px 4px rgba(32,40,29,.04),0 18px 32px -20px rgba(32,40,29,.18);
+    transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease;
+    display:flex;flex-direction:column;position:relative;
+  }
+  .friend-card:hover {
+    transform:translateY(-6px);
+    box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 2px 4px rgba(32,40,29,.04),0 28px 50px -24px rgba(32,40,29,.28);
+  }
+  .friend-art { position:relative;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(160deg,var(--meadow),var(--leaf)); }
+  .friend-art img { width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.8,.2,1); }
+  .friend-card:hover .friend-art img { transform:scale(1.04); }
+  .friend-body { padding:22px 22px 26px; }
+  .friend-name { font-family:var(--font-display);font-style:italic;font-weight:600;font-size:28px;line-height:1;margin:0;color:var(--moss-deep); }
+  .friend-species { font-family:var(--font-hand);color:var(--ember);font-size:18px;margin:4px 0 14px; }
+  .friend-role { font-family:var(--font-body);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-bottom:10px;opacity:.7; }
+  .friend-desc { font-size:14.5px;color:var(--ink-soft);line-height:1.6;margin:0; }
+
+  .chapters {
+    background:radial-gradient(at 20% 20%,rgba(77,107,58,.12),transparent 60%),radial-gradient(at 80% 80%,rgba(217,123,58,.08),transparent 60%),var(--paper);
+  }
+  .chapter-list { display:flex;flex-direction:column;gap:40px;margin-top:56px; }
+  .chapter-card {
+    display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;
+    background:var(--cream);border-radius:18px;overflow:hidden;
+    box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 24px 50px -28px rgba(32,40,29,.28);
+    border:1px solid rgba(77,107,58,.1);
+  }
+  .chapter-card.reverse { grid-template-columns:1fr 1.1fr; }
+  .chapter-card.reverse .chapter-image { order:2; }
+  .chapter-image { aspect-ratio:4/5;background-size:cover;background-position:center;position:relative;min-height:480px; }
+  .chapter-image::after { content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(32,40,29,0) 60%,rgba(32,40,29,.25));pointer-events:none; }
+  .chapter-body { padding:48px 44px; }
+  .chapter-tag { display:inline-flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:10px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--ember);margin-bottom:14px; }
+  .chapter-tag .num { width:26px;height:26px;border-radius:50%;background:var(--ember);color:var(--paper);display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-display);font-style:italic;font-size:14px;letter-spacing:0; }
+  .chapter-title { font-family:var(--font-display);font-style:italic;font-weight:500;font-size:clamp(28px,3vw,40px);line-height:1.05;margin:0 0 12px;color:var(--moss-deep);letter-spacing:-.01em;text-wrap:balance; }
+  .chapter-skill { font-family:var(--font-hand);font-size:22px;color:var(--ember);margin-bottom:22px; }
+  .chapter-passage { font-family:var(--font-display);font-style:italic;font-size:18px;line-height:1.55;color:var(--ink-soft);padding:14px 0 14px 20px;border-left:2px solid var(--meadow);margin:0 0 22px;text-wrap:pretty; }
+  .chapter-summary { font-size:14.5px;line-height:1.65;color:var(--ink-soft);margin:0; }
+
+  .approach {
+    background:radial-gradient(at 20% 30%,rgba(77,107,58,.10),transparent 60%),radial-gradient(at 80% 70%,rgba(217,123,58,.08),transparent 60%),var(--moss-deep);
+    color:var(--cream);
+  }
+  .approach .section-title { color:var(--cream); }
+  .approach .section-eyebrow { color:var(--ember-soft); }
+  .approach .section-lede { color:rgba(245,236,214,.82); }
+  .practice-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px; }
+  .series-note { margin-top:48px;padding:24px 28px;background:rgba(245,236,214,.06);border:1px dashed rgba(232,168,92,.4);border-radius:14px;display:flex;gap:20px;align-items:flex-start;color:rgba(245,236,214,.85);font-size:15px;line-height:1.65; }
+  .series-note strong { color:var(--ember-soft);font-weight:600; }
+  .series-note-mark { font-family:var(--font-display);font-style:italic;font-size:36px;line-height:1;color:var(--ember-soft);flex-shrink:0;margin-top:-4px; }
+  .lineage { margin-top:56px;text-align:center;color:rgba(245,236,214,.6); }
+  .lineage-label { font-family:var(--font-body);font-size:10px;letter-spacing:.32em;text-transform:uppercase;margin-bottom:10px;font-weight:600; }
+  .lineage-names { font-family:var(--font-display);font-style:italic;font-size:18px;color:var(--cream);display:flex;justify-content:center;gap:14px;flex-wrap:wrap; }
+  .lineage-names .dot { color:var(--ember-soft); }
+  .practice-card { background:rgba(245,236,214,.06);border:1px solid rgba(245,236,214,.14);border-radius:12px;padding:28px 22px 26px;backdrop-filter:blur(6px);transition:background .3s ease,border-color .3s ease,transform .3s ease;position:relative;overflow:hidden; }
+  .practice-card:hover { background:rgba(245,236,214,.1);border-color:rgba(245,236,214,.3);transform:translateY(-3px); }
+  .practice-letter { font-family:var(--font-display);font-style:italic;font-weight:500;font-size:56px;line-height:1;color:var(--ember-soft);margin-bottom:12px;display:inline-block; }
+  .practice-heading { font-family:var(--font-display);font-weight:600;font-size:22px;margin:0 0 10px;color:var(--cream);letter-spacing:-.01em; }
+  .practice-text { font-size:14px;line-height:1.6;color:rgba(245,236,214,.78);margin:0; }
+
+  .audiences { background:var(--paper); }
+  .audience-grid { display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px; }
+  .audience-card { background:var(--cream);border:1px solid rgba(77,107,58,.15);border-radius:16px;padding:44px 44px 40px;position:relative;overflow:hidden; }
+  .audience-card.therapists { background:linear-gradient(160deg,#f1e8ce,var(--cream)); }
+  .audience-icon { width:44px;height:44px;border-radius:50%;background:var(--ember);color:var(--paper);display:flex;align-items:center;justify-content:center;margin-bottom:22px; }
+  .audience-card.therapists .audience-icon { background:var(--moss); }
+  .audience-card h3 { font-family:var(--font-display);font-style:italic;font-weight:600;font-size:30px;margin:0 0 14px;color:var(--moss-deep);letter-spacing:-.01em; }
+  .audience-card p { font-size:15.5px;color:var(--ink-soft);line-height:1.7;margin:0 0 18px; }
+  .audience-list { list-style:none;margin:24px 0 0;padding:0;border-top:1px dashed rgba(77,107,58,.25);padding-top:22px; }
+  .audience-list li { font-size:14.5px;color:var(--ink-soft);padding:8px 0 8px 28px;position:relative;line-height:1.5; }
+  .audience-list li::before { content:"";position:absolute;left:0;top:14px;width:14px;height:14px;background:radial-gradient(circle at 30% 30%,var(--ember-soft),var(--ember));border-radius:50% 0 50% 50%;transform:rotate(45deg);opacity:.85; }
+  .audience-card.therapists .audience-list li::before { background:radial-gradient(circle at 30% 30%,var(--meadow),var(--leaf)); }
+
+  .author { background:linear-gradient(to bottom,var(--paper),#efe5c8); }
+  .author-grid { display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:center; }
+  .author-portrait { aspect-ratio:1/1;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,var(--meadow),var(--moss));box-shadow:0 24px 50px -20px rgba(32,40,29,.35);position:relative;display:flex;align-items:center;justify-content:center; }
+  .author-prose h2 { font-family:var(--font-display);font-style:italic;font-weight:500;font-size:clamp(36px,4.4vw,56px);margin:0 0 8px;color:var(--moss-deep);letter-spacing:-.01em; }
+  .author-prose .credentials { font-family:var(--font-hand);color:var(--ember);font-size:22px;margin:0 0 22px; }
+  .author-prose p { font-size:16px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px; }
+
+  .buy { background:radial-gradient(at 50% 50%,rgba(217,123,58,.18),transparent 70%),linear-gradient(to bottom,#efe5c8,var(--cream-deep));text-align:center; }
+  .buy .section-title { text-align:center; }
+  .buy .section-lede { margin-left:auto;margin-right:auto;text-align:center; }
+  .buy-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:520px;margin:48px auto 0; }
+  .buy-card { background:var(--paper);border:1.5px solid rgba(77,107,58,.18);border-radius:14px;padding:26px 20px;text-align:center;text-decoration:none;color:var(--moss-deep);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;display:flex;flex-direction:column;align-items:center;gap:8px; }
+  .buy-card:hover { transform:translateY(-3px);box-shadow:0 18px 36px -16px rgba(32,40,29,.25);border-color:var(--ember); }
+  .buy-card .where { font-family:var(--font-display);font-style:italic;font-size:22px;font-weight:600; }
+  .buy-card .price { font-family:var(--font-body);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ember);font-weight:700; }
+
+  footer.foot { background:var(--moss-deep);color:rgba(245,236,214,.7);padding:64px 32px 36px;text-align:center; }
+  footer.foot .mark { font-family:var(--font-display);font-style:italic;font-size:26px;color:var(--cream);margin-bottom:6px; }
+  footer.foot small { font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,236,214,.55); }
+  footer.foot .links { display:flex;justify-content:center;gap:28px;margin:22px 0;flex-wrap:wrap; }
+  footer.foot .links a { color:rgba(245,236,214,.8);text-decoration:none;font-size:13px;letter-spacing:.06em;transition:color .2s ease; }
+  footer.foot .links a:hover { color:var(--ember-soft); }
+  footer.foot .copyright { font-size:12px;color:rgba(245,236,214,.4);margin-top:18px; }
+
+  .forest-divider { height:80px;display:flex;align-items:center;justify-content:center;gap:18px;color:var(--moss);opacity:.5; }
+  .forest-divider svg { width:22px;height:22px; }
+  .forest-divider .dot { width:4px;height:4px;border-radius:50%;background:currentColor; }
+
+  .reveal { opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity:1;transform:translateY(0); }
+  .reveal.delay-1 { transition-delay:.1s; }
+  .reveal.delay-2 { transition-delay:.2s; }
+  .reveal.delay-3 { transition-delay:.3s; }
+  .reveal.delay-4 { transition-delay:.4s; }
+
+  /* Quick exit */
+  .quick-exit {
+    position:fixed;bottom:24px;right:24px;z-index:9999;
+    background:var(--ember);color:var(--paper);border:none;
+    font-family:var(--font-body);font-size:13px;font-weight:700;
+    letter-spacing:.04em;padding:10px 18px;border-radius:999px;
+    cursor:pointer;text-decoration:none;
+    box-shadow:0 4px 20px -6px rgba(217,123,58,.6);
+    transition:transform .2s ease,background .2s ease;
+  }
+  .quick-exit:hover { transform:translateY(-2px);background:#c46d2f; }
+
+  @media (max-width:980px) {
+    nav.top ul { display:none; }
+    .story-grid { grid-template-columns:1fr;gap:56px; }
+    .friends-grid { grid-template-columns:repeat(2,1fr); }
+    .practice-grid { grid-template-columns:repeat(2,1fr); }
+    .audience-grid { grid-template-columns:1fr; }
+    .author-grid { grid-template-columns:1fr;text-align:center; }
+    .author-portrait { max-width:220px;margin:0 auto; }
+    .buy-grid { grid-template-columns:1fr; }
+    section { padding:80px 24px; }
+    .chapter-card { grid-template-columns:1fr !important; }
+    .chapter-card .chapter-image { aspect-ratio:16/9; }
+  }
+  @media (max-width:540px) {
+    .friends-grid { grid-template-columns:1fr; }
+    .practice-grid { grid-template-columns:1fr; }
+    nav.top { padding:14px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="https://www.weather.com" class="quick-exit" id="quickExit">Quick Exit</a>
+
+<nav class="top" id="topnav">
+  <a href="{{ '/' | relative_url }}" class="brand">
+    Tales of the Resilient Forest
+    <small>Book One</small>
+  </a>
+  <ul>
+    <li><a href="#story">The Story</a></li>
+    <li><a href="#friends">Brave Friends</a></li>
+    <li><a href="#approach">PRAC</a></li>
+    <li><a href="#chapters">Chapters</a></li>
+    <li><a href="#author">Author</a></li>
+    <li><a href="#buy">Read It</a></li>
+  </ul>
+  <a href="{{ '/' | relative_url }}" class="back-link">&#8592; skillsforchildren.com</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal in">Book One &middot; Tales of the Resilient Forest</div>
+    <h1 class="hero-title reveal in delay-1">A Journey of<br/><span class="amp">Brave Friends</span></h1>
+    <p class="hero-subtitle reveal in delay-2">A Trauma-Focused Cognitive Behavioral Therapy companion &mdash; gentle, illustrated stories for children and the trusted grown-ups who walk beside them.</p>
+    <p class="hero-byline reveal in delay-3">&mdash; a book by Joshua Fisherkeller</p>
+    <div class="hero-ctas reveal in delay-4">
+      <a href="#buy" class="btn btn-primary">Read the Book</a>
+      <a href="#story" class="btn btn-ghost">Begin the Journey</a>
+    </div>
+  </div>
+  <div class="scroll-cue">Step into the forest</div>
+</header>
+
+<div class="leaves" id="leaves"></div>
+
+<section class="story paper-texture" id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-prose">
+        <div class="section-eyebrow reveal">The Story</div>
+        <h2 class="section-title reveal">A path through the forest, hand in hand.</h2>
+        <p class="reveal">Deep in the Resilient Forest, a small band of animal friends meets the kinds of feelings every child knows: the sudden storm, the shadow that won&rsquo;t quite name itself, the breath that goes missing for a moment. There is <em>Timothy the Turtle</em>, who hides in his shell after a big storm. <em>Rex the Rabbit</em>, whose heart races faster than his paws. <em>Kiki the Koala</em>, who knows the still place inside. <em>Bella the Bear</em>, who carries a storm of feelings she doesn&rsquo;t yet have words for. And <em>Olive the Owl</em>, with her wise eyes for the dark hours.</p>
+        <p class="reveal">Each story is built around a foundational PRAC skill from Trauma-Focused Cognitive Behavioral Therapy &mdash; Psychoeducation, Relaxation, Affective expression, and Cognitive coping. The friends meet a challenge, try a skill, and learn it the way children learn most things: through a story they want to hear again.</p>
+        <blockquote class="pullquote reveal">&ldquo;To therapists, child welfare professionals, and foster parents who stand as steadfast oaks in the Resilient Forest, offering shelter and guidance to children on their healing journey &mdash; this book is a tribute to your unwavering spirit.&rdquo;
+          <cite>&mdash; Dedication</cite>
+        </blockquote>
+        <p class="reveal">Designed to be read together by a child and a trusted adult, each chapter opens with <em>Notes for Trusted Adults</em> &mdash; guidance and discussion prompts so the conversation around the story can be as nourishing as the story itself.</p>
+      </div>
+      <div class="book-mockup reveal delay-2">
+        <div class="pages"></div>
+        <div class="cover-frame">
+          <img src="{{ '/assets/img/resilient-forest/cover.png' | relative_url }}" alt="Book cover &mdash; a painterly forest, mountain, and lake" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="friends" id="friends">
+  <div class="container">
+    <div class="section-eyebrow reveal">Meet the Brave Friends</div>
+    <h2 class="section-title reveal">Five small hearts. One wide forest.</h2>
+    <p class="section-lede reveal">Each story in the collection follows a different brave friend learning a PRAC skill &mdash; and a friend who walks beside them. Together they map the slow, gentle work of feeling safe again.</p>
+    <div class="friends-grid">
+      <article class="friend-card reveal">
+        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/timothy.jpg' | relative_url }}" alt="Timothy the Turtle" /></div>
+        <div class="friend-body">
+          <h3 class="friend-name">Timothy</h3>
+          <div class="friend-species">the Turtle</div>
+          <div class="friend-role">Chapter 1 &middot; Psychoeducation</div>
+          <p class="friend-desc">A brave little turtle who lives in a peaceful pond. After a big storm, the world outside his shell feels a lot scarier than before &mdash; and he begins to learn that what he feels is okay.</p>
+        </div>
+      </article>
+      <article class="friend-card reveal delay-1">
+        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/rex.jpg' | relative_url }}" alt="Rex the Rabbit" /></div>
+        <div class="friend-body">
+          <h3 class="friend-name">Rex</h3>
+          <div class="friend-species">the Rabbit</div>
+          <div class="friend-role">Chapter 2 &middot; Relaxation</div>
+          <p class="friend-desc">Quick on his feet, but sometimes his heart races faster than his paws can carry him. After a tumble in the stream, Rex learns that a big breath can be braver than a big leap.</p>
+        </div>
+      </article>
+      <article class="friend-card reveal delay-2">
+        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/kiki.jpg' | relative_url }}" alt="Kiki the Koala" /></div>
+        <div class="friend-body">
+          <h3 class="friend-name">Kiki</h3>
+          <div class="friend-species">the Koala</div>
+          <div class="friend-role">Chapter 2 &middot; Relaxation</div>
+          <p class="friend-desc">High in the eucalyptus trees, Kiki is known for her peacefulness no matter what is happening around her. She teaches her friends to find the still place inside.</p>
+        </div>
+      </article>
+      <article class="friend-card reveal delay-3">
+        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/bella.jpg' | relative_url }}" alt="Bella the Bear" /></div>
+        <div class="friend-body">
+          <h3 class="friend-name">Bella</h3>
+          <div class="friend-species">the Bear</div>
+          <div class="friend-role">Chapter 3 &middot; Affective Expression</div>
+          <p class="friend-desc">Strong and brave on the outside, with a storm of feelings inside. Bella learns that naming a feeling &mdash; in words, drawings, or even a slow, heavy dance &mdash; makes it easier to carry.</p>
+        </div>
+      </article>
+      <article class="friend-card reveal delay-4">
+        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/olive.jpg' | relative_url }}" alt="Olive the Owl" /></div>
+        <div class="friend-body">
+          <h3 class="friend-name">Olive</h3>
+          <div class="friend-species">the Owl</div>
+          <div class="friend-role">Chapter 4 &middot; Cognitive Coping</div>
+          <p class="friend-desc">Wise eyes for the dark hours. Olive helps the friends notice their thoughts &mdash; the ones that are true and the ones that only pretend to be &mdash; and gently tell the difference.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="forest-divider" aria-hidden="true">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 14h4l-3 5h5v3h4v-3h5l-3-5h4z"/></svg>
+  <span class="dot"></span>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 14h4l-3 5h5v3h4v-3h5l-3-5h4z"/></svg>
+  <span class="dot"></span>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 14h4l-3 5h5v3h4v-3h5l-3-5h4z"/></svg>
+</div>
+
+<section class="approach" id="approach">
+  <div class="container">
+    <div class="section-eyebrow reveal">The PRAC Skills</div>
+    <h2 class="section-title reveal">Four foundational skills, told as four small stories.</h2>
+    <p class="section-lede reveal">Trauma-Focused Cognitive Behavioral Therapy begins with PRAC &mdash; the gentle, grounding work that prepares a child for everything that comes after. <em>A Journey of Brave Friends</em> walks each of these four skills, one chapter at a time.</p>
+    <div class="practice-grid">
+      <div class="practice-card reveal">
+        <div class="practice-letter">P</div>
+        <h3 class="practice-heading">Psychoeducation</h3>
+        <p class="practice-text">A brave friend learns that what happened wasn&rsquo;t their fault &mdash; and that the way a small body reacts to big things is something every creature in the forest carries.</p>
+      </div>
+      <div class="practice-card reveal delay-1">
+        <div class="practice-letter">R</div>
+        <h3 class="practice-heading">Relaxation</h3>
+        <p class="practice-text">Timothy the Turtle moves slowly on purpose. The friends learn his slow-lake breath: in for the mountain, out for the moon &mdash; a body that knows how to soften.</p>
+      </div>
+      <div class="practice-card reveal delay-2">
+        <div class="practice-letter">A</div>
+        <h3 class="practice-heading">Affective expression &amp; modulation</h3>
+        <p class="practice-text">Naming feelings in colors and weather, until even the biggest ones become small enough to hold &mdash; and the body learns it can ride them out.</p>
+      </div>
+      <div class="practice-card reveal delay-3">
+        <div class="practice-letter">C</div>
+        <h3 class="practice-heading">Cognitive coping</h3>
+        <p class="practice-text">Olive the Owl helps the friends notice their thoughts &mdash; the ones that are true, and the ones that only pretend to be &mdash; and tell the gentle difference between them.</p>
+      </div>
+    </div>
+    <div class="series-note reveal">
+      <div class="series-note-mark">&#8614;</div>
+      <div>
+        <strong>Book One of a longer journey.</strong> The full TF-CBT arc &mdash; Trauma narrative, In vivo mastery, Conjoint sessions, and Enhancing safety &mdash; unfolds across future books in <em>Tales of the Resilient Forest</em>. Strengthening the PRAC skills first lets a child arrive at the harder chapters of their own story already steadied.
+      </div>
+    </div>
+    <div class="lineage reveal">
+      <div class="lineage-label">Built on the pioneering work of</div>
+      <div class="lineage-names">
+        <span>Judith A. Cohen, MD</span><span class="dot">&middot;</span>
+        <span>Esther Deblinger, PhD</span><span class="dot">&middot;</span>
+        <span>Anthony Mannarino, PhD</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapters" id="chapters">
+  <div class="container">
+    <div class="section-eyebrow reveal">A Look Inside</div>
+    <h2 class="section-title reveal">Four chapters. Four small acts of courage.</h2>
+    <p class="section-lede reveal">Each chapter follows one friend through one feeling &mdash; with painted, full-page illustrations and a gentle voice that meets a child where they are. Below, a glimpse of what waits between the pages.</p>
+    <div class="chapter-list">
+      <article class="chapter-card reveal">
+        <div class="chapter-image" style="background-image:url('{{ '/assets/img/resilient-forest/characters/timothy.jpg' | relative_url }}');"></div>
+        <div class="chapter-body">
+          <div class="chapter-tag"><span class="num">1</span> Chapter One &middot; Psychoeducation</div>
+          <h3 class="chapter-title">Timothy the Turtle and the Big Storm</h3>
+          <div class="chapter-skill">&mdash; the day the world got loud</div>
+          <blockquote class="chapter-passage">&ldquo;Timothy, you went through something really scary, and feeling scared is okay. It&rsquo;s normal to feel different after something like that. But remember, it&rsquo;s okay to talk about it, and it&rsquo;s okay to ask for help.&rdquo;</blockquote>
+          <p class="chapter-summary">A brave little turtle hides inside his shell after a big storm shakes the pond. With help from Olive the Owl, he begins to understand his feelings &mdash; and learns that being brave doesn&rsquo;t mean not being scared, but facing his fears anyway.</p>
+        </div>
+      </article>
+      <article class="chapter-card reverse reveal">
+        <div class="chapter-image" style="background-image:url('{{ '/assets/img/resilient-forest/characters/kiki.jpg' | relative_url }}');"></div>
+        <div class="chapter-body">
+          <div class="chapter-tag"><span class="num">2</span> Chapter Two &middot; Relaxation</div>
+          <h3 class="chapter-title">Rex the Rabbit and Kiki the Koala Take a Big Breath</h3>
+          <div class="chapter-skill">&mdash; in for the trees, out for the sky</div>
+          <blockquote class="chapter-passage">In the heart of the forest, high up in the eucalyptus trees, lived a calm koala bear named Kiki. She was known for her peacefulness no matter what was happening around her.</blockquote>
+          <p class="chapter-summary">When Rex&rsquo;s heart races faster than his paws can carry him, Kiki teaches him the slow, deep breath of the canopy. A chapter about bodies that remember how to soften &mdash; and the gentle work of trying again.</p>
+        </div>
+      </article>
+      <article class="chapter-card reveal">
+        <div class="chapter-image" style="background-image:url('{{ '/assets/img/resilient-forest/characters/bella.jpg' | relative_url }}');"></div>
+        <div class="chapter-body">
+          <div class="chapter-tag"><span class="num">3</span> Chapter Three &middot; Affective Expression</div>
+          <h3 class="chapter-title">Bella the Bear and the Storm Inside</h3>
+          <div class="chapter-skill">&mdash; a feeling, named, becomes a friend</div>
+          <blockquote class="chapter-passage">&ldquo;Olive,&rdquo; Bella started, &ldquo;sometimes I feel like there&rsquo;s a storm inside me, but I don&rsquo;t know how to share it. Sometimes I even say mean things, and I don&rsquo;t know why!&rdquo;</blockquote>
+          <p class="chapter-summary">Bella is strong and brave &mdash; and carrying feelings she doesn&rsquo;t yet have words for. With Olive&rsquo;s patient help, she learns to share what she feels through words, drawings, and even a slow, heavy dance.</p>
+        </div>
+      </article>
+      <article class="chapter-card reverse reveal">
+        <div class="chapter-image" style="background-image:url('{{ '/assets/img/resilient-forest/scenes/owl-flight.jpg' | relative_url }}');"></div>
+        <div class="chapter-body">
+          <div class="chapter-tag"><span class="num">4</span> Chapter Four &middot; Cognitive Coping</div>
+          <h3 class="chapter-title">Olive the Owl and the Helpful Thoughts</h3>
+          <div class="chapter-skill">&mdash; just because you think it doesn&rsquo;t make it true</div>
+          <blockquote class="chapter-passage">&ldquo;Just because I didn&rsquo;t do it the first time doesn&rsquo;t mean I can&rsquo;t do it at all.&rdquo;</blockquote>
+          <p class="chapter-summary">Even the wise need a wise friend sometimes. When Olive can&rsquo;t reach the top of the tallest tree, her friends gather around her &mdash; and she learns to notice the unkind thoughts she tells herself, and to replace them with kinder, truer ones.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="audiences" id="audiences">
+  <div class="container">
+    <div class="section-eyebrow reveal">For the Grown-Ups</div>
+    <h2 class="section-title reveal">A companion you can hold in both hands.</h2>
+    <p class="section-lede reveal">Written for the people who walk beside the child &mdash; parents and caregivers, therapists and counselors, teachers and the quiet aunt who always knows.</p>
+    <div class="audience-grid">
+      <div class="audience-card reveal">
+        <div class="audience-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>For parents &amp; caregivers</h3>
+        <p>A bedtime-soft entry into a hard conversation. The book is written to be read aloud, in small pieces, on the days a child has the room for it &mdash; and to be left on a shelf the rest of the time.</p>
+        <ul class="audience-list">
+          <li>Gentle, age-appropriate language for ages 5&ndash;10</li>
+          <li>Each chapter opens with <em>Notes for Trusted Adults</em></li>
+          <li>Discussion prompts to guide meaningful conversation</li>
+          <li>Never asks a child to disclose; only to feel accompanied</li>
+        </ul>
+      </div>
+      <div class="audience-card therapists reveal delay-1">
+        <div class="audience-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>For therapists &amp; clinicians</h3>
+        <p>A session-friendly companion that maps cleanly onto the eight components of TF-CBT. Use it as a primer, a metaphor library, or a between-session bridge for the child and caregiver to share.</p>
+        <ul class="audience-list">
+          <li>Chapter-by-chapter PRAC skill alignment</li>
+          <li>Clinician notes printable and ready to use</li>
+          <li>Caregiver handouts in plain language</li>
+          <li>Designed for individual, group, and conjoint settings</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="author" id="author">
+  <div class="container">
+    <div class="author-grid">
+      <div class="author-portrait reveal">
+        <svg viewBox="0 0 200 200" width="60%" height="60%" style="opacity:.85">
+          <defs>
+            <path id="top-arc" d="M 30 100 A 70 70 0 0 1 170 100" fill="none"/>
+            <path id="bot-arc" d="M 30 100 A 70 70 0 0 0 170 100" fill="none"/>
+          </defs>
+          <circle cx="100" cy="100" r="82" fill="none" stroke="rgba(245,236,214,0.85)" stroke-width="2.5"/>
+          <text font-family="Nunito, sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="rgba(245,236,214,0.92)">
+            <textPath href="#top-arc" startOffset="50%" text-anchor="middle">SKILLS FOR CHILDREN</textPath>
+          </text>
+          <text font-family="Nunito, sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="rgba(245,236,214,0.92)">
+            <textPath href="#bot-arc" startOffset="50%" text-anchor="middle">BOOKS AND VIDEOS</textPath>
+          </text>
+          <path d="M 100 60 c -5 0 -9 4 -9 9 s 4 9 9 9 9 -4 9 -9 -4 -9 -9 -9 z M 100 78 c -4 0 -10 1 -16 -1 c -3 -1 -7 1 -6 5 c 0 3 4 4 8 4 l 0 6 l -8 18 c -1 4 4 7 6 3 l 6 -12 l 0 22 c 0 3 2 5 5 5 s 5 -2 5 -5 l 0 -22 l 6 12 c 2 4 7 1 6 -3 l -8 -18 l 0 -6 c 4 0 8 -1 8 -4 c 1 -4 -3 -6 -6 -5 c -6 2 -12 1 -16 1 z M 84 95 c -3 -2 -8 -10 -10 -3 c -1 4 4 9 8 9 z M 116 95 c 3 -2 8 -10 10 -3 c 1 4 -4 9 -8 9 z" fill="rgba(245,236,214,0.9)"/>
+        </svg>
+      </div>
+      <div class="author-prose">
+        <div class="section-eyebrow reveal">The Author</div>
+        <h2 class="reveal">Joshua Fisherkeller</h2>
+        <p class="credentials reveal delay-1">MSW &middot; helping children &amp; families &middot; Kentucky</p>
+        <p class="reveal delay-2">Joshua Fisherkeller holds a master&rsquo;s degree in Social Work and enjoys helping children and families and working with systems of care in Kentucky. He is also the author of <em>Maximilian&rsquo;s Cosmic Adventure</em>, a story about sleeping in your own bed.</p>
+        <p class="reveal delay-3">Beyond his books, he has created a resource platform, <a href="{{ '/' | relative_url }}" style="color:var(--ember);text-decoration:none;border-bottom:1px dotted var(--ember);">skillsforchildren.com</a>, where readers can find all his books, videos, and curated resources. With <em>A Journey of Brave Friends</em>, he hopes to provide a valuable tool for those caring for and working with young children who have experienced trauma.</p>
+        <p class="reveal delay-4" style="font-family:var(--font-hand);font-size:22px;color:var(--ink-soft);margin-top:8px;">In his free time, he spends time in the Resilient Forest with his son, Maximilian, and his wife, Julia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="buy" id="buy">
+  <div class="container">
+    <div class="section-eyebrow reveal" style="justify-content:center;">Bring the Book Home</div>
+    <h2 class="section-title reveal">Read it together, by the lake or the lamp.</h2>
+    <p class="section-lede reveal">Available on Amazon in hardcover and paperback. A portion of every copy supports children&rsquo;s mental health programs.</p>
+    <div class="buy-grid">
+      <a href="https://amzn.to/4qLZztE" target="_blank" rel="noopener" class="buy-card reveal">
+        <span class="price">Hardcover &amp; Paperback</span>
+        <span class="where">Amazon</span>
+        <span style="font-size:12px;color:var(--ink-soft);opacity:.7;">Free 2-day with Prime</span>
+      </a>
+      <a href="{{ '/books' | relative_url }}" class="buy-card reveal delay-1">
+        <span class="price">All Books</span>
+        <span class="where">Skills for Children</span>
+        <span style="font-size:12px;color:var(--ink-soft);opacity:.7;">Browse the full library</span>
+      </a>
+    </div>
+    <div style="margin-top:56px;" class="reveal delay-2">
+      <a href="{{ '/#newsletter' | relative_url }}" class="btn btn-outline">Join the newsletter for Book Two &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="mark">Tales of the Resilient Forest</div>
+  <small>A series by Joshua Fisherkeller &middot; Skills for Children</small>
+  <div class="links">
+    <a href="#story">The Story</a>
+    <a href="#friends">Brave Friends</a>
+    <a href="#approach">TF-CBT Path</a>
+    <a href="#audiences">For Parents</a>
+    <a href="#audiences">For Therapists</a>
+    <a href="#buy">Where to Read</a>
+    <a href="{{ '/' | relative_url }}">skillsforchildren.com</a>
+  </div>
+  <div class="copyright">&copy; 2024 Joshua A. Fisherkeller &middot; All rights reserved</div>
+</footer>
+
+<script>
+  // Quick exit
+  document.getElementById('quickExit').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.location.replace('https://www.weather.com');
+  });
+
+  // Nav scroll state + parallax
+  const nav = document.getElementById('topnav');
+  const heroBg = document.getElementById('heroBg');
+  function onScroll() {
+    const y = window.scrollY;
+    if (y > 80) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+    if (heroBg && y < window.innerHeight) {
+      heroBg.style.transform = 'translateY(' + (y * 0.35) + 'px) scale(' + (1 + y * 0.0002) + ')';
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Scroll reveal
+  const io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal:not(.in)').forEach(function(el) { io.observe(el); });
+
+  // Drifting leaves
+  var leavesRoot = document.getElementById('leaves');
+  var LEAF_SVGS = [
+    '<svg viewBox="0 0 32 32" width="22" height="22"><path d="M16 2c8 4 12 10 12 16s-6 12-12 12S4 24 4 18s4-12 12-16z" fill="#6b8a47" opacity="0.85"/><path d="M16 4v24" stroke="#3d4a36" stroke-width="0.8" fill="none"/></svg>',
+    '<svg viewBox="0 0 32 32" width="20" height="20"><path d="M16 2c8 4 12 10 12 16s-6 12-12 12S4 24 4 18s4-12 12-16z" fill="#d97b3a" opacity="0.85"/><path d="M16 4v24" stroke="#7a3a14" stroke-width="0.8" fill="none"/></svg>',
+    '<svg viewBox="0 0 32 32" width="18" height="18"><path d="M16 2c8 4 12 10 12 16s-6 12-12 12S4 24 4 18s4-12 12-16z" fill="#e8a85c" opacity="0.85"/><path d="M16 4v24" stroke="#7a3a14" stroke-width="0.8" fill="none"/></svg>',
+    '<svg viewBox="0 0 32 32" width="20" height="20"><path d="M16 2c8 4 12 10 12 16s-6 12-12 12S4 24 4 18s4-12 12-16z" fill="#a8c570" opacity="0.85"/><path d="M16 4v24" stroke="#3d4a36" stroke-width="0.8" fill="none"/></svg>'
+  ];
+  function spawnLeaf() {
+    var el = document.createElement('div');
+    el.className = 'leaf';
+    el.innerHTML = LEAF_SVGS[Math.floor(Math.random() * LEAF_SVGS.length)];
+    var startX = Math.random() * window.innerWidth;
+    var endX = startX + (Math.random() - 0.5) * 240;
+    var dur = 9000 + Math.random() * 9000;
+    var rotStart = Math.random() * 360;
+    var rotEnd = rotStart + (Math.random() - 0.5) * 720;
+    var scale = 0.7 + Math.random() * 0.7;
+    el.style.left = startX + 'px';
+    leavesRoot.appendChild(el);
+    var anim = el.animate([
+      { transform: 'translate(0px,-40px) rotate('+rotStart+'deg) scale('+scale+')', opacity: 0 },
+      { opacity: 0.85, offset: 0.1 },
+      { opacity: 0.85, offset: 0.85 },
+      { transform: 'translate('+(endX-startX)+'px,'+(window.innerHeight+80)+'px) rotate('+rotEnd+'deg) scale('+scale+')', opacity: 0 }
+    ], { duration: dur, easing: 'cubic-bezier(0.4,0,0.6,1)' });
+    anim.onfinish = function() { el.remove(); };
+  }
+  var leafTimer;
+  function leafLoop() {
+    spawnLeaf();
+    leafTimer = setTimeout(leafLoop, 1400 + Math.random() * 2200);
+  }
+  setTimeout(leafLoop, 800);
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) clearTimeout(leafTimer);
+    else leafLoop();
+  });
+</script>
+</body>
+</html>

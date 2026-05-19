@@ -22,6 +22,9 @@ exclude:
   - vendor
   - README.md
   - _relaunch_inspect
+  - _resilient_forest_inspect
+  - "Resilient Forest Website.zip"
+  - "Skills for Children Website Relaunch.zip"
   - Working_File.md
   - IMPLEMENTATION_GUIDE.md
 
