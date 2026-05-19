@@ -1,0 +1,159 @@
+---
+layout: default
+---
+
+<!-- ============================================================
+     PAGE HERO
+     ============================================================ -->
+<section class="page-hero container">
+  <div class="reveal">
+    <div class="eyebrow">Trauma resources</div>
+    <h1>Resources for Children Who Experienced a Traumatic Event</h1>
+    <p class="hero-lede">Free, evidence-informed resources from trusted institutions to support children, caregivers, educators, and clinicians through trauma recovery. Curated by Joshua Fisherkeller, MSW.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     RESOURCE LIBRARY — TRAUMA PILLARS
+     ============================================================ -->
+<section class="container section" id="resources">
+  <div class="section-head reveal">
+    <div class="section-head-text">
+      <div class="eyebrow">The library</div>
+      <h2 style="margin-top:14px">Curated trauma resources, organized by skill area.</h2>
+      <p>99 free, evidence-informed resources from organizations like NCTSN, the CDC, TF-CBT.musc.edu, and Zero to Three — organized across 9 pillars so you can find what you need fast.</p>
+    </div>
+  </div>
+
+  <div class="resources-intro reveal">
+    <p><strong>Share these resources.</strong> Use Copy Link on any card to grab the URL — then paste it for clients, families, or colleagues.</p>
+  </div>
+
+  <!-- Search + filter bar -->
+  <div class="search-bar reveal">
+    <label class="search-input">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" id="searchInput" placeholder="Search 99 trauma resources by title, source, or topic&hellip;" aria-label="Search resources">
+    </label>
+    <div class="filter-chip">
+      <select id="audienceFilter" aria-label="Audience">
+        <option value="">Any audience</option>
+        <option value="children">Children</option>
+        <option value="caregivers">Caregivers</option>
+        <option value="professionals">Professionals</option>
+        <option value="teens">Teens</option>
+      </select>
+    </div>
+    <div class="filter-chip">
+      <select id="formatFilter" aria-label="Format">
+        <option value="">Any format</option>
+        <option value="video">Video</option>
+        <option value="pdf">PDF</option>
+        <option value="website">Website</option>
+        <option value="interactive">Interactive</option>
+        <option value="worksheet">Worksheet</option>
+        <option value="guide">Guide</option>
+        <option value="book">Book</option>
+        <option value="curriculum">Curriculum</option>
+        <option value="article">Article</option>
+        <option value="activity list">Activity List</option>
+      </select>
+    </div>
+    <button class="filter-clear" id="clearFilters" type="button">Clear</button>
+  </div>
+
+  <!-- Trauma pillars -->
+  <div class="pillar-section">
+    <div class="pillar-section-head reveal">
+      <div>
+        <h3>Resources on Childhood Trauma</h3>
+        <p>Evidence-informed tools for children, teens, caregivers, and clinicians.</p>
+      </div>
+      <span class="pillar-section-count">99 resources &middot; 9 pillars</span>
+    </div>
+
+    <div class="def-card reveal">
+      <div class="def-card-icon">&#128214;</div>
+      <div>
+        <h4>What is childhood trauma?</h4>
+        <p><strong>Childhood trauma</strong> refers to experiences that overwhelm a child&rsquo;s ability to cope &mdash; abuse, neglect, loss of a caregiver, witnessing violence, or natural disasters. Trauma affects brain development, particularly the amygdala, hippocampus, and prefrontal cortex.</p>
+        <p><strong>The good news:</strong> with evidence-informed support like TF-CBT, co-regulation with trusted adults, and grounding techniques, children&rsquo;s brains can heal and build resilience. Below are free, curated resources organized by skill area for ages 3&ndash;18.</p>
+      </div>
+    </div>
+
+    {% assign trauma_data = site.data.trauma-resources %}
+    {% for pillar in trauma_data.pillars %}
+      {% include pillar.html pillar=pillar section="trauma" %}
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURED BOOK — A Journey of Brave Friends
+     ============================================================ -->
+{% assign featured_book = site.data.books | where: "is_featured", true | first %}
+{% if featured_book %}
+<section class="container section" id="books">
+  <div class="section-head reveal">
+    <div class="section-head-text">
+      <div class="eyebrow">Companion book</div>
+      <h2 style="margin-top:14px">A story-led companion for TF-CBT.</h2>
+      <p>Written for children ages 6&ndash;11 navigating trauma recovery, this book maps to the PRACTICE protocol.</p>
+    </div>
+  </div>
+  <div class="book-feature reveal">
+    {% if featured_book.cover and featured_book.cover != "" %}
+    <div class="book-cover-frame">
+      <img src="{{ featured_book.cover | relative_url }}" alt="{{ featured_book.title }} — book cover" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+    </div>
+    {% else %}
+    <div class="book-cover-frame">
+      <div class="book-placeholder-label">{{ featured_book.title }}</div>
+    </div>
+    {% endif %}
+    <div>
+      <div class="eyebrow">{{ featured_book.meta }}</div>
+      <h3 style="margin:14px 0 16px">{{ featured_book.title }}</h3>
+      <p style="font-size:16px;line-height:1.65;color:var(--ink-soft);margin-bottom:24px">{{ featured_book.description }}</p>
+      {% if featured_book.bullets %}
+      <ul class="featured-list" style="margin-bottom:28px">
+        {% for bullet in featured_book.bullets %}
+        <li>{{ bullet }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        {% if featured_book.affiliate_url and featured_book.affiliate_url != "" %}
+        <a href="{{ featured_book.affiliate_url }}" target="_blank" rel="noopener" class="btn btn--primary">View on Amazon
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="arrow"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+        {% endif %}
+        <a href="{{ '/books' | relative_url }}" class="btn btn--ghost">See all books</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ============================================================
+     TRAUMA ARTICLE
+     ============================================================ -->
+<section class="container section">
+  <div class="section-head reveal">
+    <div class="section-head-text">
+      <div class="eyebrow">Read</div>
+      <h2 style="margin-top:14px">Understanding childhood trauma.</h2>
+    </div>
+  </div>
+  <div class="prose reveal">
+    {% capture article_content %}{% include articles/understanding-childhood-trauma.md %}{% endcapture %}
+    {{ article_content | markdownify }}
+  </div>
+</section>
+
+<!-- ============================================================
+     NEWSLETTER
+     ============================================================ -->
+{% include newsletter.html
+   headline="A monthly note —<br>resources, not noise."
+   body="One thoughtful email each month: new resources, trauma-informed strategies, and growth-mindset stories. No spam. Unsubscribe with one click." %}
