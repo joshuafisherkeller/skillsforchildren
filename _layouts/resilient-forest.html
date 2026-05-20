@@ -106,7 +106,7 @@
   }
   .hero-bg {
     position:absolute;inset:-8% 0 0 0;
-    background-image:url("{{ '/assets/img/resilient-forest/cover.png' | relative_url }}");
+    background-image:url("{{ '/assets/img/resilient-forest/hero.png' | relative_url }}");
     background-size:cover;background-position:center 30%;will-change:transform;z-index:-2;
   }
   .hero-vignette {
@@ -292,7 +292,10 @@
   .lineage-label { font-family:var(--font-body);font-size:10px;letter-spacing:.32em;text-transform:uppercase;margin-bottom:10px;font-weight:600; }
   .lineage-names { font-family:var(--font-display);font-style:italic;font-size:18px;color:var(--cream);display:flex;justify-content:center;gap:14px;flex-wrap:wrap; }
   .lineage-names .dot { color:var(--ember-soft); }
-  .practice-card { background:rgba(245,236,214,.06);border:1px solid rgba(245,236,214,.14);border-radius:12px;padding:28px 22px 26px;backdrop-filter:blur(6px);transition:background .3s ease,border-color .3s ease,transform .3s ease;position:relative;overflow:hidden; }
+  .practice-card { background:rgba(245,236,214,.06);border:1px solid rgba(245,236,214,.14);border-radius:12px;padding:28px 22px 26px;backdrop-filter:blur(6px);transition:background .3s ease,border-color .3s ease,transform .3s ease;position:relative;overflow:hidden;display:flex;flex-direction:column; }
+  .practice-card-img { margin:-28px -22px 20px;aspect-ratio:4/3;overflow:hidden;border-radius:12px 12px 0 0;flex-shrink:0; }
+  .practice-card-img img { width:100%;height:100%;object-fit:cover;display:block;opacity:.88;transition:transform .6s ease; }
+  .practice-card:hover .practice-card-img img { transform:scale(1.04); }
   .practice-card:hover { background:rgba(245,236,214,.1);border-color:rgba(245,236,214,.3);transform:translateY(-3px); }
   .practice-letter { font-family:var(--font-display);font-style:italic;font-weight:500;font-size:56px;line-height:1;color:var(--ember-soft);margin-bottom:12px;display:inline-block; }
   .practice-heading { font-family:var(--font-display);font-weight:600;font-size:22px;margin:0 0 10px;color:var(--cream);letter-spacing:-.01em; }
@@ -389,8 +392,8 @@
   </a>
   <ul>
     <li><a href="#story">The Story</a></li>
-    <li><a href="#friends">Brave Friends</a></li>
     <li><a href="#approach">PRAC</a></li>
+    <li><a href="#friends">Brave Friends</a></li>
     <li><a href="#chapters">Chapters</a></li>
     <li><a href="#author">Author</a></li>
     <li><a href="#buy">Read It</a></li>
@@ -440,69 +443,6 @@
   </div>
 </section>
 
-<section class="friends" id="friends">
-  <div class="container">
-    <div class="section-eyebrow reveal">Meet the Brave Friends</div>
-    <h2 class="section-title reveal">Five small hearts. One wide forest.</h2>
-    <p class="section-lede reveal">Each story in the collection follows a different brave friend learning a PRAC skill &mdash; and a friend who walks beside them. Together they map the slow, gentle work of feeling safe again.</p>
-    <div class="friends-grid">
-      <article class="friend-card reveal">
-        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/timothy.jpg' | relative_url }}" alt="Timothy the Turtle" /></div>
-        <div class="friend-body">
-          <h3 class="friend-name">Timothy</h3>
-          <div class="friend-species">the Turtle</div>
-          <div class="friend-role">Chapter 1 &middot; Psychoeducation</div>
-          <p class="friend-desc">A brave little turtle who lives in a peaceful pond. After a big storm, the world outside his shell feels a lot scarier than before &mdash; and he begins to learn that what he feels is okay.</p>
-        </div>
-      </article>
-      <article class="friend-card reveal delay-1">
-        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/rex.jpg' | relative_url }}" alt="Rex the Rabbit" /></div>
-        <div class="friend-body">
-          <h3 class="friend-name">Rex</h3>
-          <div class="friend-species">the Rabbit</div>
-          <div class="friend-role">Chapter 2 &middot; Relaxation</div>
-          <p class="friend-desc">Quick on his feet, but sometimes his heart races faster than his paws can carry him. After a tumble in the stream, Rex learns that a big breath can be braver than a big leap.</p>
-        </div>
-      </article>
-      <article class="friend-card reveal delay-2">
-        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/kiki.jpg' | relative_url }}" alt="Kiki the Koala" /></div>
-        <div class="friend-body">
-          <h3 class="friend-name">Kiki</h3>
-          <div class="friend-species">the Koala</div>
-          <div class="friend-role">Chapter 2 &middot; Relaxation</div>
-          <p class="friend-desc">High in the eucalyptus trees, Kiki is known for her peacefulness no matter what is happening around her. She teaches her friends to find the still place inside.</p>
-        </div>
-      </article>
-      <article class="friend-card reveal delay-3">
-        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/bella.jpg' | relative_url }}" alt="Bella the Bear" /></div>
-        <div class="friend-body">
-          <h3 class="friend-name">Bella</h3>
-          <div class="friend-species">the Bear</div>
-          <div class="friend-role">Chapter 3 &middot; Affective Expression</div>
-          <p class="friend-desc">Strong and brave on the outside, with a storm of feelings inside. Bella learns that naming a feeling &mdash; in words, drawings, or even a slow, heavy dance &mdash; makes it easier to carry.</p>
-        </div>
-      </article>
-      <article class="friend-card reveal delay-4">
-        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/olive.jpg' | relative_url }}" alt="Olive the Owl" /></div>
-        <div class="friend-body">
-          <h3 class="friend-name">Olive</h3>
-          <div class="friend-species">the Owl</div>
-          <div class="friend-role">Chapter 4 &middot; Cognitive Coping</div>
-          <p class="friend-desc">Wise eyes for the dark hours. Olive helps the friends notice their thoughts &mdash; the ones that are true and the ones that only pretend to be &mdash; and gently tell the difference.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<div class="forest-divider" aria-hidden="true">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 14h4l-3 5h5v3h4v-3h5l-3-5h4z"/></svg>
-  <span class="dot"></span>
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 14h4l-3 5h5v3h4v-3h5l-3-5h4z"/></svg>
-  <span class="dot"></span>
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 14h4l-3 5h5v3h4v-3h5l-3-5h4z"/></svg>
-</div>
-
 <section class="approach" id="approach">
   <div class="container">
     <div class="section-eyebrow reveal">The PRAC Skills</div>
@@ -510,21 +450,25 @@
     <p class="section-lede reveal">Trauma-Focused Cognitive Behavioral Therapy begins with PRAC &mdash; the gentle, grounding work that prepares a child for everything that comes after. <em>A Journey of Brave Friends</em> walks each of these four skills, one chapter at a time.</p>
     <div class="practice-grid">
       <div class="practice-card reveal">
+        <div class="practice-card-img"><img src="{{ '/assets/img/resilient-forest/chapters/chapter1.jpg' | relative_url }}" alt="" aria-hidden="true"></div>
         <div class="practice-letter">P</div>
         <h3 class="practice-heading">Psychoeducation</h3>
         <p class="practice-text">A brave friend learns that what happened wasn&rsquo;t their fault &mdash; and that the way a small body reacts to big things is something every creature in the forest carries.</p>
       </div>
       <div class="practice-card reveal delay-1">
+        <div class="practice-card-img"><img src="{{ '/assets/img/resilient-forest/chapters/chapter2.jpg' | relative_url }}" alt="" aria-hidden="true"></div>
         <div class="practice-letter">R</div>
         <h3 class="practice-heading">Relaxation</h3>
         <p class="practice-text">Timothy the Turtle moves slowly on purpose. The friends learn his slow-lake breath: in for the mountain, out for the moon &mdash; a body that knows how to soften.</p>
       </div>
       <div class="practice-card reveal delay-2">
+        <div class="practice-card-img"><img src="{{ '/assets/img/resilient-forest/chapters/chapter3.jpg' | relative_url }}" alt="" aria-hidden="true"></div>
         <div class="practice-letter">A</div>
         <h3 class="practice-heading">Affective expression &amp; modulation</h3>
         <p class="practice-text">Naming feelings in colors and weather, until even the biggest ones become small enough to hold &mdash; and the body learns it can ride them out.</p>
       </div>
       <div class="practice-card reveal delay-3">
+        <div class="practice-card-img"><img src="{{ '/assets/img/resilient-forest/chapters/chapter4.jpg' | relative_url }}" alt="" aria-hidden="true"></div>
         <div class="practice-letter">C</div>
         <h3 class="practice-heading">Cognitive coping</h3>
         <p class="practice-text">Olive the Owl helps the friends notice their thoughts &mdash; the ones that are true, and the ones that only pretend to be &mdash; and tell the gentle difference between them.</p>
@@ -547,6 +491,64 @@
   </div>
 </section>
 
+<div class="forest-divider" aria-hidden="true">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 14h4l-3 5h5v3h4v-3h5l-3-5h4z"/></svg>
+  <span class="dot"></span>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 14h4l-3 5h5v3h4v-3h5l-3-5h4z"/></svg>
+  <span class="dot"></span>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 14h4l-3 5h5v3h4v-3h5l-3-5h4z"/></svg>
+</div>
+
+<section class="friends" id="friends">
+  <div class="container">
+    <div class="section-eyebrow reveal">Meet the Brave Friends</div>
+    <h2 class="section-title reveal">Five small hearts. One wide forest.</h2>
+    <p class="section-lede reveal">Five animal friends, each carrying a different feeling through the Resilient Forest. Together they learn that being brave doesn&rsquo;t mean going it alone.</p>
+    <div class="friends-grid">
+      <article class="friend-card reveal">
+        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/timothy.jpg' | relative_url }}" alt="Timothy the Turtle" /></div>
+        <div class="friend-body">
+          <h3 class="friend-name">Timothy</h3>
+          <div class="friend-species">the Turtle</div>
+          <p class="friend-desc">A brave little turtle who lives in a peaceful pond. After a big storm, the world outside his shell feels a lot scarier than before &mdash; and he begins to learn that what he feels is okay.</p>
+        </div>
+      </article>
+      <article class="friend-card reveal delay-1">
+        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/rex.jpg' | relative_url }}" alt="Rex the Rabbit" /></div>
+        <div class="friend-body">
+          <h3 class="friend-name">Rex</h3>
+          <div class="friend-species">the Rabbit</div>
+          <p class="friend-desc">Quick on his feet, but sometimes his heart races faster than his paws can carry him. Rex learns that a big breath can be braver than a big leap.</p>
+        </div>
+      </article>
+      <article class="friend-card reveal delay-2">
+        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/kiki.jpg' | relative_url }}" alt="Kiki the Koala" /></div>
+        <div class="friend-body">
+          <h3 class="friend-name">Kiki</h3>
+          <div class="friend-species">the Koala</div>
+          <p class="friend-desc">High in the eucalyptus trees, Kiki is known for her peacefulness no matter what is happening around her. She teaches her friends to find the still place inside.</p>
+        </div>
+      </article>
+      <article class="friend-card reveal delay-3">
+        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/bella.jpg' | relative_url }}" alt="Bella the Bear" /></div>
+        <div class="friend-body">
+          <h3 class="friend-name">Bella</h3>
+          <div class="friend-species">the Bear</div>
+          <p class="friend-desc">Strong and brave on the outside, with a storm of feelings inside. Bella learns that naming a feeling &mdash; in words, drawings, or even a slow, heavy dance &mdash; makes it easier to carry.</p>
+        </div>
+      </article>
+      <article class="friend-card reveal delay-4">
+        <div class="friend-art"><img src="{{ '/assets/img/resilient-forest/characters/olive.jpg' | relative_url }}" alt="Olive the Owl" /></div>
+        <div class="friend-body">
+          <h3 class="friend-name">Olive</h3>
+          <div class="friend-species">the Owl</div>
+          <p class="friend-desc">Wise eyes for the dark hours. Olive helps the friends notice their thoughts &mdash; the ones that are true and the ones that only pretend to be &mdash; and gently tell the difference.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="chapters" id="chapters">
   <div class="container">
     <div class="section-eyebrow reveal">A Look Inside</div>
@@ -554,7 +556,7 @@
     <p class="section-lede reveal">Each chapter follows one friend through one feeling &mdash; with painted, full-page illustrations and a gentle voice that meets a child where they are. Below, a glimpse of what waits between the pages.</p>
     <div class="chapter-list">
       <article class="chapter-card reveal">
-        <div class="chapter-image" style="background-image:url('{{ '/assets/img/resilient-forest/characters/timothy.jpg' | relative_url }}');"></div>
+        <div class="chapter-image" style="background-image:url('{{ '/assets/img/resilient-forest/scenes/chap1.jpg' | relative_url }}');"></div>
         <div class="chapter-body">
           <div class="chapter-tag"><span class="num">1</span> Chapter One &middot; Psychoeducation</div>
           <h3 class="chapter-title">Timothy the Turtle and the Big Storm</h3>
@@ -564,7 +566,7 @@
         </div>
       </article>
       <article class="chapter-card reverse reveal">
-        <div class="chapter-image" style="background-image:url('{{ '/assets/img/resilient-forest/characters/kiki.jpg' | relative_url }}');"></div>
+        <div class="chapter-image" style="background-image:url('{{ '/assets/img/resilient-forest/scenes/chap2.jpg' | relative_url }}');"></div>
         <div class="chapter-body">
           <div class="chapter-tag"><span class="num">2</span> Chapter Two &middot; Relaxation</div>
           <h3 class="chapter-title">Rex the Rabbit and Kiki the Koala Take a Big Breath</h3>
@@ -574,7 +576,7 @@
         </div>
       </article>
       <article class="chapter-card reveal">
-        <div class="chapter-image" style="background-image:url('{{ '/assets/img/resilient-forest/characters/bella.jpg' | relative_url }}');"></div>
+        <div class="chapter-image" style="background-image:url('{{ '/assets/img/resilient-forest/scenes/chap3.jpg' | relative_url }}');"></div>
         <div class="chapter-body">
           <div class="chapter-tag"><span class="num">3</span> Chapter Three &middot; Affective Expression</div>
           <h3 class="chapter-title">Bella the Bear and the Storm Inside</h3>
@@ -584,7 +586,7 @@
         </div>
       </article>
       <article class="chapter-card reverse reveal">
-        <div class="chapter-image" style="background-image:url('{{ '/assets/img/resilient-forest/scenes/owl-flight.jpg' | relative_url }}');"></div>
+        <div class="chapter-image" style="background-image:url('{{ '/assets/img/resilient-forest/scenes/chap4.jpg' | relative_url }}');"></div>
         <div class="chapter-body">
           <div class="chapter-tag"><span class="num">4</span> Chapter Four &middot; Cognitive Coping</div>
           <h3 class="chapter-title">Olive the Owl and the Helpful Thoughts</h3>
@@ -637,20 +639,7 @@
   <div class="container">
     <div class="author-grid">
       <div class="author-portrait reveal">
-        <svg viewBox="0 0 200 200" width="60%" height="60%" style="opacity:.85">
-          <defs>
-            <path id="top-arc" d="M 30 100 A 70 70 0 0 1 170 100" fill="none"/>
-            <path id="bot-arc" d="M 30 100 A 70 70 0 0 0 170 100" fill="none"/>
-          </defs>
-          <circle cx="100" cy="100" r="82" fill="none" stroke="rgba(245,236,214,0.85)" stroke-width="2.5"/>
-          <text font-family="Nunito, sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="rgba(245,236,214,0.92)">
-            <textPath href="#top-arc" startOffset="50%" text-anchor="middle">SKILLS FOR CHILDREN</textPath>
-          </text>
-          <text font-family="Nunito, sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="rgba(245,236,214,0.92)">
-            <textPath href="#bot-arc" startOffset="50%" text-anchor="middle">BOOKS AND VIDEOS</textPath>
-          </text>
-          <path d="M 100 60 c -5 0 -9 4 -9 9 s 4 9 9 9 9 -4 9 -9 -4 -9 -9 -9 z M 100 78 c -4 0 -10 1 -16 -1 c -3 -1 -7 1 -6 5 c 0 3 4 4 8 4 l 0 6 l -8 18 c -1 4 4 7 6 3 l 6 -12 l 0 22 c 0 3 2 5 5 5 s 5 -2 5 -5 l 0 -22 l 6 12 c 2 4 7 1 6 -3 l -8 -18 l 0 -6 c 4 0 8 -1 8 -4 c 1 -4 -3 -6 -6 -5 c -6 2 -12 1 -16 1 z M 84 95 c -3 -2 -8 -10 -10 -3 c -1 4 4 9 8 9 z M 116 95 c 3 -2 8 -10 10 -3 c 1 4 -4 9 -8 9 z" fill="rgba(245,236,214,0.9)"/>
-        </svg>
+        <img src="{{ '/assets/img/resilient-forest/author.png' | relative_url }}" alt="Joshua Fisherkeller, MSW" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
       <div class="author-prose">
         <div class="section-eyebrow reveal">The Author</div>
@@ -667,8 +656,8 @@
 <section class="buy" id="buy">
   <div class="container">
     <div class="section-eyebrow reveal" style="justify-content:center;">Bring the Book Home</div>
-    <h2 class="section-title reveal">Read it together, by the lake or the lamp.</h2>
-    <p class="section-lede reveal">Available on Amazon in hardcover and paperback. A portion of every copy supports children&rsquo;s mental health programs.</p>
+    <h2 class="section-title reveal">Read it together.</h2>
+    <p class="section-lede reveal">Only available on Amazon in hardcover and paperback.</p>
     <div class="buy-grid">
       <a href="https://amzn.to/4qLZztE" target="_blank" rel="noopener" class="buy-card reveal">
         <span class="price">Hardcover &amp; Paperback</span>

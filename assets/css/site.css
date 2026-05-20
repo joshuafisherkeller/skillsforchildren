@@ -1440,26 +1440,38 @@ img, svg, video { display: block; max-width: 100%; }
   border-radius: 6px;
 }
 
-/* Trauma hub pillar */
+/* Trauma hub pillar — matches regular pillar bar style */
 .pillar--hub {
-  display: block;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 18px;
+  align-items: center;
+  padding: 22px 28px;
   text-decoration: none;
   color: inherit;
-  border: 2px solid var(--sage);
   cursor: pointer;
+  border-color: var(--sage);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .pillar--hub:hover {
-  background: color-mix(in srgb, var(--sage) 8%, transparent);
   border-color: var(--ink);
+  box-shadow: var(--shadow-2);
 }
-.pillar--hub .pillar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+.pillar-icon--hub {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--sage) 15%, var(--cream));
+  color: var(--sage);
+  flex: none;
+}
+[data-theme="dark"] .pillar-icon--hub {
+  background: color-mix(in srgb, var(--sage) 25%, var(--paper-2));
 }
 .pillar-hub-arrow {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: var(--sage);
   flex-shrink: 0;
   transition: transform 0.2s;
@@ -1467,12 +1479,75 @@ img, svg, video { display: block; max-width: 100%; }
 .pillar--hub:hover .pillar-hub-arrow {
   transform: translateX(4px);
 }
-.pillar-eyebrow {
-  display: block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--sage);
-  margin-bottom: 4px;
+@media (max-width: 640px) {
+  .pillar--hub { grid-template-columns: auto 1fr auto; padding: 16px 18px; }
+  .pillar--hub .pillar-count { display: none; }
+}
+
+/* ── Prose article typography ─────────────────────────── */
+.prose {
+  max-width: 72ch;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--ink);
+}
+.prose h1 {
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 48px 0 14px;
+  letter-spacing: -0.02em;
+}
+.prose h2 {
+  font-size: clamp(19px, 2.1vw, 25px);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 40px 0 12px;
+  letter-spacing: -0.015em;
+}
+.prose h3 {
+  font-size: clamp(16px, 1.7vw, 20px);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 32px 0 10px;
+}
+.prose h4, .prose h5, .prose h6 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 24px 0 8px;
+}
+.prose p { margin: 0 0 18px; }
+.prose ul, .prose ol { margin: 0 0 18px; padding-left: 1.5em; }
+.prose li { margin-bottom: 6px; line-height: 1.7; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+.prose blockquote {
+  border-left: 3px solid var(--sage);
+  margin: 28px 0;
+  padding: 4px 0 4px 20px;
+  color: var(--muted);
+  font-style: italic;
+}
+.prose a { color: var(--sage); text-underline-offset: 3px; }
+.prose a:hover { color: var(--ink); }
+
+/* ── Fireflies (dark theme ambient) ──────────────────── */
+#fireflies {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  display: none;
+}
+[data-theme="dark"] #fireflies { display: block; }
+.firefly {
+  position: absolute;
+  border-radius: 50%;
+  background: #f5e060;
+  box-shadow:
+    0 0 4px 2px rgba(245, 220, 60, 0.7),
+    0 0 10px 5px rgba(245, 200, 40, 0.25);
+  will-change: transform, opacity;
+  opacity: 0;
 }

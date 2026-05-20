@@ -201,3 +201,63 @@ document.addEventListener('submit', (e) => {
     window.location.replace('https://www.weather.com');
   });
 })();
+
+
+/* ---------- FIREFLIES (dark theme ambient) ---------- */
+(function () {
+  const container = document.getElementById('fireflies');
+  if (!container) return;
+
+  let running = false;
+  let timer = null;
+
+  function spawnFirefly() {
+    const el = document.createElement('div');
+    el.className = 'firefly';
+    const size = 1.5 + Math.random() * 2.5;
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
+    const driftX = (Math.random() - 0.5) * 160;
+    const driftY = (Math.random() - 0.5) * 120;
+    const dur = 5000 + Math.random() * 7000;
+    el.style.cssText = `left:${x}px;top:${y}px;width:${size}px;height:${size}px;`;
+    container.appendChild(el);
+    el.animate([
+      { opacity: 0, transform: 'translate(0,0)' },
+      { opacity: 0.9, offset: 0.25 },
+      { opacity: 0.6, offset: 0.75 },
+      { opacity: 0, transform: `translate(${driftX}px,${driftY}px)` }
+    ], { duration: dur, easing: 'ease-in-out' }).onfinish = () => el.remove();
+  }
+
+  function loop() {
+    if (!running) return;
+    spawnFirefly();
+    timer = setTimeout(loop, 500 + Math.random() * 1000);
+  }
+
+  function start() {
+    if (running) return;
+    running = true;
+    loop();
+  }
+
+  function stop() {
+    running = false;
+    clearTimeout(timer);
+    container.innerHTML = '';
+  }
+
+  function syncToTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    isDark ? start() : stop();
+  }
+
+  // Watch for theme changes
+  new MutationObserver(syncToTheme).observe(
+    document.documentElement,
+    { attributes: true, attributeFilter: ['data-theme'] }
+  );
+
+  syncToTheme();
+})();
