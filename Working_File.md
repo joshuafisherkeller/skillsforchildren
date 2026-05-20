@@ -137,6 +137,35 @@ Changed `_includes/theme-script.html` so new visitors (no localStorage) get dark
 
 ---
 
+### Session 6 — May 20, 2026
+**Task:** Amazon Associates reapplication + affiliate link refresh across all site files.
+**Commits:** pending
+**Pushed to GitHub:** No — ready to commit
+
+#### What changed
+- Josh's Amazon Associates account had lapsed (site was down too long). Reapplied and approved instantly. New StoreID: `skillsforch0c-20`.
+- All 6 affiliate links updated with new tracking URLs:
+
+| Product | Old link | New link |
+|---|---|---|
+| A Journey of Brave Friends | amzn.to/4qLZztE | amzn.to/4tWqSlG |
+| Maximilian's Cosmic Adventure | amzn.to/3MYO02Q | amzn.to/4uq1FB5 |
+| Resilient Forest Notebook | amzn.to/4hRXwjZ | amzn.to/3RkOZNd |
+| Mother Earth in the Mountains | amzn.to/3WLboCH | amzn.to/4wN3GZJ |
+| Flower Mountain | amzn.to/499JQP0 | amzn.to/4wHgdh1 |
+| Mushrooms and Mountains | amzn.to/43Zrcpj | amzn.to/3PPKDgA |
+
+#### Files updated
+- `_data/books.yml` — Journey of Brave Friends + Maximilian's links
+- `_data/skills-resources.yml` — Maximilian's link
+- `_layouts/home.html` — Journey of Brave Friends link
+- `_layouts/resilient-forest.html` — Journey of Brave Friends link
+- `SECOND_BRAIN.md` — all 6 links updated in the products table
+
+Note: The 4 journal products (Resilient Forest Notebook, Mother Earth, Flower Mountain, Mushrooms and Mountains) have new affiliate links but are not yet added to the Books page. Links are now current in SECOND_BRAIN.md for when that work is done.
+
+---
+
 ### Session 5 — May 19, 2026
 **Task:** Multi-file overhaul — resilient forest image/layout updates, hub pillar restyle, prose typography, homepage fireflies.
 **Commit:** `a86a844`
@@ -188,9 +217,9 @@ Bella unchanged (original image is good).
 ## Pending / TODOs (Josh's Action Items)
 
 - [ ] **Book cover images** — `_data/books.yml` still has empty `cover:` for Maximilian's Cosmic Adventure. Add real artwork to `assets/img/books/` and fill in the path.
-- [ ] **Maximilian's affiliate link** — confirm whether the current link in books.yml (`amzn.to/3MYO02Q`) or the SECOND_BRAIN listing (`amzn.to/4nKyLHE`) is the active link. Update books.yml if needed.
+- [x] **Maximilian's affiliate link** — resolved. New link `amzn.to/4uq1FB5` updated in books.yml and skills-resources.yml (Session 6, May 2026).
 - [x] **Prose styling on /trauma article section** — `.prose` CSS added in Session 5. Headings scaled, spacing fixed.
-- [ ] **Missing products in books.yml** — `SECOND_BRAIN.md` lists 4 more products not yet in the site: *Resilient Forest Notebook* (`amzn.to/4hRXwjZ`), *Mother Earth in the Mountains* (`amzn.to/3WLboCH`), *Flower Mountain* (`amzn.to/499JQP0`), *Mushrooms and Mountains* (`amzn.to/43Zrcpj`). Decide whether to add these to the Books page or keep them separate.
+- [ ] **Missing products in books.yml** — `SECOND_BRAIN.md` lists 4 more products not yet in the site: *Resilient Forest Notebook* (`amzn.to/3RkOZNd`), *Mother Earth in the Mountains* (`amzn.to/4wN3GZJ`), *Flower Mountain* (`amzn.to/4wHgdh1`), *Mushrooms and Mountains* (`amzn.to/3PPKDgA`). Decide whether to add these to the Books page or keep them separate.
 - [ ] **Kit newsletter** — Confirm Kit's embed script is rendering its form correctly on the live site. If it is, the noscript fallback is fine as-is.
 - [ ] **Google Analytics 4** — No GA4 snippet in site. If you want analytics, provide the `gtag.js` snippet and it goes in `_layouts/default.html` inside `<head>`.
 - [ ] **Mobile nav** — Nav links hide at <640px (per design spec). No hamburger/drawer added. Decide if you want one added.
