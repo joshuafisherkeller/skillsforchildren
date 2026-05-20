@@ -17,7 +17,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
 
-    /* ── Design tokens ── */
+    /* ── Tokens ── */
     :root {
       --ink:          #0c0a09;
       --ink-2:        #1c1917;
@@ -28,22 +28,17 @@
       --subtle:       #d6d3d1;
       --pale:         #f5f5f4;
       --white:        #fafaf9;
-
-      /* Green palette — replaces amber throughout */
       --green:        #1a7a4a;
       --green-lt:     #22a060;
-      --green-dim:    rgba(26,122,74,.15);
       --green-bg:     #f0faf6;
       --green-border: #a7f3d0;
       --green-text:   #065f46;
       --green-mint:   #6ee7b7;
       --green-deep:   #0c3d26;
-
       --sans:         'DM Sans', 'Inter', system-ui, sans-serif;
       --body:         'Inter', system-ui, sans-serif;
       --serif:        Georgia, 'Times New Roman', serif;
       --radius:       6px;
-      --shadow:       0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.08);
       --shadow-2:     0 6px 20px rgba(0,0,0,.22), 0 2px 6px rgba(0,0,0,.12);
       --shadow-green: 0 6px 20px rgba(26,122,74,.22), 0 2px 6px rgba(26,122,74,.1);
     }
@@ -67,153 +62,83 @@
     .aht-nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(12,10,9,.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255,255,255,.06);
-      padding: 0 28px;
-      height: 64px;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 24px;
+      padding: 0 28px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
     }
-    .aht-nav-brand {
-      font-family: var(--serif);
-      font-size: 17px; color: #fff;
-      letter-spacing: -.01em;
-      text-decoration: none; flex-shrink: 0;
-    }
+    .aht-nav-brand { font-family: var(--serif); font-size: 17px; color: #fff; letter-spacing: -.01em; text-decoration: none; flex-shrink: 0; }
     .aht-nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-    .aht-nav-links a {
-      font-family: var(--sans);
-      font-size: 13.5px; font-weight: 500;
-      color: #a8a29e; text-decoration: none;
-      letter-spacing: .01em; transition: color .18s;
-    }
+    .aht-nav-links a { font-family: var(--sans); font-size: 13.5px; font-weight: 500; color: #a8a29e; text-decoration: none; letter-spacing: .01em; transition: color .18s; }
     .aht-nav-links a:hover { color: var(--green-mint); }
-    .aht-nav-cta {
-      background: var(--green) !important;
-      color: #fff !important;
-      font-weight: 700 !important;
-      padding: 9px 20px;
-      border-radius: var(--radius);
-      transition: background .18s !important;
-      white-space: nowrap;
-    }
-    .aht-nav-cta:hover { background: var(--green-lt) !important; color: #fff !important; }
-    .aht-hamburger {
-      display: none;
-      background: none; border: none;
-      color: #a8a29e; font-size: 22px;
-      cursor: pointer; padding: 6px; line-height: 1;
-    }
-    .aht-mobile-menu {
-      display: none;
-      background: var(--ink-2);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      padding: 20px 28px;
-      flex-direction: column; gap: 18px;
-    }
+    .aht-nav-cta { background: var(--green) !important; color: #fff !important; font-weight: 700 !important; padding: 9px 20px; border-radius: var(--radius); transition: background .18s !important; white-space: nowrap; }
+    .aht-nav-cta:hover { background: var(--green-lt) !important; }
+    .aht-hamburger { display: none; background: none; border: none; color: #a8a29e; font-size: 22px; cursor: pointer; padding: 6px; line-height: 1; }
+    .aht-mobile-menu { display: none; background: var(--ink-2); border-bottom: 1px solid rgba(255,255,255,.06); padding: 20px 28px; flex-direction: column; gap: 18px; }
     .aht-mobile-menu.open { display: flex; }
-    .aht-mobile-menu a {
-      font-family: var(--sans);
-      font-size: 15px; font-weight: 500;
-      color: #d6d3d1; text-decoration: none; transition: color .18s;
-    }
-    .aht-mobile-menu a:hover,
-    .aht-mobile-menu a.green { color: var(--green-mint); }
+    .aht-mobile-menu a { font-family: var(--sans); font-size: 15px; font-weight: 500; color: #d6d3d1; text-decoration: none; transition: color .18s; }
+    .aht-mobile-menu a:hover, .aht-mobile-menu a.green { color: var(--green-mint); }
 
     /* ═══════════════════════════════════
-       HERO — ambient glow & gradient text
+       HERO
     ═══════════════════════════════════ */
     .aht-hero {
-      background: var(--ink);
-      color: #fff;
+      background: var(--ink); color: #fff;
       padding: 80px 28px 96px;
       position: relative; overflow: hidden;
     }
-    /* Primary ambient glow — top right */
     .aht-hero::before {
-      content: '';
-      position: absolute;
+      content: ''; position: absolute;
       width: 700px; height: 700px; border-radius: 50%;
       background: radial-gradient(circle, rgba(26,122,74,.18) 0%, transparent 65%);
       top: -200px; right: -150px;
-      animation: hero-glow 8s ease-in-out infinite;
-      pointer-events: none;
+      animation: hero-glow 8s ease-in-out infinite; pointer-events: none;
     }
-    /* Secondary glow — bottom left */
     .aht-hero::after {
-      content: '';
-      position: absolute;
+      content: ''; position: absolute;
       width: 400px; height: 400px; border-radius: 50%;
       background: radial-gradient(circle, rgba(26,122,74,.1) 0%, transparent 70%);
       bottom: -100px; left: -80px;
-      animation: hero-glow 10s ease-in-out infinite reverse;
-      pointer-events: none;
+      animation: hero-glow 10s ease-in-out infinite reverse; pointer-events: none;
     }
     @keyframes hero-glow {
       0%, 100% { opacity: .7; transform: scale(1); }
       50%       { opacity: 1; transform: scale(1.12); }
     }
-    /* Moon decoration */
-    .aht-hero-moon {
-      position: absolute; top: 32px; right: 28px;
-      opacity: .14; pointer-events: none;
-      animation: moon-drift 12s ease-in-out infinite;
-    }
+    .aht-hero-moon { position: absolute; top: 32px; right: 28px; opacity: .14; pointer-events: none; animation: moon-drift 12s ease-in-out infinite; }
     @keyframes moon-drift {
       0%, 100% { transform: translateY(0) rotate(0deg); }
       50%       { transform: translateY(-12px) rotate(4deg); }
     }
     .aht-hero-inner { max-width: 820px; position: relative; z-index: 1; }
     .aht-eyebrow {
-      display: inline-block;
-      background: var(--green);
-      color: #fff;
-      font-family: var(--sans);
-      font-size: 10px; font-weight: 800;
+      display: inline-block; background: var(--green); color: #fff;
+      font-family: var(--sans); font-size: 10px; font-weight: 800;
       letter-spacing: .12em; text-transform: uppercase;
       padding: 5px 12px; border-radius: 4px; margin-bottom: 28px;
     }
-    /* Gradient text on h1 */
     .aht-hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(40px, 7vw, 72px);
+      font-family: var(--serif); font-size: clamp(40px, 7vw, 72px);
       line-height: 1.08; font-weight: 400; margin-bottom: 22px;
       background: linear-gradient(140deg, #fff 45%, var(--green-mint) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: #fff;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: #fff;
     }
-    .aht-hero-lede {
-      font-family: var(--body);
-      font-size: clamp(16px, 2vw, 19px);
-      color: #a8a29e; max-width: 580px;
-      margin-bottom: 10px; line-height: 1.65;
-    }
+    .aht-hero-lede { font-family: var(--body); font-size: clamp(16px, 2vw, 19px); color: #a8a29e; max-width: 580px; margin-bottom: 10px; line-height: 1.65; }
     .aht-hero-sub { font-size: 13px; color: #78716c; margin-bottom: 36px; }
     .aht-hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
-
     .btn-green {
-      display: inline-block;
-      background: var(--green); color: #fff;
-      font-family: var(--sans);
-      font-size: 15px; font-weight: 700;
-      padding: 14px 32px; border-radius: var(--radius);
-      text-decoration: none;
+      display: inline-block; background: var(--green); color: #fff;
+      font-family: var(--sans); font-size: 15px; font-weight: 700;
+      padding: 14px 32px; border-radius: var(--radius); text-decoration: none;
       box-shadow: var(--shadow-green);
       transition: background .18s, transform .15s, box-shadow .18s;
     }
     .btn-green:hover { background: var(--green-lt); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(26,122,74,.32); }
     .btn-green:active { transform: translateY(0); }
-
     .btn-ghost-light {
-      display: inline-block;
-      border: 1.5px solid #44403c; color: #a8a29e;
-      font-family: var(--sans);
-      font-size: 15px; font-weight: 500;
-      padding: 13px 32px; border-radius: var(--radius);
-      text-decoration: none;
+      display: inline-block; border: 1.5px solid #44403c; color: #a8a29e;
+      font-family: var(--sans); font-size: 15px; font-weight: 500;
+      padding: 13px 32px; border-radius: var(--radius); text-decoration: none;
       transition: border-color .18s, color .18s, transform .15s;
     }
     .btn-ghost-light:hover { border-color: #78716c; color: #fff; transform: translateY(-1px); }
@@ -221,34 +146,16 @@
     /* ═══════════════════════════════════
        AVAILABILITY TICKER
     ═══════════════════════════════════ */
-    .aht-avail {
-      background: var(--green-bg);
-      border-top: 1px solid var(--green-border);
-      border-bottom: 1px solid var(--green-border);
-      overflow: hidden;
-    }
-    .aht-avail-inner {
-      max-width: 860px; margin: 0 auto;
-      display: flex; flex-wrap: wrap; gap: 6px 20px;
-      font-size: 13.5px; color: #57534e;
-      align-items: center; padding: 14px 28px;
-    }
+    .aht-avail { background: var(--green-bg); border-top: 1px solid var(--green-border); border-bottom: 1px solid var(--green-border); overflow: hidden; }
+    .aht-avail-inner { max-width: 860px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13.5px; color: #57534e; align-items: center; padding: 14px 28px; }
     .aht-avail strong { color: var(--ink); }
     .aht-avail-sep { color: #d6d3d1; }
     .aht-avail-dim { color: #a8a29e; font-style: italic; }
     @media (max-width: 540px) {
-      .aht-avail-inner {
-        flex-wrap: nowrap; padding: 12px 0;
-        gap: 36px; width: max-content;
-        animation: ticker 18s linear infinite;
-        will-change: transform;
-      }
+      .aht-avail-inner { flex-wrap: nowrap; padding: 12px 0; gap: 36px; width: max-content; animation: ticker 18s linear infinite; will-change: transform; }
       .aht-avail-sep { display: none; }
     }
-    @keyframes ticker {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* ═══════════════════════════════════
        SECTIONS — shared
@@ -256,69 +163,23 @@
     .aht-section { padding: 80px 28px; }
     .aht-section-inner { max-width: 940px; margin: 0 auto; }
     .aht-section-head { margin-bottom: 48px; }
-    .aht-section-eyebrow {
-      font-family: var(--sans);
-      font-size: 10px; font-weight: 800;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: var(--green-text);
-      margin-bottom: 10px;
-    }
-    .aht-section h2 {
-      font-family: var(--serif);
-      font-size: clamp(30px, 4vw, 46px);
-      font-weight: 400; line-height: 1.15; color: var(--ink);
-    }
+    .aht-section-eyebrow { font-family: var(--sans); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--green-text); margin-bottom: 10px; }
+    .aht-section h2 { font-family: var(--serif); font-size: clamp(30px, 4vw, 46px); font-weight: 400; line-height: 1.15; color: var(--ink); }
 
     /* ═══════════════════════════════════
        SERVICE CARDS
     ═══════════════════════════════════ */
-    .aht-services-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 1px; background: #e7e5e4;
-      border: 1px solid #e7e5e4;
-      border-radius: var(--radius); overflow: hidden;
-    }
-    .aht-service-card {
-      background: #fff; padding: 32px 28px;
-      display: flex; flex-direction: column; gap: 12px;
-      border-left: 3px solid transparent;
-      transition: background .2s, border-color .2s, transform .2s, box-shadow .2s;
-      position: relative;
-    }
-    .aht-service-card:hover,
-    .aht-service-card:focus-within {
-      background: #fefefe;
-      border-left-color: var(--green);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-2); z-index: 2;
-    }
+    .aht-services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: #e7e5e4; border: 1px solid #e7e5e4; border-radius: var(--radius); overflow: hidden; }
+    .aht-service-card { background: #fff; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px; border-left: 3px solid transparent; transition: background .2s, border-color .2s, transform .2s, box-shadow .2s; position: relative; }
+    .aht-service-card:hover, .aht-service-card:focus-within { background: #fefefe; border-left-color: var(--green); transform: translateY(-3px); box-shadow: var(--shadow-2); z-index: 2; }
     .aht-service-card:active { transform: translateY(-1px); }
     .aht-service-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
     .aht-service-card h3 { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--ink); }
-    /* Badge with shimmer sweep */
-    .aht-badge {
-      flex-shrink: 0;
-      font-family: var(--sans);
-      font-size: 10px; font-weight: 700;
-      letter-spacing: .08em; text-transform: uppercase;
-      color: var(--green-text); background: #d1fae5;
-      padding: 4px 9px; border-radius: 4px; white-space: nowrap;
-      position: relative; overflow: hidden;
-    }
-    .aht-badge::after {
-      content: '';
-      position: absolute; top: 0; left: -120%;
-      width: 80%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent);
-      animation: badge-shine 4s ease-in-out infinite;
-      animation-delay: 1.5s;
-    }
+    .aht-badge { flex-shrink: 0; font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green-text); background: #d1fae5; padding: 4px 9px; border-radius: 4px; white-space: nowrap; position: relative; overflow: hidden; }
+    .aht-badge::after { content: ''; position: absolute; top: 0; left: -120%; width: 80%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent); animation: badge-shine 4s ease-in-out infinite; animation-delay: 1.5s; }
     @keyframes badge-shine { 0% { left: -120%; } 30%, 100% { left: 200%; } }
     .aht-service-desc { font-size: 14px; color: #78716c; line-height: 1.65; }
-    .aht-service-pricing {
-      margin-top: auto; padding-top: 16px; border-top: 1px solid #f5f5f4;
-      display: flex; flex-direction: column; gap: 8px;
-    }
+    .aht-service-pricing { margin-top: auto; padding-top: 16px; border-top: 1px solid #f5f5f4; display: flex; flex-direction: column; gap: 8px; }
     .aht-price-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
     .aht-price-label { font-size: 13px; color: #78716c; }
     .aht-price-label span { color: #a8a29e; }
@@ -326,20 +187,19 @@
     .aht-services-note { font-size: 12px; color: #a8a29e; margin-top: 12px; }
 
     /* ═══════════════════════════════════
-       HOW IT WORKS — circles + connector
+       HOW IT WORKS + LET'S TALK STRATEGY
+       Combined dark section
     ═══════════════════════════════════ */
     .aht-how { background: var(--ink-2); padding: 80px 28px; }
     .aht-how-inner { max-width: 940px; margin: 0 auto; }
     .aht-how .aht-section-eyebrow { color: var(--green-mint); }
     .aht-how h2 { color: #fff; }
-    .aht-steps {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 48px; margin-top: 56px; position: relative;
-    }
+
+    /* 3 steps */
+    .aht-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 56px; position: relative; }
     @media (min-width: 700px) {
       .aht-steps::before {
-        content: '';
-        position: absolute;
+        content: ''; position: absolute;
         top: 36px; left: calc(16.66% + 4px); right: calc(16.66% + 4px);
         height: 1px;
         background: linear-gradient(90deg, transparent 0%, rgba(26,122,74,.3) 15%, rgba(26,122,74,.3) 85%, transparent 100%);
@@ -347,22 +207,76 @@
       }
     }
     .aht-step { position: relative; z-index: 1; }
-    .aht-step-num {
-      width: 72px; height: 72px; border-radius: 50%;
-      border: 1px solid rgba(26,122,74,.35);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px;
-      background: rgba(26,122,74,.08);
-      position: relative;
-    }
-    .aht-step-num::before {
-      content: '';
-      position: absolute; inset: -5px; border-radius: 50%;
-      border: 1px solid rgba(26,122,74,.12);
-    }
+    .aht-step-num { width: 72px; height: 72px; border-radius: 50%; border: 1px solid rgba(26,122,74,.35); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; background: rgba(26,122,74,.08); position: relative; }
+    .aht-step-num::before { content: ''; position: absolute; inset: -5px; border-radius: 50%; border: 1px solid rgba(26,122,74,.12); }
     .aht-step-num span { font-family: var(--serif); font-size: 28px; color: var(--green-mint); line-height: 1; }
     .aht-step h3 { font-family: var(--sans); font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 10px; }
     .aht-step p { font-size: 14px; color: #a8a29e; line-height: 1.65; }
+
+    /* ── Divider between steps and discovery ── */
+    .aht-how-divider {
+      height: 1px;
+      background: rgba(255,255,255,.06);
+      margin: 72px 0;
+      position: relative;
+    }
+    .aht-how-divider::before {
+      content: '✦';
+      position: absolute; left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--ink-2);
+      color: rgba(26,122,74,.5);
+      font-size: 12px;
+      padding: 0 16px;
+    }
+
+    /* ── Let's Talk Strategy ── */
+    .aht-discovery {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .aht-discovery-pill {
+      display: inline-flex; align-items: center;
+      background: rgba(26,122,74,.2);
+      border: 1px solid rgba(26,122,74,.4);
+      color: var(--green-mint);
+      font-family: var(--sans); font-size: 10px; font-weight: 800;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 5px 16px; border-radius: 100px; margin-bottom: 22px;
+    }
+    .aht-discovery h2 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 400; color: #fff;
+      margin-bottom: 10px; line-height: 1.15;
+    }
+    .aht-discovery-sub {
+      font-family: var(--sans); font-size: 15px; font-weight: 600;
+      color: var(--green-mint); margin-bottom: 24px;
+    }
+    .aht-discovery-body {
+      font-size: 15px; color: #a8a29e;
+      line-height: 1.8; margin-bottom: 40px;
+    }
+    .btn-discovery {
+      display: inline-block;
+      background: #fff; color: var(--green-deep);
+      font-family: var(--sans); font-size: 17px; font-weight: 700;
+      padding: 18px 48px; border-radius: var(--radius);
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(0,0,0,.3);
+      transition: background .18s, transform .18s, box-shadow .18s;
+    }
+    .btn-discovery:hover { background: var(--green-bg); transform: translateY(-2px); box-shadow: 0 10px 36px rgba(0,0,0,.4); }
+    .btn-discovery:active { transform: none; }
+    .aht-discovery-note {
+      font-size: 12px; color: #57534e;
+      margin-top: 16px; letter-spacing: .02em;
+    }
+    @media (max-width: 600px) {
+      .btn-discovery { display: block; padding: 18px 24px; }
+    }
 
     /* ═══════════════════════════════════
        ABOUT
@@ -372,17 +286,9 @@
     .aht-about-text p { font-size: 15px; color: #57534e; line-height: 1.75; margin-bottom: 16px; }
     .aht-about-text p:last-child { margin-bottom: 0; }
     .aht-about-sidebar { display: flex; flex-direction: column; gap: 16px; }
-    .aht-photo {
-      width: 100%; aspect-ratio: 3/4;
-      border-radius: var(--radius); overflow: hidden;
-      background: var(--ink-3); box-shadow: var(--shadow-2);
-    }
+    .aht-photo { width: 100%; aspect-ratio: 3/4; border-radius: var(--radius); overflow: hidden; background: var(--ink-3); box-shadow: var(--shadow-2); }
     .aht-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-    .aht-cred-card {
-      background: var(--ink); color: #fff;
-      padding: 24px 22px; border-radius: var(--radius);
-      border: 1px solid rgba(26,122,74,.15);
-    }
+    .aht-cred-card { background: var(--ink); color: #fff; padding: 24px 22px; border-radius: var(--radius); border: 1px solid rgba(26,122,74,.15); }
     .aht-cred-name { font-family: var(--serif); font-size: 19px; color: var(--green-mint); margin-bottom: 20px; }
     .aht-cred-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
     .aht-cred-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #d6d3d1; }
@@ -392,169 +298,13 @@
     .aht-why-box p { font-size: 13.5px; color: #57534e; line-height: 1.65; }
 
     /* ═══════════════════════════════════
-       LEAD GEN — Discovery Call
+       CTA STRIP
     ═══════════════════════════════════ */
-    .aht-lead {
-      background: var(--ink-2);
-      padding: 80px 28px;
-      position: relative; overflow: hidden;
-    }
-    /* Ambient green glow */
-    .aht-lead::before {
-      content: '';
-      position: absolute;
-      width: 600px; height: 600px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(26,122,74,.18) 0%, transparent 65%);
-      bottom: -150px; left: -100px;
-      pointer-events: none;
-    }
-    .aht-lead::after {
-      content: '';
-      position: absolute;
-      width: 400px; height: 400px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(26,122,74,.1) 0%, transparent 70%);
-      top: -80px; right: -60px;
-      pointer-events: none;
-    }
-    .aht-lead-inner {
-      max-width: 940px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 56px; align-items: start;
-      position: relative; z-index: 1;
-    }
-    /* Left — copy */
-    .aht-lead-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(26,122,74,.2);
-      border: 1px solid rgba(26,122,74,.4);
-      color: var(--green-mint);
-      font-family: var(--sans);
-      font-size: 10px; font-weight: 800;
-      letter-spacing: .12em; text-transform: uppercase;
-      padding: 5px 14px; border-radius: 100px; margin-bottom: 20px;
-    }
-    .aht-lead-text h2 {
-      font-family: var(--serif);
-      font-size: clamp(26px, 4vw, 40px);
-      font-weight: 400; color: #fff; margin-bottom: 10px; line-height: 1.15;
-    }
-    .aht-lead-sub {
-      font-family: var(--sans);
-      font-size: 15px; font-weight: 600;
-      color: var(--green-mint); margin-bottom: 22px;
-    }
-    .aht-lead-body { font-size: 15px; color: #a8a29e; line-height: 1.75; }
-    /* Right — form card */
-    .aht-lead-form {
-      background: #fff;
-      border-radius: 10px;
-      padding: 32px 28px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.35), 0 4px 12px rgba(0,0,0,.15);
-    }
-    .aht-form-title {
-      font-family: var(--sans);
-      font-size: 13px; font-weight: 700;
-      letter-spacing: .06em; text-transform: uppercase;
-      color: var(--green-text);
-      margin-bottom: 20px; padding-bottom: 16px;
-      border-bottom: 1px solid #e7e5e4;
-    }
-    .aht-form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 16px; }
-    .aht-form-group label {
-      font-family: var(--sans);
-      font-size: 13px; font-weight: 600; color: var(--ink-2);
-    }
-    .aht-form-group input,
-    .aht-form-group select,
-    .aht-form-group textarea {
-      width: 100%;
-      font-family: var(--body); font-size: 15px; color: var(--ink);
-      background: var(--pale);
-      border: 1.5px solid #e7e5e4;
-      border-radius: var(--radius);
-      padding: 12px 14px;
-      outline: none;
-      transition: border-color .18s, box-shadow .18s;
-      -webkit-appearance: none; appearance: none;
-    }
-    .aht-form-group input:focus,
-    .aht-form-group select:focus,
-    .aht-form-group textarea:focus {
-      border-color: var(--green);
-      box-shadow: 0 0 0 3px rgba(26,122,74,.12);
-    }
-    .aht-form-group select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2378716c' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      padding-right: 40px;
-      cursor: pointer;
-    }
-    .aht-form-group textarea { resize: vertical; min-height: 90px; }
-    .aht-form-group:last-of-type { margin-bottom: 22px; }
-    .aht-lead-submit {
-      width: 100%;
-      background: var(--green); color: #fff;
-      font-family: var(--sans);
-      font-size: 16px; font-weight: 700;
-      border: none; padding: 16px 24px;
-      border-radius: var(--radius); cursor: pointer;
-      box-shadow: var(--shadow-green);
-      transition: background .18s, transform .15s, box-shadow .18s;
-    }
-    .aht-lead-submit:hover { background: var(--green-lt); transform: translateY(-1px); box-shadow: 0 10px 28px rgba(26,122,74,.32); }
-    .aht-lead-submit:active { transform: none; }
-    .aht-lead-alt {
-      font-size: 12px; color: #a8a29e;
-      text-align: center; margin-top: 14px;
-    }
-    .aht-lead-alt a { color: var(--green-lt); text-decoration: none; }
-    .aht-lead-alt a:hover { text-decoration: underline; }
-    .aht-form-success {
-      display: none;
-      background: var(--green-bg);
-      border: 1px solid var(--green-border);
-      border-radius: var(--radius);
-      padding: 28px 24px; text-align: center;
-    }
-    .aht-form-success.show { display: block; }
-    .aht-form-success p { font-size: 15px; color: var(--green-text); line-height: 1.6; margin-bottom: 16px; }
-    .aht-form-success a { color: var(--green); font-weight: 600; text-decoration: none; }
-    .aht-form-success a:hover { text-decoration: underline; }
-
-    /* ═══════════════════════════════════
-       CTA STRIP — dark green
-    ═══════════════════════════════════ */
-    .aht-cta {
-      background: var(--green-deep);
-      padding: 72px 28px; text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .aht-cta::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 60% 50%, rgba(255,255,255,.06), transparent 70%);
-      pointer-events: none;
-    }
-    .aht-cta h2 {
-      font-family: var(--serif);
-      font-size: clamp(28px, 4vw, 42px); font-weight: 400;
-      color: #fff; margin-bottom: 14px; position: relative;
-    }
-    .aht-cta p {
-      font-size: 16px; color: rgba(167,243,208,.8);
-      margin-bottom: 32px; max-width: 460px;
-      margin-left: auto; margin-right: auto; position: relative;
-    }
-    .btn-cta-white {
-      display: inline-block;
-      background: #fff; color: var(--green-deep);
-      font-family: var(--sans); font-size: 16px; font-weight: 700;
-      padding: 16px 40px; border-radius: var(--radius);
-      text-decoration: none; position: relative;
-      box-shadow: 0 4px 20px rgba(0,0,0,.25);
-      transition: background .18s, transform .15s, box-shadow .18s;
-    }
+    .aht-cta { background: var(--green-deep); padding: 72px 28px; text-align: center; position: relative; overflow: hidden; }
+    .aht-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 50%, rgba(255,255,255,.06), transparent 70%); pointer-events: none; }
+    .aht-cta h2 { font-family: var(--serif); font-size: clamp(28px, 4vw, 42px); font-weight: 400; color: #fff; margin-bottom: 14px; position: relative; }
+    .aht-cta p { font-size: 16px; color: rgba(167,243,208,.8); margin-bottom: 32px; max-width: 460px; margin-left: auto; margin-right: auto; position: relative; }
+    .btn-cta-white { display: inline-block; background: #fff; color: var(--green-deep); font-family: var(--sans); font-size: 16px; font-weight: 700; padding: 16px 40px; border-radius: var(--radius); text-decoration: none; position: relative; box-shadow: 0 4px 20px rgba(0,0,0,.25); transition: background .18s, transform .15s, box-shadow .18s; }
     .btn-cta-white:hover { background: var(--green-bg); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.3); }
     .btn-cta-white:active { transform: none; }
 
@@ -562,13 +312,8 @@
        FOOTER
     ═══════════════════════════════════ */
     .aht-footer { background: var(--ink); color: #78716c; padding: 48px 28px; }
-    .aht-footer-inner {
-      max-width: 860px; margin: 0 auto;
-      display: flex; flex-direction: column; gap: 20px;
-    }
-    @media (min-width: 640px) {
-      .aht-footer-inner { flex-direction: row; align-items: center; justify-content: space-between; }
-    }
+    .aht-footer-inner { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    @media (min-width: 640px) { .aht-footer-inner { flex-direction: row; align-items: center; justify-content: space-between; } }
     .aht-footer-brand { font-family: var(--serif); font-size: 16px; color: #d6d3d1; display: block; margin-bottom: 6px; }
     .aht-footer p { font-size: 13px; line-height: 1.65; }
     .aht-footer-links { display: flex; flex-direction: column; gap: 6px; text-align: left; }
@@ -578,29 +323,13 @@
     .aht-footer-links span { font-size: 13px; }
 
     /* ═══════════════════════════════════
-       MOBILE STICKY CTA BAR
+       MOBILE STICKY CTA
     ═══════════════════════════════════ */
-    .aht-sticky-cta {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 98;
-      background: rgba(12,10,9,.95);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border-top: 1px solid rgba(26,122,74,.28);
-      padding: 14px 20px;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
-      transform: translateY(100%);
-      transition: transform .35s cubic-bezier(.4,0,.2,1);
-    }
+    .aht-sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 98; background: rgba(12,10,9,.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(26,122,74,.28); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; transform: translateY(100%); transition: transform .35s cubic-bezier(.4,0,.2,1); }
     .aht-sticky-cta.visible { transform: translateY(0); }
     .aht-sticky-cta-label { font-family: var(--sans); font-size: 12px; color: #78716c; line-height: 1.4; flex: 1; }
     .aht-sticky-cta-label strong { display: block; color: #d6d3d1; font-size: 13px; margin-bottom: 1px; }
-    .aht-sticky-cta-btn {
-      display: inline-block;
-      background: var(--green); color: #fff;
-      font-family: var(--sans); font-size: 14px; font-weight: 700;
-      padding: 11px 22px; border-radius: var(--radius);
-      text-decoration: none; white-space: nowrap; flex-shrink: 0;
-      box-shadow: var(--shadow-green); transition: background .18s;
-    }
+    .aht-sticky-cta-btn { display: inline-block; background: var(--green); color: #fff; font-family: var(--sans); font-size: 14px; font-weight: 700; padding: 11px 22px; border-radius: var(--radius); text-decoration: none; white-space: nowrap; flex-shrink: 0; box-shadow: var(--shadow-green); transition: background .18s; }
     .aht-sticky-cta-btn:hover { background: var(--green-lt); }
     @media (max-width: 860px) { body.cta-visible { padding-bottom: 74px; } }
     @media (min-width: 860px) { .aht-sticky-cta { display: none; } }
@@ -608,24 +337,8 @@
     /* ═══════════════════════════════════
        RESPONSIVE
     ═══════════════════════════════════ */
-    @media (max-width: 860px) {
-      .aht-about-grid { grid-template-columns: 1fr; }
-      .aht-about-sidebar { flex-direction: row; flex-wrap: wrap; }
-      .aht-photo { width: 140px; height: 180px; flex-shrink: 0; aspect-ratio: auto; }
-      .aht-cred-card { flex: 1; min-width: 260px; }
-      .aht-why-box { width: 100%; }
-      .aht-lead-inner { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 700px) {
-      .aht-services-grid { grid-template-columns: 1fr; }
-      .aht-steps { grid-template-columns: 1fr; gap: 36px; }
-      .aht-nav-links { display: none; }
-      .aht-hamburger { display: block; }
-      .aht-about-sidebar { flex-direction: column; }
-      .aht-photo { width: 100%; height: auto; aspect-ratio: 3/4; }
-      .aht-hero-moon { display: none; }
-      .aht-lead-form { padding: 24px 18px; }
-    }
+    @media (max-width: 860px) { .aht-about-grid { grid-template-columns: 1fr; } .aht-about-sidebar { flex-direction: row; flex-wrap: wrap; } .aht-photo { width: 140px; height: 180px; flex-shrink: 0; aspect-ratio: auto; } .aht-cred-card { flex: 1; min-width: 260px; } .aht-why-box { width: 100%; } }
+    @media (max-width: 700px) { .aht-services-grid { grid-template-columns: 1fr; } .aht-steps { grid-template-columns: 1fr; gap: 36px; } .aht-nav-links { display: none; } .aht-hamburger { display: block; } .aht-about-sidebar { flex-direction: column; } .aht-photo { width: 100%; height: auto; aspect-ratio: 3/4; } .aht-hero-moon { display: none; } }
   </style>
 </head>
 <body>
@@ -637,7 +350,6 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#how-it-works">How it works</a></li>
-      <li><a href="#connect">Free call</a></li>
       <li><a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="aht-nav-cta">Book a session &rarr;</a></li>
     </ul>
     <button class="aht-hamburger" id="ahtMenuBtn" aria-label="Toggle menu">&#9776;</button>
@@ -646,7 +358,6 @@
     <a href="#services">Services</a>
     <a href="#about">About</a>
     <a href="#how-it-works">How it works</a>
-    <a href="#connect">Free discovery call</a>
     <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="green">Book a session &rarr;</a>
   </div>
 
@@ -698,87 +409,51 @@
       <div class="aht-services-grid">
 
         <div class="aht-service-card reveal">
-          <div class="aht-service-head">
-            <h3>AI Coaching</h3>
-            <span class="aht-badge">Most popular</span>
-          </div>
+          <div class="aht-service-head"><h3>AI Coaching</h3><span class="aht-badge">Most popular</span></div>
           <p class="aht-service-desc">One-on-one sessions that turn AI hype into real workflows. We&rsquo;ll find tools that actually fit your life or business &mdash; not just demos.</p>
           <div class="aht-service-pricing">
-            <div class="aht-price-row">
-              <span class="aht-price-label">Single session <span>&middot; 60 min</span></span>
-              <span class="aht-price-amt">$85</span>
-            </div>
-            <div class="aht-price-row">
-              <span class="aht-price-label">3-session package <span>&middot; Save $30</span></span>
-              <span class="aht-price-amt">$225</span>
-            </div>
+            <div class="aht-price-row"><span class="aht-price-label">Single session <span>&middot; 60 min</span></span><span class="aht-price-amt">$85</span></div>
+            <div class="aht-price-row"><span class="aht-price-label">3-session package <span>&middot; Save $30</span></span><span class="aht-price-amt">$225</span></div>
           </div>
         </div>
 
         <div class="aht-service-card reveal" style="transition-delay:.07s">
-          <div class="aht-service-head">
-            <h3>Tech Troubleshooting</h3>
-          </div>
+          <div class="aht-service-head"><h3>Tech Troubleshooting</h3></div>
           <p class="aht-service-desc">That thing you&rsquo;ve been meaning to fix for six months? Let&rsquo;s clear the backlog. Networks, devices, subscriptions, setup &mdash; all of it.</p>
           <div class="aht-service-pricing">
-            <div class="aht-price-row">
-              <span class="aht-price-label">Per session <span>&middot; 60 min</span></span>
-              <span class="aht-price-amt">$75</span>
-            </div>
+            <div class="aht-price-row"><span class="aht-price-label">Per session <span>&middot; 60 min</span></span><span class="aht-price-amt">$75</span></div>
           </div>
         </div>
 
         <div class="aht-service-card reveal" style="transition-delay:.14s">
-          <div class="aht-service-head">
-            <h3>Clinical Tech Systems</h3>
-            <span class="aht-badge">Therapist specialty</span>
-          </div>
+          <div class="aht-service-head"><h3>Clinical Tech Systems</h3><span class="aht-badge">Therapist specialty</span></div>
           <p class="aht-service-desc">Session recording, AI-assisted notes, HIPAA-aware workflows. From an MSW who understands your documentation burden &mdash; not just your tech stack.</p>
           <div class="aht-service-pricing">
-            <div class="aht-price-row">
-              <span class="aht-price-label">Consultation <span>&middot; 60 min</span></span>
-              <span class="aht-price-amt">$110</span>
-            </div>
+            <div class="aht-price-row"><span class="aht-price-label">Consultation <span>&middot; 60 min</span></span><span class="aht-price-amt">$110</span></div>
           </div>
         </div>
 
         <div class="aht-service-card reveal" style="transition-delay:.07s">
-          <div class="aht-service-head">
-            <h3>Website &amp; App Development</h3>
-          </div>
+          <div class="aht-service-head"><h3>Website &amp; App Development</h3></div>
           <p class="aht-service-desc">From a clean one-pager to a full site or web app. Built to last, not just to launch. Honest scope, honest timeline, no disappearing after handoff.</p>
           <div class="aht-service-pricing">
-            <div class="aht-price-row">
-              <span class="aht-price-label">Scoping call <span>&middot; 60 min</span></span>
-              <span class="aht-price-amt">$85</span>
-            </div>
+            <div class="aht-price-row"><span class="aht-price-label">Scoping call <span>&middot; 60 min</span></span><span class="aht-price-amt">$85</span></div>
           </div>
         </div>
 
         <div class="aht-service-card reveal" style="transition-delay:.14s">
-          <div class="aht-service-head">
-            <h3>In-Home Tech Service</h3>
-            <span class="aht-badge">Premium &middot; Local</span>
-          </div>
+          <div class="aht-service-head"><h3>In-Home Tech Service</h3><span class="aht-badge">Premium &middot; Local</span></div>
           <p class="aht-service-desc">Some things are just easier in person. I come to you &mdash; home network, device setup, smart home, whatever&rsquo;s been giving you trouble. Saturday morning house calls available.</p>
           <div class="aht-service-pricing">
-            <div class="aht-price-row">
-              <span class="aht-price-label">House call <span>&middot; 90 min min &middot; Lexington KY area</span></span>
-              <span class="aht-price-amt">$150</span>
-            </div>
+            <div class="aht-price-row"><span class="aht-price-label">House call <span>&middot; 90 min min &middot; Lexington KY area</span></span><span class="aht-price-amt">$150</span></div>
           </div>
         </div>
 
         <div class="aht-service-card reveal" style="transition-delay:.21s">
-          <div class="aht-service-head">
-            <h3>Video &amp; Graphic Design</h3>
-          </div>
+          <div class="aht-service-head"><h3>Video &amp; Graphic Design</h3></div>
           <p class="aht-service-desc">Explainer videos, professional recordings, logos, social graphics, presentation templates. Creative support for your project or business.</p>
           <div class="aht-service-pricing">
-            <div class="aht-price-row">
-              <span class="aht-price-label">Consultation <span>&middot; 60 min</span></span>
-              <span class="aht-price-amt">$85</span>
-            </div>
+            <div class="aht-price-row"><span class="aht-price-label">Consultation <span>&middot; 60 min</span></span><span class="aht-price-amt">$85</span></div>
           </div>
         </div>
 
@@ -787,9 +462,13 @@
     </div>
   </section>
 
-  <!-- ── HOW IT WORKS ── -->
+  <!-- ════════════════════════════════════════════════════════
+       HOW IT WORKS + LET'S TALK STRATEGY — combined section
+  ════════════════════════════════════════════════════════ -->
   <section class="aht-how" id="how-it-works">
     <div class="aht-how-inner">
+
+      <!-- Steps -->
       <div class="reveal">
         <div class="aht-section-eyebrow">How it works</div>
         <h2 style="color:#fff;">Three steps, no runaround</h2>
@@ -811,6 +490,20 @@
           <p>Meet on Google Meet or in person. You&rsquo;ll leave with something solved &mdash; not just talked about.</p>
         </div>
       </div>
+
+      <!-- Divider -->
+      <div class="aht-how-divider" aria-hidden="true"></div>
+
+      <!-- Let's Talk Strategy -->
+      <div class="aht-discovery reveal" id="connect">
+        <div class="aht-discovery-pill">Free &middot; Zero Obligation</div>
+        <h2>Let&rsquo;s Talk Strategy</h2>
+        <p class="aht-discovery-sub">Free 15-Minute Tech Discovery Call</p>
+        <p class="aht-discovery-body">Have a project in mind, a technical bottleneck, or need a clean digital resource hub built for your organization? Let&rsquo;s map out a plan. In this brief, zero-obligation call, we&rsquo;ll look at your current setup, discuss your goals, and see if we&rsquo;re a right fit to build it together.</p>
+        <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="btn-discovery">Book Your Free Consultation &rarr;</a>
+        <p class="aht-discovery-note">Evenings &amp; weekends &middot; No commitment &middot; 15 minutes</p>
+      </div>
+
     </div>
   </section>
 
@@ -849,75 +542,6 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════
-       LEAD GEN — Free Discovery Call
-  ═══════════════════════════════════ -->
-  <section class="aht-lead" id="connect">
-    <div class="aht-lead-inner">
-
-      <!-- Left: copy -->
-      <div class="aht-lead-text reveal">
-        <div class="aht-lead-pill">Free &middot; Zero Obligation</div>
-        <h2>Let&rsquo;s Talk Strategy</h2>
-        <p class="aht-lead-sub">Free 15-Minute Tech Discovery Call</p>
-        <p class="aht-lead-body">Have a project in mind, a technical bottleneck, or need a clean digital resource hub built for your organization? Let&rsquo;s map out a plan. In this brief, zero-obligation call, we&rsquo;ll look at your current setup, discuss your goals, and see if we&rsquo;re a right fit to build it together.</p>
-      </div>
-
-      <!-- Right: form card -->
-      <!--
-        SETUP: To receive form submissions by email, sign up free at formspree.io,
-        create a new form, and replace "YOUR_FORM_ID" below with your form ID.
-        Formspree free tier = 50 submissions/month, no backend needed.
-        Alternatively, delete the form action and replace with:
-          action="https://cal.com/Fisherkeller"
-        to send directly to your booking page.
-      -->
-      <div class="reveal" style="transition-delay:.1s">
-        <form class="aht-lead-form" id="ahtLeadForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <input type="hidden" name="_subject" value="After Hours Tech — Discovery Call Request">
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-
-          <div class="aht-form-title">Book your free 15-min call</div>
-
-          <div class="aht-form-group">
-            <label for="lead-name">Name</label>
-            <input type="text" id="lead-name" name="name" required placeholder="Your name">
-          </div>
-
-          <div class="aht-form-group">
-            <label for="lead-email">Email Address</label>
-            <input type="email" id="lead-email" name="email" required placeholder="you@example.com">
-          </div>
-
-          <div class="aht-form-group">
-            <label for="lead-challenge">Biggest technical hurdle right now?</label>
-            <select id="lead-challenge" name="challenge" required>
-              <option value="" disabled selected>Select one&hellip;</option>
-              <option value="Web Application / Landing Page">Web Application / Landing Page</option>
-              <option value="Digital Resource Architecture">Digital Resource Architecture</option>
-              <option value="Multimedia / Video Workflow">Multimedia / Video Workflow</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div class="aht-form-group">
-            <label for="lead-goals">Tell me briefly about your project goals</label>
-            <textarea id="lead-goals" name="goals" rows="4" placeholder="What are you hoping to build or fix?"></textarea>
-          </div>
-
-          <button type="submit" class="aht-lead-submit">Book Your Free Call &rarr;</button>
-          <p class="aht-lead-alt">Prefer to skip the form? <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener">Book directly at cal.com/Fisherkeller &rarr;</a></p>
-        </form>
-
-        <!-- Success state — shown by JS after submit -->
-        <div class="aht-form-success" id="ahtFormSuccess">
-          <p>&#10003;&nbsp; <strong>Got it &mdash; thanks!</strong> I&rsquo;ll be in touch within one business day to schedule your call. In the meantime, feel free to <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener">grab a slot directly on Cal.com</a> if you&rsquo;d like to lock in a time right now.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
   <!-- ── CTA STRIP ── -->
   <section class="aht-cta">
     <div class="reveal">
@@ -953,33 +577,27 @@
   </div>
 
   <script>
-    // ── Mobile menu ──
+    // Mobile menu
     document.getElementById('ahtMenuBtn').addEventListener('click', function () {
       document.getElementById('ahtMobileMenu').classList.toggle('open');
     });
     document.querySelectorAll('.aht-mobile-menu a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        document.getElementById('ahtMobileMenu').classList.remove('open');
-      });
+      a.addEventListener('click', function() { document.getElementById('ahtMobileMenu').classList.remove('open'); });
     });
-
-    // ── Scroll reveal ──
+    // Scroll reveal
     (function () {
       if (!('IntersectionObserver' in window)) return;
       var obs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-          if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); }
-        });
+        entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); } });
       }, { threshold: 0.1 });
       document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
     })();
-
-    // ── Mobile sticky CTA ──
+    // Mobile sticky CTA
     (function () {
       if (!('IntersectionObserver' in window)) return;
-      var hero   = document.getElementById('ahtHero');
+      var hero = document.getElementById('ahtHero');
       var footer = document.getElementById('ahtFooter');
-      var cta    = document.getElementById('ahtStickyCta');
+      var cta = document.getElementById('ahtStickyCta');
       if (!hero || !cta) return;
       var heroGone = false, footerVisible = false;
       function syncCta() {
@@ -988,45 +606,8 @@
         cta.setAttribute('aria-hidden', show ? 'false' : 'true');
         document.body.classList.toggle('cta-visible', show);
       }
-      new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) { heroGone = !e.isIntersecting; syncCta(); });
-      }, { threshold: 0 }).observe(hero);
-      if (footer) {
-        new IntersectionObserver(function(entries) {
-          entries.forEach(function(e) { footerVisible = e.isIntersecting; syncCta(); });
-        }, { threshold: 0.15 }).observe(footer);
-      }
-    })();
-
-    // ── Lead form — Formspree AJAX submit ──
-    // Shows success state in-page without a redirect.
-    // Replace YOUR_FORM_ID in the form action above with your Formspree endpoint.
-    (function () {
-      var form    = document.getElementById('ahtLeadForm');
-      var success = document.getElementById('ahtFormSuccess');
-      if (!form || !success) return;
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var btn = form.querySelector('.aht-lead-submit');
-        btn.textContent = 'Sending…';
-        btn.disabled = true;
-        fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        }).then(function(r) {
-          if (r.ok) {
-            form.style.display = 'none';
-            success.classList.add('show');
-          } else {
-            btn.textContent = 'Something went wrong — try again';
-            btn.disabled = false;
-          }
-        }).catch(function() {
-          btn.textContent = 'Something went wrong — try again';
-          btn.disabled = false;
-        });
-      });
+      new IntersectionObserver(function(entries) { entries.forEach(function(e) { heroGone = !e.isIntersecting; syncCta(); }); }, { threshold: 0 }).observe(hero);
+      if (footer) { new IntersectionObserver(function(entries) { entries.forEach(function(e) { footerVisible = e.isIntersecting; syncCta(); }); }, { threshold: 0.15 }).observe(footer); }
     })();
   </script>
 
