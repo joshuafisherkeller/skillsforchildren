@@ -28,6 +28,7 @@ exclude:
   - "A Journey of Brave Friends - Book Illustrations.zip"
   - Working_File.md
   - IMPLEMENTATION_GUIDE.md
+  - "After Hours Tech"
 
 # Plugins
 plugins:

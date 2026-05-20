@@ -1,0 +1,784 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>After Hours Tech — Modern tech. Human help.</title>
+  <meta name="description" content="Tech consulting and digital services — evenings and weekends only. AI coaching, websites, troubleshooting, clinical tech systems. By Joshua Fisherkeller, MSW.">
+  <meta property="og:title" content="After Hours Tech — Modern tech. Human help.">
+  <meta property="og:description" content="Available when you actually are. Evenings & weekends only.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    /* ── Design tokens ── */
+    :root {
+      --ink:       #0c0a09;
+      --ink-2:     #1c1917;
+      --ink-3:     #292524;
+      --ink-4:     #44403c;
+      --mid:       #78716c;
+      --muted:     #a8a29e;
+      --subtle:    #d6d3d1;
+      --pale:      #f5f5f4;
+      --white:     #fafaf9;
+      --amber:     #f59e0b;
+      --amber-lt:  #fbbf24;
+      --amber-bg:  #fffbeb;
+      --amber-border: #fde68a;
+      --amber-text:#92400e;
+      --sans:      'DM Sans', 'Inter', system-ui, sans-serif;
+      --body:      'Inter', system-ui, sans-serif;
+      --serif:     Georgia, 'Times New Roman', serif;
+      --radius:    6px;
+      --shadow:    0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.08);
+      --shadow-2:  0 4px 12px rgba(0,0,0,.18), 0 2px 4px rgba(0,0,0,.1);
+    }
+
+    body {
+      background: var(--pale);
+      color: var(--ink);
+      font-family: var(--body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Scroll reveal ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .5s ease, transform .5s ease; }
+    .reveal.is-in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    /* ── Nav ── */
+    .aht-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(12,10,9,.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 0 28px;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px;
+    }
+    .aht-nav-brand {
+      font-family: var(--serif);
+      font-size: 17px;
+      color: #fff;
+      letter-spacing: -.01em;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .aht-nav-links {
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
+    }
+    .aht-nav-links a {
+      font-family: var(--sans);
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #a8a29e;
+      text-decoration: none;
+      letter-spacing: .01em;
+      transition: color .18s;
+    }
+    .aht-nav-links a:hover { color: var(--amber-lt); }
+    .aht-nav-cta {
+      background: var(--amber);
+      color: var(--ink) !important;
+      font-weight: 700 !important;
+      padding: 9px 20px;
+      border-radius: var(--radius);
+      transition: background .18s !important;
+      white-space: nowrap;
+    }
+    .aht-nav-cta:hover { background: var(--amber-lt) !important; color: var(--ink) !important; }
+    .aht-hamburger {
+      display: none;
+      background: none; border: none;
+      color: #a8a29e;
+      font-size: 22px;
+      cursor: pointer;
+      padding: 6px;
+      line-height: 1;
+    }
+    .aht-mobile-menu {
+      display: none;
+      background: var(--ink-2);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 20px 28px;
+      flex-direction: column; gap: 18px;
+    }
+    .aht-mobile-menu.open { display: flex; }
+    .aht-mobile-menu a {
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: #d6d3d1;
+      text-decoration: none;
+      transition: color .18s;
+    }
+    .aht-mobile-menu a:hover,
+    .aht-mobile-menu a.amber { color: var(--amber); }
+
+    /* ── Hero ── */
+    .aht-hero {
+      background: var(--ink);
+      color: #fff;
+      padding: 80px 28px 96px;
+    }
+    .aht-hero-inner { max-width: 820px; }
+    .aht-eyebrow {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 28px;
+    }
+    .aht-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1.08;
+      font-weight: 400;
+      margin-bottom: 22px;
+      color: #fff;
+    }
+    .aht-hero-lede {
+      font-family: var(--body);
+      font-size: clamp(16px, 2vw, 19px);
+      color: #a8a29e;
+      max-width: 580px;
+      margin-bottom: 10px;
+      line-height: 1.65;
+    }
+    .aht-hero-sub {
+      font-size: 13px;
+      color: #78716c;
+      margin-bottom: 36px;
+    }
+    .aht-hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn-amber {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background .18s, transform .15s;
+    }
+    .btn-amber:hover { background: var(--amber-lt); transform: translateY(-1px); }
+    .btn-ghost-light {
+      display: inline-block;
+      border: 1.5px solid #44403c;
+      color: #a8a29e;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 13px 32px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: border-color .18s, color .18s, transform .15s;
+    }
+    .btn-ghost-light:hover { border-color: #78716c; color: #fff; transform: translateY(-1px); }
+
+    /* ── Availability banner ── */
+    .aht-avail {
+      background: var(--amber-bg);
+      border-top: 1px solid var(--amber-border);
+      border-bottom: 1px solid var(--amber-border);
+      padding: 14px 28px;
+    }
+    .aht-avail-inner {
+      max-width: 860px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; gap: 6px 20px;
+      font-size: 13.5px;
+      color: #57534e;
+      align-items: center;
+    }
+    .aht-avail strong { color: var(--ink); }
+    .aht-avail-sep { color: #d6d3d1; }
+    .aht-avail-dim { color: #a8a29e; font-style: italic; }
+
+    /* ── Section shared ── */
+    .aht-section { padding: 80px 28px; }
+    .aht-section-inner { max-width: 940px; margin: 0 auto; }
+    .aht-section-head { margin-bottom: 48px; }
+    .aht-section-eyebrow {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #b45309;
+      margin-bottom: 10px;
+    }
+    .aht-section h2 {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    /* ── Services grid ── */
+    .aht-services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: #e7e5e4;
+      border: 1px solid #e7e5e4;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .aht-service-card {
+      background: #fff;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .aht-service-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .aht-service-card h3 {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .aht-badge {
+      flex-shrink: 0;
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #b45309;
+      background: #fef3c7;
+      padding: 4px 9px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .aht-service-desc {
+      font-size: 14px;
+      color: #78716c;
+      line-height: 1.65;
+    }
+    .aht-service-pricing {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid #f5f5f4;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .aht-price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .aht-price-label {
+      font-size: 13px;
+      color: #78716c;
+    }
+    .aht-price-label span { color: #a8a29e; }
+    .aht-price-amt {
+      font-family: var(--sans);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .aht-services-note {
+      font-size: 12px;
+      color: #a8a29e;
+      margin-top: 12px;
+    }
+
+    /* ── How it works ── */
+    .aht-how { background: var(--ink-2); padding: 80px 28px; }
+    .aht-how-inner { max-width: 940px; margin: 0 auto; }
+    .aht-how .aht-section-eyebrow { color: var(--amber-lt); }
+    .aht-how h2 { color: #fff; }
+    .aht-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: 56px;
+    }
+    .aht-step-num {
+      font-family: var(--serif);
+      font-size: 60px;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .aht-step h3 {
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .aht-step p {
+      font-size: 14px;
+      color: #a8a29e;
+      line-height: 1.65;
+    }
+
+    /* ── About ── */
+    .aht-about-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 56px;
+      align-items: start;
+    }
+    .aht-about-text h2 { margin-bottom: 24px; }
+    .aht-about-text p {
+      font-size: 15px;
+      color: #57534e;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .aht-about-text p:last-child { margin-bottom: 0; }
+    .aht-about-sidebar { display: flex; flex-direction: column; gap: 16px; }
+    .aht-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--ink-3);
+    }
+    .aht-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      display: block;
+    }
+    .aht-cred-card {
+      background: var(--ink);
+      color: #fff;
+      padding: 24px 22px;
+      border-radius: var(--radius);
+    }
+    .aht-cred-name {
+      font-family: var(--serif);
+      font-size: 19px;
+      color: var(--amber-lt);
+      margin-bottom: 4px;
+    }
+    .aht-cred-title {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #78716c;
+      margin-bottom: 20px;
+    }
+    .aht-cred-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .aht-cred-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px;
+      color: #d6d3d1;
+    }
+    .aht-cred-list li::before {
+      content: "→";
+      color: var(--amber);
+      flex-shrink: 0;
+      line-height: 1.5;
+    }
+    .aht-why-box {
+      background: var(--amber-bg);
+      border: 1px solid var(--amber-border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .aht-why-box strong {
+      display: block;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .aht-why-box p {
+      font-size: 13.5px;
+      color: #57534e;
+      line-height: 1.65;
+    }
+
+    /* ── CTA strip ── */
+    .aht-cta {
+      background: var(--amber);
+      padding: 72px 28px;
+      text-align: center;
+    }
+    .aht-cta h2 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .aht-cta p {
+      font-size: 16px;
+      color: #44403c;
+      margin-bottom: 32px;
+      max-width: 460px;
+      margin-left: auto; margin-right: auto;
+    }
+    .btn-dark {
+      display: inline-block;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background .18s, transform .15s;
+    }
+    .btn-dark:hover { background: var(--ink-2); transform: translateY(-1px); }
+
+    /* ── Footer ── */
+    .aht-footer {
+      background: var(--ink);
+      color: #78716c;
+      padding: 48px 28px;
+    }
+    .aht-footer-inner {
+      max-width: 860px; margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    @media (min-width: 640px) {
+      .aht-footer-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+    }
+    .aht-footer-brand {
+      font-family: var(--serif);
+      font-size: 16px;
+      color: #d6d3d1;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .aht-footer p { font-size: 13px; line-height: 1.65; }
+    .aht-footer-links {
+      display: flex; flex-direction: column; gap: 6px;
+      text-align: left;
+    }
+    @media (min-width: 640px) { .aht-footer-links { text-align: right; } }
+    .aht-footer-links a {
+      font-size: 14px;
+      color: var(--amber);
+      text-decoration: none;
+      transition: color .18s;
+    }
+    .aht-footer-links a:hover { color: var(--amber-lt); }
+    .aht-footer-links span { font-size: 13px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 860px) {
+      .aht-about-grid { grid-template-columns: 1fr; }
+      .aht-about-sidebar { flex-direction: row; flex-wrap: wrap; }
+      .aht-photo { width: 140px; height: 180px; flex-shrink: 0; aspect-ratio: auto; }
+      .aht-cred-card { flex: 1; min-width: 260px; }
+      .aht-why-box { width: 100%; }
+    }
+    @media (max-width: 700px) {
+      .aht-services-grid { grid-template-columns: 1fr; }
+      .aht-steps { grid-template-columns: 1fr; gap: 36px; }
+      .aht-nav-links { display: none; }
+      .aht-hamburger { display: block; }
+      .aht-about-sidebar { flex-direction: column; }
+      .aht-photo { width: 100%; height: auto; aspect-ratio: 3/4; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="aht-nav">
+    <a href="/tech/" class="aht-nav-brand">After Hours Tech</a>
+    <ul class="aht-nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="aht-nav-cta">Book a session &rarr;</a></li>
+    </ul>
+    <button class="aht-hamburger" id="ahtMenuBtn" aria-label="Toggle menu">&#9776;</button>
+  </nav>
+  <div class="aht-mobile-menu" id="ahtMobileMenu">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="amber">Book a session &rarr;</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="aht-hero">
+    <div class="aht-hero-inner reveal">
+      <div class="aht-eyebrow">Evenings &amp; Weekends Only</div>
+      <h1>Modern tech.<br>Human help.</h1>
+      <p class="aht-hero-lede">Tech consulting and digital services &mdash; available when you actually are. AI coaching, websites, troubleshooting, clinical tech systems, and in-home support.</p>
+      <p class="aht-hero-sub">Run by Joshua Fisherkeller, MSW. Full-time at the University of Kentucky. This is the after-hours practice.</p>
+      <div class="aht-hero-ctas">
+        <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="btn-amber">Book a session &rarr;</a>
+        <a href="#services" class="btn-ghost-light">See all services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AVAILABILITY BANNER ── -->
+  <div class="aht-avail">
+    <div class="aht-avail-inner">
+      <span><strong>Available hours:</strong> Weekday evenings 6&ndash;10 PM ET</span>
+      <span class="aht-avail-sep">|</span>
+      <span>Saturdays &amp; Sundays by appointment</span>
+      <span class="aht-avail-sep">|</span>
+      <span class="aht-avail-dim">No 9&ndash;5 slots. Ever.</span>
+    </div>
+  </div>
+
+  <!-- ── SERVICES ── -->
+  <section class="aht-section" id="services">
+    <div class="aht-section-inner">
+      <div class="aht-section-head reveal">
+        <div class="aht-section-eyebrow">Services</div>
+        <h2>What I can help with</h2>
+      </div>
+
+      <div class="aht-services-grid">
+
+        <!-- AI Coaching -->
+        <div class="aht-service-card reveal">
+          <div class="aht-service-head">
+            <h3>AI Coaching</h3>
+            <span class="aht-badge">Most popular</span>
+          </div>
+          <p class="aht-service-desc">One-on-one sessions that turn AI hype into real workflows. We&rsquo;ll find tools that actually fit your life or business &mdash; not just demos.</p>
+          <div class="aht-service-pricing">
+            <div class="aht-price-row">
+              <span class="aht-price-label">Single session <span>&middot; 60 min</span></span>
+              <span class="aht-price-amt">$85</span>
+            </div>
+            <div class="aht-price-row">
+              <span class="aht-price-label">3-session package <span>&middot; Save $30</span></span>
+              <span class="aht-price-amt">$225</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Troubleshooting -->
+        <div class="aht-service-card reveal">
+          <div class="aht-service-head">
+            <h3>Tech Troubleshooting</h3>
+          </div>
+          <p class="aht-service-desc">That thing you&rsquo;ve been meaning to fix for six months? Let&rsquo;s clear the backlog. Networks, devices, subscriptions, setup &mdash; all of it.</p>
+          <div class="aht-service-pricing">
+            <div class="aht-price-row">
+              <span class="aht-price-label">Per session <span>&middot; 60 min</span></span>
+              <span class="aht-price-amt">$75</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clinical Tech Systems -->
+        <div class="aht-service-card reveal">
+          <div class="aht-service-head">
+            <h3>Clinical Tech Systems</h3>
+            <span class="aht-badge">Therapist specialty</span>
+          </div>
+          <p class="aht-service-desc">Session recording, AI-assisted notes, HIPAA-aware workflows. From an MSW who understands your documentation burden &mdash; not just your tech stack.</p>
+          <div class="aht-service-pricing">
+            <div class="aht-price-row">
+              <span class="aht-price-label">Consultation <span>&middot; 60 min</span></span>
+              <span class="aht-price-amt">$110</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Website & App Development -->
+        <div class="aht-service-card reveal">
+          <div class="aht-service-head">
+            <h3>Website &amp; App Development</h3>
+          </div>
+          <p class="aht-service-desc">From a clean one-pager to a full site or web app. Built to last, not just to launch. Honest scope, honest timeline, no disappearing after handoff.</p>
+          <div class="aht-service-pricing">
+            <div class="aht-price-row">
+              <span class="aht-price-label">Scoping call <span>&middot; 60 min</span></span>
+              <span class="aht-price-amt">$85</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- In-Home Tech Service -->
+        <div class="aht-service-card reveal">
+          <div class="aht-service-head">
+            <h3>In-Home Tech Service</h3>
+            <span class="aht-badge">Premium &middot; Local</span>
+          </div>
+          <p class="aht-service-desc">Some things are just easier in person. I come to you &mdash; home network, device setup, smart home, whatever&rsquo;s been giving you trouble. Saturday morning house calls available.</p>
+          <div class="aht-service-pricing">
+            <div class="aht-price-row">
+              <span class="aht-price-label">House call <span>&middot; 90 min min &middot; Lexington KY area</span></span>
+              <span class="aht-price-amt">$150</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video & Graphic Design -->
+        <div class="aht-service-card reveal">
+          <div class="aht-service-head">
+            <h3>Video &amp; Graphic Design</h3>
+          </div>
+          <p class="aht-service-desc">Explainer videos, professional recordings, logos, social graphics, presentation templates. Creative support for your project or business.</p>
+          <div class="aht-service-pricing">
+            <div class="aht-price-row">
+              <span class="aht-price-label">Consultation <span>&middot; 60 min</span></span>
+              <span class="aht-price-amt">$85</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p class="aht-services-note">Prices shown are placeholder &mdash; final pricing coming soon. Website and app projects are custom-quoted after the scoping call.</p>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="aht-how" id="how-it-works">
+    <div class="aht-how-inner">
+      <div class="reveal">
+        <div class="aht-section-eyebrow">How it works</div>
+        <h2 style="color:#fff;">Three steps, no runaround</h2>
+      </div>
+      <div class="aht-steps">
+        <div class="aht-step reveal">
+          <div class="aht-step-num">01</div>
+          <h3>Pick your service</h3>
+          <p>Choose what you need and grab an evening or weekend slot that actually works for you.</p>
+        </div>
+        <div class="aht-step reveal" style="transition-delay:.08s">
+          <div class="aht-step-num">02</div>
+          <h3>Pay to confirm</h3>
+          <p>Stripe handles the payment upfront. Your slot is locked in. No awkward invoices or follow-ups afterward.</p>
+        </div>
+        <div class="aht-step reveal" style="transition-delay:.16s">
+          <div class="aht-step-num">03</div>
+          <h3>We get to work</h3>
+          <p>Meet on Google Meet or in person. You&rsquo;ll leave with something solved &mdash; not just talked about.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="aht-section" id="about">
+    <div class="aht-section-inner">
+      <div class="aht-about-grid">
+        <div class="aht-about-text reveal">
+          <div class="aht-section-eyebrow">About</div>
+          <h2>Not your typical<br>tech consultant</h2>
+          <p>I&rsquo;m Joshua Fisherkeller &mdash; a social worker and technologist with a full-time role at the University of Kentucky. After Hours Tech is what I do in my evenings and weekends, because I genuinely enjoy solving technology problems and helping people feel less overwhelmed by the tools they&rsquo;re supposed to be using.</p>
+          <p>The MSW isn&rsquo;t just a credential. It means I explain things without condescension, meet you where you are, and care more about whether something actually works for you than whether it looks impressive on paper.</p>
+          <p>I&rsquo;m especially well-suited for therapists and clinicians &mdash; people who need tech help but also need someone who understands clinical workflow, documentation requirements, and why confidentiality is non-negotiable.</p>
+          <p>Because I only work evenings and weekends, I&rsquo;m available when most consultants aren&rsquo;t &mdash; which is usually exactly when you are.</p>
+        </div>
+        <div class="aht-about-sidebar reveal" style="transition-delay:.1s">
+          <div class="aht-photo">
+            <img src="{{ '/assets/img/resilient-forest/author.png' | relative_url }}" alt="Joshua Fisherkeller, MSW">
+          </div>
+          <div class="aht-cred-card">
+            <div class="aht-cred-name">Joshua Fisherkeller</div>
+            <div class="aht-cred-title">MSW &middot; University of Kentucky</div>
+            <ul class="aht-cred-list">
+              <li>Master of Social Work</li>
+              <li>Full-time UK professional</li>
+              <li>Therapist tech specialist</li>
+              <li>AI tools practitioner</li>
+              <li>Lexington, KY &mdash; in-home available</li>
+            </ul>
+          </div>
+          <div class="aht-why-box">
+            <strong>Why after hours?</strong>
+            <p>Most consultants are only available 9&ndash;5 &mdash; exactly when you&rsquo;re already at work. I built this for people building things on evenings and weekends, because that&rsquo;s when I&rsquo;m available too.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA STRIP ── -->
+  <section class="aht-cta">
+    <div class="reveal">
+      <h2>Ready to get something solved?</h2>
+      <p>Grab an evening or weekend slot. Pay when you book. Show up ready to work.</p>
+      <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="btn-dark">Book at cal.com/Fisherkeller &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="aht-footer">
+    <div class="aht-footer-inner">
+      <div>
+        <span class="aht-footer-brand">After Hours Tech</span>
+        <p>Joshua Fisherkeller, MSW &middot; Lexington, KY</p>
+        <p style="margin-top:4px;font-size:12px;color:#57534e;">Available evenings &amp; weekends only &middot; Independent of the University of Kentucky</p>
+      </div>
+      <div class="aht-footer-links">
+        <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener">Book a session</a>
+        <span>Powered by Cal.com &amp; Stripe</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('ahtMenuBtn').addEventListener('click', function () {
+      document.getElementById('ahtMobileMenu').classList.toggle('open');
+    });
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.aht-mobile-menu a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        document.getElementById('ahtMobileMenu').classList.remove('open');
+      });
+    });
+    // Scroll reveal
+    (function () {
+      if (!('IntersectionObserver' in window)) return;
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>
