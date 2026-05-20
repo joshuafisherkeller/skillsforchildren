@@ -274,6 +274,110 @@ Resilient Forest: _layouts/resilient-forest.html — STANDALONE layout (no defau
 
 ---
 
+### May 20, 2026 — Create /tfcbtbook page + convert /resilient-forest to TORF universe hub
+
+**Context:** The current `/resilient-forest/` page is a standalone book landing page (`_layouts/resilient-forest.html`). Josh wants to split this into two things:
+1. A dedicated book page at `/tfcbtbook` — essentially the current resilient-forest layout, moved to a new URL
+2. A new `/resilient-forest/` hub page for the entire Tales of the Resilient Forest universe — characters, videos, BRAVE app link, future series info
+
+This is a two-phase task.
+
+---
+
+#### Phase 1 — Move book content to `/tfcbtbook`
+
+1. Create `tfcbtbook.html` at repo root with front matter:
+   ```yaml
+   ---
+   layout: resilient-forest
+   permalink: /tfcbtbook/
+   title: "A Journey of Brave Friends | Tales of the Resilient Forest"
+   description: "A TF-CBT companion storybook following five animal friends through the Resilient Forest. For children, caregivers, and clinicians."
+   ---
+   ```
+2. Update `_layouts/resilient-forest.html` — change the nav "back" link (currently `← SKILLSFORCHILDREN.COM` pointing to `/`) to point to `/resilient-forest/` instead, so visitors can navigate from the book page back to the hub.
+3. Add a 301-style redirect from `/resilient-forest/` to `/tfcbtbook/` temporarily — OR keep both URLs active and update internal links. Preferred: keep both active for now (no redirect), update all internal links to point to `/tfcbtbook/` going forward.
+4. Update all internal site links that currently point to `/resilient-forest/` to point to `/tfcbtbook/` instead:
+   - `_layouts/home.html` book feature CTA ("Enter the Resilient Forest" button)
+   - `_layouts/trauma.html` book feature section (if present)
+   - Any navigation links
+
+---
+
+#### Phase 2 — Build the new `/resilient-forest/` hub page
+
+Create `resilient-forest.html` (replacing the current front matter stub) pointing to a new `_layouts/resilient-forest-hub.html` layout.
+
+The hub page uses the **main site design system** (`layout: default`, `site.css`, dark mode, etc.) — NOT the standalone forest palette. It should feel like a premium section of skillsforchildren.com, not a separate site.
+
+**Section order:**
+
+1. **Hero** — eyebrow "Tales of the Resilient Forest", h1 "A Universe Built for Healing", lede: "Five animal friends. One resilient forest. A world of tools for children who have been through hard things." Forest-toned hero image as background (use `assets/img/resilient-forest/hero.png`).
+
+2. **Characters section** — Introduce the five TORF friends. Use the existing character images in `assets/img/resilient-forest/characters/`. Each card: character image, name, animal, TF-CBT component they represent.
+   - Timothy (Turtle) → Psychoeducation
+   - Rex (Rabbit) → Relaxation
+   - Bella (Bear) → Affective Modulation
+   - Olive (Owl) → Cognitive Coping
+   - Kiki (Koala) → Trauma Narrative
+
+3. **Video section** — Embed this YouTube video: `https://www.youtube.com/watch?v=7ih5CRacpOw`. Use a standard responsive iframe embed (16:9 ratio). Eyebrow: "Watch", heading: "See the Resilient Forest Come to Life". Keep it simple — one video for now, room to add more later.
+
+4. **Book feature** — Compact card or strip (not the full book landing page — that's at `/tfcbtbook/`). Eyebrow: "Book One", heading: *A Journey of Brave Friends*, one sentence description, two CTAs: "Read the Book" → `/tfcbtbook/` and "Buy on Amazon" → `https://amzn.to/4tWqSlG` (preserve exactly).
+
+5. **BRAVE app section** — Eyebrow: "Digital Companion", heading: "Walk Through the Forest with BRAVE". Body: "The BRAVE app brings the Resilient Forest to life as an interactive TF-CBT companion for children ages 4–18." CTA: "Open the App" → `https://app.skillsforchildren.com`. Use Timothy hero image (`assets/img/resilient-forest/characters/timothy.jpg`).
+
+6. **Future series section** — Eyebrow: "The Series", heading: "More Stories Are Coming". Body: "The Tales of the Resilient Forest is a growing series. Each book follows a new friend through a new chapter of healing." Keep it simple — no fake book titles or placeholder covers. Just the promise of more.
+
+7. **Newsletter** — use `_includes/newsletter.html` with headline "Stay with the Forest" and body "Get updates when new books, resources, and tools arrive."
+
+8. **Footer** — standard `_includes/footer.html`.
+
+---
+
+**Brand rules:**
+- Preserve Amazon affiliate link `https://amzn.to/4tWqSlG` exactly
+- Never mention CTAC
+- Quick Exit button must be present (include `_includes/quick-exit.html`) — this is TORF/trauma content
+- Use "evidence-informed" not "evidence-based"
+- Attribution: "Skills for Children" default; "Joshua Fisherkeller, MSW" only where clinical credentials matter
+
+**Commit sequence — Claude Code executes all of these:**
+After each phase, commit and push immediately. Do not batch everything into one commit.
+
+```bash
+# After Phase 1
+git add tfcbtbook.html _layouts/resilient-forest.html _layouts/home.html
+git commit -m "feat(tfcbtbook): move book landing page to /tfcbtbook"
+git push
+
+# After Phase 2
+git add resilient-forest.html _layouts/resilient-forest-hub.html
+git commit -m "feat(resilient-forest): rebuild /resilient-forest as TORF universe hub"
+git push
+
+# After updating Working_File
+git add Working_File.md
+git commit -m "docs: log May 20 session — tfcbtbook + resilient-forest hub"
+git push
+```
+
+Verify each `git push` succeeds before moving to the next phase. If GitHub Pages build fails, check the Actions tab and fix before continuing.
+
+**Test before marking done:**
+- Run `bundle exec jekyll serve` locally and visit both pages
+- `/tfcbtbook/` loads the full book landing page correctly
+- `/resilient-forest/` loads the new hub page
+- All 5 character images load on the hub
+- YouTube video embeds and plays
+- BRAVE app CTA links to `https://app.skillsforchildren.com`
+- Amazon link preserved exactly as `https://amzn.to/4tWqSlG`
+- Quick Exit present on both pages
+- Home page book feature CTA now points to `/tfcbtbook/`
+- No console errors on either page
+
+---
+
 ### May 18, 2026 — Remove fictitious books from `_data/books.yml`
 
 **Context:** During the May 18 relaunch, three book entries were seeded into `_data/books.yml` that do not correspond to real books in Josh's catalog. They need to be removed before the books page can go live with accurate inventory.
