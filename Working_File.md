@@ -116,26 +116,96 @@ Changed `_includes/theme-script.html` so new visitors (no localStorage) get dark
 
 ---
 
+### Session 4 — May 19, 2026
+**Task:** Build the `/resilient-forest/` book landing page; fix GitHub Pages build failure caused by `Working_File.md` containing Liquid syntax examples.
+**Commits:** `f80577e` (build fix), `03c10bc` (Working_File log), `cbd9e48` (trauma page), `81d446a` (hub pillar), `ddbc34c` (resilient-forest page)
+**Pushed to GitHub:** Yes
+
+#### Build fix
+`Working_File.md` contained Liquid `{% if %}` code examples in the Cowork Prompts section. Jekyll (GitHub Pages, v3.10.0) tried to process it as a template and crashed. Fixed by adding `Working_File.md` and `IMPLEMENTATION_GUIDE.md` to the `exclude:` list in `_config.yml`. Build succeeded on run #44.
+
+#### Resilient Forest page (new)
+- Created `resilient-forest.html` (front matter stub, `permalink: /resilient-forest/`)
+- Created `_layouts/resilient-forest.html` — fully **standalone** layout (no `layout: default` inheritance). Own fonts (Cormorant Garamond, Nunito, Caveat), forest palette, all CSS inline.
+  - Sections: hero (parallax cover.png), story + 3D book mockup, friends (5 character cards), PRAC skills (4 cards), chapter previews (4 cards), for parents / for therapists, author, buy, footer
+  - Quick Exit → `window.location.replace('https://www.weather.com')`
+  - Amazon link: `https://amzn.to/4qLZztE` (preserved exactly)
+  - Falling leaves animation (plain JS, no React/Babel)
+- Copied 13 images from `_resilient_forest_inspect/` to `assets/img/resilient-forest/` (characters/, scenes/, cover.png)
+- Updated `_config.yml` exclude: added `_resilient_forest_inspect`, both ZIPs
+- Updated `_layouts/home.html` book feature: eyebrow → "Book One · Tales of the Resilient Forest", primary CTA → "Enter the Resilient Forest" → `/resilient-forest/`, Amazon demoted to ghost secondary
+
+---
+
+### Session 5 — May 19, 2026
+**Task:** Multi-file overhaul — resilient forest image/layout updates, hub pillar restyle, prose typography, homepage fireflies.
+**Commit:** `a86a844`
+**Pushed to GitHub:** Yes
+
+#### Image updates (all new files added to `assets/img/resilient-forest/`)
+| New file | Source | Used for |
+|----------|--------|----------|
+| `author.png` | `FISHERKELLER Headshot.png` (repo root) | Author portrait on `/resilient-forest/` |
+| `hero.png` | `Hero Image.png` (repo root) | Hero background on `/resilient-forest/` (replaces cover.png) |
+| `characters/timothy.jpg` | `timothy caracter.jpg` (repo root) | Updated Timothy character image |
+| `characters/rex.jpg` | `Rex the Rabbit.jpg` (repo root) | Updated Rex character image |
+| `characters/kiki.jpg` | `kiki the koala.jpg` (repo root) | Updated Kiki character image |
+| `characters/olive.jpg` | `Olive the Owl.jpg` (repo root) | Updated Olive character image |
+| `chapters/chapter1.jpg–chapter4.jpg` | `Chapter 1–4.jpg` (repo root) | PRAC card header images |
+| `scenes/chap1.jpg–chap4.jpg` | `Chap 1–4.jpg` (repo root) | Chapter preview background images |
+
+Bella unchanged (original image is good).
+
+#### Resilient Forest layout changes (`_layouts/resilient-forest.html`)
+- Hero background changed from `cover.png` → `hero.png`
+- Author portrait: SVG placeholder replaced with real headshot (`author.png`)
+- Section reorder: PRAC skills section moved **above** Brave Friends character section; nav updated to match
+- PRAC cards: each now has a chapter illustration image at the top (P→chapter1, R→chapter2, A→chapter3, C→chapter4). Added `.practice-card-img` CSS.
+- Character cards: removed `.friend-role` line (the "Chapter X · Skill" line). Cards are now character profiles only.
+- Chapter preview section: updated all 4 background images to use new Chap 1–4 scene images
+- Buy section heading: "Read it together, by the lake or the lamp." → "Read it together."
+- Buy section body: removed "A portion of every copy supports children's mental health programs." Now reads: "Only available on Amazon in hardcover and paperback."
+
+#### Homepage hub pillar (`_layouts/home.html` + `assets/css/site.css`)
+- Renamed to "Resources for Children Who Have Experienced Trauma"
+- Restyled to match regular pillar bar: uses same grid layout (`auto 1fr auto auto`), pillar-icon, pillar-title-wrap, count badge, arrow. No longer uses the custom flex layout.
+- `.pillar--hub` CSS rewritten; `.pillar-icon--hub` added.
+
+#### Prose typography (`assets/css/site.css`)
+- Added `.prose` CSS block — scales heading sizes down (h1 max 30px, h2 max 25px, h3 max 20px), proper paragraph/list spacing, blockquote treatment, link color. Fixes the "headings too big, content bunched" issue on `/trauma` article section.
+
+#### Fireflies — dark theme ambient animation (`assets/css/site.css` + `assets/js/site.js` + `_layouts/default.html`)
+- Added `<div id="fireflies" aria-hidden="true">` to `default.html` (hidden by CSS when not dark)
+- `#fireflies` shown only when `[data-theme="dark"]` is set
+- JS: spawns small amber glowing dots (`box-shadow` glow) that drift and fade, ~1 per second. Responds to theme toggle in real time (MutationObserver on `data-theme`). Does NOT appear on `/resilient-forest/` (standalone layout, no site JS).
+
+#### Misc
+- Renamed `Timothy character.zip` → `A Journey of Brave Friends - Book Illustrations.zip` (contains full book illustration set)
+- Added new zip name to `_config.yml` exclude list
+
+---
+
 ## Pending / TODOs (Josh's Action Items)
 
 - [ ] **Book cover images** — `_data/books.yml` still has empty `cover:` for Maximilian's Cosmic Adventure. Add real artwork to `assets/img/books/` and fill in the path.
-- [ ] **Maximilian's affiliate link** — confirm whether the current link in books.yml (3MYO02Q) or the SECOND_BRAIN listing (4nKyLHE) is the active link. Update books.yml if needed.
-- [ ] **Prose styling on /trauma article section** — the article renders inside `.prose` class. Verify that the blog-post typography styles (line-height, h2/h3 sizing, blockquotes) apply correctly in the `.prose` container on the /trauma page. Add `.prose` CSS rules to site.css if needed.
+- [ ] **Maximilian's affiliate link** — confirm whether the current link in books.yml (`amzn.to/3MYO02Q`) or the SECOND_BRAIN listing (`amzn.to/4nKyLHE`) is the active link. Update books.yml if needed.
+- [x] **Prose styling on /trauma article section** — `.prose` CSS added in Session 5. Headings scaled, spacing fixed.
 - [ ] **Missing products in books.yml** — `SECOND_BRAIN.md` lists 4 more products not yet in the site: *Resilient Forest Notebook* (`amzn.to/4hRXwjZ`), *Mother Earth in the Mountains* (`amzn.to/3WLboCH`), *Flower Mountain* (`amzn.to/499JQP0`), *Mushrooms and Mountains* (`amzn.to/43Zrcpj`). Decide whether to add these to the Books page or keep them separate.
 - [ ] **Kit newsletter** — Confirm Kit's embed script is rendering its form correctly on the live site. If it is, the noscript fallback is fine as-is.
 - [ ] **Google Analytics 4** — No GA4 snippet in site. If you want analytics, provide the `gtag.js` snippet and it goes in `_layouts/default.html` inside `<head>`.
 - [ ] **Mobile nav** — Nav links hide at <640px (per design spec). No hamburger/drawer added. Decide if you want one added.
 - [ ] **Book sample chapter links** — `sample_url:` in `_data/books.yml` is blank for all books. Fill in when PDFs are ready.
-- [ ] **Delete `_relaunch_inspect/`** — It's excluded from Jekyll build but still in the local folder. Delete it before next commit to keep the repo clean.
-- [ ] **Delete `61m9iNlhgNL._SL1293_.jpg`** — The original Amazon filename file at repo root. The file was copied to `assets/img/books/a-journey-of-brave-friends.jpg` — the root copy can be deleted.
+- [ ] **Delete `_relaunch_inspect/`** — Excluded from Jekyll build but still in local folder. Can delete before next commit.
+- [ ] **Delete `61m9iNlhgNL._SL1293_.jpg`** — Original Amazon filename at repo root. Already copied to `assets/img/books/a-journey-of-brave-friends.jpg`. Root copy can be deleted.
+- [ ] **Clean up root image files** — Several raw image files sit at repo root (character images, chapter images, hero, headshot, ZIP files). These are source assets, not web assets. Consider moving to a `_source-assets/` folder (excluded from build) or deleting after confirming they're all copied to `assets/img/`.
 
 ---
 
 ## Key Design System Facts (for future Claude sessions)
 
 ```
-CSS file:       assets/css/site.css (1441 lines — do not edit by hand, regenerate from design)
-JS file:        assets/js/site.js
+CSS file:       assets/css/site.css (~1540 lines)
+JS file:        assets/js/site.js (~265 lines)
 Fonts:          DM Sans (headings), Inter (body), JetBrains Mono (eyebrows/badges/meta)
 Light palette:  --cream #f6f4ef | --ink #1a3a2e | --sage #3d6b5a | --tan #c9a96e
 Dark mode:      [data-theme="dark"] block in site.css, toggled by JS, persisted to localStorage
@@ -146,6 +216,15 @@ Resource cards: .rcard with data-audience, data-format, data-section, data-title
 Pillars:        <details class="pillar"> — native HTML collapse, no JS required
 Toast:          window.showToast(msg) — #toast element in default layout
 Homepage:       8 skills pillars + 1 trauma hub pillar → /trauma/. Trauma page: 9 trauma pillars.
+Hub pillar:     .pillar.pillar--hub — same grid layout as regular pillar bar, links to /trauma/.
+Prose:          .prose class — typography for article body content. h1 max 30px, h2 max 25px, h3 max 20px.
+Fireflies:      #fireflies div in default.html. CSS: display:none by default, block when [data-theme=dark].
+                JS in site.js: MutationObserver watches data-theme, starts/stops firefly spawn loop.
+Resilient Forest: _layouts/resilient-forest.html — STANDALONE layout (no default inheritance).
+                  Forest palette (--ink #20281d, --moss #4d6b3a, --ember #d97b3a, --cream #f5ecd6, --paper #fbf5e3)
+                  Fonts: Cormorant Garamond (display), Nunito (body), Caveat (handwriting)
+                  All CSS inline. No site.css. No dark mode. Falling leaves animation.
+                  Images: assets/img/resilient-forest/ (hero.png, author.png, characters/, chapters/, scenes/)
 ```
 
 ---
