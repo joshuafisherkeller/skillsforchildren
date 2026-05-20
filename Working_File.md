@@ -137,6 +137,40 @@ Changed `_includes/theme-script.html` so new visitors (no localStorage) get dark
 
 ---
 
+### Session 7 — May 20, 2026
+**Task:** TORF split — move book landing page to `/tfcbtbook/`, build new `/resilient-forest/` as universe hub.
+**Commits:** `b8f60e4` (Phase 1 — tfcbtbook), `3833f20` (Phase 2 — resilient-forest hub)
+**Pushed to GitHub:** Yes
+
+#### Phase 1 — `/tfcbtbook/` book landing page
+- Created `tfcbtbook.html` (front matter stub, `permalink: /tfcbtbook/`, `layout: resilient-forest`)
+- Updated `_layouts/resilient-forest.html` back-link: changed from `← SKILLSFORCHILDREN.COM` → `/` to `← Resilient Forest` → `/resilient-forest/`
+- Updated `_layouts/home.html` book feature CTA: "Enter the Resilient Forest" now points to `/tfcbtbook/` (was `/resilient-forest/`)
+- Both URLs remain active — no redirect. External links to `/resilient-forest/` now land on the hub; all internal links point to `/tfcbtbook/`.
+
+#### Phase 2 — `/resilient-forest/` universe hub
+- Updated `resilient-forest.html` front matter: now uses `layout: resilient-forest-hub`, permalink `/resilient-forest/`, updated title and description
+- Created `_layouts/resilient-forest-hub.html` (new file, uses `layout: default`):
+  - **Hero:** full-bleed `hero.png` background with dark overlay, parallax JS, eyebrow + h1 + lede
+  - **Characters grid:** 5-column `.torf-chars` with Timothy, Rex, Bella, Olive, Kiki — name, species, TF-CBT skill badge
+  - **Video section:** YouTube embed `7ih5CRacpOw`, 16:9 responsive wrapper
+  - **Book strip:** cover image + "Book One" eyebrow + *A Journey of Brave Friends* + CTAs to `/tfcbtbook/` and `https://amzn.to/4tWqSlG`
+  - **BRAVE app section:** 2-col grid with Timothy image + body copy + "Open the App" → `https://app.skillsforchildren.com`
+  - **Future series:** centered text block, no fake titles or placeholder covers
+  - **Newsletter:** `_includes/newsletter.html` with "Stay with the Forest" headline
+  - Inline `<style>` block, all `.torf-*` scoped classes, no site.css conflicts
+
+#### Files changed (Phase 1)
+- `tfcbtbook.html` *(new)*
+- `_layouts/resilient-forest.html` — back-link updated
+- `_layouts/home.html` — book feature CTA updated
+
+#### Files changed (Phase 2)
+- `resilient-forest.html` — layout + meta updated
+- `_layouts/resilient-forest-hub.html` *(new)*
+
+---
+
 ### Session 6 — May 20, 2026
 **Task:** Amazon Associates reapplication + affiliate link refresh across all site files.
 **Commits:** pending
@@ -236,6 +270,8 @@ Bella unchanged (original image is good).
   
   Josh flagged this for revision — the framing and bullet points need to be reworked. When new copy is ready, update the `.audience-card.therapists` block in `_layouts/resilient-forest.html` (search for `id="audiences"`). The `<h3>`, `<p>`, and `<ul class="audience-list">` are all in scope.
 - [ ] **Clean up root image files** — Several raw image files sit at repo root (character images, chapter images, hero, headshot, ZIP files). These are source assets, not web assets. Consider moving to a `_source-assets/` folder (excluded from build) or deleting after confirming they're all copied to `assets/img/`.
+- [ ] **TORF hub — verify on live site**: Visit `/resilient-forest/` after deploy — confirm all 5 character images load, YouTube embed works, book strip shows correct cover, BRAVE CTA links to `https://app.skillsforchildren.com`.
+- [ ] **BRAVE app URL** — Hub links to `https://app.skillsforchildren.com`. Confirm this URL is live and correct.
 
 ---
 
@@ -258,11 +294,16 @@ Hub pillar:     .pillar.pillar--hub — same grid layout as regular pillar bar, 
 Prose:          .prose class — typography for article body content. h1 max 30px, h2 max 25px, h3 max 20px.
 Fireflies:      #fireflies div in default.html. CSS: display:none by default, block when [data-theme=dark].
                 JS in site.js: MutationObserver watches data-theme, starts/stops firefly spawn loop.
-Resilient Forest: _layouts/resilient-forest.html — STANDALONE layout (no default inheritance).
+TORF URLs:      /tfcbtbook/ — book landing page (uses _layouts/resilient-forest.html, standalone)
+                /resilient-forest/ — universe hub (uses _layouts/resilient-forest-hub.html, layout: default)
+Resilient Forest (book): _layouts/resilient-forest.html — STANDALONE layout (no default inheritance).
                   Forest palette (--ink #20281d, --moss #4d6b3a, --ember #d97b3a, --cream #f5ecd6, --paper #fbf5e3)
                   Fonts: Cormorant Garamond (display), Nunito (body), Caveat (handwriting)
                   All CSS inline. No site.css. No dark mode. Falling leaves animation.
                   Images: assets/img/resilient-forest/ (hero.png, author.png, characters/, chapters/, scenes/)
+TORF Hub:       _layouts/resilient-forest-hub.html — uses layout: default (inherits site.css, dark mode, fireflies).
+                  Inline <style> block with .torf-* scoped CSS. Hero parallax, 5-char grid, YT embed, book strip,
+                  BRAVE app section, future series, newsletter.
 ```
 
 ---
