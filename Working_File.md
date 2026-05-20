@@ -198,6 +198,14 @@ Bella unchanged (original image is good).
 - [ ] **Delete `_relaunch_inspect/`** — Excluded from Jekyll build but still in local folder. Can delete before next commit.
 - [ ] **Delete `61m9iNlhgNL._SL1293_.jpg`** — Original Amazon filename at repo root. Already copied to `assets/img/books/a-journey-of-brave-friends.jpg`. Root copy can be deleted.
 - [ ] **PRAC skill card images** — The `Chapter 1–4.jpg` images currently used in the PRAC cards (`/resilient-forest/` → "Four foundational skills" section) are placeholders. Replace with proper illustrations when ready. Images live at `assets/img/resilient-forest/chapters/chapter1–4.jpg`.
+- [ ] **Resilient Forest — "For therapists & clinicians" copy** — Current language needs to be revisited. The section (`_layouts/resilient-forest.html`, `.audience-card.therapists`) currently reads:
+  > *"A session-friendly companion that maps cleanly onto the eight components of TF-CBT. Use it as a primer, a metaphor library, or a between-session bridge for the child and caregiver to share."*
+  > - Chapter-by-chapter PRAC skill alignment
+  > - Clinician notes printable and ready to use
+  > - Caregiver handouts in plain language
+  > - Designed for individual, group, and conjoint settings
+  
+  Josh flagged this for revision — the framing and bullet points need to be reworked. When new copy is ready, update the `.audience-card.therapists` block in `_layouts/resilient-forest.html` (search for `id="audiences"`). The `<h3>`, `<p>`, and `<ul class="audience-list">` are all in scope.
 - [ ] **Clean up root image files** — Several raw image files sit at repo root (character images, chapter images, hero, headshot, ZIP files). These are source assets, not web assets. Consider moving to a `_source-assets/` folder (excluded from build) or deleting after confirming they're all copied to `assets/img/`.
 
 ---
