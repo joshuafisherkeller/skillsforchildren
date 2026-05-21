@@ -14,11 +14,32 @@
 
 > **Important:** After Hours Tech is a completely separate brand from Skills for Children. The layout is standalone — it does NOT inherit from `_layouts/default.html`. No SFC navigation, no SFC footer, no `site.css`. The `After Hours Tech/` source folder is excluded from the Jekyll build via `_config.yml`.
 
+> **Project memory note:** This file is one of Josh's two main local working-memory files. The other is `C:/Users/joshu/Skills for Children/SECOND_BRAIN.md`. Keep this file current for all AHT-specific work, while `SECOND_BRAIN.md` tracks cross-project context and decisions.
+
 > **For Claude Cowork:** When you generate prompts or task briefs for Claude Code to execute on this page, paste them into the "Cowork Prompts" section at the bottom of this file.
 
 ---
 
 ## Session Log
+
+---
+
+### Session 2 — May 20, 2026
+**Task:** Add After Hours Tech logo to the credentials sidebar, between the headshot and the credential card.
+**Commit:** `7f0d5d2`
+**Pushed to GitHub:** Yes
+
+#### Files changed
+| File | What changed |
+|------|-------------|
+| `assets/img/aht-logo.png` | Logo copied from `After Hours Tech/After Hours Tech Color Logo.png` into the Jekyll assets folder so Jekyll can serve it. |
+| `_layouts/after-hours-tech.html` | Added `.aht-brand-logo` CSS block (white background, green border, subtle shadow). Added `<div class="aht-brand-logo">` HTML element with logo image between `.aht-photo` and `.aht-cred-card` in the sidebar. |
+
+#### Design notes
+- Logo sits on a white card with a green-tinted border (`--green-border`) — preserves the logo's light background cleanly against the dark page
+- Max width 180px, centered
+- Stacks naturally in the sidebar column: photo → logo → credential card → why-box
+- On mobile the sidebar collapses to a flex row (photo + cred card side by side) then single column — logo stays in sequence
 
 ---
 
