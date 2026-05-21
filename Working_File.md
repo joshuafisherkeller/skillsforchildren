@@ -275,9 +275,48 @@ Note: The 4 journal products (Resilient Forest Notebook, Mother Earth, Flower Mo
 **Task:** Merge `AHT_Working_File.md` into `Working_File.md`. Single working file for all sub-projects going forward.
 **Executed by:** Claude Cowork
 **Files changed:** `Working_File.md` (expanded), `AHT_Working_File.md` (deleted)
-**Pushed to GitHub:** No — Josh to commit when ready
+**Pushed to GitHub:** Yes — included in subsequent commits.
 
 See merge log at top of this file.
+
+---
+
+### Session 9 — May 21, 2026
+**Task:** Admin mode + site feedback widget.
+**Commit:** `fa7dada`
+**Pushed to GitHub:** Yes
+
+#### What was built
+
+**Supabase (project `utqyxpdevkniwrhajodg`)**
+- New table: `public.site_feedback` — columns: `id`, `created_at`, `page_url`, `page_title`, `comment`, `priority` (`fix_now` | `lets_talk`), `screenshot_url`, `status` (`open` | `in_progress` | `done`), `session_notes`
+- RLS enabled. Anon can INSERT only. Service role has full access (used by Claude via Supabase MCP to read feedback in sessions).
+- New storage bucket: `site-feedback` (public, 5MB limit, images only). Anon can upload; public can read.
+
+**Files created/modified**
+| File | What it does |
+|------|-------------|
+| `admin.html` | Standalone admin page at `/admin/`. `layout: null`, `noindex`. Passphrase form → sets `localStorage['sfk-admin']`. Shows active confirmation + site link. Deactivate button clears localStorage. |
+| `_layouts/default.html` | Admin widget script added before `</body>`. Checks `localStorage['sfk-admin']`. If active: renders thin green admin bar at top (with "Exit admin" button), 📝 floating button (bottom-left), and feedback modal. |
+
+#### How admin mode works
+1. Visit `skillsforchildren.com/admin/`
+2. Enter passphrase: **`fisherkeller`** *(change in `admin.html` JS, line with `var PASSPHRASE`)*
+3. Click "Activate Admin Mode →"
+4. Every page now shows the green admin bar + 📝 feedback button
+5. To exit: click "Exit admin" in the bar, or visit `/admin/` and click "Deactivate"
+
+#### How the feedback widget works
+- Click 📝 (bottom-left, above Quick Exit) → modal opens
+- Auto-captures: current URL, page title
+- Fill in: comment (required), optional screenshot upload, priority radio
+- Submit → saves to `site_feedback` Supabase table
+- Screenshot (if uploaded) → stored in `site-feedback` Supabase bucket, URL saved to row
+
+#### Workflow for sessions with Claude
+- Say: **"Pull up the site feedback"** — Claude uses Supabase MCP `execute_sql` to read the `site_feedback` table
+- Claude reviews `lets_talk` items first, gives opinions, discusses each one
+- `fix_now` items get batched into a Working_File Cowork Prompt for Claude Code
 
 ---
 
