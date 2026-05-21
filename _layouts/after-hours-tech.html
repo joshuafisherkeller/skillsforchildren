@@ -185,6 +185,9 @@
     .aht-price-label span { color: #a8a29e; }
     .aht-price-amt { font-family: var(--sans); font-size: 18px; font-weight: 600; color: var(--ink); white-space: nowrap; }
     .aht-services-note { font-size: 12px; color: #a8a29e; margin-top: 12px; }
+    .aht-service-tiers { list-style: none; display: flex; flex-direction: column; gap: 6px; margin: 4px 0; }
+    .aht-service-tiers li { font-size: 13px; color: #57534e; display: flex; align-items: baseline; gap: 8px; }
+    .tier-label { flex-shrink: 0; font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--green-text); background: #d1fae5; padding: 2px 7px; border-radius: 3px; }
 
     /* ═══════════════════════════════════
        HOW IT WORKS + LET'S TALK STRATEGY
@@ -456,6 +459,20 @@
           <p class="aht-service-desc">Explainer videos, professional recordings, logos, social graphics, presentation templates. Creative support for your project or business.</p>
           <div class="aht-service-pricing">
             <div class="aht-price-row"><span class="aht-price-label">Consultation <span>&middot; 60 min</span></span><span class="aht-price-amt">$85</span></div>
+          </div>
+        </div>
+
+        <div class="aht-service-card reveal" style="transition-delay:.28s">
+          <div class="aht-service-head"><h3>Session Recording System</h3><span class="aht-badge">HIPAA-friendly</span></div>
+          <p class="aht-service-desc">A fully local, offline recording + transcription setup for your therapy room. Everything stays on your device &mdash; nothing goes to the cloud. One-button start/stop via Stream Deck. Automatic transcription after each session using local AI (Whisper). Four tiers from DIY guide to full in-office install.</p>
+          <ul class="aht-service-tiers">
+            <li><span class="tier-label">Tier 1</span> DIY setup guide (PDF)</li>
+            <li><span class="tier-label">Tier 2</span> Equipment sourced &amp; shipped to you</li>
+            <li><span class="tier-label">Tier 3</span> Equipment + remote configuration</li>
+            <li><span class="tier-label">Tier 4</span> Full on-site install &mdash; Lexington KY area</li>
+          </ul>
+          <div class="aht-service-pricing">
+            <div class="aht-price-row"><span class="aht-price-label">Scoping call <span>&middot; Free &middot; Zoom</span></span><span class="aht-price-amt">$0</span></div>
           </div>
         </div>
 
