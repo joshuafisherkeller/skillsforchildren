@@ -320,6 +320,42 @@ See merge log at top of this file.
 
 ---
 
+### Session 10 — May 21, 2026
+**Task:** CORS (Clinical Observation Recording System) — initial build.
+**Commits:** `4236224` (service card + CSS)
+**Pushed to GitHub:** Yes
+
+#### What was built
+
+**CORS product files** — `C:\Users\joshu\Skills for Children\After Hours Tech\CORS\`
+| File | Purpose |
+|------|---------|
+| `sfk_transcribe.py` | Python transcription script. Uses local OpenAI Whisper + ffmpeg. Supports video and audio input. Outputs timestamped `.txt` transcript with AI disclaimer. Flags: `--model` (tiny/base/small/medium/large), `--output`. |
+| `run_transcriber.bat` | Windows drag-and-drop launcher. Drop any recording onto it → calls `sfk_transcribe.py`. No command-line knowledge needed. |
+| `SETUP_WINDOWS.md` | Full Windows install guide: Python 3.11, ffmpeg (winget or manual), pip packages, OBS Studio, Stream Deck, test procedure, privacy checklist. |
+| `OBS_SETUP.md` | OBS config reference: MP4/x264/CRF 23, 48kHz audio, -12dB mic levels, F9/F10 hotkeys, anonymous file naming, printable quick-start card. |
+
+**Site changes** — `_layouts/after-hours-tech.html`
+- Added 8th service card: **Session Recording System** with HIPAA-friendly badge, four-tier list, $0 scoping call pricing row
+- Added `.aht-service-tiers` and `.tier-label` CSS to inline stylesheet
+
+#### Architecture notes
+- Whisper runs entirely offline — no API key, no cloud, no data leaves the device
+- First run downloads model (~1.5GB for `medium`), cached after that
+- ffmpeg extracts 16kHz mono WAV before transcribing (optimal for Whisper)
+- Temp audio file cleaned up automatically after transcription
+- Transcript format: header + DISCLAIMER + `[MM:SS]  text` segments
+
+#### CORS four service tiers
+| Tier | Deliverable |
+|------|------------|
+| 1 | DIY setup guide (PDF from `SETUP_WINDOWS.md` + `OBS_SETUP.md`) |
+| 2 | Equipment sourced & shipped (mini PC, camera, mic/mixer, Stream Deck) |
+| 3 | Equipment + remote configuration session |
+| 4 | Full on-site install — Lexington KY area |
+
+---
+
 ## Pending / TODOs — skillsforchildren.com
 
 - [ ] **Book cover images** — `_data/books.yml` still has empty `cover:` for Maximilian's Cosmic Adventure. Add real artwork to `assets/img/books/` and fill in the path.
