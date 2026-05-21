@@ -293,6 +293,8 @@
     .aht-cred-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
     .aht-cred-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #d6d3d1; }
     .aht-cred-list li::before { content: "→"; color: var(--green-lt); flex-shrink: 0; line-height: 1.5; }
+    .aht-brand-logo { background: #fff; border-radius: var(--radius); padding: 18px 24px; text-align: center; border: 1px solid var(--green-border); box-shadow: 0 2px 10px rgba(26,122,74,.08); }
+    .aht-brand-logo img { max-width: 180px; width: 100%; height: auto; display: block; margin: 0 auto; }
     .aht-why-box { background: var(--green-bg); border: 1px solid var(--green-border); border-radius: var(--radius); padding: 20px; }
     .aht-why-box strong { display: block; font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
     .aht-why-box p { font-size: 13.5px; color: #57534e; line-height: 1.65; }
@@ -522,6 +524,9 @@
         <div class="aht-about-sidebar reveal" style="transition-delay:.1s">
           <div class="aht-photo">
             <img src="{{ '/assets/img/resilient-forest/author.png' | relative_url }}" alt="Josh Fisherkeller, MSW">
+          </div>
+          <div class="aht-brand-logo">
+            <img src="{{ '/assets/img/aht-logo.png' | relative_url }}" alt="After Hours Tech">
           </div>
           <div class="aht-cred-card">
             <div class="aht-cred-name">Josh Fisherkeller, MSW</div>
