@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Understanding Childhood Trauma: A Complete Guide for Parents and Professionals"
+title: "Understanding Childhood Trauma: A Guide for Parents and Professionals"
+image: "/assets/img/SFK HERO.png"
 date: 2024-12-15
 description: "Evidence-informed information about childhood trauma, its effects on development, and effective strategies to help children heal. Learn about ACEs, trauma symptoms, and trauma-focused treatment options."
 categories: [Trauma Recovery, Child Development]

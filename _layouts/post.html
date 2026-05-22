@@ -26,6 +26,14 @@ layout: default
   </div>
 </section>
 
+{% if page.image %}
+<div class="container" style="max-width:760px;margin-bottom:0;padding-bottom:0">
+  <div style="border-radius:var(--r-xl);overflow:hidden;aspect-ratio:16/7;margin-bottom:0">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" style="width:100%;height:100%;object-fit:cover;display:block">
+  </div>
+</div>
+{% endif %}
+
 <!-- Article body -->
 <div class="container" style="max-width:760px;padding-bottom:var(--section-y)">
   <article class="prose" style="line-height:1.8;font-size:clamp(16px,1.2vw,17.5px);color:var(--ink-soft);text-align:left">
