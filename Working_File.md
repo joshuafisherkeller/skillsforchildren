@@ -356,6 +356,44 @@ See merge log at top of this file.
 
 ---
 
+### Session 13 — May 22, 2026
+**Task:** Broken links cleanup across skills and trauma resource libraries + featured article spotlight on `/trauma/`
+**Commits:** `d6396b3` (featured article), `3e0a8bc` (broken links)
+**Pushed to GitHub:** Yes
+
+#### Featured article on `/trauma/` (`_layouts/trauma.html` + `assets/css/site.css`)
+- Added "Resource spotlight" section between page hero and resource library, matching the homepage `.featured` pattern
+- Left column: eyebrow tag, h3 title, description, 4 bullet list, "Read the article →" CTA
+- Right column: new `.featured-img` CSS class — block link wrapping the hero image with hover zoom (scale 1.02)
+- Links to `/blog/what-to-say-trauma-reminder-response/`
+- `.featured-img` CSS added to `site.css` (after `.featured-video`)
+
+#### Broken links cleanup (`_data/skills-resources.yml` + `_data/trauma-resources.yml`)
+Source: `Skills for Children/SFC_Broken_Links_Review.xlsx`
+
+**skills-resources.yml:** 100 → 63 resources (−37 removed, 4 URLs replaced)
+- Executive Function: −5 removed (Understood, ParentToolkit, Scholastic, ChildMind, VeryWellFamily), 2 URLs replaced (ADDitude → Understood, Edutopia old → new)
+- Mindset: −4 removed (BigLife x2, PERTS, ZeroToThree), 1 URL replaced (TED Dweck speakers → talks)
+- Self-Regulation: −4 removed (ChildMind, CopingSkillsForKids, YourTherapySource, PBS), 1 URL replaced (ZeroToThree self-control)
+- Communication: −4 removed (SocialSkillsCentral, PBS, SpeechAndLanguageKids, TherapyWorksheets)
+- Sensory Processing: −16 removed (Understood x2, SensoryHealth x2, YourTherapySource x3, DabblingSpeechie, Harkla, SensoryToolbox, GrowingHandsOnKids, SpeechAndLanguageKids, SPDStar x2, FunAndFunction, defunct sites x3)
+- Physical Activity: −2 removed (ACT Gov, CDC)
+- Independence: −1 removed (ChildDevelopment.com.au)
+
+**trauma-resources.yml:** 101 → 80 resources (−21 removed, 1 URL replaced)
+- TF-CBT: −7 removed (tfcbt.org resources x2, tf-cbt-resources, cultural-considerations, evidence-base, get-help, tfcbt2), 1 replaced (tf-cbt-at-a-glance → 2024 PDF)
+- Safety & Trusted People: −5 removed (ZeroToThree x2, D2L, ChildWelfare, TherapistAid)
+- Coping Skills: −3 removed (TherapistAid, CopingSkillsForKids, ChildMind)
+- Co-Regulation: −1 removed (ZeroToThree)
+- Feelings: −1 removed (Gottman)
+- Triggers: −1 removed (UK Trauma Centre — DNS defunct)
+- Caregivers: −1 removed (ChildMind)
+- Resilience: −2 removed (TherapistAid, BigLife)
+
+Skipped (as instructed): 2× Google Fonts CDN ("Keep/verify"), Amazon Author Storefront ("Check manually")
+
+---
+
 ### Session 12 — May 22, 2026
 **Task:** New blog post — trauma reminder response scripts + featured resources on /trauma/
 **Commit:** `d590c29`
@@ -448,7 +486,7 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 - [ ] **Book cover in books.yml** — `_data/books.yml` still has empty `cover:` for Maximilian's Cosmic Adventure. Can now point to `assets/img/mca/hero.jpg` if the books page is used.
 - [ ] **Missing products in books.yml** — `SECOND_BRAIN.md` lists 4 more products not yet on the site: *Resilient Forest Notebook* (`amzn.to/3RkOZNd`), *Mother Earth in the Mountains* (`amzn.to/4wN3GZJ`), *Flower Mountain* (`amzn.to/4wHgdh1`), *Mushrooms and Mountains* (`amzn.to/3PPKDgA`). Decide whether to add these to the Books page or keep them separate.
 - [ ] **Kit newsletter** — Confirm Kit's embed script is rendering its form correctly on the live site.
-- [ ] **Google Analytics 4** — No GA4 snippet in site. If you want analytics, provide the `gtag.js` snippet; it goes in `_layouts/default.html` inside `<head>`.
+- [x] **Google Analytics 4** — GA4 tag `G-7CP0576RE8` added to `_layouts/default.html` `<head>`. Confirmed working via Realtime report (Session 11).
 - [ ] **Mobile nav** — Nav links hide at <640px (per design spec). No hamburger/drawer added. Decide if you want one.
 - [ ] **Book sample chapter links** — `sample_url:` in `_data/books.yml` is blank for all books. Fill in when PDFs are ready.
 - [ ] **Delete `_relaunch_inspect/`** — Excluded from Jekyll build but still in local folder. Can delete before next commit.
