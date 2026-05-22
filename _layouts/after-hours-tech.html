@@ -116,7 +116,7 @@
     .aht-hero-inner { max-width: 940px; position: relative; z-index: 1; }
     .aht-hero-layout { display: flex; align-items: center; gap: 64px; }
     .aht-hero-content { flex: 1; min-width: 0; }
-    .aht-hero-logo { flex-shrink: 0; width: 220px; }
+    .aht-hero-logo { flex-shrink: 0; width: 300px; }
     .aht-hero-logo img { width: 100%; height: auto; display: block; filter: drop-shadow(0 0 28px rgba(110,231,183,.22)); }
     @media (max-width: 700px) { .aht-hero-logo { display: none; } }
     .aht-eyebrow {
@@ -367,6 +367,9 @@
     .aht-footer { background: var(--ink); color: #78716c; padding: 48px 28px; }
     .aht-footer-inner { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
     @media (min-width: 640px) { .aht-footer-inner { flex-direction: row; align-items: center; justify-content: space-between; } }
+    .aht-footer-logo { margin-bottom: 16px; }
+    .aht-footer-logo img { width: 150px; height: auto; opacity: .8; display: block; transition: opacity .2s; }
+    .aht-footer-logo img:hover { opacity: 1; }
     .aht-footer-brand { font-family: var(--serif); font-size: 16px; color: #d6d3d1; display: block; margin-bottom: 6px; }
     .aht-footer p { font-size: 13px; line-height: 1.65; }
     .aht-footer-links { display: flex; flex-direction: column; gap: 6px; text-align: left; }
@@ -476,6 +479,14 @@
         </div>
 
         <div class="aht-service-card reveal" style="transition-delay:.07s">
+          <div class="aht-service-head"><h3>Tech Troubleshooting</h3></div>
+          <p class="aht-service-desc">That thing you&rsquo;ve been meaning to fix for six months? Let&rsquo;s clear the backlog. Networks, devices, subscriptions, setup &mdash; all of it.</p>
+          <div class="aht-service-pricing">
+            <div class="aht-price-row"><span class="aht-price-label">Per hour</span><span class="aht-price-amt">$30</span></div>
+          </div>
+        </div>
+
+        <div class="aht-service-card reveal" style="transition-delay:.14s">
           <div class="aht-service-head"><h3>Website &amp; Web Application Development</h3></div>
           <p class="aht-service-desc">From a clean, professional one-pager to fully customized web applications built with modern frameworks like React. I handle the entire pipeline: purchasing domains, setting up database architecture, and managing seamless cloud deployment. Built to last, not just to launch. Honest scope, honest timeline, and zero disappearing after handoff.</p>
           <div class="aht-service-pricing">
@@ -504,7 +515,7 @@
           </div>
         </div>
 
-        <div class="aht-service-card aht-service-card--featured reveal" style="transition-delay:.07s">
+        <div class="aht-service-card reveal" style="transition-delay:.21s">
           <div class="aht-service-head"><h3>In-Home Tech Service &amp; Troubleshooting</h3><span class="aht-badge">Premium &middot; Local</span></div>
           <p class="aht-service-desc">Some things are just easier to fix in person. I come to your home office or small business to handle network bottlenecks, device setup, smart home automation, or clearing out that digital backlog you&rsquo;ve avoided for six months. Wide availability on Saturdays and Sundays, as well as evenings during the week.</p>
           <div class="aht-service-pricing">
@@ -548,21 +559,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ── WHY AFTER HOURS ── -->
-  <div class="aht-why-strip">
-    <div class="aht-why-strip-inner">
-      <p>✦ <strong>Why after hours?</strong> Most consultants are only available 9&ndash;5 &mdash; exactly when you&rsquo;re already at work. I built this for people building things on evenings and weekends, because that&rsquo;s when I&rsquo;m available too.</p>
-    </div>
-  </div>
-
-  <!-- ── FREE CALL STRIP ── -->
-  <div class="aht-free-strip">
-    <div class="aht-free-strip-inner">
-      <p>✦ <strong>Not sure where to start?</strong> Every service begins with a free 15-minute call &mdash; no commitment, no pressure.</p>
-      <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="aht-free-strip-btn">Book your free call &rarr;</a>
-    </div>
-  </div>
 
   <!-- ════════════════════════════════════════════════════════
        HOW IT WORKS + LET'S TALK STRATEGY — combined section
@@ -609,19 +605,13 @@
     </div>
   </section>
 
-  <!-- ── CTA STRIP ── -->
-  <section class="aht-cta">
-    <div class="reveal">
-      <h2>Ready to get something solved?</h2>
-      <p>Grab an evening or weekend slot. Pay when you book. Show up ready to work.</p>
-      <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="btn-cta-white">Book at cal.com/Fisherkeller &rarr;</a>
-    </div>
-  </section>
-
   <!-- ── FOOTER ── -->
   <footer class="aht-footer" id="ahtFooter">
     <div class="aht-footer-inner">
       <div>
+        <div class="aht-footer-logo">
+          <img src="{{ '/assets/img/aht-logo-white.png' | relative_url }}" alt="After Hours Tech">
+        </div>
         <span class="aht-footer-brand">After Hours Tech</span>
         <p>Josh Fisherkeller, MSW &middot; Lexington, KY</p>
         <p style="margin-top:4px;font-size:12px;color:#57534e;">Available evenings &amp; weekends only &middot; Independent of the University of Kentucky</p>
