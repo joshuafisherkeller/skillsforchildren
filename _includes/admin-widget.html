@@ -1,0 +1,175 @@
+<!-- ── SFK Admin Mode Widget ─────────────────────────────────────────
+     Active only when localStorage['sfk-admin'] is set.
+     To enter admin mode: visit /admin/ and enter the passphrase.
+     To exit: click "Exit" in the admin bar, or clear localStorage.
+──────────────────────────────────────────────────────────────────── -->
+<script>
+(function () {
+  'use strict';
+  if (!localStorage.getItem('sfk-admin')) return;
+
+  var SB  = 'https://utqyxpdevkniwrhajodg.supabase.co';
+  var KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV0cXl4cGRldmtuaXdyaGFqb2RnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxNzUyOTAsImV4cCI6MjA5MDc1MTI5MH0.dyOoDjOCVC_Ah3mJxpnuwWc9c0hsBSv5UTRGcWhV2VE';
+
+  /* ── styles ── */
+  var css = document.createElement('style');
+  css.textContent =
+    '#sfk-bar{position:fixed;top:0;left:0;right:0;z-index:9999;height:30px;background:#0c3d26;color:#6ee7b7;font:600 11px/30px "JetBrains Mono",monospace;display:flex;align-items:center;justify-content:center;gap:20px;padding:0 16px;letter-spacing:.06em;}' +
+    '#sfk-bar a{color:#6ee7b7;text-decoration:underline;}' +
+    '#sfk-bar button{background:none;border:1px solid rgba(110,231,183,.35);color:#6ee7b7;font:600 10px "JetBrains Mono",monospace;padding:1px 8px;border-radius:4px;cursor:pointer;}' +
+    '#sfk-bar button:hover{background:rgba(110,231,183,.12);}' +
+    'body{margin-top:30px !important;}' +
+    '#sfk-fb{position:fixed;bottom:80px;left:20px;z-index:9998;width:50px;height:50px;border-radius:50%;background:#1a7a4a;border:2px solid rgba(110,231,183,.25);color:#fff;font-size:21px;cursor:pointer;box-shadow:0 4px 18px rgba(26,122,74,.45);transition:transform .15s,box-shadow .15s;display:flex;align-items:center;justify-content:center;}' +
+    '#sfk-fb:hover{transform:scale(1.08);box-shadow:0 6px 22px rgba(26,122,74,.55);}' +
+    '#sfk-overlay{display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.72);backdrop-filter:blur(5px);align-items:center;justify-content:center;padding:20px;}' +
+    '#sfk-overlay.open{display:flex;}' +
+    '#sfk-card{background:#1a1714;border:1px solid rgba(26,122,74,.3);border-radius:14px;width:100%;max-width:540px;max-height:92vh;overflow-y:auto;padding:30px;}' +
+    '#sfk-card h3{margin:0 0 4px;font:700 18px/1.2 "DM Sans",sans-serif;color:#f5f0eb;}' +
+    '.sfk-loc{font:400 11px "JetBrains Mono",monospace;color:#6ee7b7;margin:0 0 22px;word-break:break-all;opacity:.85;}' +
+    '.sfk-label{display:block;font:600 11px "JetBrains Mono",monospace;color:#9e9089;letter-spacing:.07em;margin-bottom:6px;}' +
+    '#sfk-comment{width:100%;background:#0c0a09;border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#f5f0eb;font:400 14px/1.6 "DM Sans",sans-serif;padding:10px 13px;box-sizing:border-box;resize:vertical;min-height:110px;margin-bottom:18px;}' +
+    '#sfk-comment:focus{outline:none;border-color:rgba(26,122,74,.6);}' +
+    '#sfk-file{width:100%;background:#0c0a09;border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#9e9089;font:400 13px "DM Sans",sans-serif;padding:8px 12px;box-sizing:border-box;cursor:pointer;margin-bottom:18px;}' +
+    '.sfk-radios{display:flex;gap:10px;margin-bottom:24px;}' +
+    '.sfk-radios label{flex:1;display:flex;align-items:center;gap:9px;cursor:pointer;font:600 13px "DM Sans",sans-serif;color:#d6d3d1;background:#0c0a09;border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:11px 14px;transition:border-color .15s,background .15s;}' +
+    '.sfk-radios label:has(input:checked){border-color:#1a7a4a;background:rgba(26,122,74,.09);}' +
+    '.sfk-radios input{accent-color:#1a7a4a;flex-shrink:0;}' +
+    '.sfk-actions{display:flex;gap:10px;justify-content:flex-end;}' +
+    '.sfk-cancel{background:none;border:1px solid rgba(255,255,255,.15);color:#9e9089;font:600 13px "DM Sans",sans-serif;padding:9px 20px;border-radius:8px;cursor:pointer;}' +
+    '.sfk-cancel:hover{border-color:rgba(255,255,255,.3);}' +
+    '.sfk-submit{background:#1a7a4a;border:none;color:#fff;font:700 13px "DM Sans",sans-serif;padding:9px 26px;border-radius:8px;cursor:pointer;transition:background .15s;}' +
+    '.sfk-submit:hover{background:#22a060;}' +
+    '.sfk-submit:disabled{opacity:.45;cursor:not-allowed;}' +
+    '.sfk-done{text-align:center;padding:28px 0;}' +
+    '.sfk-done .sfk-check{font-size:36px;display:block;margin-bottom:10px;}' +
+    '.sfk-done p{color:#6ee7b7;font:600 15px "DM Sans",sans-serif;margin:0 0 4px;}' +
+    '.sfk-done small{color:#9e9089;font:400 12px "DM Sans",sans-serif;}';
+  document.head.appendChild(css);
+
+  /* ── admin bar ── */
+  var bar = document.createElement('div');
+  bar.id = 'sfk-bar';
+  bar.innerHTML =
+    '<span>⚙ ADMIN</span>' +
+    '<a href="/admin/">Panel</a>' +
+    '<button onclick="localStorage.removeItem(\'sfk-admin\');location.reload()">Exit admin</button>';
+  document.body.insertBefore(bar, document.body.firstChild);
+
+  /* ── feedback button ── */
+  var fbBtn = document.createElement('button');
+  fbBtn.id = 'sfk-fb';
+  fbBtn.title = 'Submit site feedback';
+  fbBtn.textContent = '📝';
+  document.body.appendChild(fbBtn);
+
+  /* ── modal ── */
+  var overlay = document.createElement('div');
+  overlay.id = 'sfk-overlay';
+  overlay.innerHTML =
+    '<div id="sfk-card">' +
+      '<h3>Site Feedback</h3>' +
+      '<p class="sfk-loc" id="sfk-loc"></p>' +
+      '<label class="sfk-label">COMMENT</label>' +
+      '<textarea id="sfk-comment" placeholder="What did you notice or want to change?"></textarea>' +
+      '<label class="sfk-label">SCREENSHOT <span style="font-weight:400;opacity:.6">(optional)</span></label>' +
+      '<input type="file" id="sfk-file" accept="image/*">' +
+      '<label class="sfk-label">PRIORITY</label>' +
+      '<div class="sfk-radios">' +
+        '<label><input type="radio" name="sfk-pri" value="fix_now"> 🔧 Fix right away</label>' +
+        '<label><input type="radio" name="sfk-pri" value="lets_talk" checked> 💬 Let\'s talk about it</label>' +
+      '</div>' +
+      '<div class="sfk-actions">' +
+        '<button class="sfk-cancel" id="sfk-cancel">Cancel</button>' +
+        '<button class="sfk-submit" id="sfk-submit">Submit Feedback</button>' +
+      '</div>' +
+    '</div>';
+  document.body.appendChild(overlay);
+
+  /* ── open/close ── */
+  function openModal() {
+    document.getElementById('sfk-loc').textContent = window.location.href;
+    document.getElementById('sfk-comment').value = '';
+    document.getElementById('sfk-file').value = '';
+    overlay.querySelector('input[value="lets_talk"]').checked = true;
+    resetCard();
+    overlay.classList.add('open');
+    setTimeout(function () { document.getElementById('sfk-comment').focus(); }, 60);
+  }
+  function closeModal() { overlay.classList.remove('open'); }
+  function resetCard() {
+    var card = document.getElementById('sfk-card');
+    if (!card.querySelector('h3')) {
+      overlay.innerHTML = overlay.innerHTML;
+    }
+  }
+
+  fbBtn.addEventListener('click', openModal);
+  document.getElementById('sfk-cancel').addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+
+  /* ── upload screenshot ── */
+  async function uploadScreenshot(file) {
+    var name = Date.now() + '_' + file.name.replace(/[^a-z0-9._-]/gi, '_');
+    var res = await fetch(SB + '/storage/v1/object/site-feedback/' + name, {
+      method: 'POST',
+      headers: { 'apikey': KEY, 'Authorization': 'Bearer ' + KEY, 'Content-Type': file.type },
+      body: file
+    });
+    if (!res.ok) return null;
+    return SB + '/storage/v1/object/public/site-feedback/' + name;
+  }
+
+  /* ── submit ── */
+  document.getElementById('sfk-submit').addEventListener('click', async function () {
+    var comment = document.getElementById('sfk-comment').value.trim();
+    if (!comment) { document.getElementById('sfk-comment').focus(); return; }
+    var priority = overlay.querySelector('input[name="sfk-pri"]:checked').value;
+    var fileEl   = document.getElementById('sfk-file');
+    var submitEl = document.getElementById('sfk-submit');
+
+    submitEl.disabled = true;
+    submitEl.textContent = 'Saving…';
+
+    var screenshotUrl = null;
+    if (fileEl.files && fileEl.files[0]) {
+      submitEl.textContent = 'Uploading…';
+      screenshotUrl = await uploadScreenshot(fileEl.files[0]);
+    }
+
+    submitEl.textContent = 'Saving…';
+    var r = await fetch(SB + '/rest/v1/site_feedback', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': KEY,
+        'Authorization': 'Bearer ' + KEY,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        page_url:       window.location.href,
+        page_title:     document.title,
+        comment:        comment,
+        priority:       priority,
+        screenshot_url: screenshotUrl
+      })
+    });
+
+    var card = document.getElementById('sfk-card');
+    if (r.ok || r.status === 201) {
+      card.innerHTML =
+        '<div class="sfk-done">' +
+          '<span class="sfk-check">✓</span>' +
+          '<p>Feedback saved.</p>' +
+          '<small>' + (priority === 'fix_now' ? '🔧 Fix right away' : '💬 Let\'s talk about it') + '</small>' +
+        '</div>';
+      setTimeout(closeModal, 1800);
+    } else {
+      submitEl.disabled = false;
+      submitEl.textContent = 'Submit Feedback';
+      console.error('SFK feedback error', r.status, await r.text());
+      alert('Could not save — check the console.');
+    }
+  });
+})();
+</script>

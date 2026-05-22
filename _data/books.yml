@@ -31,13 +31,13 @@
   is_featured: true
 
 - title: "Maximilian's Cosmic Adventure"
-  cover: ""
-  meta: "Bedtime · ages 4–8"
+  cover: "/assets/img/mca/cover-portrait.jpg"
+  meta: "Bedtime · ages 3–8"
   description: >
     A calming bedtime story that gently teaches sleep independence through a quiet,
     dreamy cosmic journey. Perfect for families working through bedtime anxiety or
     building a consistent sleep routine.
-  affiliate_url: "https://amzn.to/4uq1FB5"
+  affiliate_url: "https://amzn.to/4dD7GmO"
   sample_url: ""
   status: published
   is_featured: false

@@ -3,27 +3,16 @@ layout: default
 ---
 
 <!-- ============================================================
-     PAGE HERO
-     ============================================================ -->
-<section class="page-hero container reveal">
-  <div class="eyebrow">The bookshelf</div>
-  <h1 style="margin-top:18px">Stories built for big&nbsp;feelings.</h1>
-  <p>Companion books for children processing trauma, building growth mindset, and learning the everyday skills that don&rsquo;t always come naturally. Designed to sit alongside therapy and at-home routines &mdash; never replace them.</p>
-  <div class="page-hero-meta">
-    <span style="font-family:var(--font-mono);letter-spacing:0.08em">3 published</span>
-    <span>&middot;</span>
-    <span>Ages 4&ndash;11</span>
-    <span>&middot;</span>
-    <a href="#newsletter" style="color:var(--sage);font-weight:500">2 in the works &mdash; get notified &rarr;</a>
-  </div>
-</section>
-
-<!-- ============================================================
      FEATURED BOOK
      ============================================================ -->
 {% assign featured_book = site.data.books | where: "is_featured", true | first %}
 {% if featured_book %}
-<section class="container section" style="padding-top:0">
+<section class="container section">
+  <div class="page-hero reveal" style="margin-bottom:48px">
+    <div class="eyebrow">The bookshelf</div>
+    <h1 style="margin-top:18px">Stories built for big&nbsp;feelings.</h1>
+    <p>Companion books for children processing trauma, building growth mindset, and learning the everyday skills that don&rsquo;t always come naturally. Designed to sit alongside therapy and at-home routines &mdash; never replace them.</p>
+  </div>
   <div class="book-feature reveal">
     <div class="book-cover-frame">
       {% if featured_book.cover %}
@@ -71,7 +60,9 @@ layout: default
 
   <div class="books-grid">
     {% for book in site.data.books %}
-      {% include book-card.html book=book %}
+      {% unless book.is_featured %}
+        {% include book-card.html book=book %}
+      {% endunless %}
     {% endfor %}
 
     <!-- Suggestion card -->
@@ -86,32 +77,6 @@ layout: default
         <a href="{{ '/#submit' | relative_url }}" class="btn btn--primary btn--sm">Submit a topic</a>
       </div>
     </article>
-  </div>
-</section>
-
-<!-- ============================================================
-     PRAISE
-     ============================================================ -->
-<section class="container section" style="padding-top:0">
-  <div class="section-head reveal">
-    <div class="section-head-text">
-      <div class="eyebrow">Praise</div>
-      <h2 style="margin-top:14px">From the people in&nbsp;the&nbsp;rooms.</h2>
-    </div>
-  </div>
-  <div class="duo-grid">
-    <div class="duo-card reveal">
-      <div class="duo-card-mark">&ldquo;</div>
-      <p style="font-size:18px;line-height:1.55;color:var(--ink)">&ldquo;<em>A Journey of Brave Friends</em> filled a gap I didn&rsquo;t know I was working around. My clients ages 7&ndash;10 ask for it by name now.&rdquo;</p>
-      <div class="duo-card-spacer"></div>
-      <div style="font-size:13.5px;color:var(--muted);font-family:var(--font-mono);letter-spacing:0.06em">&mdash; LCSW, trauma-focused practice &middot; Michigan</div>
-    </div>
-    <div class="duo-card reveal">
-      <div class="duo-card-mark">&ldquo;</div>
-      <p style="font-size:18px;line-height:1.55;color:var(--ink)">&ldquo;My six-year-old asks for the cosmic book every night. It&rsquo;s the only thing that actually quiets him down. We&rsquo;ve read it 84 times.&rdquo;</p>
-      <div class="duo-card-spacer"></div>
-      <div style="font-size:13.5px;color:var(--muted);font-family:var(--font-mono);letter-spacing:0.06em">&mdash; Parent &middot; Brooklyn, NY</div>
-    </div>
   </div>
 </section>
 
