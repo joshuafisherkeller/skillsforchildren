@@ -42,6 +42,10 @@ Understanding ACEs helps us recognize patterns and risk factors, but every child
 
 ### Brain Development and the Stress Response
 
+<div style="margin:24px 0;border-radius:12px;overflow:hidden">
+  <img src="/assets/img/blog/development.png" alt="How trauma affects children's brain development and stress response" style="width:100%;display:block">
+</div>
+
 Traumatic experiences evoke strong biological responses that can persist and alter the normal course of neurobiological maturation. When children experience overwhelming fear or threat, their developing brains adapt to prioritize survival, which can affect three key brain regions:
 
 - **Amygdala (Fear Response):** Becomes overactive, leading to heightened anxiety and difficulty distinguishing between safe and unsafe situations
