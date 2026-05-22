@@ -356,6 +356,20 @@ See merge log at top of this file.
 
 ---
 
+### Session 15 — May 22, 2026
+**Task:** Replace manual sitemap with jekyll-sitemap plugin (GSC only showing 1 page indexed)
+**Commit:** see below
+**Pushed to GitHub:** Yes
+
+#### What changed
+- **`Gemfile`** — Added `gem "jekyll-sitemap"` to `group :jekyll_plugins`
+- **`_config.yml`** — Added `jekyll-sitemap` to `plugins:` list
+- **`sitemap.xml`** — Deleted from repo root (was a stale manual file, homepage only). Jekyll now auto-generates a full sitemap at build time covering all pages, posts, and collections.
+
+After deploy: resubmit `https://skillsforchildren.com/sitemap.xml` in Google Search Console.
+
+---
+
 ### Session 14 — May 22, 2026
 **Task:** Mobile hamburger nav menu
 **Commit:** `86d2a3f`
@@ -499,6 +513,7 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 - [~] **Missing products in books.yml** — Journals (*Resilient Forest Notebook*, *Mother Earth in the Mountains*, *Flower Mountain*, *Mushrooms and Mountains*) intentionally deferred. Not on the roadmap for now.
 - [ ] **Kit newsletter** — Confirm Kit's embed script is rendering its form correctly on the live site.
 - [x] **Google Analytics 4** — GA4 tag `G-7CP0576RE8` added to `_layouts/default.html` `<head>`. Confirmed working via Realtime report (Session 11).
+- [x] **Sitemap fix** — `jekyll-sitemap` added to `Gemfile` + `_config.yml`. Manual `sitemap.xml` deleted. Auto-generated sitemap now at `https://skillsforchildren.com/sitemap.xml` on every build. Resubmit in Google Search Console to trigger fresh crawl.
 - [x] **Mobile nav** — Hamburger menu added (`86d2a3f`). ☰ → ✕ animation, slide-down drawer with all nav links + Subscribe. Closes on tap/Escape/outside click.
 - [ ] **Book sample chapter links** — `sample_url:` in `_data/books.yml` is blank for all books. Fill in when PDFs are ready.
 - [ ] **Delete `_relaunch_inspect/`** — Excluded from Jekyll build but still in local folder. Can delete before next commit.

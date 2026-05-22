@@ -34,6 +34,7 @@ exclude:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # SEO Settings
 author: "Joshua Fisherkeller, MSW | Skills for Children"
