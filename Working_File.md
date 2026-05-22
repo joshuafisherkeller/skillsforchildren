@@ -356,6 +356,39 @@ See merge log at top of this file.
 
 ---
 
+### Session 16 — May 22, 2026
+**Task:** Root file cleanup — remove 23 stale files from git
+**Commit:** see below
+**Pushed to GitHub:** Yes
+
+#### Files removed via `git rm`
+| File | Already in |
+|------|-----------|
+| `61m9iNlhgNL._SL1293_.jpg` | `assets/img/books/a-journey-of-brave-friends.jpg` |
+| `FISHERKELLER Headshot.png` | `assets/img/resilient-forest/author.png` |
+| `Hero Image.png` | `assets/img/resilient-forest/hero.png` |
+| `SFK HERO.png` | `assets/img/SFK HERO.png` |
+| `Chap 1–4.jpg` | `assets/img/resilient-forest/scenes/chap1–4.jpg` |
+| `Chapter 1–4.jpg` | `assets/img/resilient-forest/chapters/chapter1–4.jpg` |
+| `Olive the Owl.jpg` | `assets/img/resilient-forest/characters/olive.jpg` |
+| `Rex the Rabbit.jpg` | `assets/img/resilient-forest/characters/rex.jpg` |
+| `kiki the koala.jpg` | `assets/img/resilient-forest/characters/kiki.jpg` |
+| `timothy caracter.jpg` | `assets/img/resilient-forest/characters/timothy.jpg` |
+| `sfk logo transparent.png` | `assets/img/logos/sfk-logo-transparent.png` |
+| `sfk logo white background.png` | `assets/img/logos/sfk-logo-white-transparent.png` |
+| `sfk white logo.png` | `assets/img/logos/sfk-logo-white-transparent.png` |
+| `Skills for children White Logo transparent.png` | `assets/img/logos/sfk-logo-white-transparent.png` |
+| `A Journey of Brave Friends - Book Illustrations.zip` | Source archive — 21MB, removed from git |
+| `Resilient Forest Website.zip` | Source archive — 27MB, removed from git |
+| `Skills for Children Website Relaunch.zip` | Source archive — removed from git |
+
+#### Not touched (local-only, not in git)
+- `NEW CHAPTER 1–4 for PRAC Section.jpg` — likely the proper PRAC card replacements. Flag when PRAC TODO is actioned.
+- `Image 1 — Hero Image.png` — source for trauma blog post, already copied
+- `Screenshot_20260520-080402.png` — orphan screenshot
+
+---
+
 ### Session 15 — May 22, 2026
 **Task:** Replace manual sitemap with jekyll-sitemap plugin (GSC only showing 1 page indexed)
 **Commit:** see below
@@ -516,11 +549,11 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 - [x] **Sitemap fix** — `jekyll-sitemap` added to `Gemfile` + `_config.yml`. Manual `sitemap.xml` deleted. Auto-generated sitemap now at `https://skillsforchildren.com/sitemap.xml` on every build. Resubmit in Google Search Console to trigger fresh crawl.
 - [x] **Mobile nav** — Hamburger menu added (`86d2a3f`). ☰ → ✕ animation, slide-down drawer with all nav links + Subscribe. Closes on tap/Escape/outside click.
 - [ ] **Book sample chapter links** — `sample_url:` in `_data/books.yml` is blank for all books. Fill in when PDFs are ready.
-- [ ] **Delete `_relaunch_inspect/`** — Excluded from Jekyll build but still in local folder. Can delete before next commit.
-- [ ] **Delete `61m9iNlhgNL._SL1293_.jpg`** — Original Amazon filename at repo root. Already copied to `assets/img/books/a-journey-of-brave-friends.jpg`. Root copy can be deleted.
+- [x] **Delete `_relaunch_inspect/`** — Local only, excluded from build. No git action needed (never tracked).
+- [x] **Delete `61m9iNlhgNL._SL1293_.jpg`** — Removed in root cleanup (Session 16).
 - [ ] **PRAC skill card images** — The `Chapter 1–4.jpg` images currently used in the PRAC cards (`/resilient-forest/` → "Four foundational skills" section) are placeholders. Replace with proper illustrations when ready.
 - [ ] **Resilient Forest — "For therapists & clinicians" copy** — Current language in `_layouts/resilient-forest.html` (`.audience-card.therapists`) needs revision. Josh flagged this for rework.
-- [ ] **Clean up root image files** — Several raw image files sit at repo root (character images, chapter images, hero, headshot, ZIP files). Consider moving to a `_source-assets/` folder or deleting after confirming all are copied to `assets/img/`.
+- [x] **Clean up root image files** — 23 stale files removed from git root (Session 16): 14 images, 3 logos, 3 ZIPs. All confirmed already copied to `assets/img/`. Note: `NEW CHAPTER 1–4 for PRAC Section.jpg` are local-only (not in git) — likely the PRAC card replacements, flag for when that TODO is actioned.
 - [ ] **TORF hub — verify on live site** — Visit `/resilient-forest/` after deploy: confirm all 5 character images load, YouTube embed works, book strip shows correct cover, BRAVE CTA links to `https://app.skillsforchildren.com`.
 - [x] **Session 6 affiliate links** — committed and pushed (`7112f04`). All 6 links current.
 
