@@ -77,6 +77,10 @@ Additionally, children face trauma reminders in their daily lives—sensory expe
 
 ## The Role of Caregivers and Family Systems
 
+<div style="margin:24px 0;border-radius:12px;overflow:hidden">
+  <img src="/assets/img/blog/caregivers.png" alt="The role of caregivers and family systems in childhood trauma recovery" style="width:100%;display:block">
+</div>
+
 Children are embedded within broader caregiving systems including their families, schools, and communities. Traumatic experiences, losses, and ongoing danger can significantly impact these caregiving systems. When trauma affects a child, it affects the entire family system.
 
 ### Caregiver Distress and Its Impact

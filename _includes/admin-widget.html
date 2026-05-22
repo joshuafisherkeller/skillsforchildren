@@ -75,8 +75,8 @@
       '<input type="file" id="sfk-file" accept="image/*">' +
       '<label class="sfk-label">PRIORITY</label>' +
       '<div class="sfk-radios">' +
-        '<label><input type="radio" name="sfk-pri" value="fix_now"> 🔧 Fix right away</label>' +
-        '<label><input type="radio" name="sfk-pri" value="lets_talk" checked> 💬 Let\'s talk about it</label>' +
+        '<label><input type="radio" name="sfk-pri" value="fix_now" checked> 🔧 Fix right away</label>' +
+        '<label><input type="radio" name="sfk-pri" value="lets_talk"> 💬 Let\'s talk about it</label>' +
       '</div>' +
       '<div class="sfk-actions">' +
         '<button class="sfk-cancel" id="sfk-cancel">Cancel</button>' +
@@ -90,7 +90,7 @@
     document.getElementById('sfk-loc').textContent = window.location.href;
     document.getElementById('sfk-comment').value = '';
     document.getElementById('sfk-file').value = '';
-    overlay.querySelector('input[value="lets_talk"]').checked = true;
+    overlay.querySelector('input[value="fix_now"]').checked = true;
     resetCard();
     overlay.classList.add('open');
     setTimeout(function () { document.getElementById('sfk-comment').focus(); }, 60);
