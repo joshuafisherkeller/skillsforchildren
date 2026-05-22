@@ -356,6 +356,18 @@ See merge log at top of this file.
 
 ---
 
+### Session 14 — May 22, 2026
+**Task:** Mobile hamburger nav menu
+**Commit:** `86d2a3f`
+**Pushed to GitHub:** Yes
+
+#### What was built
+- **`_includes/header.html`** — Added hamburger `<button id="navHamburger">` (3 `<span>` lines) to `.nav-cta`. Added `class="nav-subscribe"` to Subscribe button (hides on mobile). Added `<nav class="nav-drawer" id="navDrawer">` after `.container.nav` — full list of nav links + "Subscribe →" in sage green.
+- **`assets/css/site.css`** — Added `.nav-hamburger` (hidden desktop, `display:flex` at <640px), span animation (☰ → ✕ via translateY + rotate), `.nav-drawer` (max-height transition 0→360px, opacity 0→1), `.nav-drawer-subscribe` (sage green). Added `.nav-subscribe { display:none }` and `.nav-hamburger { display:flex }` to `@media (max-width: 640px)`.
+- **`assets/js/site.js`** — Added module 8 (renumbered Quick Exit to 9): hamburger toggle, closes on link tap / Escape / outside click. Aria-expanded + aria-hidden managed.
+
+---
+
 ### Session 13 — May 22, 2026
 **Task:** Broken links cleanup across skills and trauma resource libraries + featured article spotlight on `/trauma/`
 **Commits:** `d6396b3` (featured article), `3e0a8bc` (broken links)
@@ -487,7 +499,7 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 - [~] **Missing products in books.yml** — Journals (*Resilient Forest Notebook*, *Mother Earth in the Mountains*, *Flower Mountain*, *Mushrooms and Mountains*) intentionally deferred. Not on the roadmap for now.
 - [ ] **Kit newsletter** — Confirm Kit's embed script is rendering its form correctly on the live site.
 - [x] **Google Analytics 4** — GA4 tag `G-7CP0576RE8` added to `_layouts/default.html` `<head>`. Confirmed working via Realtime report (Session 11).
-- [ ] **Mobile nav** — Nav links hide at <640px (per design spec). No hamburger/drawer added. Decide if you want one.
+- [x] **Mobile nav** — Hamburger menu added (`86d2a3f`). ☰ → ✕ animation, slide-down drawer with all nav links + Subscribe. Closes on tap/Escape/outside click.
 - [ ] **Book sample chapter links** — `sample_url:` in `_data/books.yml` is blank for all books. Fill in when PDFs are ready.
 - [ ] **Delete `_relaunch_inspect/`** — Excluded from Jekyll build but still in local folder. Can delete before next commit.
 - [ ] **Delete `61m9iNlhgNL._SL1293_.jpg`** — Original Amazon filename at repo root. Already copied to `assets/img/books/a-journey-of-brave-friends.jpg`. Root copy can be deleted.
