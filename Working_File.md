@@ -484,7 +484,7 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 
 - [x] **MCA dedicated page** — `/mca/` built and live (`b3e7a5b`). Hero image at `assets/img/mca/hero.jpg`.
 - [ ] **Book cover in books.yml** — `_data/books.yml` still has empty `cover:` for Maximilian's Cosmic Adventure. Can now point to `assets/img/mca/hero.jpg` if the books page is used.
-- [ ] **Missing products in books.yml** — `SECOND_BRAIN.md` lists 4 more products not yet on the site: *Resilient Forest Notebook* (`amzn.to/3RkOZNd`), *Mother Earth in the Mountains* (`amzn.to/4wN3GZJ`), *Flower Mountain* (`amzn.to/4wHgdh1`), *Mushrooms and Mountains* (`amzn.to/3PPKDgA`). Decide whether to add these to the Books page or keep them separate.
+- [~] **Missing products in books.yml** — Journals (*Resilient Forest Notebook*, *Mother Earth in the Mountains*, *Flower Mountain*, *Mushrooms and Mountains*) intentionally deferred. Not on the roadmap for now.
 - [ ] **Kit newsletter** — Confirm Kit's embed script is rendering its form correctly on the live site.
 - [x] **Google Analytics 4** — GA4 tag `G-7CP0576RE8` added to `_layouts/default.html` `<head>`. Confirmed working via Realtime report (Session 11).
 - [ ] **Mobile nav** — Nav links hide at <640px (per design spec). No hamburger/drawer added. Decide if you want one.
@@ -536,6 +536,22 @@ TORF Hub:       _layouts/resilient-forest-hub.html — uses layout: default (inh
 
 > **Claude Cowork:** Paste any prompts you generate for Claude Code here, with a date and description header.
 > Format: `### [Date] — [Brief description of what the prompt is for]` then the prompt text.
+
+---
+
+### May 22, 2026 — Replace manual sitemap.xml with jekyll-sitemap plugin
+
+**Context:** Google Search Console shows only 1 page indexed — the old manual `sitemap.xml` at repo root only contains the homepage and was last read by Google in December 2025. The site now has many pages (/trauma/, /resilient-forest/, /tfcbtbook/, /mca/, /about/, /blog/, individual blog posts, etc.) that Google doesn't know about. Fix is to add the `jekyll-sitemap` plugin which auto-generates a full sitemap on every build.
+
+**Tasks:**
+
+1. In `Gemfile`, add `gem "jekyll-sitemap"` inside the `group :jekyll_plugins do` block (alongside `jekyll-feed`)
+2. In `_config.yml`, add `jekyll-sitemap` to the `plugins:` list (alongside `jekyll-feed` and `jekyll-seo-tag`)
+3. Delete the existing manual `sitemap.xml` from the repo root — jekyll-sitemap will auto-generate a correct one at build time
+4. Commit with message: `feat: replace manual sitemap with jekyll-sitemap plugin`
+5. Push to main
+
+After deploy, the full sitemap will be live at `https://skillsforchildren.com/sitemap.xml`. Josh will then resubmit it in Google Search Console to trigger a fresh crawl.
 
 ---
 
