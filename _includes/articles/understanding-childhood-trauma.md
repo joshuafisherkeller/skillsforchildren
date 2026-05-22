@@ -203,6 +203,10 @@ When seeking professional help, look for providers who demonstrate cultural humi
 
 ## Hope for Healing
 
+<div style="margin:24px 0;border-radius:12px;overflow:hidden">
+  <img src="/assets/img/blog/triumphant-child.png" alt="A child standing triumphantly — hope for healing from trauma" style="width:100%;display:block">
+</div>
+
 The research is clear: **children can and do heal from trauma**. With appropriate support, most trauma-exposed children develop resilience and go on to live healthy, fulfilling lives.
 
 Recovery isn't about forgetting what happened or pretending it didn't affect you. It's about:
