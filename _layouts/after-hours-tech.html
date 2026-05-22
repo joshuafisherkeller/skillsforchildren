@@ -110,7 +110,12 @@
       0%, 100% { transform: translateY(0) rotate(0deg); }
       50%       { transform: translateY(-12px) rotate(4deg); }
     }
-    .aht-hero-inner { max-width: 820px; position: relative; z-index: 1; }
+    .aht-hero-inner { max-width: 940px; position: relative; z-index: 1; }
+    .aht-hero-layout { display: flex; align-items: center; gap: 64px; }
+    .aht-hero-content { flex: 1; min-width: 0; }
+    .aht-hero-logo { flex-shrink: 0; width: 220px; }
+    .aht-hero-logo img { width: 100%; height: auto; display: block; filter: drop-shadow(0 0 28px rgba(110,231,183,.22)); }
+    @media (max-width: 700px) { .aht-hero-logo { display: none; } }
     .aht-eyebrow {
       display: inline-block; background: var(--green); color: #fff;
       font-family: var(--sans); font-size: 10px; font-weight: 800;
@@ -156,6 +161,7 @@
       .aht-avail-sep { display: none; }
     }
     @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    @media (min-width: 541px) { .aht-avail-inner [aria-hidden="true"] { display: none; } }
 
     /* ═══════════════════════════════════
        SECTIONS — shared
@@ -216,6 +222,9 @@
       transition: background .18s, transform .15s;
     }
     .aht-free-strip-btn:hover { background: var(--green-lt); transform: translateY(-1px); }
+    .aht-why-strip { background: var(--green-deep); border-top: 1px solid rgba(110,231,183,.12); border-bottom: 1px solid rgba(110,231,183,.12); padding: 18px 28px; }
+    .aht-why-strip-inner { max-width: 860px; margin: 0 auto; font-family: var(--sans); font-size: 14px; color: rgba(167,243,208,.82); text-align: center; line-height: 1.65; }
+    .aht-why-strip-inner strong { color: #fff; }
 
     /* ═══════════════════════════════════
        HOW IT WORKS + LET'S TALK STRATEGY
@@ -404,13 +413,19 @@
       </svg>
     </div>
     <div class="aht-hero-inner reveal">
-      <div class="aht-eyebrow">Evenings &amp; Weekends Only</div>
-      <h1>Modern tech.<br>Human help.</h1>
-      <p class="aht-hero-lede">Tech consulting and digital services &mdash; available when you actually are. AI coaching, websites, troubleshooting, video production, and in-home support.</p>
-      <p class="aht-hero-sub">Run by Josh Fisherkeller, MSW. Full-time at the University of Kentucky. This is the after-hours practice.</p>
-      <div class="aht-hero-ctas">
-        <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="btn-green">Book a session &rarr;</a>
-        <a href="#services" class="btn-ghost-light">See all services</a>
+      <div class="aht-hero-layout">
+        <div class="aht-hero-content">
+          <div class="aht-eyebrow">Evenings &amp; Weekends Only</div>
+          <h1>Modern tech.<br>Human help.</h1>
+          <p class="aht-hero-lede">Tech consulting and digital services &mdash; available when you actually are. AI coaching, websites, troubleshooting, video production, and in-home support.</p>
+          <div class="aht-hero-ctas">
+            <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="btn-green">Book a session &rarr;</a>
+            <a href="#services" class="btn-ghost-light">See all services</a>
+          </div>
+        </div>
+        <div class="aht-hero-logo" aria-hidden="true">
+          <img src="{{ '/assets/img/aht-logo-white.png' | relative_url }}" alt="">
+        </div>
       </div>
     </div>
   </section>
@@ -499,6 +514,44 @@
     </div>
   </section>
 
+  <!-- ── ABOUT ── -->
+  <section class="aht-section" id="about">
+    <div class="aht-section-inner">
+      <div class="aht-about-grid">
+        <div class="aht-about-text reveal">
+          <div class="aht-section-eyebrow">About</div>
+          <h2>Not your typical<br>tech consultant</h2>
+          <p>I&rsquo;m Josh Fisherkeller, MSW &mdash; a social worker and technologist with a full-time role at the University of Kentucky. After Hours Tech is what I do in my evenings and weekends, because I genuinely enjoy solving technology problems and helping people feel less overwhelmed by the tools they&rsquo;re supposed to be using.</p>
+          <p>The MSW isn&rsquo;t just a credential. It means I explain things without condescension, meet you where you are, and care more about whether something actually works for you than whether it looks impressive on paper.</p>
+          <p>I&rsquo;m especially well-suited for therapists and clinicians &mdash; people who need tech help but also need someone who understands clinical workflow, documentation requirements, and why confidentiality is non-negotiable.</p>
+          <p>Because I only work evenings and weekends, I&rsquo;m available when most consultants aren&rsquo;t &mdash; which is usually exactly when you are.</p>
+        </div>
+        <div class="aht-about-sidebar reveal" style="transition-delay:.1s">
+          <div class="aht-photo">
+            <img src="{{ '/assets/img/resilient-forest/author.png' | relative_url }}" alt="Josh Fisherkeller, MSW">
+          </div>
+          <div class="aht-cred-card">
+            <div class="aht-cred-name">Josh Fisherkeller, MSW</div>
+            <ul class="aht-cred-list">
+              <li>Master of Social Work</li>
+              <li>Full-time UK professional</li>
+              <li>Therapist tech specialist</li>
+              <li>AI tools practitioner</li>
+              <li>Lexington, KY &mdash; in-home available</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY AFTER HOURS ── -->
+  <div class="aht-why-strip">
+    <div class="aht-why-strip-inner">
+      <p>✦ <strong>Why after hours?</strong> Most consultants are only available 9&ndash;5 &mdash; exactly when you&rsquo;re already at work. I built this for people building things on evenings and weekends, because that&rsquo;s when I&rsquo;m available too.</p>
+    </div>
+  </div>
+
   <!-- ── FREE CALL STRIP ── -->
   <div class="aht-free-strip">
     <div class="aht-free-strip-inner">
@@ -549,44 +602,6 @@
         <p class="aht-discovery-note">Evenings &amp; weekends &middot; No commitment &middot; 15 minutes</p>
       </div>
 
-    </div>
-  </section>
-
-  <!-- ── ABOUT ── -->
-  <section class="aht-section" id="about">
-    <div class="aht-section-inner">
-      <div class="aht-about-grid">
-        <div class="aht-about-text reveal">
-          <div class="aht-section-eyebrow">About</div>
-          <h2>Not your typical<br>tech consultant</h2>
-          <p>I&rsquo;m Josh Fisherkeller, MSW &mdash; a social worker and technologist with a full-time role at the University of Kentucky. After Hours Tech is what I do in my evenings and weekends, because I genuinely enjoy solving technology problems and helping people feel less overwhelmed by the tools they&rsquo;re supposed to be using.</p>
-          <p>The MSW isn&rsquo;t just a credential. It means I explain things without condescension, meet you where you are, and care more about whether something actually works for you than whether it looks impressive on paper.</p>
-          <p>I&rsquo;m especially well-suited for therapists and clinicians &mdash; people who need tech help but also need someone who understands clinical workflow, documentation requirements, and why confidentiality is non-negotiable.</p>
-          <p>Because I only work evenings and weekends, I&rsquo;m available when most consultants aren&rsquo;t &mdash; which is usually exactly when you are.</p>
-        </div>
-        <div class="aht-about-sidebar reveal" style="transition-delay:.1s">
-          <div class="aht-photo">
-            <img src="{{ '/assets/img/resilient-forest/author.png' | relative_url }}" alt="Josh Fisherkeller, MSW">
-          </div>
-          <div class="aht-brand-logo">
-            <img src="{{ '/assets/img/aht-logo.png' | relative_url }}" alt="After Hours Tech">
-          </div>
-          <div class="aht-cred-card">
-            <div class="aht-cred-name">Josh Fisherkeller, MSW</div>
-            <ul class="aht-cred-list">
-              <li>Master of Social Work</li>
-              <li>Full-time UK professional</li>
-              <li>Therapist tech specialist</li>
-              <li>AI tools practitioner</li>
-              <li>Lexington, KY &mdash; in-home available</li>
-            </ul>
-          </div>
-          <div class="aht-why-box">
-            <strong>Why after hours?</strong>
-            <p>Most consultants are only available 9&ndash;5 &mdash; exactly when you&rsquo;re already at work. I built this for people building things on evenings and weekends, because that&rsquo;s when I&rsquo;m available too.</p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
