@@ -305,6 +305,75 @@ img, svg, video { display: block; max-width: 100%; }
   gap: 8px;
 }
 
+/* Hamburger button — hidden on desktop */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-pill);
+  background: transparent;
+  cursor: pointer;
+  color: var(--ink);
+}
+.nav-hamburger:hover { background: color-mix(in oklch, var(--ink) 6%, transparent); }
+.nav-hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+.nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile nav drawer */
+.nav-drawer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.25s ease;
+  border-top: 1px solid transparent;
+}
+.nav-drawer.is-open {
+  max-height: 360px;
+  opacity: 1;
+  border-top-color: var(--border);
+}
+.nav-drawer ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.nav-drawer a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: var(--r-md);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-drawer a:hover,
+.nav-drawer a.is-active { background: color-mix(in oklch, var(--ink) 6%, transparent); color: var(--ink); }
+.nav-drawer-subscribe {
+  margin-top: 6px;
+  color: var(--sage) !important;
+  font-weight: 600 !important;
+}
+
 /* Theme toggle */
 .theme-toggle {
   appearance: none;
@@ -1409,6 +1478,8 @@ img, svg, video { display: block; max-width: 100%; }
 
 @media (max-width: 640px) {
   .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-subscribe { display: none; }
   .search-bar { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .pillar summary { grid-template-columns: auto 1fr auto; padding: 16px 18px; }

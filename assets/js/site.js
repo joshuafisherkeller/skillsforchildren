@@ -191,7 +191,39 @@ document.addEventListener('submit', (e) => {
 })();
 
 
-/* ---------- 8. QUICK EXIT (privacy) ---------- */
+/* ---------- 8. MOBILE NAV HAMBURGER ---------- */
+(function () {
+  const btn    = document.getElementById('navHamburger');
+  const drawer = document.getElementById('navDrawer');
+  if (!btn || !drawer) return;
+
+  function open() {
+    btn.classList.add('is-open');
+    drawer.classList.add('is-open');
+    btn.setAttribute('aria-expanded', 'true');
+    drawer.removeAttribute('aria-hidden');
+  }
+  function close() {
+    btn.classList.remove('is-open');
+    drawer.classList.remove('is-open');
+    btn.setAttribute('aria-expanded', 'false');
+    drawer.setAttribute('aria-hidden', 'true');
+  }
+
+  btn.addEventListener('click', () => btn.classList.contains('is-open') ? close() : open());
+
+  // Close when a drawer link is tapped
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+
+  // Close on Escape
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  // Close on click outside the header
+  document.addEventListener('click', e => { if (!e.target.closest('#siteHeader')) close(); });
+})();
+
+
+/* ---------- 9. QUICK EXIT (privacy) ---------- */
 (function () {
   const btn = document.querySelector('.quick-exit');
   if (!btn) return;
