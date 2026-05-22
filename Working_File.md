@@ -356,6 +356,16 @@ See merge log at top of this file.
 
 ---
 
+### Session 17 — May 22, 2026
+**Task:** Exclude /admin/ and /AHT_Working_File/ from sitemap
+**Commit:** see below
+**Pushed to GitHub:** Yes
+
+- **`admin.html`** — Added `sitemap: false` to front matter
+- **`_config.yml`** — Added `AHT_Working_File.md` to `exclude:` list
+
+---
+
 ### Session 16 — May 22, 2026
 **Task:** Root file cleanup — remove 23 stale files from git
 **Commit:** see below
@@ -546,7 +556,8 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 - [~] **Missing products in books.yml** — Journals (*Resilient Forest Notebook*, *Mother Earth in the Mountains*, *Flower Mountain*, *Mushrooms and Mountains*) intentionally deferred. Not on the roadmap for now.
 - [ ] **Kit newsletter** — Confirm Kit's embed script is rendering its form correctly on the live site.
 - [x] **Google Analytics 4** — GA4 tag `G-7CP0576RE8` added to `_layouts/default.html` `<head>`. Confirmed working via Realtime report (Session 11).
-- [x] **Sitemap fix** — `jekyll-sitemap` added to `Gemfile` + `_config.yml`. Manual `sitemap.xml` deleted. Auto-generated sitemap now at `https://skillsforchildren.com/sitemap.xml` on every build. Resubmit in Google Search Console to trigger fresh crawl.
+- [x] **Sitemap fix** — `jekyll-sitemap` added to `Gemfile` + `_config.yml`. Manual `sitemap.xml` deleted. 13 pages submitted to GSC May 22, 2026. ✅
+- [x] **Exclude /admin/ and /AHT_Working_File/ from sitemap** — `sitemap: false` added to `admin.html` front matter. `AHT_Working_File.md` added to `_config.yml` exclude list (Session 17).
 - [x] **Mobile nav** — Hamburger menu added (`86d2a3f`). ☰ → ✕ animation, slide-down drawer with all nav links + Subscribe. Closes on tap/Escape/outside click.
 - [ ] **Book sample chapter links** — `sample_url:` in `_data/books.yml` is blank for all books. Fill in when PDFs are ready.
 - [x] **Delete `_relaunch_inspect/`** — Local only, excluded from build. No git action needed (never tracked).
@@ -596,6 +607,19 @@ TORF Hub:       _layouts/resilient-forest-hub.html — uses layout: default (inh
 
 > **Claude Cowork:** Paste any prompts you generate for Claude Code here, with a date and description header.
 > Format: `### [Date] — [Brief description of what the prompt is for]` then the prompt text.
+
+---
+
+### May 22, 2026 — Exclude /admin/ and /AHT_Working_File/ from sitemap
+
+**Context:** The jekyll-sitemap plugin is now generating `sitemap.xml` automatically. However `/admin/` and `/AHT_Working_File/` are appearing in the sitemap and should not be indexed by Google. `/admin/` is the passphrase-protected admin widget page. `/AHT_Working_File/` is a stray markdown file being rendered as a page.
+
+**Tasks:**
+
+1. In `_config.yml`, add `AHT_Working_File.md` to the `exclude:` list (it should already have `Working_File.md` — add alongside it)
+2. In `admin.html` front matter, add `sitemap: false` to prevent jekyll-sitemap from including it
+3. Commit: `fix: exclude admin and AHT_Working_File from sitemap`
+4. Push to main
 
 ---
 
