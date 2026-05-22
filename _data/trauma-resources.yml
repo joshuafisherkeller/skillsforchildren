@@ -384,6 +384,16 @@ pillars:
     icon: "⚡"
     description: "Recognizing and responding to trauma triggers with supportive strategies"
     resources:
+      - title: "What to Say When Your Child Is Having a Trauma Reminder Response: Scripts for Parents"
+        url: "/blog/what-to-say-trauma-reminder-response/"
+        description: "Evidence-informed scripts for parents responding to a child's trauma reminder response — what to say, what not to say, and how co-regulation works. Written by Joshua Fisherkeller, MSW."
+        audience: "Caregivers"
+        format: "Article"
+        source: "Skills for Children"
+        featured: true
+        author_resource: true
+        badge: "⭐ Skills for Children"
+
       - title: "PTSD: Trauma Reminders and Triggers"
         url: "https://www.nctsn.org/resources/trauma-reminders-and-triggers"
         description: "Explains what triggers are and how they activate trauma responses"
@@ -452,6 +462,16 @@ pillars:
     icon: "👨‍👩‍👧"
     description: "Supporting the adults who support traumatized children"
     resources:
+      - title: "What to Say When Your Child Is Having a Trauma Reminder Response: Scripts for Parents"
+        url: "/blog/what-to-say-trauma-reminder-response/"
+        description: "Evidence-informed scripts for parents responding to a child's trauma reminder response — what to say, what not to say, and how co-regulation works. Written by Joshua Fisherkeller, MSW."
+        audience: "Caregivers"
+        format: "Article"
+        source: "Skills for Children"
+        featured: true
+        author_resource: true
+        badge: "⭐ Skills for Children"
+
       - title: "Childhood Trauma and the Brain"
         url: "https://uktraumacouncil.org/resources/childhood-trauma-and-the-brain"
         description: "Animated series for caregivers on how trauma affects brain development"

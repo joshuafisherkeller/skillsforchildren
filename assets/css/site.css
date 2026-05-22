@@ -1530,6 +1530,16 @@ img, svg, video { display: block; max-width: 100%; }
 }
 .prose a { color: var(--sage); text-underline-offset: 3px; }
 .prose a:hover { color: var(--ink); }
+.definition-box {
+  background: var(--cream, #f6f4ef);
+  border-left: 4px solid var(--sage, #3d6b5a);
+  border-radius: 0 var(--r-md, 8px) var(--r-md, 8px) 0;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 1.05em;
+  line-height: 1.7;
+  color: var(--ink, #1a3a2e);
+}
 
 /* ── Fireflies (dark theme ambient) ──────────────────── */
 #fireflies {
