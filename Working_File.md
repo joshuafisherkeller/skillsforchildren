@@ -648,3 +648,33 @@ Footer note:    "After Hours Tech is independent of the University of Kentucky
 **Files to create:** `_layouts/after-hours-tech.html`, `tech.html`, update `_config.yml` exclude list.
 
 **Footer must state:** "After Hours Tech is independent of the University of Kentucky and is operated outside of university working hours." and "Revenue from After Hours Tech supports Skills for Children."
+
+---
+
+## Cowork Prompts — After Hours Tech
+
+---
+
+### May 21, 2026 — Pricing overhaul + free call CTAs
+
+Changes are already made directly to `_layouts/after-hours-tech.html` by Claude Cowork. Just push.
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add _layouts/after-hours-tech.html
+git commit -m "feat(aht): finalize pricing, service card overhaul, free call CTAs"
+git push
+```
+
+**What was changed:**
+- AI Coaching → $30/hr, 3-session package removed
+- Tech Troubleshooting → $30/hr
+- Clinical Tech Systems card → removed entirely
+- Website & App Development → price replaced with "Schedule a free consultation →" (links to cal.com/Fisherkeller)
+- In-Home Tech Service → $50/hr, location changed to "Central KY area", added "*Willing to travel to other states"
+- Video & Graphic Design → price replaced with "Schedule a free consultation for a quote →" (links to cal.com/Fisherkeller)
+- Session Recording System → renamed "Clinical Observation Recording System"; Tier 2 & 3 removed; Tier 4 updated to "Central KY area · *Willing to travel to other states for on-site installs"
+- Hero lede → removed "clinical tech systems" from service list
+- Services note → updated to "Everything starts with a free 15-minute call — no commitment, no pressure."
+- New dark-green strip added between Services and How It Works: "✦ Not sure where to start? Every service begins with a free 15-minute call — no commitment, no pressure. [Book your free call →]"
+- Sticky CTA bar extended to all screen sizes (was mobile-only); label updated to "Free 15-minute call / No commitment · Evenings & weekends"; button updated to "Book free call →"

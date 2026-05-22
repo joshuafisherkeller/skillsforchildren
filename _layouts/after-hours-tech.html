@@ -185,9 +185,37 @@
     .aht-price-label span { color: #a8a29e; }
     .aht-price-amt { font-family: var(--sans); font-size: 18px; font-weight: 600; color: var(--ink); white-space: nowrap; }
     .aht-services-note { font-size: 12px; color: #a8a29e; margin-top: 12px; }
+    .aht-service-consult { display: inline-block; margin-top: 4px; font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--green-text); text-decoration: none; border-bottom: 1px solid var(--green-border); transition: color .18s, border-color .18s; }
+    .aht-service-consult:hover { color: var(--green); border-color: var(--green); }
+    .aht-travel-note { font-size: 11px; color: #a8a29e; margin-top: 4px; }
     .aht-service-tiers { list-style: none; display: flex; flex-direction: column; gap: 6px; margin: 4px 0; }
     .aht-service-tiers li { font-size: 13px; color: #57534e; display: flex; align-items: baseline; gap: 8px; }
     .tier-label { flex-shrink: 0; font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--green-text); background: #d1fae5; padding: 2px 7px; border-radius: 3px; }
+
+    /* ═══════════════════════════════════
+       FREE CALL STRIP
+    ═══════════════════════════════════ */
+    .aht-free-strip {
+      background: var(--green-deep);
+      border-top: 1px solid rgba(110,231,183,.15);
+      border-bottom: 1px solid rgba(110,231,183,.15);
+      padding: 20px 28px;
+    }
+    .aht-free-strip-inner {
+      max-width: 860px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .aht-free-strip p { font-family: var(--sans); font-size: 14px; color: rgba(167,243,208,.85); margin: 0; }
+    .aht-free-strip p strong { color: #fff; }
+    .aht-free-strip-btn {
+      display: inline-block; background: var(--green); color: #fff;
+      font-family: var(--sans); font-size: 13px; font-weight: 700;
+      padding: 9px 20px; border-radius: var(--radius);
+      text-decoration: none; white-space: nowrap; flex-shrink: 0;
+      transition: background .18s, transform .15s;
+    }
+    .aht-free-strip-btn:hover { background: var(--green-lt); transform: translateY(-1px); }
 
     /* ═══════════════════════════════════
        HOW IT WORKS + LET'S TALK STRATEGY
@@ -336,8 +364,7 @@
     .aht-sticky-cta-label strong { display: block; color: #d6d3d1; font-size: 13px; margin-bottom: 1px; }
     .aht-sticky-cta-btn { display: inline-block; background: var(--green); color: #fff; font-family: var(--sans); font-size: 14px; font-weight: 700; padding: 11px 22px; border-radius: var(--radius); text-decoration: none; white-space: nowrap; flex-shrink: 0; box-shadow: var(--shadow-green); transition: background .18s; }
     .aht-sticky-cta-btn:hover { background: var(--green-lt); }
-    @media (max-width: 860px) { body.cta-visible { padding-bottom: 74px; } }
-    @media (min-width: 860px) { .aht-sticky-cta { display: none; } }
+    body.cta-visible { padding-bottom: 74px; }
 
     /* ═══════════════════════════════════
        RESPONSIVE
@@ -379,7 +406,7 @@
     <div class="aht-hero-inner reveal">
       <div class="aht-eyebrow">Evenings &amp; Weekends Only</div>
       <h1>Modern tech.<br>Human help.</h1>
-      <p class="aht-hero-lede">Tech consulting and digital services &mdash; available when you actually are. AI coaching, websites, troubleshooting, clinical tech systems, and in-home support.</p>
+      <p class="aht-hero-lede">Tech consulting and digital services &mdash; available when you actually are. AI coaching, websites, troubleshooting, video production, and in-home support.</p>
       <p class="aht-hero-sub">Run by Josh Fisherkeller, MSW. Full-time at the University of Kentucky. This is the after-hours practice.</p>
       <div class="aht-hero-ctas">
         <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="btn-green">Book a session &rarr;</a>
@@ -417,8 +444,7 @@
           <div class="aht-service-head"><h3>AI Coaching</h3><span class="aht-badge">Most popular</span></div>
           <p class="aht-service-desc">One-on-one sessions that turn AI hype into real workflows. We&rsquo;ll find tools that actually fit your life or business &mdash; not just demos.</p>
           <div class="aht-service-pricing">
-            <div class="aht-price-row"><span class="aht-price-label">Single session <span>&middot; 60 min</span></span><span class="aht-price-amt">$85</span></div>
-            <div class="aht-price-row"><span class="aht-price-label">3-session package <span>&middot; Save $30</span></span><span class="aht-price-amt">$225</span></div>
+            <div class="aht-price-row"><span class="aht-price-label">Per hour</span><span class="aht-price-amt">$30</span></div>
           </div>
         </div>
 
@@ -426,60 +452,60 @@
           <div class="aht-service-head"><h3>Tech Troubleshooting</h3></div>
           <p class="aht-service-desc">That thing you&rsquo;ve been meaning to fix for six months? Let&rsquo;s clear the backlog. Networks, devices, subscriptions, setup &mdash; all of it.</p>
           <div class="aht-service-pricing">
-            <div class="aht-price-row"><span class="aht-price-label">Per session <span>&middot; 60 min</span></span><span class="aht-price-amt">$75</span></div>
+            <div class="aht-price-row"><span class="aht-price-label">Per hour</span><span class="aht-price-amt">$30</span></div>
           </div>
         </div>
 
         <div class="aht-service-card reveal" style="transition-delay:.14s">
-          <div class="aht-service-head"><h3>Clinical Tech Systems</h3><span class="aht-badge">Therapist specialty</span></div>
-          <p class="aht-service-desc">Session recording, AI-assisted notes, HIPAA-aware workflows. From an MSW who understands your documentation burden &mdash; not just your tech stack.</p>
-          <div class="aht-service-pricing">
-            <div class="aht-price-row"><span class="aht-price-label">Consultation <span>&middot; 60 min</span></span><span class="aht-price-amt">$110</span></div>
-          </div>
-        </div>
-
-        <div class="aht-service-card reveal" style="transition-delay:.07s">
           <div class="aht-service-head"><h3>Website &amp; App Development</h3></div>
           <p class="aht-service-desc">From a clean one-pager to a full site or web app. Built to last, not just to launch. Honest scope, honest timeline, no disappearing after handoff.</p>
           <div class="aht-service-pricing">
-            <div class="aht-price-row"><span class="aht-price-label">Scoping call <span>&middot; 60 min</span></span><span class="aht-price-amt">$85</span></div>
-          </div>
-        </div>
-
-        <div class="aht-service-card reveal" style="transition-delay:.14s">
-          <div class="aht-service-head"><h3>In-Home Tech Service</h3><span class="aht-badge">Premium &middot; Local</span></div>
-          <p class="aht-service-desc">Some things are just easier in person. I come to you &mdash; home network, device setup, smart home, whatever&rsquo;s been giving you trouble. Saturday morning house calls available.</p>
-          <div class="aht-service-pricing">
-            <div class="aht-price-row"><span class="aht-price-label">House call <span>&middot; 90 min min &middot; Lexington KY area</span></span><span class="aht-price-amt">$150</span></div>
+            <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="aht-service-consult">Schedule a free consultation &rarr;</a>
           </div>
         </div>
 
         <div class="aht-service-card reveal" style="transition-delay:.21s">
-          <div class="aht-service-head"><h3>Video &amp; Graphic Design</h3></div>
-          <p class="aht-service-desc">Explainer videos, professional recordings, logos, social graphics, presentation templates. Creative support for your project or business.</p>
+          <div class="aht-service-head"><h3>In-Home Tech Service</h3><span class="aht-badge">Premium &middot; Local</span></div>
+          <p class="aht-service-desc">Some things are just easier in person. I come to you &mdash; home network, device setup, smart home, whatever&rsquo;s been giving you trouble. Saturday morning house calls available.</p>
           <div class="aht-service-pricing">
-            <div class="aht-price-row"><span class="aht-price-label">Consultation <span>&middot; 60 min</span></span><span class="aht-price-amt">$85</span></div>
+            <div class="aht-price-row"><span class="aht-price-label">Per hour <span>&middot; Central KY area</span></span><span class="aht-price-amt">$50</span></div>
+            <p class="aht-travel-note">*Willing to travel to other states</p>
           </div>
         </div>
 
-        <div class="aht-service-card reveal" style="transition-delay:.28s">
-          <div class="aht-service-head"><h3>Session Recording System</h3><span class="aht-badge">HIPAA-friendly</span></div>
-          <p class="aht-service-desc">A fully local, offline recording + transcription setup for your therapy room. Everything stays on your device &mdash; nothing goes to the cloud. One-button start/stop via Stream Deck. Automatic transcription after each session using local AI (Whisper). Four tiers from DIY guide to full in-office install.</p>
+        <div class="aht-service-card reveal" style="transition-delay:.07s">
+          <div class="aht-service-head"><h3>Video &amp; Graphic Design</h3></div>
+          <p class="aht-service-desc">Explainer videos, professional recordings, logos, social graphics, presentation templates. Creative support for your project or business.</p>
+          <div class="aht-service-pricing">
+            <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="aht-service-consult">Schedule a free consultation for a quote &rarr;</a>
+          </div>
+        </div>
+
+        <div class="aht-service-card reveal" style="transition-delay:.14s">
+          <div class="aht-service-head"><h3>Clinical Observation Recording System</h3><span class="aht-badge">HIPAA-friendly</span></div>
+          <p class="aht-service-desc">A fully local, offline recording + transcription setup for your therapy room. Everything stays on your device &mdash; nothing goes to the cloud. One-button start/stop via Stream Deck. Automatic transcription after each session using local AI (Whisper).</p>
           <ul class="aht-service-tiers">
             <li><span class="tier-label">Tier 1</span> DIY setup guide (PDF)</li>
-            <li><span class="tier-label">Tier 2</span> Equipment sourced &amp; shipped to you</li>
-            <li><span class="tier-label">Tier 3</span> Equipment + remote configuration</li>
-            <li><span class="tier-label">Tier 4</span> Full on-site install &mdash; Lexington KY area</li>
+            <li><span class="tier-label">Tier 4</span> Full on-site install &mdash; Central KY area</li>
           </ul>
           <div class="aht-service-pricing">
             <div class="aht-price-row"><span class="aht-price-label">Scoping call <span>&middot; Free &middot; Zoom</span></span><span class="aht-price-amt">$0</span></div>
+            <p class="aht-travel-note">*Willing to travel to other states for on-site installs</p>
           </div>
         </div>
 
       </div>
-      <p class="aht-services-note">Prices shown are placeholder &mdash; final pricing coming soon. Website and app projects are custom-quoted after the scoping call.</p>
+      <p class="aht-services-note">Everything starts with a free 15-minute call &mdash; no commitment, no pressure. Website, app, and design projects are custom-quoted after the scoping call.</p>
     </div>
   </section>
+
+  <!-- ── FREE CALL STRIP ── -->
+  <div class="aht-free-strip">
+    <div class="aht-free-strip-inner">
+      <p>✦ <strong>Not sure where to start?</strong> Every service begins with a free 15-minute call &mdash; no commitment, no pressure.</p>
+      <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="aht-free-strip-btn">Book your free call &rarr;</a>
+    </div>
+  </div>
 
   <!-- ════════════════════════════════════════════════════════
        HOW IT WORKS + LET'S TALK STRATEGY — combined section
@@ -592,10 +618,10 @@
   <!-- ── MOBILE STICKY CTA ── -->
   <div class="aht-sticky-cta" id="ahtStickyCta" aria-hidden="true">
     <div class="aht-sticky-cta-label">
-      <strong>After Hours Tech</strong>
-      Evenings &amp; weekends &middot; cal.com/Fisherkeller
+      <strong>Free 15-minute call</strong>
+      No commitment &middot; Evenings &amp; weekends
     </div>
-    <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="aht-sticky-cta-btn">Book now &rarr;</a>
+    <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="aht-sticky-cta-btn">Book free call &rarr;</a>
   </div>
 
   <script>
