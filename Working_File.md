@@ -356,9 +356,66 @@ See merge log at top of this file.
 
 ---
 
+### Session 11 — May 22, 2026
+**Task:** Build Maximilian's Cosmic Adventure dedicated page (`/mca/`) and update home books section.
+**Commit:** `b3e7a5b`
+**Pushed to GitHub:** Yes
+
+#### What was built
+
+**`_layouts/mca.html`** — fully standalone Jekyll layout (no `layout: default`). All CSS and JS inline.
+- Sections: Nav (← Skills for Children back-link), Hero, The Story, From the Pages (v2 samples triptych), Watch Free (YouTube embed), The Author, Buy CTA, Footer
+- Cosmos background: fixed layered star fields + canvas shooting stars (calmer v2 interval: 3.5–7s) + canvas constellation hover
+- Eight decorative CSS planets (Mercury–Neptune), each `position: absolute` on a full-document `.planets-deco` wrapper (`body { position: relative }` required)
+- Rocket cursor: `cursor: none` on body, JS-driven position + trail stars
+- All images via `{{ '/assets/img/mca/...' | relative_url }}`
+- Amazon affiliate link: `https://amzn.to/4dD7GmO`
+- YouTube embed: `https://www.youtube-nocookie.com/embed/obCWdl3VXLs`
+- Nav back-link: `← Skills for Children` → `/`
+- Copyright: `© 2023 Joshua Fisherkeller`
+
+**`mca.html`** — page front matter stub (`layout: mca`, `permalink: /mca/`, title + description)
+
+**`assets/img/mca/`** — copied from `Maximilians Cosmic Adventure/mca_extracted/design_handoff_cosmic_adventure_site_v2/assets/`
+| File | Notes |
+|------|-------|
+| `hero.jpg` | Book cover / hero image |
+| `author.png` | Author portrait |
+| `cover.jpg` | Expanded cover |
+| `pages/01-dedication.jpg` | Interior page |
+| `pages/03-skygazing.jpg` | Interior page |
+| `pages/04-room.jpg` | Used in Story section |
+| `pages/05-maximilian.jpg` | Interior page |
+| `pages/06-bedroom.jpg` | Interior page |
+| `pages/07-mercury-dream.jpg` | Samples card #1 |
+| `pages/22-sleeping.jpg` | Samples card #3 |
+| `pages/24-solarsystem-1.jpg` | Interior page |
+| `pages/25-solarsystem-2.jpg` | Interior page |
+| `planets/earth.jpg` through `venus.jpg` | All 8 planet interior images |
+
+**`_layouts/home.html` — books section overhaul**
+- Renamed section: "From our library / Books written for big feelings" → "Skills for Children Books"
+- Replaced single `.book-feature` layout with `.books-grid` (CSS Grid, 2 columns, collapses to 1 on mobile ≤700px)
+- Two book cards side by side:
+  1. **A Journey of Brave Friends** → `/tfcbtbook/` + `amzn.to/4tWqSlG`
+  2. **Maximilian's Cosmic Adventure** → `/mca/` + `amzn.to/4dD7GmO`
+- Moved section from after "Help Us Grow" to immediately after the Resources Library / Trauma Hub (before "Help Us Grow")
+- Added inline `<style>` block for `.books-grid`, `.book-card`, `.book-card-cover`, `.book-card-body`, `.book-card-actions`
+
+#### Files changed
+| File | Change |
+|------|--------|
+| `_layouts/mca.html` | New — full standalone page layout |
+| `mca.html` | New — page front matter stub |
+| `assets/img/mca/` | New — 22 image files |
+| `_layouts/home.html` | Books section redesigned + repositioned |
+
+---
+
 ## Pending / TODOs — skillsforchildren.com
 
-- [ ] **Book cover images** — `_data/books.yml` still has empty `cover:` for Maximilian's Cosmic Adventure. Add real artwork to `assets/img/books/` and fill in the path.
+- [x] **MCA dedicated page** — `/mca/` built and live (`b3e7a5b`). Hero image at `assets/img/mca/hero.jpg`.
+- [ ] **Book cover in books.yml** — `_data/books.yml` still has empty `cover:` for Maximilian's Cosmic Adventure. Can now point to `assets/img/mca/hero.jpg` if the books page is used.
 - [ ] **Missing products in books.yml** — `SECOND_BRAIN.md` lists 4 more products not yet on the site: *Resilient Forest Notebook* (`amzn.to/3RkOZNd`), *Mother Earth in the Mountains* (`amzn.to/4wN3GZJ`), *Flower Mountain* (`amzn.to/4wHgdh1`), *Mushrooms and Mountains* (`amzn.to/3PPKDgA`). Decide whether to add these to the Books page or keep them separate.
 - [ ] **Kit newsletter** — Confirm Kit's embed script is rendering its form correctly on the live site.
 - [ ] **Google Analytics 4** — No GA4 snippet in site. If you want analytics, provide the `gtag.js` snippet; it goes in `_layouts/default.html` inside `<head>`.
@@ -542,12 +599,13 @@ Six-phase batch: fix book cover image → replace "evidence-based" sitewide → 
 
 ## Pending / TODOs — After Hours Tech
 
-- [ ] **Pricing** — All service prices on the page are placeholders. Josh needs to confirm final pricing for each service tier before going live with marketing.
-- [ ] **Cal.com hours** — Confirm Cal.com booking is set to evenings only (6–10 PM ET weekdays) and weekends. No 9–5 slots should be visible.
-- [ ] **UK outside employment policy** — File any required disclosure paperwork with the University of Kentucky before taking a first paying client. Compliance step, not a code task.
+- [x] **Pricing** — Finalized May 21, 2026. AI Coaching $30/hr, Tech Troubleshooting $30/hr, In-Home $50/hr. Consultation-first for website/app/design. CORS free scoping call.
+- [x] **Cal.com hours** — Confirmed set to evenings (6–10 PM ET weekdays) and weekends only. No 9–5 slots visible. Done May 21, 2026.
+- [x] **UK outside employment policy** — Closed May 21, 2026.
 - [ ] **Domain** — Check `afterhourstech.com` (and `.io`, `.co`) availability if a dedicated domain is desired later.
 - [ ] **Social/booking handles** — Secure Instagram, LinkedIn handles under "After Hours Tech" / "AfterHoursTech."
 - [ ] **In-Home Tech Service radius** — Define a specific service radius (Lexington, KY + X miles) and minimum booking (e.g., 1.5 hours). Update service card copy when confirmed.
+- [ ] **Marketing plan** — After Hours Tech is live and open for business as of May 21, 2026. Need to develop a full marketing plan. Starting point: warm outreach to clinical network, social handles, and first client strategy. To be built out in a future Cowork session.
 - [ ] **Testimonials / social proof** — Credentials section has a placeholder area. Once Josh has first clients, add 1–2 brief testimonials with permission.
 - [ ] **GA4 / analytics** — If analytics are wanted, add a separate `gtag.js` snippet inside `<head>` in `_layouts/after-hours-tech.html`. Use a separate GA4 property from SFC.
 - [ ] **Lead magnet** — Decide on a lowest-friction lead magnet (free 20-min "Tech Audit" call? Free HIPAA checklist PDF?).
