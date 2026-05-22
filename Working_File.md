@@ -551,7 +551,7 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 - [ ] **Book sample chapter links** — `sample_url:` in `_data/books.yml` is blank for all books. Fill in when PDFs are ready.
 - [x] **Delete `_relaunch_inspect/`** — Local only, excluded from build. No git action needed (never tracked).
 - [x] **Delete `61m9iNlhgNL._SL1293_.jpg`** — Removed in root cleanup (Session 16).
-- [ ] **PRAC skill card images** — The `Chapter 1–4.jpg` images currently used in the PRAC cards (`/resilient-forest/` → "Four foundational skills" section) are placeholders. Replace with proper illustrations when ready.
+- [x] **PRAC skill card images** — Confirmed correct. `NEW CHAPTER 1–4 for PRAC Section.jpg` files were already in use.
 - [ ] **Resilient Forest — "For therapists & clinicians" copy** — Current language in `_layouts/resilient-forest.html` (`.audience-card.therapists`) needs revision. Josh flagged this for rework.
 - [x] **Clean up root image files** — 23 stale files removed from git root (Session 16): 14 images, 3 logos, 3 ZIPs. All confirmed already copied to `assets/img/`. Note: `NEW CHAPTER 1–4 for PRAC Section.jpg` are local-only (not in git) — likely the PRAC card replacements, flag for when that TODO is actioned.
 - [ ] **TORF hub — verify on live site** — Visit `/resilient-forest/` after deploy: confirm all 5 character images load, YouTube embed works, book strip shows correct cover, BRAVE CTA links to `https://app.skillsforchildren.com`.
