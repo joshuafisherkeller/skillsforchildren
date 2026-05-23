@@ -564,6 +564,39 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 
 ---
 
+### Session 18 — May 23, 2026
+**Task:** Create the *When Feelings Get Loud* children's coping-skills album package: generated/refined eight PRACTICE-aligned song concepts, Suno prompts, lyrics, local WAV track set, and SEO/GEO-ready YouTube + `/songs` website copy for each song. Created and then expanded per-song Word documents with title, date, lyrics, Suno prompt, YouTube title/description with Skills for Children links, and website copy explaining broad therapy support plus TF-CBT alignment where relevant.
+**Commits:** No code committed — content/asset work only
+**Pushed to GitHub:** No
+
+#### Files Created / Modified
+| File | What it does |
+|------|-------------|
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/1. Brain Alarm.wav` | Local WAV for the album opener, a high-energy psychoeducation song about the brain alarm and calming tools. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/2. Breathe Like Waves Lo Fi.wav` | Local WAV for the relaxation track, teaching slow breathing and body calming with an island/lo-fi feel. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/3. Name It  Choose It.wav` | Local WAV for the affective modulation track, focused on naming feelings and choosing what helps. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/4. Maybe Maybe not.wav` | Local WAV for the cognitive coping track, focused on checking thoughts and choosing more helpful thoughts. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/5. My Story My Voice.wav` | Local WAV for the trauma narrative / self-expression track, emphasizing choice, pacing, and voice. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/6. One Step Braver.wav` | Local WAV for the in vivo mastery track, translating brave practice into small, supported steps. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/7. Say It With Me.wav` | Local WAV for the conjoint / trusted-adult communication track, built around sharing feelings with support. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/8. My Plan, My People.wav` | Local WAV for the enhancing safety track, focused on trusted people, safe places, and help-seeking. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/1. Brain Alarm - Lyrics and Prompt.docx` | Word document with title/date, lyrics, Suno prompt, YouTube SEO title/description, and `/songs` website paragraph for the psychoeducation track. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/2. Breathe Like Waves - Lyrics and Prompt.docx` | Word document with title/date, lyrics, Suno prompt, YouTube SEO title/description, and `/songs` website paragraph for the relaxation track. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/3. Name It, Choose It - Lyrics and Prompt.docx` | Word document with title/date, lyrics, Suno prompt, YouTube SEO title/description, and `/songs` website paragraph for the affective modulation track. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/4. Maybe, Maybe Not - Lyrics and Prompt.docx` | Word document with title/date, lyrics, Suno prompt, YouTube SEO title/description, and `/songs` website paragraph for the cognitive coping track. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/5. My Story, My Voice - Lyrics and Prompt.docx` | Word document with title/date, lyrics, Suno prompt, YouTube SEO title/description, and `/songs` website paragraph for the trauma narrative / self-expression track. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/6. One Step Braver - Lyrics and Prompt.docx` | Word document with title/date, lyrics, Suno prompt, YouTube SEO title/description, and `/songs` website paragraph for the in vivo mastery track. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/7. Say It With Me - Lyrics and Prompt.docx` | Word document with title/date, lyrics, Suno prompt, YouTube SEO title/description, and `/songs` website paragraph for the conjoint / trusted-adult communication track. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/8. My Plan, My People - Lyrics and Prompt.docx` | Word document with title/date, lyrics, Suno prompt, YouTube SEO title/description, and `/songs` website paragraph for the enhancing safety track. |
+
+#### Notes
+- Album title selected: **When Feelings Get Loud**.
+- The eight songs map to the full PRACTICE sequence while keeping language broad, child-friendly, and not tied to the BRAVE app, books, or characters.
+- `SECOND_BRAIN.md` was updated separately in place to reflect the music catalog/pipeline status, but it lives outside the repo and was not committed.
+- Visual DOCX render QA could not run because LibreOffice/`soffice` is not installed locally; structural verification confirmed each `.docx` contains title, date, prompt, lyrics, YouTube Description, and `/songs` website fields.
+
+---
+
 ## Pending / TODOs — skillsforchildren.com
 
 - [x] **MCA dedicated page** — `/mca/` built and live (`b3e7a5b`). Hero image at `assets/img/mca/hero.jpg`.
