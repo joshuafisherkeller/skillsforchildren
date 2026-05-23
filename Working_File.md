@@ -15,6 +15,21 @@
 
 ---
 
+> # ⚡ STOP — READ THE PENDING PROMPTS TABLE BELOW BEFORE DOING ANYTHING ELSE
+> **Claude Code:** Do NOT skip to the session log. Do NOT assume the queue is empty. Check the table below first — every time, no exceptions. If the table has rows that are not struck through, execute them in order before starting any other work.
+
+## ⚡ PENDING PROMPTS — Read This First
+
+> **Claude Code / Codex:** These prompts are written by Claude Cowork and are waiting for you to execute. Work through them in order. **When you complete a prompt, you strike it from this table yourself** — do not wait for Josh to tell you. Josh does not read or manage this file. Log your session work in the relevant section below. If a prompt is partially done, leave it in the table and add a note.
+
+| # | Date | Project | Description | Location in file |
+|---|------|---------|-------------|-----------------|
+| ~~1~~ | ~~May 23, 2026~~ | ~~After Hours Tech~~ | ~~Create CORS landing page at /tech/cors/~~ | ~~[Section 2 → Cowork Prompts → May 23, 2026](#may-23-2026--create-cors-landing-page-at-techcors)~~ |
+
+> When all rows are ~~struck through~~, the queue is clear.
+
+---
+
 ## ⚠️ Merge Log — May 20, 2026
 
 `Working_File.md` (skillsforchildren.com change log) and `AHT_Working_File.md` (After Hours Tech change log) have been merged into this single file. The decision was made to reduce agent confusion and eliminate the overhead of tracking which file to update. `SECOND_BRAIN.md` remains separate as the stable cross-project reference document.
@@ -784,6 +799,19 @@ Six-phase batch: fix book cover image → replace "evidence-based" sitewide → 
 
 ---
 
+### Session 3 — May 23, 2026
+**Task:** Create CORS landing page at `/tech/cors/` from source file `cors-landing.html`. Applied 5 content changes: (1) "Designed by a clinician" → "Designed by a behavioral health professional"; (2) removed Battery Backup card from What's Included grid (6→5 cards); (3) updated sync copy from "within 60 seconds" → "when internet is available — typically within seconds of stopping"; (4) added equipment pricing table above service tiers grid; (5) replaced single Whisper add-on strip with two stacked strips (Whisper + UPS add-on). Added GA4 tag. Added AHT footer independence disclaimer.
+**Commits:** `feat(aht): add CORS landing page at /tech/cors/`
+**Pushed to GitHub:** Yes
+
+#### Files Created
+| File | What it does |
+|------|-------------|
+| `_layouts/cors-landing.html` | Standalone layout. Full `<html>` with own fonts, CSS, JS. No SFC inheritance. GA4 included. All 5 content changes applied. |
+| `tech/cors.html` | Front matter stub. `layout: cors-landing`, `permalink: /tech/cors/`, `sitemap: false`. |
+
+---
+
 ## Pending / TODOs — After Hours Tech
 
 - [x] **Pricing** — Finalized May 21, 2026. AI Coaching $30/hr, Tech Troubleshooting $30/hr, In-Home $50/hr. Consultation-first for website/app/design. CORS free scoping call.
@@ -925,6 +953,112 @@ git push
 - Services note → updated to "Everything starts with a free 15-minute call — no commitment, no pressure."
 - New dark-green strip added between Services and How It Works: "✦ Not sure where to start? Every service begins with a free 15-minute call — no commitment, no pressure. [Book your free call →]"
 - Sticky CTA bar extended to all screen sizes (was mobile-only); label updated to "Free 15-minute call / No commitment · Evenings & weekends"; button updated to "Book free call →"
+
+---
+
+### May 23, 2026 — Create CORS landing page at /tech/cors/
+
+**Context:** Josh has developed a new product called the Clinical Observation Recording System (CORS), a dedicated recording setup for therapy rooms. A fully styled standalone HTML preview already exists at `C:\Users\joshu\Skills for Children\Skills for Children\cors-landing.html`. This prompt converts it into a proper Jekyll page and applies several content revisions.
+
+**Source file:** `C:\Users\joshu\Skills for Children\Skills for Children\cors-landing.html`
+
+---
+
+**Files to create:**
+
+1. `_layouts/cors-landing.html` — Copy the full HTML from the source file into a new Jekyll layout. Add the GA4 tag in `<head>` (same tag used sitewide — see `_layouts/default.html`). The layout follows the same standalone pattern as `_layouts/after-hours-tech.html` — no SFC nav, no site.css, all styles self-contained.
+
+2. `tech/cors.html` — Minimal Jekyll front-matter page:
+```
+---
+layout: cors-landing
+permalink: /tech/cors/
+title: "Clinical Observation Recording System — After Hours Tech"
+description: "A purpose-built recording system for therapy rooms. One button to record, one to stop. Free 15-minute consultation."
+---
+```
+
+3. Update `_config.yml` — No changes needed unless `tech/` directory isn't already building. Verify the page resolves at `/tech/cors/`.
+
+---
+
+**Content changes to apply when building the layout (find-and-replace in the source HTML):**
+
+**Change 1 — Attribution text in hero:**
+Find: `Designed by a clinician`
+Replace: `Designed by a behavioral health professional`
+
+**Change 2 — Remove UPS from the "What's Included" grid:**
+Remove the entire `<div class="aht-include-card">` block for Battery Backup (the one with the 🔋 icon and heading "Battery Backup (UPS)"). The grid should go from 6 cards to 5 cards.
+
+**Change 3 — Update the workflow note below the 5-step card:**
+Find: `Files are date-stamped automatically and sync to your cloud storage within 60 seconds.`
+Replace: `Files are date-stamped automatically and sync to your cloud storage when internet is available — typically within seconds of stopping.`
+
+**Change 4 — Add equipment pricing section inside the Services section.**
+Insert the following HTML block immediately BEFORE the `<div class="aht-services-grid">` div (after the closing `</div>` of `.aht-section-head`):
+
+```html
+<!-- Equipment pricing reference -->
+<div style="background:#fff; border:1px solid #e7e5e4; border-radius:var(--radius); padding:28px 28px 20px; margin-bottom:36px;" class="reveal">
+  <div style="font-family:var(--sans); font-size:10px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--green-text); margin-bottom:14px;">Approximate Equipment Cost</div>
+  <p style="font-size:13px; color:var(--mid); line-height:1.65; margin-bottom:18px;">Equipment is ordered through major retailers (Amazon, B&H) — easy returns, manufacturer warranties, no markup from us. Exact configuration confirmed on your consultation call.</p>
+  <table style="width:100%; border-collapse:collapse; font-size:14px;">
+    <thead>
+      <tr style="border-bottom:2px solid #e7e5e4;">
+        <th style="font-family:var(--sans); font-weight:600; color:var(--ink); text-align:left; padding:8px 0;">Configuration</th>
+        <th style="font-family:var(--sans); font-weight:600; color:var(--ink); text-align:right; padding:8px 0; white-space:nowrap;">Est. Equipment Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f5f5f4;">
+        <td style="padding:10px 0; color:#57534e; line-height:1.5;">Base kit — camera, dedicated mini PC, Stream Deck, cables + mount</td>
+        <td style="padding:10px 0; font-family:var(--sans); font-weight:600; color:var(--ink); text-align:right; white-space:nowrap;">~$950–$1,050</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f5f5f4;">
+        <td style="padding:10px 0; color:#57534e; line-height:1.5;">With monitor + keyboard &amp; mouse <span style="font-size:12px; color:var(--muted);">(recommended — lets you verify camera framing and confirm recording is active)</span></td>
+        <td style="padding:10px 0; font-family:var(--sans); font-weight:600; color:var(--ink); text-align:right; white-space:nowrap;">~$1,150–$1,250</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 0; color:#57534e; line-height:1.5;">+ Battery backup / UPS add-on <span style="font-size:12px; color:var(--muted);">(protects recording file if power cuts mid-session)</span></td>
+        <td style="padding:10px 0; font-family:var(--sans); font-weight:600; color:var(--ink); text-align:right; white-space:nowrap;">+ ~$150</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px; color:var(--muted); margin-top:14px;">Already have a monitor? We'll deduct it. Service fee is always separate from equipment cost.</p>
+</div>
+```
+
+**Change 5 — Update the add-on strip to include UPS alongside Whisper.**
+Find the existing `.aht-addon-strip` div and replace it with:
+
+```html
+<div style="display:flex; flex-direction:column; gap:12px; margin-top:20px;">
+  <div class="aht-addon-strip reveal">
+    <span class="aht-addon-label">Add-On</span>
+    <p><strong>Whisper Transcription Setup</strong> — Local AI transcription configured on your mini PC. Sessions are automatically transcribed after every recording. Nothing leaves your device.</p>
+    <span class="aht-addon-price">+ Starting at $99</span>
+  </div>
+  <div class="aht-addon-strip reveal">
+    <span class="aht-addon-label">Add-On</span>
+    <p><strong>Battery Backup (UPS)</strong> — Protects your recording file if power cuts during a session. Especially useful in older buildings or areas with unstable power. Does not prevent sync outages if your router is also offline.</p>
+    <span class="aht-addon-price">+ ~$150 equipment</span>
+  </div>
+</div>
+```
+
+---
+
+**After creating files, push to GitHub:**
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add _layouts/cors-landing.html tech/cors.html
+git commit -m "feat(aht): add CORS landing page at /tech/cors/"
+git push
+```
+
+**Verify live at:** `https://skillsforchildren.com/tech/cors/`
 
 ---
 
