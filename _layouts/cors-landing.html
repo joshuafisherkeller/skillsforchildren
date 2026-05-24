@@ -210,7 +210,7 @@ layout: null
     }
 
     /* ── SERVICE TIERS ── */
-    .aht-services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #e7e5e4; border: 1px solid #e7e5e4; border-radius: var(--radius); overflow: hidden; }
+    .aht-services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: #e7e5e4; border: 1px solid #e7e5e4; border-radius: var(--radius); overflow: hidden; }
     .aht-service-card { background: #fff; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px; border-left: 3px solid transparent; transition: background .2s, border-color .2s, box-shadow .22s; position: relative; }
     .aht-service-card:hover { background: #fefefe; border-left-color: var(--green); box-shadow: var(--shadow-2); z-index: 2; }
     .aht-service-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
@@ -280,9 +280,11 @@ layout: null
     /* ── RESPONSIVE ── */
     @media (max-width: 720px) {
       .aht-pain-grid { grid-template-columns: 1fr; }
-      .aht-services-grid { grid-template-columns: 1fr; }
       .aht-nav-links { display: none; }
       .aht-hamburger { display: block; }
+    }
+    @media (max-width: 520px) {
+      .aht-services-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .aht-workflow-card { padding: 28px 20px; }
@@ -493,27 +495,7 @@ layout: null
         </div>
       </div>
 
-      <div class="aht-service-card">
-        <div class="aht-service-head">
-          <h3>Remote Setup</h3>
-          <span class="aht-badge">Most Popular</span>
-        </div>
-        <p class="aht-service-desc">You order the equipment. Once it arrives, we configure everything live over video call &mdash; OBS, Stream Deck, cloud sync &mdash; and do a full test run before we hang up.</p>
-        <ul class="aht-service-list">
-          <li>Everything in Self-Install</li>
-          <li>90-min live configuration session</li>
-          <li>OBS + Stream Deck fully set up</li>
-          <li>Cloud sync configured together</li>
-          <li>Test recording before we finish</li>
-        </ul>
-        <div class="aht-service-pricing">
-          <div class="aht-price-amt">Starting at $149</div>
-          <div class="aht-price-sub">service fee &mdash; equipment cost separate</div>
-          <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="aht-service-consult">Book free consultation &rarr;</a>
-        </div>
-      </div>
-
-      <div class="aht-service-card">
+<div class="aht-service-card">
         <div class="aht-service-head">
           <h3>White Glove On-Site</h3>
           <span class="aht-badge">Full Service</span>

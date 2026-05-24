@@ -25,6 +25,9 @@
 | # | Date | Project | Description | Location in file |
 |---|------|---------|-------------|-----------------|
 | ~~1~~ | ~~May 23, 2026~~ | ~~After Hours Tech~~ | ~~Create CORS landing page at /tech/cors/~~ | ~~[Section 2 → Cowork Prompts → May 23, 2026](#may-23-2026--create-cors-landing-page-at-techcors)~~ |
+| 2 | May 23, 2026 | skillsforchildren.com | Replace "207" resource count with "100+" sitewide | [Section 1 → Cowork Prompts → May 23, 2026](#may-23-2026--replace-207-resource-count-with-100-sitewide) |
+| 3 | May 24, 2026 | After Hours Tech | CORS page: White Glove only, flat $499 pricing, travel zones — full services section restructure | [Section 2 → Cowork Prompts → May 24, 2026](#may-24-2026--cors-page-white-glove-only-flat-pricing-travel-zones) |
+| 4 | May 24, 2026 | After Hours Tech | CORS page: BOM update, offline angle expansion, remove cloud sync, CTA standardization, copy polish | [Section 2 → Cowork Prompts → May 24, 2026 #2](#may-24-2026-2--cors-page-bom-update-offline-expansion-cta-standardization-copy-polish) |
 
 > When all rows are ~~struck through~~, the queue is clear.
 
@@ -633,6 +636,7 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 - [ ] **Resilient Forest — "For therapists & clinicians" copy** — Current language in `_layouts/resilient-forest.html` (`.audience-card.therapists`) needs revision. Josh flagged this for rework.
 - [x] **Clean up root image files** — 23 stale files removed from git root (Session 16): 14 images, 3 logos, 3 ZIPs. All confirmed already copied to `assets/img/`. Note: `NEW CHAPTER 1–4 for PRAC Section.jpg` are local-only (not in git) — likely the PRAC card replacements, flag for when that TODO is actioned.
 - [ ] **TORF hub — verify on live site** — Visit `/resilient-forest/` after deploy: confirm all 5 character images load, YouTube embed works, book strip shows correct cover, BRAVE CTA links to `https://app.skillsforchildren.com`.
+- [ ] **Download Leonardo.ai images — Resilient Forest Part 2** — New characters were created in Leonardo.ai for Part 2. Download and archive all new character images before they expire or are lost.
 - [x] **Session 6 affiliate links** — committed and pushed (`7112f04`). All 6 links current.
 
 ---
@@ -674,6 +678,34 @@ TORF Hub:       _layouts/resilient-forest-hub.html — uses layout: default (inh
 
 > **Claude Cowork:** Paste any prompts you generate for Claude Code here, with a date and description header.
 > Format: `### [Date] — [Brief description of what the prompt is for]` then the prompt text.
+
+---
+
+### May 23, 2026 — Replace "207" resource count with "100+" sitewide
+
+**Context:** After a broken links cleanup, the live resource count dropped from ~207 to ~143. The number "207" still appears in site copy as a resource count stat. Rather than track an exact number going forward, we're replacing all instances with "100+" — accurate, durable, and requires no maintenance as resources are added or removed.
+
+**Task:** Do a global search across the entire repo for any instance of `207` used as a resource count (e.g. "207 resources", "207 free resources", "207+", etc.). Replace every such instance with `100+`.
+
+Check these files in particular — they're most likely to contain the stat:
+- `_layouts/home.html`
+- `_layouts/trauma.html`
+- `assets/css/site.css` (unlikely but check)
+- `index.html`
+- Any `_includes/` files
+
+Do NOT change `207` if it appears in a URL, a git commit hash, a CSS value, a date, or any other non-copy context.
+
+After making changes, do a final `grep -r "207"` across the repo to confirm no instances remain in copy.
+
+Then commit and push:
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add -A
+git commit -m "fix(copy): replace outdated '207' resource count with '100+' sitewide"
+git push
+```
 
 ---
 
@@ -851,6 +883,52 @@ Six-phase batch: fix book cover image → replace "evidence-based" sitewide → 
 
 ---
 
+### Session 4 — May 24, 2026
+**Task:** Remove Remote Setup tier from CORS landing page. Decision: Remote Setup is operationally impractical (requires shipping the pre-configured mini PC, then managing a remote session). Also discussed PDF self-service sharing risk — recommendation to keep Self-Install as a free consultation tier rather than a paid PDF product.
+**Commits:** pending — not yet pushed
+**Pushed to GitHub:** No
+
+#### Files Modified
+| File | What changed |
+|------|-------------|
+| `_layouts/cors-landing.html` | Removed Remote Setup service card. Updated `.aht-services-grid` from `repeat(3, 1fr)` to `repeat(2, 1fr)`. Adjusted responsive breakpoints: nav collapses at 720px, services grid stacks at 520px. |
+
+---
+
+### Session 5 — May 24, 2026
+**Task:** Finalize CORS equipment BOM with real Amazon affiliate links via SiteStripe. Upgraded standard camera from Yealink 4K ($339.99) to Yealink UVC40 E2 ($499) after evaluating 8-mic array advantage for clinical transcription accuracy.
+**Commits:** pending
+**Pushed to GitHub:** No
+
+#### CORS Equipment BOM — Finalized May 24, 2026
+
+**Associate tag:** `skillsforch0c-20` (same as main site)
+
+##### Fixed Components — Every Install
+
+| Item | Price | Affiliate Link |
+|------|-------|----------------|
+| Yealink UVC40 E2 (8-mic, 4K, 120°, auto framing) | $499.00 | https://amzn.to/4dGntkx |
+| Dell SE2426H 24" Monitor | $99.99 | https://amzn.to/4fzcV9y |
+| Amazon Basics HDMI 6ft | $4.79 | https://amzn.to/4tU4MQu |
+| Logitech MK470 Slim (ultra-quiet keys) | $34.88 | https://amzn.to/4ut7z4a |
+| GEEKOM IT13 Mini PC | $599.00 | https://amzn.to/4fEGjLB |
+| Elgato Stream Deck Mini | $59.99 | https://amzn.to/4f5JZ92 |
+| **Fixed Total** | **~$1,299** | |
+
+##### Add-Ons (Optional)
+
+| Item | Price | Affiliate Link | Notes |
+|------|-------|----------------|-------|
+| APC BE600M1 UPS (Battery Backup) | $83.99 | https://amzn.to/4wSZS9o | Recommended for older buildings or unstable power |
+| Logitech MeetUp 2 (Large Room Camera) | $728.00 | https://amzn.to/4tXldKW | Upgrade for large conference/group rooms |
+
+##### Pricing Decision Notes
+- UPS moved from fixed to add-on: $83.99 removed from standard kit → **~$1,299** total (vs $1,381). Psychological pricing advantage; not every install location needs it.
+- Standard camera upgraded from entry-level Yealink 4K ($339.99) to **UVC40 E2 ($499)** — 8-mic array with speaker tracking materially improves Whisper transcription accuracy for two-person clinical sessions.
+
+---
+
 ### Session 3 — May 23, 2026
 **Task:** Create CORS landing page at `/tech/cors/` from source file `cors-landing.html`. Applied 5 content changes: (1) "Designed by a clinician" → "Designed by a behavioral health professional"; (2) removed Battery Backup card from What's Included grid (6→5 cards); (3) updated sync copy from "within 60 seconds" → "when internet is available — typically within seconds of stopping"; (4) added equipment pricing table above service tiers grid; (5) replaced single Whisper add-on strip with two stacked strips (Whisper + UPS add-on). Added GA4 tag. Added AHT footer independence disclaimer.
 **Commits:** `feat(aht): add CORS landing page at /tech/cors/`
@@ -957,6 +1035,502 @@ Footer note:    "After Hours Tech is independent of the University of Kentucky
 ## Cowork Prompts — After Hours Tech
 
 > **Claude Cowork:** Paste any prompts you generate for Claude Code here, with a date and description header.
+
+---
+
+### May 24, 2026 #2 — CORS page: BOM update, offline expansion, CTA standardization, copy polish
+
+**Context:** This prompt makes a second round of content and copy updates to `_layouts/cors-landing.html` after the BOM was finalized and several product decisions were made. Prompt #3 (White Glove restructure) should be executed first — this prompt builds on that state.
+
+**Read `_layouts/cors-landing.html` in full before starting. All changes below are described by section/content — find the matching HTML and update it.**
+
+---
+
+#### Change 1 — Equipment cost table: update to ~$1,299 all-in
+
+Find the equipment pricing reference table inside the `#services` section (the white card with heading "Approximate Equipment Cost"). It currently has three rows showing tiered estimates (~$950–$1,050, ~$1,150–$1,250, + ~$150 UPS add-on).
+
+Replace the entire `<table>` content (thead + tbody) with:
+
+```html
+<thead>
+  <tr style="border-bottom:2px solid #e7e5e4;">
+    <th style="font-family:var(--sans); font-weight:600; color:var(--ink); text-align:left; padding:8px 0;">What's Included</th>
+    <th style="font-family:var(--sans); font-weight:600; color:var(--ink); text-align:right; padding:8px 0; white-space:nowrap;">Est. Equipment Cost</th>
+  </tr>
+</thead>
+<tbody>
+  <tr style="border-bottom:1px solid #f5f5f4;">
+    <td style="padding:10px 0; color:#57534e; line-height:1.5;">Complete standard kit — 4K conference camera, dedicated mini PC, monitor, ultra-quiet keyboard &amp; mouse, one-button Stream Deck, HDMI cable</td>
+    <td style="padding:10px 0; font-family:var(--sans); font-weight:600; color:var(--ink); text-align:right; white-space:nowrap;">~$1,299</td>
+  </tr>
+</tbody>
+```
+
+Replace the paragraph below the table (currently "Already have a monitor? We'll deduct it...") with:
+
+```html
+<p style="font-size:12px; color:var(--muted); margin-top:14px;">Equipment is ordered through major retailers (Amazon, B&H) — easy returns, manufacturer warranties, no markup from us. Exact configuration confirmed on your consultation call. <strong>Service fee is always separate from equipment cost.</strong></p>
+```
+
+Then immediately after that paragraph, add the following callout block:
+
+```html
+<div style="margin-top:18px; padding:16px 20px; background:var(--green-bg); border:1px solid var(--green-border); border-radius:8px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+  <p style="margin:0; font-size:14px; color:var(--green-text); line-height:1.55;"><strong>Already have some of this equipment?</strong> We can work with what you have. Book a free 30-minute consultation and we'll figure out exactly what you need.</p>
+  <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" style="flex-shrink:0; font-family:var(--sans); font-size:13px; font-weight:600; color:var(--green); white-space:nowrap; text-decoration:none; border-bottom:1px solid var(--green);">Book a free call &rarr;</a>
+</div>
+```
+
+---
+
+#### Change 2 — What's Included grid: update to match actual BOM
+
+Find the `.aht-include-grid` (or equivalent grid of include cards, each with an icon, heading, and description). There should be 5 cards after Prompt #3 removed the Battery Backup card.
+
+Replace the content of the existing cards with the following 6 cards (add one card if only 5 exist). Match the existing card HTML structure exactly — just update the icon emoji, heading, and description text:
+
+| Icon | Heading | Description |
+|------|---------|-------------|
+| 🎥 | 4K Conference Camera | Yealink UVC40 E2 — 8-microphone array, 120° wide angle, auto framing, and speaker tracking. Captures both clinician and client clearly from a single mount point. |
+| 🖥️ | Dedicated Mini PC | GEEKOM IT13 — compact, silent, and powerful enough to run OBS and Whisper locally without breaking a sweat. Stays in the room, dedicated to recording. |
+| 🖱️ | Monitor, Keyboard & Mouse | Dell 24" display with ultra-quiet Logitech keyboard and mouse. Lets you verify camera framing and confirm recording is active without disrupting the session. |
+| 🟢 | One-Button Stream Deck | Elgato Stream Deck Mini — green button to start, red button to stop. No computer knowledge required. |
+| 🎬 | OBS Studio | Free, professional recording software. Pre-configured and ready to use on day one. |
+| 🧠 | Whisper AI Transcription | Local AI transcription runs entirely on your device. Sessions are transcribed automatically after every recording. Nothing leaves your machine. |
+
+---
+
+#### Change 3 — Remove Cloud Sync card; add "Fully Offline" section
+
+Find and delete the Cloud Sync feature card — it has a ☁️ icon and mentions Google Drive, Dropbox, or OneDrive. Delete the entire card HTML.
+
+In its place (or as a new full-width section immediately below the What's Included grid), insert the following block:
+
+```html
+<!-- Offline/Privacy section -->
+<div class="cors-offline-block reveal">
+  <div class="cors-offline-inner">
+    <div class="cors-offline-badge">Privacy by Design</div>
+    <h3 class="cors-offline-title">Nothing leaves the room. Ever.</h3>
+    <p class="cors-offline-body">Every part of this system — recording, storage, and transcription — runs entirely on the local device. There is no cloud account to set up, no subscription to manage, no third-party server that touches your files.</p>
+    <ul class="cors-offline-list">
+      <li><strong>No internet required.</strong> Sessions record and transcribe whether your router is up or not. Your workflow never depends on your connection.</li>
+      <li><strong>Nothing to breach.</strong> Files that never leave the device can't be exposed in a cloud breach. There is no online storage to compromise.</li>
+      <li><strong>No subscriptions.</strong> No ongoing cloud storage fees. No account to renew. The system works the same on day one as it does on year five.</li>
+      <li><strong>You decide where files go.</strong> Recordings stay on the local drive until you choose to move or archive them — on your timeline, on your terms.</li>
+    </ul>
+  </div>
+</div>
+```
+
+Add the following CSS to the `<style>` block:
+
+```css
+/* ── OFFLINE BLOCK ── */
+.cors-offline-block {
+  background: #0c3d26;
+  border-radius: var(--radius);
+  padding: 48px 40px;
+  margin: 32px 0;
+}
+.cors-offline-inner {
+  max-width: 680px;
+}
+.cors-offline-badge {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #6ee7b7;
+  margin-bottom: 16px;
+}
+.cors-offline-title {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3.5vw, 30px);
+  font-weight: 400;
+  color: #f5f0eb;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.cors-offline-body {
+  font-size: 15px;
+  color: #c4b8af;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.cors-offline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cors-offline-list li {
+  font-size: 14.5px;
+  color: #c4b8af;
+  line-height: 1.65;
+  padding-left: 20px;
+  position: relative;
+}
+.cors-offline-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #6ee7b7;
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  .cors-offline-block { padding: 32px 20px; }
+}
+```
+
+---
+
+#### Change 4 — Stream Deck card: remove "No mouse, no screen, no apps"
+
+Find the Stream Deck include card (🟢 icon or similar). Somewhere in its description there is a line reading "No mouse, no screen, no apps" or similar. Remove that phrase entirely. Keep the rest of the card description.
+
+---
+
+#### Change 5 — "Your complete daily workflow" section: white background
+
+Find the section that shows the daily workflow steps (the "Your complete daily workflow" heading with the numbered steps and colored buttons/badges). The section currently has a dark or colored background.
+
+Change the section background to white (`#ffffff` or `background: #fff`). Update any text colors within the section that were white or light (intended for dark backgrounds) to dark — use `var(--ink)` for headings and `#57534e` for body text. The step buttons/badges themselves can keep their colors, but ensure they are readable on white.
+
+---
+
+#### Change 6 — After-hours install copy: add to White Glove pricing block
+
+Inside the `.cors-pricing-block` (the White Glove pricing block added in Prompt #3), find the list of included services (`<ul class="aht-service-list">`). Add the following as the last list item:
+
+```html
+<li>After-hours scheduling — evenings and weekends — so installation never interferes with your client schedule</li>
+```
+
+---
+
+#### Change 7 — FAQ review: update any stale equipment references
+
+Read through every `<details>` FAQ block. Find and fix any of the following:
+
+- Any mention of a **dome camera**, ceiling-mounted camera, or camera type that doesn't match the Yealink UVC40 E2 (bar-style camera, shelf or wall mounted)
+- Any mention of **cloud sync**, Google Drive, Dropbox, or OneDrive
+- Any mention of **remote setup** or **self-install**
+- Any mention of the setup being **difficult** that conflicts with the White Glove-only model (everything is done for them now)
+- Any mention of **207**, a **dome**, or other outdated specs
+
+Update any affected FAQ answers to match the current product. Keep the tone consistent with the rest of the page.
+
+---
+
+#### Change 8 — Standardize all CTAs to "free 30-minute consultation"
+
+Find every booking CTA link on the page (buttons and inline links pointing to `https://cal.com/Fisherkeller`). Update the button/link text across the entire page to read consistently. Use one of these depending on context:
+
+- Primary buttons: **"Book Your Free Consultation →"**
+- Inline links: **"book a free 30-minute consultation"**
+- The hero CTA if present: **"Book Your Free Consultation →"**
+
+Do not change the URL — all CTAs continue to point to `https://cal.com/Fisherkeller`.
+
+---
+
+#### Change 9 — UPS add-on strip: confirm it still exists
+
+After Prompt #3 removed the services grid and restructured the page, confirm the UPS add-on strip is still present below the pricing block. It should read:
+
+> **Battery Backup (UPS)** — Protects your recording file if power cuts during a session. Especially useful in older buildings or areas with unstable power. + ~$84 equipment
+
+If the strip is missing, re-add it using the existing `.aht-addon-strip` markup pattern alongside the Whisper transcription strip.
+
+---
+
+#### Change 10 — Commit and push
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add -A
+git commit -m "feat(cors): offline expansion, BOM update ~\$1299, CTA standardization, copy polish"
+git push
+```
+
+---
+
+### May 24, 2026 — CORS page: White Glove only, flat pricing, travel zones
+
+**Context:** This session restructured the CORS business model and pricing. A previous Cowork session already removed the Remote Setup tier from `_layouts/cors-landing.html` and changed the services grid to `repeat(2, 1fr)` — but that change was **not yet committed or pushed**. This prompt supersedes that partial change. Do not re-apply it separately — the full restructure below replaces it.
+
+**Business decisions made this session:**
+- Self-Install tier is dropped entirely. It was never going to work — the target clients are "just make it work" clinicians, not DIY types.
+- Remote Setup tier is dropped entirely. Operationally impractical — would require shipping a pre-configured PC.
+- **Only one service tier remains: White Glove On-Site.**
+- Flat fee: **$499** for a standard single-room install.
+- Travel zones are transparent and shown on the page — clients need full pricing info to make a purchase decision.
+- Overnight travel (100+ miles) is quoted separately.
+
+---
+
+**File to edit:** `_layouts/cors-landing.html`
+
+---
+
+#### Change 1 — Services section head copy
+
+Find the `.aht-section-head` div inside the `#services` section. It currently reads:
+
+```html
+<h2>Choose your level of support</h2>
+<p style="color:var(--mid); font-size:15px; margin-top:12px; max-width:560px; line-height:1.65;">Service fees are separate from equipment cost. Equipment is sourced through major retailers &mdash; easy returns, manufacturer warranties, no markup.</p>
+```
+
+Replace with:
+
+```html
+<h2>Simple, transparent pricing</h2>
+<p style="color:var(--mid); font-size:15px; margin-top:12px; max-width:560px; line-height:1.65;">One service. One flat fee. Equipment is sourced separately through major retailers &mdash; easy returns, manufacturer warranties, no markup from us.</p>
+```
+
+---
+
+#### Change 2 — Remove the entire services grid and replace with a single pricing block
+
+Find and delete the entire `<div class="aht-services-grid reveal">` block — all three service cards inside it (Self-Install, Remote Setup if still present, White Glove On-Site). Delete the opening and closing `</div>` tags too.
+
+Also delete the `.aht-services-grid` CSS rule entirely (currently `grid-template-columns: repeat(2, 1fr)` or `repeat(3, 1fr)` depending on prior edits). Remove the responsive override for `.aht-services-grid` in the media query too.
+
+In place of the deleted grid, insert the following HTML block (goes between the equipment pricing table and the add-on strips):
+
+```html
+<!-- White Glove pricing block -->
+<div class="cors-pricing-block reveal">
+  <div class="cors-pricing-header">
+    <div>
+      <div class="aht-section-eyebrow" style="margin-bottom:8px;">White Glove On-Site</div>
+      <h3 class="cors-pricing-title">We handle everything. You press two buttons.</h3>
+    </div>
+    <div class="cors-pricing-badge">Most Comprehensive</div>
+  </div>
+  <p class="cors-pricing-desc">We order the equipment, arrive at your space, mount the camera, route the cables, configure the entire system, and train your staff. You show up to a working recording room.</p>
+  <ul class="aht-service-list" style="margin: 20px 0;">
+    <li>Free 15-minute scoping consultation</li>
+    <li>We source and order all equipment for you</li>
+    <li>Physical camera mount + professional cable routing</li>
+    <li>Full OBS + Stream Deck configuration</li>
+    <li>Cloud sync (Google Drive, Dropbox, or OneDrive) set up and tested</li>
+    <li>Test recording before we leave</li>
+    <li>On-site staff training — everyone knows the two buttons</li>
+    <li>30-day remote support included</li>
+  </ul>
+  <div class="cors-pricing-row">
+    <div>
+      <div class="cors-price-main">$499</div>
+      <div class="cors-price-sub">flat service fee &mdash; 1 room &mdash; equipment cost separate</div>
+    </div>
+    <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="btn-green">Book Free Consultation &rarr;</a>
+  </div>
+
+  <!-- Travel zone table -->
+  <div class="cors-travel-block">
+    <div class="cors-travel-label">Travel &amp; Service Area &mdash; Kentucky Only</div>
+    <table class="cors-travel-table">
+      <thead>
+        <tr>
+          <th>Zone</th>
+          <th>Distance from Lexington, KY</th>
+          <th>Travel Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Zone 1</td>
+          <td>0–20 miles</td>
+          <td class="cors-travel-fee included">Included</td>
+        </tr>
+        <tr>
+          <td>Zone 2</td>
+          <td>20–50 miles</td>
+          <td class="cors-travel-fee">+$75</td>
+        </tr>
+        <tr>
+          <td>Zone 3</td>
+          <td>50–100 miles</td>
+          <td class="cors-travel-fee">+$150</td>
+        </tr>
+        <tr>
+          <td>100+ miles</td>
+          <td>Overnight required</td>
+          <td class="cors-travel-fee">Quoted separately</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="cors-travel-note">Overnight jobs: hotel and meals reimbursed at cost (receipts provided) plus a $150 travel day fee. Most of central Kentucky is Zone 1 or 2. Louisville falls in Zone 3. <strong>We do not travel outside Kentucky.</strong></p>
+  </div>
+</div>
+```
+
+Add the following CSS rules to the `<style>` block (before the closing `</style>` tag):
+
+```css
+/* ── CORS PRICING BLOCK ── */
+.cors-pricing-block {
+  background: #fff;
+  border: 1px solid #e7e5e4;
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  margin-bottom: 20px;
+}
+.cors-pricing-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.cors-pricing-title {
+  font-family: var(--serif);
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.cors-pricing-badge {
+  flex-shrink: 0;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--green-text);
+  background: #d1fae5;
+  padding: 5px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.cors-pricing-desc {
+  font-size: 14.5px;
+  color: #57534e;
+  line-height: 1.7;
+  margin-bottom: 4px;
+}
+.cors-pricing-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  border-top: 1px solid #f5f5f4;
+  margin-top: 8px;
+}
+.cors-price-main {
+  font-family: var(--sans);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+.cors-price-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.cors-travel-block {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #f0faf6;
+}
+.cors-travel-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--green-text);
+  margin-bottom: 14px;
+}
+.cors-travel-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin-bottom: 14px;
+}
+.cors-travel-table thead tr {
+  border-bottom: 2px solid #e7e5e4;
+}
+.cors-travel-table th {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--ink);
+  text-align: left;
+  padding: 8px 12px 8px 0;
+}
+.cors-travel-table tbody tr {
+  border-bottom: 1px solid #f5f5f4;
+}
+.cors-travel-table td {
+  padding: 10px 12px 10px 0;
+  color: #57534e;
+  vertical-align: middle;
+}
+.cors-travel-fee {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--ink);
+}
+.cors-travel-fee.included {
+  color: var(--green);
+}
+.cors-travel-note {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+@media (max-width: 600px) {
+  .cors-pricing-block { padding: 24px 18px; }
+  .cors-pricing-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
+```
+
+---
+
+#### Change 3 — Update the services note below the add-on strips
+
+Find:
+```html
+<p class="aht-services-note">Everything starts with a free 15-minute consultation &mdash; no commitment, no pressure. Exact pricing confirmed after we discuss your space.</p>
+```
+
+Replace with:
+```html
+<p class="aht-services-note">Multi-room installs, custom configurations, and anything outside standard scope are quoted after your free consultation. Pricing above is for a standard single-room setup.</p>
+```
+
+---
+
+#### Change 4 — Update the FAQ answer about setup difficulty
+
+Find the `<details>` block with summary "How difficult is this to set up?" and replace the `<div class="faq-body">` content with:
+
+```html
+<div class="faq-body">With White Glove service, not difficult at all — for you. We handle the physical mount, cable routing, software configuration, and cloud sync. On the day we leave, you press a green button to start recording and a red button to stop. That's the entire workflow for your staff.</div>
+```
+
+---
+
+#### Change 5 — Commit and push
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add -A
+git commit -m "feat(cors): White Glove only — flat $499 pricing, travel zones, single pricing block"
+git push
+```
 
 ---
 
