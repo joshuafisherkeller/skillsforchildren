@@ -597,6 +597,25 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 
 ---
 
+### Session 19 — May 23, 2026
+**Task:** Update music tracking after *When Feelings Get Loud* was submitted through Amuse for distribution across 27 platforms in 25 countries. Local album package now includes Amuse-ready lyric `.txt` files and 3000x3000 upscaled album/track artwork used for distributor submission.
+**Commits:** No code committed — distribution/status tracking only
+**Pushed to GitHub:** No
+
+#### Files Created / Modified
+| File | What it does |
+|------|-------------|
+| `C:/Users/joshu/Skills for Children/SECOND_BRAIN.md` | Updated Educational Music catalog and pipeline: *When Feelings Get Loud* is now submitted through Amuse, pending platform approval/go-live and ASCAP registrations. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/Amuse Lyrics/*.txt` | Amuse-ready lyric text files for all 8 tracks, formatted without section labels/vocalist labels and with repeated lines written out. |
+| `C:/Users/joshu/Skills for Children/Songs/When Feelings Get Loud/Upscaled Album Art/*.png` | 3000x3000 PNG album/track artwork exports for Amuse upload, including `Cover.png` and all 8 track images. |
+| `C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone/Working_File.md` | Added this session log so the site/music roadmap reflects the distributor submission status. |
+
+#### Notes
+- Submitted distributor package covers the full 8-track album: "Brain Alarm", "Breathe Like Waves", "Name It, Choose It", "Maybe, Maybe Not", "My Story, My Voice", "One Step Braver", "Say It With Me", and "My Plan, My People".
+- Next website task remains building `skillsforchildren.com/songs` using the prepared per-song copy and artwork once release links are available.
+
+---
+
 ## Pending / TODOs — skillsforchildren.com
 
 - [x] **MCA dedicated page** — `/mca/` built and live (`b3e7a5b`). Hero image at `assets/img/mca/hero.jpg`.
