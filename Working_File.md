@@ -33,6 +33,7 @@
 | ~~3~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~CORS page: White Glove only, flat $499 pricing, travel zones — full services section restructure~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026](#may-24-2026--cors-page-white-glove-only-flat-pricing-travel-zones)~~ |
 | ~~4~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~CORS page: BOM update, offline angle expansion, remove cloud sync, CTA standardization, copy polish~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #2](#may-24-2026-2--cors-page-bom-update-offline-expansion-cta-standardization-copy-polish)~~ |
 | ~~5~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~/tech/ main page: CORS card rewrite + link, fix ticker, "looking for something else", CTA 15/30 split~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #3](#may-24-2026-3--tech-main-page-cors-card-ticker-fix-looking-for-something-else-cta-split)~~ |
+| ~~6~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~Full rename: CORS → Clinical Session Capture Kit. New URL /tech/capture-kit/, redirect /tech/cors/, Whisper add-on → Session Scribe~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #4](#may-24-2026-4--full-rename-cors-clinical-session-capture-kit)~~ |
 
 > When all rows are ~~struck through~~, the queue is clear.
 
@@ -889,14 +890,41 @@ Six-phase batch: fix book cover image → replace "evidence-based" sitewide → 
 ---
 
 ### Session 4 — May 24, 2026
-**Task:** Remove Remote Setup tier from CORS landing page. Decision: Remote Setup is operationally impractical (requires shipping the pre-configured mini PC, then managing a remote session). Also discussed PDF self-service sharing risk — recommendation to keep Self-Install as a free consultation tier rather than a paid PDF product.
+**Task:** Remove Remote Setup tier from Capture Kit landing page. Decision: Remote Setup is operationally impractical (requires shipping the pre-configured mini PC, then managing a remote session). Also discussed PDF self-service sharing risk — recommendation to keep Self-Install as a free consultation tier rather than a paid PDF product.
 **Commits:** `962433d`
 **Pushed to GitHub:** Yes
 
 #### Files Modified
 | File | What changed |
 |------|-------------|
-| `_layouts/cors-landing.html` | Removed Remote Setup service card. Updated `.aht-services-grid` from `repeat(3, 1fr)` to `repeat(2, 1fr)`. Adjusted responsive breakpoints: nav collapses at 720px, services grid stacks at 520px. |
+| `_layouts/capture-kit.html` (was `cors-landing.html`) | Removed Remote Setup service card. Updated `.aht-services-grid` from `repeat(3, 1fr)` to `repeat(2, 1fr)`. Adjusted responsive breakpoints: nav collapses at 720px, services grid stacks at 520px. |
+
+---
+
+### Session 7 — May 24, 2026
+**Task:** Full product rename — CORS → Clinical Session Capture Kit. New URL `/tech/capture-kit/`, `/tech/cors/` now redirects. Whisper add-on → Session Scribe.
+**Commits:** See below (committed with items 2–5 batch)
+**Pushed to GitHub:** Yes
+
+#### Files Created
+| File | What it does |
+|------|-------------|
+| `_layouts/capture-kit.html` | Renamed from `cors-landing.html`. All visible "CORS" / "Clinical Observation Recording System" copy updated to "Clinical Session Capture Kit". Add-on strip renamed from "Whisper Transcription" to "Session Scribe". |
+| `tech/capture-kit.html` | New page stub. `layout: capture-kit`, `permalink: /tech/capture-kit/`, `sitemap: true`. |
+
+#### Files Modified
+| File | What changed |
+|------|-------------|
+| `tech/cors.html` | Converted to HTTP meta-refresh redirect → `/tech/capture-kit/`. `layout: null`, `sitemap: false`. |
+| `_layouts/after-hours-tech.html` | Service card heading updated to "Clinical Session Capture Kit"; `href` updated from `/tech/cors/` to `/tech/capture-kit/`. |
+| `Working_File.md` | Session log prose updated to reflect new filenames and URLs. |
+
+#### Rename map (visible copy only — CSS class names unchanged)
+| Before | After |
+|--------|-------|
+| Clinical Observation Recording System | Clinical Session Capture Kit |
+| CORS (in nav breadcrumb) | Capture Kit |
+| Whisper Transcription (add-on strip heading) | Session Scribe |
 
 ---
 
@@ -908,13 +936,13 @@ Six-phase batch: fix book cover image → replace "evidence-based" sitewide → 
 #### Item 2 — home.html: "207" → "100+"
 4 instances replaced in `_layouts/home.html`: hero floater, stats strip, library description, search placeholder.
 
-#### Items 3 & 4 — cors-landing.html full rewrite
-Complete rewrite of `_layouts/cors-landing.html` applying White Glove only model ($499 flat), travel zone table (3 zones + 100+mi quoted), offline-first privacy section, updated BOM cards (Yealink UVC40 E2 + GEEKOM IT13), removed services grid, standardized all CTAs to "Book Your Free Consultation →" / "30-minute" throughout. Removed cloud sync entirely.
+#### Items 3 & 4 — capture-kit.html full rewrite
+Complete rewrite of `_layouts/capture-kit.html` applying White Glove only model ($499 flat), travel zone table (3 zones + 100+mi quoted), offline-first privacy section, updated BOM cards (Yealink UVC40 E2 + GEEKOM IT13), removed services grid, standardized all CTAs to "Book Your Free Consultation →" / "30-minute" throughout. Removed cloud sync entirely.
 
 #### Item 5 — after-hours-tech.html: 7 changes
 | Change | What was done |
 |--------|--------------|
-| CORS card rewrite | White Glove only, Kentucky only, 5-item service list, links to `/tech/cors/` |
+| Capture Kit card rewrite | White Glove only, Kentucky only, 5-item service list, links to `/tech/capture-kit/` |
 | Ticker fix | Replaced broken typewriter (`"A\|"` render bug) with static flex pills — 5 service pills, no animation |
 | Website CTA | `Schedule a free consultation →` → `Book a Free 30-Minute Consultation →` |
 | Video CTA | `Schedule a free consultation for a quote →` → `Book a Free 30-Minute Consultation →` |
@@ -959,15 +987,15 @@ Complete rewrite of `_layouts/cors-landing.html` applying White Glove only model
 ---
 
 ### Session 3 — May 23, 2026
-**Task:** Create CORS landing page at `/tech/cors/` from source file `cors-landing.html`. Applied 5 content changes: (1) "Designed by a clinician" → "Designed by a behavioral health professional"; (2) removed Battery Backup card from What's Included grid (6→5 cards); (3) updated sync copy from "within 60 seconds" → "when internet is available — typically within seconds of stopping"; (4) added equipment pricing table above service tiers grid; (5) replaced single Whisper add-on strip with two stacked strips (Whisper + UPS add-on). Added GA4 tag. Added AHT footer independence disclaimer.
+**Task:** Create Capture Kit landing page (then at `/tech/cors/`, now at `/tech/capture-kit/`) from source file. Applied 5 content changes: (1) "Designed by a clinician" → "Designed by a behavioral health professional"; (2) removed Battery Backup card from What's Included grid (6→5 cards); (3) updated sync copy from "within 60 seconds" → "when internet is available — typically within seconds of stopping"; (4) added equipment pricing table above service tiers grid; (5) replaced single Whisper add-on strip with two stacked strips (Whisper + UPS add-on). Added GA4 tag. Added AHT footer independence disclaimer.
 **Commits:** `feat(aht): add CORS landing page at /tech/cors/`
 **Pushed to GitHub:** Yes
 
 #### Files Created
 | File | What it does |
 |------|-------------|
-| `_layouts/cors-landing.html` | Standalone layout. Full `<html>` with own fonts, CSS, JS. No SFC inheritance. GA4 included. All 5 content changes applied. |
-| `tech/cors.html` | Front matter stub. `layout: cors-landing`, `permalink: /tech/cors/`, `sitemap: false`. |
+| `_layouts/capture-kit.html` (renamed from `cors-landing.html` in Session 7) | Standalone layout. Full `<html>` with own fonts, CSS, JS. No SFC inheritance. GA4 included. All 5 content changes applied. |
+| `tech/capture-kit.html` (created in Session 7; `tech/cors.html` now redirects here) | Front matter stub. `layout: capture-kit`, `permalink: /tech/capture-kit/`, `sitemap: true`. |
 
 ---
 
@@ -1065,6 +1093,118 @@ Footer note:    "After Hours Tech is independent of the University of Kentucky
 ## Cowork Prompts — After Hours Tech
 
 > **Claude Cowork:** Paste any prompts you generate for Claude Code here, with a date and description header.
+
+---
+
+### May 24, 2026 #4 — Full rename: CORS → Clinical Session Capture Kit
+
+**Context:** The product formerly known as CORS (Clinical Observation Recording System) is being renamed to **Clinical Session Capture Kit** everywhere — page title, headings, service card, URL, layout filename, and all copy. The Whisper transcription add-on is being renamed **Session Scribe**. This is a full find-and-replace + file restructure across multiple files.
+
+**Read all affected files in full before starting. Execute in order — do not skip steps.**
+
+---
+
+#### Step 1 — Create new page stub at /tech/capture-kit/
+
+Create `tech/capture-kit.html`:
+
+```yaml
+---
+layout: capture-kit
+permalink: /tech/capture-kit/
+title: "Clinical Session Capture Kit — After Hours Tech"
+description: "A complete, fully offline recording setup for therapy rooms. One button to start, one to stop. Installed on-site by After Hours Tech. Kentucky only."
+sitemap: true
+---
+```
+
+---
+
+#### Step 2 — Convert old page stub to redirect
+
+Replace the contents of `tech/cors.html` entirely with:
+
+```html
+---
+layout: null
+permalink: /tech/cors/
+sitemap: false
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url=/tech/capture-kit/">
+  <link rel="canonical" href="{{ site.url }}/tech/capture-kit/">
+  <title>Redirecting…</title>
+</head>
+<body>
+  <p>This page has moved. <a href="/tech/capture-kit/">Go to the Clinical Session Capture Kit →</a></p>
+</body>
+</html>
+```
+
+---
+
+#### Step 3 — Rename and update the layout file
+
+Rename `_layouts/cors-landing.html` → `_layouts/capture-kit.html`.
+
+Then inside the new `_layouts/capture-kit.html`, find and replace ALL of the following strings throughout the entire file:
+
+| Find | Replace with |
+|------|-------------|
+| `Clinical Observation Recording System` | `Clinical Session Capture Kit` |
+| `CORS` (as a product name in visible copy only — not in CSS class names, JS variables, or HTML attributes) | `Clinical Session Capture Kit` |
+| `Whisper Transcription Setup` | `Session Scribe` |
+| `Whisper transcription` (in copy) | `Session Scribe` |
+| `Local AI transcription` add-on strip heading | `Session Scribe` |
+| The `<title>` tag | `Clinical Session Capture Kit — After Hours Tech` |
+| Any `<h1>` or hero heading referencing CORS or the old name | Updated to feature "Clinical Session Capture Kit" |
+
+**Do NOT rename CSS classes** (e.g. `.cors-pricing-block`, `.cors-offline-block`, `.cors-travel-table`) — leave those as-is to avoid breaking styles.
+
+In the Whisper add-on strip, update the heading and description:
+
+**Before (approximately):**
+> Whisper Transcription Setup — Local AI transcription configured on your mini PC...
+
+**After:**
+> **Session Scribe** — Local AI transcription runs automatically after every recording. Entirely offline — no internet, no cloud, no subscription. Sessions are transcribed on your device and nowhere else.
+
+---
+
+#### Step 4 — Update the service card on /tech/ main page
+
+In `_layouts/after-hours-tech.html`, find the Clinical Observation Recording System / CORS service card.
+
+Update:
+- **Card heading** → `Clinical Session Capture Kit`
+- **Any link `href`** pointing to `/tech/cors/` → update to `/tech/capture-kit/`
+- **Badge** → keep `HIPAA-FRIENDLY`
+- **Description and list** — update any mention of "CORS" or "Clinical Observation Recording System" to "Clinical Session Capture Kit"
+
+---
+
+#### Step 5 — Update Working_File.md references
+
+In `Working_File.md`, do a find-and-replace:
+- All instances of `CORS landing page` → `Capture Kit landing page`
+- All instances of `/tech/cors/` → `/tech/capture-kit/`
+- All instances of `cors-landing` (layout references in prose, not in code blocks) → `capture-kit`
+
+Do NOT modify code blocks inside Cowork Prompts — those are historical records.
+
+---
+
+#### Step 6 — Commit and push
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add -A
+git commit -m "feat(aht): rename CORS → Clinical Session Capture Kit, /tech/capture-kit/, redirect /tech/cors/, Whisper add-on → Session Scribe"
+git push
+```
 
 ---
 
