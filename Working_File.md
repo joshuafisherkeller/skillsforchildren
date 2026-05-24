@@ -13,6 +13,10 @@
 
 > **For all agents:** `AHT_Working_File.md` no longer exists. It was merged into this file on May 20, 2026. Do not create a new `AHT_Working_File.md`. All After Hours Tech session logs, TODOs, and Cowork prompts go in **Section 2** of this file. All skillsforchildren.com logs go in **Section 1**.
 
+> **Agent responsibilities — do not cross these lines:**
+> - **Claude Code** — owns the Skills for Children website (`skillsforchildren.com`), After Hours Tech pages (`/tech/`), all Jekyll files, CSS, JS, layouts, data files, and this Working_File. All website commits come from Claude Code.
+> - **Codex** — owns the BRAVE app only. Does not touch the website repo or this Working_File.
+
 ---
 
 > # ⚡ STOP — READ THE PENDING PROMPTS TABLE BELOW BEFORE DOING ANYTHING ELSE
