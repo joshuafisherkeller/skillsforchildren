@@ -208,6 +208,8 @@
     .aht-hero-type-text { color: var(--green-mint); font-weight: 600; }
     .aht-cursor { color: var(--green-mint); animation: blink .7s step-end infinite; margin-left: 1px; }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .aht-hero-pills { display:inline-flex; flex-wrap:wrap; gap:6px 10px; margin-top:6px; }
+    .aht-hero-pill { font-family:var(--sans); font-size:12px; font-weight:600; color:var(--green-mint); background:rgba(110,231,183,.1); border:1px solid rgba(110,231,183,.2); padding:3px 10px; border-radius:100px; white-space:nowrap; }
 
     /* ═══════════════════════════════════
        FREE CALL STRIP
@@ -432,7 +434,15 @@
           <div class="aht-eyebrow">Evenings &amp; Weekends Only</div>
           <h1>Modern tech.<br>Human help.</h1>
           <p class="aht-hero-lede">Tech consulting and digital services &mdash; available when you actually are. AI coaching, websites, troubleshooting, video production, and in-home support.</p>
-          <div class="aht-hero-type-wrap" aria-hidden="true">Currently available for: <span id="ahtType" class="aht-hero-type-text"></span><span class="aht-cursor">|</span></div>
+          <div class="aht-hero-type-wrap">Currently available for:
+            <div class="aht-hero-pills">
+              <span class="aht-hero-pill">AI integration</span>
+              <span class="aht-hero-pill">web development</span>
+              <span class="aht-hero-pill">video production</span>
+              <span class="aht-hero-pill">clinical tech</span>
+              <span class="aht-hero-pill">in-home support</span>
+            </div>
+          </div>
           <div class="aht-hero-ctas">
             <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="btn-green">Book a session &rarr;</a>
             <a href="#services" class="btn-ghost-light">See all services</a>
@@ -487,20 +497,23 @@
           <div class="aht-service-head"><h3>Website &amp; Web Application Development</h3></div>
           <p class="aht-service-desc">From a clean, professional one-pager to fully customized web applications built with modern frameworks like React. I handle the entire pipeline: purchasing domains, setting up database architecture, and managing seamless cloud deployment. Built to last, not just to launch. Honest scope, honest timeline, and zero disappearing after handoff.</p>
           <div class="aht-service-pricing">
-            <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="aht-service-consult">Schedule a free consultation &rarr;</a>
+            <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="aht-service-consult">Book a Free 30-Minute Consultation &rarr;</a>
           </div>
         </div>
 
         <div class="aht-service-card reveal" style="transition-delay:.14s">
           <div class="aht-service-head"><h3>Clinical Observation Recording System</h3><span class="aht-badge">HIPAA-Friendly</span></div>
-          <p class="aht-service-desc">A completely local, hardware-integrated recording and transcription setup for your therapy room. Everything stays on your physical device&mdash;nothing ever goes to the cloud. Features a simple one-button start/stop system, with automatic, highly accurate session transcription generated immediately afterward using local AI.</p>
+          <p class="aht-service-desc">A fully local, offline recording and transcription setup purpose-built for therapy rooms. One button to start. One button to stop. Transcription runs automatically on the device &mdash; nothing ever leaves the room.</p>
+          <p class="aht-service-desc" style="margin-top:8px;">White Glove on-site installation &mdash; we handle everything. Kentucky only.</p>
           <ul class="aht-service-tiers">
-            <li><span class="tier-label">Tier 1</span> DIY setup guide (PDF)</li>
-            <li><span class="tier-label">Tier 4</span> Full on-site install &mdash; Central KY area</li>
+            <li>Full on-site install &mdash; camera, PC, monitor, Stream Deck, all configured</li>
+            <li>One-button recording &mdash; no tech knowledge required</li>
+            <li>Local AI transcription &mdash; offline, automatic, private</li>
+            <li>30-day remote support included</li>
+            <li>Evenings and weekends &mdash; never disrupts your client schedule</li>
           </ul>
           <div class="aht-service-pricing">
-            <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="aht-service-consult">Schedule a free consultation &rarr;</a>
-            <p class="aht-travel-note">*Willing to travel to other states for on-site installs</p>
+            <a href="/tech/cors/" class="aht-service-consult">Full details &rarr;</a>
           </div>
         </div>
 
@@ -508,7 +521,7 @@
           <div class="aht-service-head"><h3>Video Production &amp; Creative Media</h3></div>
           <p class="aht-service-desc">I take your core ideas and turn them into polished, professional videos and digital assets. This includes full video editing, graphic design, social media dissemination assets, and clean presentation templates.</p>
           <div class="aht-service-pricing">
-            <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="aht-service-consult">Schedule a free consultation for a quote &rarr;</a>
+            <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="aht-service-consult">Book a Free 30-Minute Consultation &rarr;</a>
           </div>
         </div>
 
@@ -522,7 +535,13 @@
         </div>
 
       </div>
-      <p class="aht-services-note">Everything starts with a free 15-minute call &mdash; no commitment, no pressure. Website, app, and design projects are custom-quoted after the scoping call.</p>
+      <p class="aht-services-note">Hourly services (AI Coaching, Tech Troubleshooting, In-Home) are booked and paid directly &mdash; 15-minute slots, confirmed via Stripe. Bigger projects (websites, video, CORS) start with a <strong>free 30-minute consultation</strong> &mdash; no commitment, custom-quoted after we talk.</p>
+      <div class="aht-looking-for reveal" style="text-align:center; padding:32px 20px; border-top:1px solid var(--ink-3); margin-top:8px;">
+        <p style="font-size:15px; color:var(--mid); line-height:1.7; max-width:520px; margin:0 auto;">
+          Looking for something else? Describe your project and I'll let you know if I can help &mdash;
+          <a href="mailto:joshuafisherkeller@gmail.com" style="color:var(--green-lt); text-decoration:none; border-bottom:1px solid var(--green-lt);">joshuafisherkeller@gmail.com</a>
+        </p>
+      </div>
     </div>
   </section>
 
@@ -593,10 +612,10 @@
       <div class="aht-discovery reveal" id="connect">
         <div class="aht-discovery-pill">Free &middot; Zero Obligation</div>
         <h2>Let&rsquo;s Talk Strategy</h2>
-        <p class="aht-discovery-sub">Free 15-Minute Tech Discovery Call</p>
-        <p class="aht-discovery-body">Have a project in mind, a technical bottleneck, or need a clean digital resource hub built for your organization? Let&rsquo;s map out a plan. In this brief, zero-obligation call, we&rsquo;ll look at your current setup, discuss your goals, and see if we&rsquo;re a right fit to build it together.</p>
+        <p class="aht-discovery-sub">Free 30-Minute Tech Discovery Call</p>
+        <p class="aht-discovery-body">Have a project in mind, a technical bottleneck, or need a clean digital resource hub built for your organization? Let&rsquo;s map out a plan. In this zero-obligation call, we&rsquo;ll look at your current setup, discuss your goals, and see if we&rsquo;re a right fit to build it together.</p>
         <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="btn-discovery">Book Your Free Consultation &rarr;</a>
-        <p class="aht-discovery-note">Evenings &amp; weekends &middot; No commitment &middot; 15 minutes</p>
+        <p class="aht-discovery-note">Evenings &amp; weekends &middot; No commitment &middot; 30 minutes</p>
       </div>
 
     </div>
@@ -688,25 +707,6 @@
       hero.addEventListener('mouseleave', function () { spot.style.opacity = '0'; });
     })();
 
-    // Typewriter
-    (function () {
-      var el = document.getElementById('ahtType');
-      if (!el) return;
-      var words = ['AI integration', 'web development', 'video production', 'clinical tech', 'in-home support'];
-      var i = 0, c = 0, del = false;
-      function tick() {
-        var w = words[i];
-        if (!del) {
-          el.textContent = w.slice(0, ++c);
-          if (c === w.length) { del = true; setTimeout(tick, 2000); return; }
-        } else {
-          el.textContent = w.slice(0, --c);
-          if (c === 0) { del = false; i = (i + 1) % words.length; }
-        }
-        setTimeout(tick, del ? 55 : 85);
-      }
-      setTimeout(tick, 800);
-    })();
 
     // Service card 3D tilt
     (function () {
