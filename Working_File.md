@@ -885,8 +885,8 @@ Six-phase batch: fix book cover image → replace "evidence-based" sitewide → 
 
 ### Session 4 — May 24, 2026
 **Task:** Remove Remote Setup tier from CORS landing page. Decision: Remote Setup is operationally impractical (requires shipping the pre-configured mini PC, then managing a remote session). Also discussed PDF self-service sharing risk — recommendation to keep Self-Install as a free consultation tier rather than a paid PDF product.
-**Commits:** pending — not yet pushed
-**Pushed to GitHub:** No
+**Commits:** `962433d`
+**Pushed to GitHub:** Yes
 
 #### Files Modified
 | File | What changed |
@@ -897,8 +897,8 @@ Six-phase batch: fix book cover image → replace "evidence-based" sitewide → 
 
 ### Session 5 — May 24, 2026
 **Task:** Finalize CORS equipment BOM with real Amazon affiliate links via SiteStripe. Upgraded standard camera from Yealink 4K ($339.99) to Yealink UVC40 E2 ($499) after evaluating 8-mic array advantage for clinical transcription accuracy.
-**Commits:** pending
-**Pushed to GitHub:** No
+**Commits:** `962433d`
+**Pushed to GitHub:** Yes
 
 #### CORS Equipment BOM — Finalized May 24, 2026
 
