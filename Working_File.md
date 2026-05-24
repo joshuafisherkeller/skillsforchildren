@@ -32,6 +32,7 @@
 | 2 | May 23, 2026 | skillsforchildren.com | Replace "207" resource count with "100+" sitewide | [Section 1 → Cowork Prompts → May 23, 2026](#may-23-2026--replace-207-resource-count-with-100-sitewide) |
 | 3 | May 24, 2026 | After Hours Tech | CORS page: White Glove only, flat $499 pricing, travel zones — full services section restructure | [Section 2 → Cowork Prompts → May 24, 2026](#may-24-2026--cors-page-white-glove-only-flat-pricing-travel-zones) |
 | 4 | May 24, 2026 | After Hours Tech | CORS page: BOM update, offline angle expansion, remove cloud sync, CTA standardization, copy polish | [Section 2 → Cowork Prompts → May 24, 2026 #2](#may-24-2026-2--cors-page-bom-update-offline-expansion-cta-standardization-copy-polish) |
+| 5 | May 24, 2026 | After Hours Tech | /tech/ main page: CORS card rewrite + link, fix ticker, "looking for something else", CTA 15/30 split | [Section 2 → Cowork Prompts → May 24, 2026 #3](#may-24-2026-3--tech-main-page-cors-card-ticker-fix-looking-for-something-else-cta-split) |
 
 > When all rows are ~~struck through~~, the queue is clear.
 
@@ -951,6 +952,7 @@ Six-phase batch: fix book cover image → replace "evidence-based" sitewide → 
 - [x] **Pricing** — Finalized May 21, 2026. AI Coaching $30/hr, Tech Troubleshooting $30/hr, In-Home $50/hr. Consultation-first for website/app/design. CORS free scoping call.
 - [x] **Cal.com hours** — Confirmed set to evenings (6–10 PM ET weekdays) and weekends only. No 9–5 slots visible. Done May 21, 2026.
 - [x] **UK outside employment policy** — Closed May 21, 2026.
+- [ ] **⚠️ Josh action required — Cal.com:** Add a new booking type: **"Free 30-Minute Project Consultation"** (free, 30 min). This will be linked from Website/App Dev, Video Production, and CORS service cards. Currently Cal.com only has the 15-minute paid session types. Until this is added, the "30-minute consultation" CTAs on the site have nowhere to land.
 - [ ] **Domain** — Check `afterhourstech.com` (and `.io`, `.co`) availability if a dedicated domain is desired later.
 - [ ] **Social/booking handles** — Secure Instagram, LinkedIn handles under "After Hours Tech" / "AfterHoursTech."
 - [ ] **In-Home Tech Service radius** — Define a specific service radius (Lexington, KY + X miles) and minimum booking (e.g., 1.5 hours). Update service card copy when confirmed.
@@ -1039,6 +1041,111 @@ Footer note:    "After Hours Tech is independent of the University of Kentucky
 ## Cowork Prompts — After Hours Tech
 
 > **Claude Cowork:** Paste any prompts you generate for Claude Code here, with a date and description header.
+
+---
+
+### May 24, 2026 #3 — /tech/ main page: CORS card rewrite + link, fix ticker, "looking for something else", CTA 15/30 split
+
+**Context:** Updates to `_layouts/after-hours-tech.html` — the main After Hours Tech landing page at `/tech/`. Several service cards need updating, the CORS card is significantly out of date and must link to `/tech/cors/`, CTAs need a 15/30-minute split based on service type, and new copy/sections need to be added.
+
+**Read `_layouts/after-hours-tech.html` in full before starting.**
+
+---
+
+#### Change 1 — CORS service card: full rewrite + link to /tech/cors/
+
+Find the Clinical Observation Recording System service card. It currently shows TIER 1 and TIER 4 labels and says "willing to travel to other states." Replace the entire card body content with:
+
+**Heading:** Clinical Observation Recording System
+**Badge:** HIPAA-FRIENDLY (keep existing badge)
+
+**Description:**
+```
+A fully local, offline recording and transcription setup purpose-built for therapy rooms. One button to start. One button to stop. Transcription runs automatically on the device — nothing ever leaves the room.
+
+White Glove on-site installation — we handle everything. Kentucky only.
+```
+
+**Service list (if the card uses a list):**
+- Full on-site install — camera, PC, monitor, Stream Deck, all configured
+- One-button recording — no tech knowledge required
+- Local AI transcription — offline, automatic, private
+- 30-day remote support included
+- Evenings and weekends — never disrupts your client schedule
+
+**CTA:** Replace whatever CTA exists with:
+```html
+<a href="/tech/cors/" class="[existing CTA class]">Full details &rarr;</a>
+```
+
+Remove "Willing to travel to other states for on-site installs" entirely. Remove all TIER language (TIER 1, TIER 4). Remove any reference to a DIY PDF.
+
+---
+
+#### Change 2 — Fix the broken availability ticker
+
+The ticker at the top of the page ("Currently available for:") is rendering as "A|" — a broken animation state. Find the ticker JS and the pills data array. Verify the array is properly defined and that the animation loop is correctly initializing. Fix whatever is causing the truncated render. If the ticker cannot be reliably fixed, replace it with a static flex row of availability pills (same content, no animation) — reliability over cleverness.
+
+---
+
+#### Change 3 — Add "Looking for something else?" section
+
+After the services grid and the services note paragraph, add the following section:
+
+```html
+<div class="aht-looking-for reveal" style="text-align:center; padding:32px 20px; border-top:1px solid var(--ink-3); margin-top:8px;">
+  <p style="font-size:15px; color:var(--text-2); line-height:1.7; max-width:520px; margin:0 auto;">
+    Looking for something else? Describe your project and I'll let you know if I can help &mdash;
+    <a href="mailto:joshuafisherkeller@gmail.com" style="color:var(--green-lt); text-decoration:none; border-bottom:1px solid var(--green-lt);">joshuafisherkeller@gmail.com</a>
+  </p>
+</div>
+```
+
+---
+
+#### Change 4 — CTA 15/30 split by service type
+
+Update the CTA text and consultation length on each service card as follows. Do NOT change the `href` URLs — all CTAs still point to `https://cal.com/Fisherkeller`.
+
+| Service | Session type | CTA text |
+|---------|-------------|----------|
+| Advanced AI Integration & Workflows | 15 min, paid via Stripe | No change — keep existing "Book a session →" |
+| Tech Troubleshooting | 15 min, paid via Stripe | No change — keep existing "Book a session →" |
+| Website & Web Application Development | Free 30-min consultation | Change to: `Book a Free 30-Minute Consultation →` |
+| Clinical Observation Recording System | Links to /tech/cors/ | `Full details →` (handled in Change 1) |
+| Video Production & Creative Media | Free 30-min consultation | Change to: `Book a Free 30-Minute Consultation →` |
+| In-Home Tech Service | 15 min or hourly, paid | No change — keep existing booking CTA |
+
+---
+
+#### Change 5 — Update the services note paragraph
+
+Find the paragraph below the services grid that currently reads:
+> "Everything starts with a free 15-minute call — no commitment, no pressure. Website, app, and design projects are custom-quoted after the scoping call."
+
+Replace with:
+```html
+<p class="aht-services-note">Hourly services (AI Coaching, Tech Troubleshooting, In-Home) are booked and paid directly — 15-minute slots, confirmed via Stripe. Bigger projects (websites, video, CORS) start with a <strong>free 30-minute consultation</strong> — no commitment, custom-quoted after we talk.</p>
+```
+
+---
+
+#### Change 6 — "Let's Talk Strategy" section: update to 30 minutes
+
+Find the "Let's Talk Strategy" / "Free Tech Discovery Call" section. Update the time reference from 15 minutes to 30 minutes throughout that section. This is a strategy-level conversation and fits the 30-minute model.
+
+Change any instance of "15-Minute" or "15-minute" in that section to "30-Minute" / "30-minute". Keep everything else the same.
+
+---
+
+#### Change 7 — Commit and push
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add -A
+git commit -m "feat(aht): CORS card update + link, ticker fix, 15/30 CTA split, looking for something else"
+git push
+```
 
 ---
 
