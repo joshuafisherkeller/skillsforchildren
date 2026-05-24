@@ -34,6 +34,7 @@
 | ~~4~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~CORS page: BOM update, offline angle expansion, remove cloud sync, CTA standardization, copy polish~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #2](#may-24-2026-2--cors-page-bom-update-offline-expansion-cta-standardization-copy-polish)~~ |
 | ~~5~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~/tech/ main page: CORS card rewrite + link, fix ticker, "looking for something else", CTA 15/30 split~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #3](#may-24-2026-3--tech-main-page-cors-card-ticker-fix-looking-for-something-else-cta-split)~~ |
 | ~~6~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~Full rename: CORS → Clinical Session Capture Kit. New URL /tech/capture-kit/, redirect /tech/cors/, Whisper add-on → Session Scribe~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #4](#may-24-2026-4--full-rename-cors-clinical-session-capture-kit)~~ |
+| ~~7~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: remove all brand/product names from cards — keep copy descriptive only~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #5](#may-24-2026-5--capture-kit-page-remove-brand-names-from-cards)~~ |
 
 > When all rows are ~~struck through~~, the queue is clear.
 
@@ -901,6 +902,32 @@ Six-phase batch: fix book cover image → replace "evidence-based" sitewide → 
 
 ---
 
+### Session 8 — May 24, 2026
+**Task:** Remove brand/product names from all visitor-facing copy on Capture Kit page — keep descriptions functional, not brand-specific.
+**Commit:** See below
+**Pushed to GitHub:** Yes
+
+#### Files Modified
+| File | What changed |
+|------|-------------|
+| `_layouts/capture-kit.html` | 9 copy edits in What's Included cards, pricing list, and FAQ answers |
+
+#### Changes applied
+| Location | Before | After |
+|----------|--------|-------|
+| Camera card body | "Yealink UVC40 E2 — 8-mic array..." | "8-microphone array with 120° wide-angle lens..." |
+| Mini PC card body | "GEEKOM IT13 — compact, silent..." | "Compact, silent, and powerful enough to run recording software..." |
+| Monitor card body | "Dell 24" display with ultra-quiet Logitech..." | "24" display with ultra-quiet keyboard and mouse..." |
+| Controller card heading | "One-Button Stream Deck" | "One-Button Recording Controller" |
+| Controller card body | "Elgato Stream Deck Mini — green button..." | "Green button to start, red button to stop..." |
+| Recording software card heading | "OBS Studio" | "Recording Software" |
+| Transcription card heading | "Whisper AI Transcription" | "Local AI Transcription" |
+| Pricing list item | "Full OBS + Stream Deck configuration" | "Full recording software + controller configuration" |
+| FAQ answer 1 | "The Yealink camera sits on a shelf" | "The conference camera sits on a shelf" |
+| FAQ answer 2 | "Stream Deck on the desk" | "recording controller on the desk" |
+
+---
+
 ### Session 7 — May 24, 2026
 **Task:** Full product rename — CORS → Clinical Session Capture Kit. New URL `/tech/capture-kit/`, `/tech/cors/` now redirects. Whisper add-on → Session Scribe.
 **Commits:** See below (committed with items 2–5 batch)
@@ -1203,6 +1230,78 @@ Do NOT modify code blocks inside Cowork Prompts — those are historical records
 cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
 git add -A
 git commit -m "feat(aht): rename CORS → Clinical Session Capture Kit, /tech/capture-kit/, redirect /tech/cors/, Whisper add-on → Session Scribe"
+git push
+```
+
+---
+
+### May 24, 2026 #5 — Capture Kit page: remove brand names from cards
+
+**Context:** Several cards and copy blocks on `_layouts/capture-kit.html` currently name specific brands/products (Yealink, GEEKOM, OBS Studio, Elgato, Logitech, Dell, Whisper). The design intention is to keep all visitor-facing copy descriptive — describing what the component *does*, not what brand it is. This is a copy-only edit. Do not touch CSS classes, data attributes, or the BOM/affiliate link section.
+
+**Read `_layouts/capture-kit.html` in full before starting.**
+
+---
+
+#### Change 1 — "What's Included" cards
+
+Locate the six `.aht-include-card` divs. Apply the following copy changes:
+
+**Card: 4K Conference Camera**
+- Body: Replace `Yealink UVC40 E2 &mdash; 8-microphone array, 120&deg; wide angle, auto framing, and speaker tracking. Captures both clinician and client clearly from a single mount point.`
+- With: `8-microphone array with 120&deg; wide-angle lens, auto framing, and speaker tracking. Captures both clinician and client clearly from a single mount point — no repositioning needed.`
+
+**Card: Dedicated Mini PC**
+- Body: Replace `GEEKOM IT13 &mdash; compact, silent, and powerful enough to run OBS and Whisper locally. Stays in the room, dedicated to recording. Never shared.`
+- With: `Compact, silent, and powerful enough to run recording software and local AI transcription. Stays in the room, dedicated to capture. Never shared with other computers or users.`
+
+**Card: Monitor, Keyboard & Mouse**
+- Body: Replace `Dell 24&rdquo; display with ultra-quiet Logitech keyboard and mouse. Lets you verify camera framing and confirm recording is active without disrupting the session.`
+- With: `24&rdquo; display with ultra-quiet keyboard and mouse. Lets you verify camera framing and confirm recording is active without disrupting the session.`
+
+**Card: One-Button Stream Deck (header) + body**
+- Header: Change `One-Button Stream Deck` → `One-Button Recording Controller`
+- Body: Replace `Elgato Stream Deck Mini &mdash; green button to start, red button to stop. No computer knowledge required.`
+- With: `Green button to start, red button to stop. Sits on the desk within easy reach. No computer knowledge required.`
+
+**Card: OBS Studio (header) + body**
+- Header: Change `OBS Studio` → `Recording Software`
+- Body (keep as-is): `Free, professional recording software. Pre-configured and ready to use on day one. Nothing to install or learn.`
+
+**Card: Whisper AI Transcription (header)**
+- Header: Change `Whisper AI Transcription` → `Local AI Transcription`
+- Body (keep as-is): `Local AI transcription runs entirely on your device. Sessions are transcribed automatically after every recording. Nothing leaves your machine.`
+
+---
+
+#### Change 2 — "What's included" bullet list (inside the pricing/services block)
+
+Find the `<li>` that reads:
+`Full OBS + Stream Deck configuration`
+
+Replace with:
+`Full recording software + controller configuration`
+
+---
+
+#### Change 3 — FAQ answers
+
+Find the FAQ answer containing `The Yealink camera sits on a shelf...`
+
+Replace `The Yealink camera` with `The conference camera`.
+
+Find the FAQ answer containing `Stream Deck on the desk.`
+
+Replace `Stream Deck on the desk` with `recording controller on the desk`.
+
+---
+
+#### Change 4 — Commit and push
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add _layouts/capture-kit.html
+git commit -m "fix(aht): remove brand names from Capture Kit cards — keep copy descriptive"
 git push
 ```
 
