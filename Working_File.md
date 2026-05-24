@@ -29,10 +29,10 @@
 | # | Date | Project | Description | Location in file |
 |---|------|---------|-------------|-----------------|
 | ~~1~~ | ~~May 23, 2026~~ | ~~After Hours Tech~~ | ~~Create CORS landing page at /tech/cors/~~ | ~~[Section 2 → Cowork Prompts → May 23, 2026](#may-23-2026--create-cors-landing-page-at-techcors)~~ |
-| 2 | May 23, 2026 | skillsforchildren.com | Replace "207" resource count with "100+" sitewide | [Section 1 → Cowork Prompts → May 23, 2026](#may-23-2026--replace-207-resource-count-with-100-sitewide) |
-| 3 | May 24, 2026 | After Hours Tech | CORS page: White Glove only, flat $499 pricing, travel zones — full services section restructure | [Section 2 → Cowork Prompts → May 24, 2026](#may-24-2026--cors-page-white-glove-only-flat-pricing-travel-zones) |
-| 4 | May 24, 2026 | After Hours Tech | CORS page: BOM update, offline angle expansion, remove cloud sync, CTA standardization, copy polish | [Section 2 → Cowork Prompts → May 24, 2026 #2](#may-24-2026-2--cors-page-bom-update-offline-expansion-cta-standardization-copy-polish) |
-| 5 | May 24, 2026 | After Hours Tech | /tech/ main page: CORS card rewrite + link, fix ticker, "looking for something else", CTA 15/30 split | [Section 2 → Cowork Prompts → May 24, 2026 #3](#may-24-2026-3--tech-main-page-cors-card-ticker-fix-looking-for-something-else-cta-split) |
+| ~~2~~ | ~~May 23, 2026~~ | ~~skillsforchildren.com~~ | ~~Replace "207" resource count with "100+" sitewide~~ | ~~[Section 1 → Cowork Prompts → May 23, 2026](#may-23-2026--replace-207-resource-count-with-100-sitewide)~~ |
+| ~~3~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~CORS page: White Glove only, flat $499 pricing, travel zones — full services section restructure~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026](#may-24-2026--cors-page-white-glove-only-flat-pricing-travel-zones)~~ |
+| ~~4~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~CORS page: BOM update, offline angle expansion, remove cloud sync, CTA standardization, copy polish~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #2](#may-24-2026-2--cors-page-bom-update-offline-expansion-cta-standardization-copy-polish)~~ |
+| ~~5~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~/tech/ main page: CORS card rewrite + link, fix ticker, "looking for something else", CTA 15/30 split~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #3](#may-24-2026-3--tech-main-page-cors-card-ticker-fix-looking-for-something-else-cta-split)~~ |
 
 > When all rows are ~~struck through~~, the queue is clear.
 
@@ -897,6 +897,30 @@ Six-phase batch: fix book cover image → replace "evidence-based" sitewide → 
 | File | What changed |
 |------|-------------|
 | `_layouts/cors-landing.html` | Removed Remote Setup service card. Updated `.aht-services-grid` from `repeat(3, 1fr)` to `repeat(2, 1fr)`. Adjusted responsive breakpoints: nav collapses at 720px, services grid stacks at 520px. |
+
+---
+
+### Session 6 — May 24, 2026
+**Task:** Queue items 2–5 executed in full. Commit and push for items 2–4 (`fc3e764`), then item 5 (`77debe7`). Working_File queue now clear.
+**Commits:** `fc3e764` (items 2–4), `77debe7` (item 5)
+**Pushed to GitHub:** Yes
+
+#### Item 2 — home.html: "207" → "100+"
+4 instances replaced in `_layouts/home.html`: hero floater, stats strip, library description, search placeholder.
+
+#### Items 3 & 4 — cors-landing.html full rewrite
+Complete rewrite of `_layouts/cors-landing.html` applying White Glove only model ($499 flat), travel zone table (3 zones + 100+mi quoted), offline-first privacy section, updated BOM cards (Yealink UVC40 E2 + GEEKOM IT13), removed services grid, standardized all CTAs to "Book Your Free Consultation →" / "30-minute" throughout. Removed cloud sync entirely.
+
+#### Item 5 — after-hours-tech.html: 7 changes
+| Change | What was done |
+|--------|--------------|
+| CORS card rewrite | White Glove only, Kentucky only, 5-item service list, links to `/tech/cors/` |
+| Ticker fix | Replaced broken typewriter (`"A\|"` render bug) with static flex pills — 5 service pills, no animation |
+| Website CTA | `Schedule a free consultation →` → `Book a Free 30-Minute Consultation →` |
+| Video CTA | `Schedule a free consultation for a quote →` → `Book a Free 30-Minute Consultation →` |
+| Services note | Updated to clarify 15-min (hourly) vs 30-min (projects) model |
+| "Looking for something else?" | Added section after services grid with email link |
+| Let's Talk Strategy | Updated from 15-minute to 30-minute throughout |
 
 ---
 
