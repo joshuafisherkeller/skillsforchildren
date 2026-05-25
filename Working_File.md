@@ -35,6 +35,7 @@
 | ~~5~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~/tech/ main page: CORS card rewrite + link, fix ticker, "looking for something else", CTA 15/30 split~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #3](#may-24-2026-3--tech-main-page-cors-card-ticker-fix-looking-for-something-else-cta-split)~~ |
 | ~~6~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~Full rename: CORS → Clinical Session Capture Kit. New URL /tech/capture-kit/, redirect /tech/cors/, Whisper add-on → Session Scribe~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #4](#may-24-2026-4--full-rename-cors-clinical-session-capture-kit)~~ |
 | ~~7~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: remove all brand/product names from cards — keep copy descriptive only~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #5](#may-24-2026-5--capture-kit-page-remove-brand-names-from-cards)~~ |
+| ~~8~~ | ~~May 25, 2026~~ | ~~skillsforchildren.com~~ | ~~Add 76 approved resources across 9 pillars (skills-resources.yml + trauma-resources.yml)~~ | ~~[Section 1 → Cowork Prompts → May 25, 2026](#may-25-2026--add-76-approved-resources-across-9-pillars)~~ |
 
 > When all rows are ~~struck through~~, the queue is clear.
 
@@ -626,6 +627,33 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 
 ---
 
+### Session 20 — May 25, 2026
+**Task:** Add 76 approved resources across 9 pillars (Working_File item 8).
+**Commit:** `93ddac3`
+**Pushed to GitHub:** Yes
+
+#### Files changed
+- `_data/skills-resources.yml` — +37 resources
+- `_data/trauma-resources.yml` — +38 resources (1 duplicate skipped)
+
+#### Resource counts before → after
+
+| File | Pillar | Before | Added | After |
+|------|--------|--------|-------|-------|
+| skills-resources.yml | executive-function | 5 | +10 | 15 |
+| skills-resources.yml | mindset-emotional | 8 | +5 | 13 |
+| skills-resources.yml | communication-social | 6 | +10 | 16 |
+| skills-resources.yml | sensory-processing | 3 | +12 | 15 |
+| trauma-resources.yml | self-regulation-coregulation | 8 | +7 | 15 |
+| trauma-resources.yml | identifying-expressing-feelings | 8 | +6 | 14 |
+| trauma-resources.yml | coping-skills-strategies | 7 | +9 | 16 |
+| trauma-resources.yml | safety-trusted-people | 4 | +8 | 12 |
+| trauma-resources.yml | healing-resilience | 7 | +8 | 15 |
+
+**Duplicate skipped:** `https://childmind.org/healthyminds/understanding-feelings-parents-elementary/` already existed in `self-regulation-coregulation` pillar (line 162, "Understanding Feelings Relaxation Skills"). The item 8 list included this same URL for `identifying-expressing-feelings` — skipped, net 75 resources added rather than 76.
+
+---
+
 ## Pending / TODOs — skillsforchildren.com
 
 - [x] **MCA dedicated page** — `/mca/` built and live (`b3e7a5b`). Hero image at `assets/img/mca/hero.jpg`.
@@ -685,6 +713,591 @@ TORF Hub:       _layouts/resilient-forest-hub.html — uses layout: default (inh
 
 > **Claude Cowork:** Paste any prompts you generate for Claude Code here, with a date and description header.
 > Format: `### [Date] — [Brief description of what the prompt is for]` then the prompt text.
+
+---
+
+### May 25, 2026 — Add 76 approved resources across 9 pillars
+
+**Context:** Josh reviewed two Google Sheets of resource candidates and approved 76 resources:
+- Part 1 (40 resources): Sensory Processing (12), Safety & Trusted People (8), Executive Function (10), Communication & Social Skills (10)
+- Part 2 (36 resources): Coping Skills & Strategies (9), Identifying & Expressing Feelings (7), Self-Regulation & Co-Regulation (7), Healing & Resilience (8), Mindset & Emotional Awareness (5)
+
+Resources go into `_data/skills-resources.yml` (37 total: Sensory Processing 12, Executive Function 10, Communication 10, Mindset 5) and `_data/trauma-resources.yml` (39 total: Safety 8, Coping 9, Feelings 7, Co-Regulation 7, Healing 8).
+
+**Before starting:** Read both YAML files in full. Skip any URL that already exists (exact match). Append new resources at the END of each pillar's `resources:` list. Preserve 6-space indentation throughout. Commit both files together when done.
+
+---
+
+#### FILE 1: `_data/skills-resources.yml`
+
+##### Pillar: `sensory-processing` — append 12 resources
+
+      - title: "Understanding Sensory Issues in Children"
+        url: "https://childmind.org/article/sensory-processing-issues-explained/"
+        description: "Comprehensive overview of sensory processing issues including signs and types of sensitivity — oversensitive and undersensitive — and how occupational therapists help"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+      - title: "Understanding Sensory Processing Challenges in Your Child"
+        url: "https://www.understood.org/en/articles/understanding-sensory-processing-challenges"
+        description: "Explains both types of sensory challenges, signs to watch for, and how OTs create sensory diets — includes a downloadable fact sheet"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Understood.org"
+
+      - title: "Quick Guide to Sensory Processing Issues"
+        url: "https://childmind.org/guide/quick-guide-to-sensory-processing-issues/"
+        description: "Concise parent-friendly guide to understanding and supporting children with sensory processing differences — good starting point for newly-identified families"
+        audience: "Caregivers"
+        format: "Guide"
+        source: "Child Mind Institute"
+
+      - title: "Sensory Processing FAQ"
+        url: "https://childmind.org/article/sensory-processing-faq/"
+        description: "Expert answers to the most common parent questions about sensory processing in children — what it is and what you can do"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+      - title: "Tips for Going Places With Sensory-Challenged Kids"
+        url: "https://childmind.org/article/tips-for-going-places-with-sensory-challenged-kids/"
+        description: "Practical strategies for managing outings, crowds, and transitions with sensory-sensitive children — covers noise, light, and unexpected sensory environments"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+      - title: "10 Ways to Help Grade-Schoolers Manage Sensory Challenges"
+        url: "https://www.understood.org/articles/help-grade-schoolers-manage-sensory-processing-challenges"
+        description: "School-focused strategies for managing sensory challenges in music class, recess, lunchtime, writing, and art — with practical tips for each setting"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Understood.org"
+
+      - title: "8 Sensory-Friendly Indoor Games and Activities"
+        url: "https://www.understood.org/en/articles/sensory-friendly-indoor-games-and-activities"
+        description: "Fun sensory-friendly indoor activities that help children build motor and other skills while engaging their senses in a controlled and enjoyable way"
+        audience: "Children / Caregivers"
+        format: "Activity List"
+        source: "Understood.org"
+
+      - title: "Classroom Accommodations for Sensory Processing Challenges"
+        url: "https://www.understood.org/articles/classroom-accommodations-for-sensory-processing-challenges"
+        description: "School accommodations guide covering quiet work spaces, flexible seating, sensory breaks, and building self-regulation skills in the classroom"
+        audience: "Professionals"
+        format: "Article"
+        source: "Understood.org"
+
+      - title: "8 Ways to Help Kids Who Are Sensitive to Touch and Textures"
+        url: "https://www.understood.org/en/articles/tactile-sensitivity-how-to-cope"
+        description: "Practical tips for supporting children with tactile sensitivity, including giving advance warning, finding creative ways to show affection, and gradual desensitization"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Understood.org"
+
+      - title: "10 Sensory Activities for Children with Autism"
+        url: "https://www.autismspeaks.org/blog/10-sensory-activities-for-autism"
+        description: "Hands-on sensory activities including sensory bins, rainbow ice excavation, and slime that support sensory integration and engagement for children with sensory processing differences"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Autism Speaks"
+
+      - title: "Supporting Sensory Needs at School"
+        url: "https://www.autismspeaks.org/tool-kit-excerpt/autism-classroom-strategies"
+        description: "Educator guide for identifying and accommodating sensory needs in school — including minimizing loud noises, scented products, and bright lighting"
+        audience: "Professionals"
+        format: "Article"
+        source: "Autism Speaks"
+
+      - title: "How to Make a Sensory Travel Kit for Your Child"
+        url: "https://www.understood.org/en/articles/how-to-make-sensory-travel-kit-for-kids"
+        description: "Step-by-step guide for building a portable sensory kit including weighted lap pads, fidgets, and calming tools for trips and outings"
+        audience: "Caregivers"
+        format: "Guide"
+        source: "Understood.org"
+
+##### Pillar: `executive-function` — append 10 resources
+
+      - title: "How to Build Executive Functioning Skills for Kids"
+        url: "https://childmind.org/article/helping-kids-who-struggle-with-executive-functions/"
+        description: "Practical strategies including breaking tasks into smaller steps, using planners and checklists, and building consistent routines to support children with executive function challenges"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+      - title: "Enhancing and Practicing Executive Function Skills"
+        url: "https://developingchild.harvard.edu/resources/activities-guide-enhancing-and-practicing-executive-function-skills-with-children-from-infancy-to-adolescence/"
+        description: "Free downloadable Harvard activity guides for supporting executive function from infancy to adolescence — practical and research-backed"
+        audience: "Caregivers / Professionals"
+        format: "Guide"
+        source: "Harvard Center on the Developing Child"
+
+      - title: "How to Help Kids With Working Memory Issues"
+        url: "https://childmind.org/article/how-to-help-kids-with-working-memory-issues/"
+        description: "Practical tools including to-do lists, reminders, and chunking complex assignments to help children compensate for working memory difficulties"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+      - title: "What Is Working Memory?"
+        url: "https://childmind.org/article/what-is-working-memory/"
+        description: "Clear explanation of working memory as an executive function and its role in how children process and use information day to day"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+      - title: "8 Working Memory Boosters"
+        url: "https://www.understood.org/articles/8-working-memory-boosters"
+        description: "Eight practical home strategies including visualization, card games, and active reading that strengthen working memory in children"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Understood.org"
+
+      - title: "Executive Function Strategies for Your Child"
+        url: "https://www.understood.org/en/articles/executive-functioning-issues-strategies-you-can-try-at-home"
+        description: "Parenting strategies for improving executive function at home — covering planning and organization skills"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Understood.org"
+
+      - title: "Executive Function Activities for 3- to 5-Year-Olds"
+        url: "https://developingchild.harvard.edu/wp-content/uploads/2024/10/Executive-Function-Activities-for-3-to-5-year-olds.pdf"
+        description: "Free Harvard PDF with developmentally appropriate activities for preschoolers that build planning and working memory through play and pretend"
+        audience: "Caregivers"
+        format: "PDF"
+        source: "Harvard Center on the Developing Child"
+
+      - title: "Executive Function Activities for 18- to 36-Month-Olds"
+        url: "https://developingchild.harvard.edu/wp-content/uploads/2024/10/Executive-Function-Activities-for-18-to-36-month-olds.pdf"
+        description: "Free Harvard PDF with play-based activities for toddlers that build the early foundations of working memory and inhibitory control"
+        audience: "Caregivers"
+        format: "PDF"
+        source: "Harvard Center on the Developing Child"
+
+      - title: "ADHD and Executive Function"
+        url: "https://chadd.org/about-adhd/executive-function-skills/"
+        description: "CHADD overview of how ADHD impacts executive function, helping caregivers understand the connection between attention and planning, organization, and impulse control"
+        audience: "Caregivers"
+        format: "Article"
+        source: "CHADD (Children and Adults with ADHD)"
+
+      - title: "Executive Function Topic Hub"
+        url: "https://childmind.org/topics/executive-functions/"
+        description: "Child Mind Institute's complete collection of articles and guides on executive function challenges — a good single destination for parents exploring this topic"
+        audience: "Caregivers"
+        format: "Hub"
+        source: "Child Mind Institute"
+
+##### Pillar: `communication-social` — append 10 resources
+
+      - title: "Activities to Encourage Speech and Language Development"
+        url: "https://www.asha.org/public/speech/development/activities-to-encourage-speech-and-language-development/"
+        description: "Age-by-age activity guide from ASHA (birth through 6 years) with specific, practical ideas for building speech and language skills through everyday interactions"
+        audience: "Caregivers"
+        format: "Article"
+        source: "American Speech-Language-Hearing Association (ASHA)"
+
+      - title: "Typical Speech and Language Development"
+        url: "https://www.asha.org/public/speech/development/"
+        description: "ASHA's milestone guide for speech and language development from birth to age 5 — includes hearing and feeding milestones and when to seek evaluation"
+        audience: "Caregivers"
+        format: "Guide"
+        source: "American Speech-Language-Hearing Association (ASHA)"
+
+      - title: "Teaching Social Skills to Kids at Home"
+        url: "https://childmind.org/article/teaching-social-skills-at-home/"
+        description: "How to help children build social skills at home through modeling, role-play, and structured conversation practice — includes tips for different learning styles"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+      - title: "How to Support Your Child's Communication Skills"
+        url: "https://www.zerotothree.org/resource/how-to-support-your-childs-communication-skills/"
+        description: "Comprehensive guide for parents on supporting communication from birth through toddlerhood, including narrating daily routines, encouraging pretend play, and teaching feelings vocabulary"
+        audience: "Caregivers"
+        format: "Guide"
+        source: "Zero to Three"
+
+      - title: "Toddler Language Development Tips"
+        url: "https://childmind.org/article/helping-toddlers-expand-their-language-skills/"
+        description: "Expert-backed strategies for boosting toddler language development through everyday interactions — covers vocabulary building and conversation skills"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+      - title: "Let's Talk About It: Building Babies' Language from Birth"
+        url: "https://www.zerotothree.org/resource/lets-talk-about-it-5-ways-to-build-babies-language-and-communication-skills-from-birth/"
+        description: "Five practical ways parents can talk with babies to build strong language and literacy skills from the very start — emphasizes responsiveness and daily conversation"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Zero to Three"
+
+      - title: "Building Preschoolers' Speech and Language at Home"
+        url: "https://www.asha.org/public/build-preschoolers-speech-and-language-skills-with-everyday-interactions-and-activities/"
+        description: "ASHA guide connecting strong preschool speech and language skills to kindergarten readiness, reading, writing, and social success — with home strategies"
+        audience: "Caregivers"
+        format: "Article"
+        source: "American Speech-Language-Hearing Association (ASHA)"
+
+      - title: "CDC Developmental Milestones"
+        url: "https://www.cdc.gov/act-early/milestones/index.html"
+        description: "CDC's comprehensive developmental milestone resource covering communication milestones from 2 months to 5 years — includes free milestone tracker app"
+        audience: "Caregivers"
+        format: "Guide"
+        source: "CDC"
+
+      - title: "Social Thinking: What It Is and How It Works"
+        url: "https://www.understood.org/en/articles/social-thinking-what-you-need-to-know"
+        description: "Understood.org explanation of social thinking skills and how difficulties with reading social cues affect children's friendships and classroom interactions"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Understood.org"
+
+      - title: "25 Household Items to Boost Your Toddler's Language"
+        url: "https://www.asha.org/about/press-room/articles/25-household-items-to-boost-your-toddlers-communication-skills/"
+        description: "ASHA article showing how everyday household objects — sponges, cups, spoons — can be used to practice categorizing, counting, and comparing while building language"
+        audience: "Caregivers"
+        format: "Article"
+        source: "American Speech-Language-Hearing Association (ASHA)"
+
+##### Pillar: `mindset-emotional` — append 5 resources
+
+      - title: "What Is Social-Emotional Learning?"
+        url: "https://www.understood.org/en/articles/social-emotional-learning-what-you-need-to-know"
+        description: "Clear overview of SEL including self-awareness, growth mindset, emotion identification, and practical skill-building for families"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Understood.org"
+
+      - title: "Growth Mindset and the Power of Yet"
+        url: "https://www.understood.org/en/podcasts/the-opportunity-gap/growth-mindset-power-of-yet"
+        description: "How adding 'yet' to children's self-talk builds resilience and a growth mindset — especially helpful for kids who struggle at school"
+        audience: "Caregivers"
+        format: "Podcast"
+        source: "Understood.org"
+
+      - title: "How to Help Your Child Build Strengths From Challenges"
+        url: "https://www.understood.org/en/articles/strengths-that-come-from-challenges"
+        description: "Activities and tips for building growth mindset and staying motivated — includes different types of strengths kids can develop"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Understood.org"
+
+      - title: "The Power of Positive Reframing"
+        url: "https://childmind.org/blog/the-power-of-positive-reframing/"
+        description: "How helping children view situations from a new angle fosters learning, resilience, and emotional flexibility"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+      - title: "Metacognition: How Thinking About Thinking Can Help Kids"
+        url: "https://childmind.org/article/how-metacognition-can-help-kids/"
+        description: "Teaching children to reflect on their own reactions helps them handle situations more effectively and build self-awareness over time"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+---
+
+#### FILE 2: `_data/trauma-resources.yml`
+
+##### Pillar: `safety-trusted-people` — append 8 resources
+
+      - title: "Preventing Child Abuse and Neglect"
+        url: "https://www.cdc.gov/child-abuse-neglect/prevention/index.html"
+        description: "CDC overview of how safe, stable, nurturing relationships prevent abuse, with action steps for parents, communities, and professionals"
+        audience: "Caregivers"
+        format: "Website"
+        source: "CDC"
+
+      - title: "Circle of Safety"
+        url: "https://sesameworkshop.org/resources/circle-of-safety/"
+        description: "Sesame Workshop video for adults on helping children identify a circle of safe, trusted adults — Mae offers tips for supporting children during uncertainty"
+        audience: "Caregivers"
+        format: "Video"
+        source: "Sesame Workshop"
+
+      - title: "Physical Abuse: What It Is and How to Help"
+        url: "https://www.nctsn.org/what-is-child-trauma/trauma-types/physical-abuse"
+        description: "NCTSN overview of physical abuse — its effects on children and how caregivers and professionals can recognize and respond"
+        audience: "Caregivers / Professionals"
+        format: "Website"
+        source: "NCTSN"
+
+      - title: "Hugging Is a Choice: Teaching Body Autonomy"
+        url: "https://www.d2l.org/hugging-is-your-kids-choice/"
+        description: "Darkness to Light resource on teaching children that they have the right to say no to physical contact — even with authority figures — without punishment"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Darkness to Light"
+
+      - title: "Child Sexual Abuse: What It Is and How to Help"
+        url: "https://www.nctsn.org/what-is-child-trauma/trauma-types/sexual-abuse"
+        description: "NCTSN overview of child sexual abuse, its impact on children, and guidance for caregivers and professionals on how to respond and seek help"
+        audience: "Caregivers / Professionals"
+        format: "Website"
+        source: "NCTSN"
+
+      - title: "Child Abuse: Risk and Protective Factors"
+        url: "https://www.cdc.gov/child-abuse-neglect/risk-factors/index.html"
+        description: "CDC evidence-informed overview of what increases or decreases risk of child abuse, helping caregivers understand protective conditions they can actively build"
+        audience: "Caregivers"
+        format: "Website"
+        source: "CDC"
+
+      - title: "Sesame Street: Child Safety Topic Hub"
+        url: "https://sesameworkshop.org/topics/child-safety/"
+        description: "Sesame Workshop's child safety resource hub with videos, printables, and guides on body safety, trusted adults, and keeping children safe"
+        audience: "Children / Caregivers"
+        format: "Hub"
+        source: "Sesame Workshop"
+
+      - title: "Wes and Elijah Go Heart to Heart"
+        url: "https://sesameworkshop.org/resources/wes-and-elijah-go-heart-to-heart/"
+        description: "Sesame Street video demonstrating the value of close physical contact with safe and trusted adults — reinforces the concept of trusted relationships for young children"
+        audience: "Children"
+        format: "Video"
+        source: "Sesame Workshop"
+
+##### Pillar: `coping-skills-strategies` — append 9 resources
+
+      - title: "Helping Children Cope After a Traumatic Event"
+        url: "https://childmind.org/guide/helping-children-cope-after-a-traumatic-event/"
+        description: "Practical parent guide for supporting children after trauma — managing fears, restoring normalcy, and knowing when to get professional help"
+        audience: "Caregivers"
+        format: "Guide"
+        source: "Child Mind Institute"
+
+      - title: "How to Help Children Calm Down"
+        url: "https://childmind.org/article/how-to-help-children-calm-down/"
+        description: "Evidence-informed strategies including giving warnings before transitions, offering choices, and planning ahead to prevent dysregulation"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+      - title: "How to Model Healthy Coping Skills"
+        url: "https://childmind.org/article/how-to-model-healthy-coping-skills/"
+        description: "How adults can demonstrate healthy coping — mindfulness, deep breathing, positive self-talk — so children learn by example"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+      - title: "Childhood Stress: How Parents Can Help"
+        url: "https://kidshealth.org/en/parents/stress.html"
+        description: "Recognizing signs of stress in children and building in healthy responses: play, nature time, family connection"
+        audience: "Caregivers"
+        format: "Article"
+        source: "KidsHealth"
+
+      - title: "5 Ways to Cope With Anxiety (for Teens)"
+        url: "https://kidshealth.org/en/teens/anxiety-tips.html"
+        description: "Simple teen-friendly coping techniques including slow breathing, building support networks, and gradually facing fears"
+        audience: "Teens"
+        format: "Article"
+        source: "KidsHealth"
+
+      - title: "10 Tips for Parenting Anxious Kids"
+        url: "https://childmind.org/article/10-tips-for-parenting-anxious-kids/"
+        description: "Evidence-informed strategies for parents to support anxious children without reinforcing avoidance behaviors"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+      - title: "Grounding Techniques Worksheet"
+        url: "https://www.therapistaid.com/therapy-worksheet/grounding-techniques"
+        description: "Printable worksheet teaching children to shift focus from distressing thoughts to the present moment using sensory awareness"
+        audience: "Children"
+        format: "Worksheet"
+        source: "Therapist Aid"
+
+      - title: "Worry Coping Skills for Kids"
+        url: "https://www.therapistaid.com/therapy-worksheet/worry-coping-skills-for-kids"
+        description: "Child-friendly worksheet with strategies for managing worry: talking about problems, breathing, doing something fun, changing mindset"
+        audience: "Children"
+        format: "Worksheet"
+        source: "Therapist Aid"
+
+      - title: "Relaxation Worksheets Collection"
+        url: "https://www.therapistaid.com/therapy-worksheets/relaxation"
+        description: "Free handouts covering deep breathing, progressive muscle relaxation, mindfulness, and other calming techniques"
+        audience: "Children"
+        format: "Hub"
+        source: "Therapist Aid"
+
+##### Pillar: `identifying-expressing-feelings` — append 7 resources
+
+      - title: "Talking with Kids About Feelings"
+        url: "https://sesameworkshop.org/resources/talking-about-feelings/"
+        description: "Sesame Workshop hub with bilingual caregiver guides for helping children identify and communicate emotions, big and small"
+        audience: "Caregivers"
+        format: "Hub"
+        source: "Sesame Workshop"
+
+      - title: "Children's Feelings"
+        url: "https://sesameworkshop.org/topics/social-emotional-skills/"
+        description: "Free bilingual resources for understanding children's emotional expression and supporting feelings management"
+        audience: "Caregivers"
+        format: "Hub"
+        source: "Sesame Workshop"
+
+      - title: "Understanding Feelings: Elementary School"
+        url: "https://childmind.org/healthyminds/understanding-feelings-parents-elementary/"
+        description: "Videos and exercises for school-age children to recognize emotions as a first step toward healthy coping"
+        audience: "Children"
+        format: "Hub"
+        source: "Child Mind Institute"
+
+      - title: "How Can We Help Kids With Self-Regulation?"
+        url: "https://childmind.org/article/can-help-kids-self-regulation/"
+        description: "Caregiver guide on supporting children with strong emotional reactions to find more effective ways to handle and express feelings"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+      - title: "First Feelings: Foundation of Healthy Development"
+        url: "https://www.zerotothree.org/resource/first-feelings-the-foundation-of-healthy-development/"
+        description: "Zero to Three resource on naming infant and toddler feelings as the critical first step in building emotional literacy"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Zero to Three"
+
+      - title: "How to Help Kids Understand and Manage Their Emotions"
+        url: "https://www.apa.org/topics/parenting/emotion-regulation"
+        description: "APA guidance on emotion regulation as a developmental skill built on attention, language, and cognitive growth"
+        audience: "Caregivers"
+        format: "Article"
+        source: "American Psychological Association"
+
+      - title: "Teacher's Guide: Feelings (PreK–Grade 2)"
+        url: "https://kidshealth.org/classroom/prekto2/personal/growing/feelings.pdf"
+        description: "Free educator lesson guide for teaching young children to name and talk about their feelings"
+        audience: "Professionals"
+        format: "PDF"
+        source: "KidsHealth"
+
+##### Pillar: `self-regulation-coregulation` — append 7 resources
+
+      - title: "What Is Co-Regulation?"
+        url: "https://childmind.org/article/what-is-co-regulation/"
+        description: "Clear explanation of co-regulation and how caregivers model emotional management to help kids learn self-regulation over time — requires managing your own emotions first"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Child Mind Institute"
+
+      - title: "It Takes Two: Co-Regulation and Self-Regulation"
+        url: "https://www.zerotothree.org/resource/it-takes-two-the-role-of-co-regulation-in-building-self-regulation-skills/"
+        description: "Research-based explanation of how caregiver co-regulation builds a child's capacity for independent self-regulation"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Zero to Three"
+
+      - title: "5 Ways Parents' Emotional Regulation Matters"
+        url: "https://www.zerotothree.org/resource/5-ways-parents-emotional-regulation-matters-for-healthy-child-development/"
+        description: "How parent emotion regulation — staying calm, managing stress, supporting child emotions — directly shapes child development outcomes"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Zero to Three"
+
+      - title: "How to Foster Resilience in Infants and Toddlers"
+        url: "https://www.zerotothree.org/resource/how-to-foster-resilience-in-infants-and-toddlers/"
+        description: "Guide to nurturing emotional regulation through co-regulation during everyday caregiving routines with babies and toddlers"
+        audience: "Caregivers"
+        format: "Guide"
+        source: "Zero to Three"
+
+      - title: "Turning the Tide: Parenting in the Wake of Past Trauma"
+        url: "https://www.nctsn.org/resources/turning-the-tide-parenting-in-the-wake-of-past-trauma"
+        description: "Explains how caregivers use tone, facial expressions, and body language to co-regulate a child's distress response"
+        audience: "Caregivers"
+        format: "PDF"
+        source: "NCTSN"
+
+      - title: "Responsive Parenting: Building Strong Emotional Bonds"
+        url: "https://www.zerotothree.org/resource/the-importance-of-responsive-parenting-building-strong-emotional-bonds/"
+        description: "How responsive parenting builds attachment bonds that underpin children's regulatory development and emotional security"
+        audience: "Caregivers"
+        format: "Article"
+        source: "Zero to Three"
+
+      - title: "24–36 Months: Social-Emotional Development"
+        url: "https://www.zerotothree.org/resource/24-36-months-social-emotional-development/"
+        description: "Age-specific guide on helping toddlers name feelings and practice emotion management as they build self-regulation"
+        audience: "Caregivers"
+        format: "Guide"
+        source: "Zero to Three"
+
+##### Pillar: `healing-resilience` — append 8 resources
+
+      - title: "A Guide to Raising Resilient Children"
+        url: "https://developingchild.harvard.edu/resource-guides/guide-resilience/"
+        description: "Harvard's comprehensive resource collection for building resilience in children facing adversity, toxic stress, and difficult life experiences"
+        audience: "Caregivers"
+        format: "Hub"
+        source: "Harvard Center on the Developing Child"
+
+      - title: "Serve and Return: How Interactions Build Resilience"
+        url: "https://developingchild.harvard.edu/science/key-concepts/serve-and-return/"
+        description: "Explains how responsive adult-child interactions shape brain architecture and are the biological foundation of long-term resilience"
+        audience: "Caregivers"
+        format: "Website"
+        source: "Harvard Center on the Developing Child"
+
+      - title: "Building Resilience Through Play (Podcast)"
+        url: "https://developingchild.harvard.edu/resources/podcasts/podcast-resilience-play/"
+        description: "Jack Shonkoff and experts discuss the science of play as a powerful mechanism for building resilience in children facing adversity"
+        audience: "Caregivers"
+        format: "Podcast"
+        source: "Harvard Center on the Developing Child"
+
+      - title: "The Science of Resilience"
+        url: "https://developingchild.harvard.edu/science/key-concepts/resilience/"
+        description: "Harvard's explanation of what makes children resilient and the key protective factors — relationships and skill-building — that buffer adversity"
+        audience: "Caregivers"
+        format: "Website"
+        source: "Harvard Center on the Developing Child"
+
+      - title: "Families and Trauma: Introduction"
+        url: "https://www.nctsn.org/trauma-informed-care/families-and-trauma/introduction"
+        description: "How parents' protection, nurturance, and guidance speeds children's recovery from trauma and supports healthy coping"
+        audience: "Caregivers"
+        format: "Article"
+        source: "NCTSN"
+
+      - title: "Family Resilience and Traumatic Stress"
+        url: "https://www.nctsn.org/resources/family-resilience-and-traumatic-stress-guide-mental-health-providers"
+        description: "How family resilience — effective functioning and healthy emotional expression — protects children following trauma"
+        audience: "Caregivers"
+        format: "PDF"
+        source: "NCTSN"
+
+      - title: "Transformation After Trauma: Post-Traumatic Growth (Podcast)"
+        url: "https://www.apa.org/news/podcasts/speaking-of-psychology/transformation-trauma"
+        description: "APA podcast with Dr. Richard Tedeschi exploring how trauma survivors develop new appreciation, strength, and meaning from adversity"
+        audience: "Caregivers"
+        format: "Podcast"
+        source: "American Psychological Association"
+
+      - title: "Resilience and Child Traumatic Stress"
+        url: "https://www.nctsn.org/resources/resilience-and-child-traumatic-stress"
+        description: "Evidence-informed overview of resilience as a child's ability to recover from trauma, with protective factors in families and communities"
+        audience: "Caregivers"
+        format: "PDF"
+        source: "NCTSN"
+
+---
+
+**After updating both files, validate YAML and commit:**
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+ruby -ryaml -e "YAML.load_file('_data/skills-resources.yml')" && echo "skills-resources OK"
+ruby -ryaml -e "YAML.load_file('_data/trauma-resources.yml')" && echo "trauma-resources OK"
+git add _data/skills-resources.yml _data/trauma-resources.yml
+git commit -m "feat(resources): add 76 approved resources across 9 pillars"
+git push
+```
+
+Log this in Working_File.md as a new session entry with before/after resource counts per pillar.
 
 ---
 
