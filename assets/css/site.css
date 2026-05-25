@@ -110,7 +110,9 @@
   background: color-mix(in oklch, var(--paper) 80%, transparent);
 }
 [data-theme="dark"] .search-input { background: var(--paper-2); }
-[data-theme="dark"] .filter-chip { background: var(--paper-2); }
+[data-theme="dark"] .filter-chip { background: var(--paper-2); color: var(--ink); }
+[data-theme="dark"] .filter-chip select { color: var(--ink); }
+[data-theme="dark"] .filter-chip select option { background: var(--paper-2); color: var(--ink); }
 [data-theme="dark"] .pillar-count { background: var(--paper-2); }
 
 [data-theme="dark"] .rcard { background: color-mix(in oklch, var(--paper) 60%, var(--cream)); }
