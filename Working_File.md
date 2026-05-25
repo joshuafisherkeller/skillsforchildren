@@ -36,6 +36,7 @@
 | ~~6~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~Full rename: CORS → Clinical Session Capture Kit. New URL /tech/capture-kit/, redirect /tech/cors/, Whisper add-on → Session Scribe~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #4](#may-24-2026-4--full-rename-cors-clinical-session-capture-kit)~~ |
 | ~~7~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: remove all brand/product names from cards — keep copy descriptive only~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #5](#may-24-2026-5--capture-kit-page-remove-brand-names-from-cards)~~ |
 | ~~8~~ | ~~May 25, 2026~~ | ~~skillsforchildren.com~~ | ~~Add 76 approved resources across 9 pillars (skills-resources.yml + trauma-resources.yml)~~ | ~~[Section 1 → Cowork Prompts → May 25, 2026](#may-25-2026--add-76-approved-resources-across-9-pillars)~~ |
+| ~~9~~ | ~~May 25, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: add "Install Only" tier ($379) + equipment deposit note to White Glove pricing~~ | ~~[Section 2 → Cowork Prompts → May 25, 2026 #1](#may-25-2026-1--capture-kit-page-add-install-only-tier-equipment-deposit-note)~~ |
 
 > When all rows are ~~struck through~~, the queue is clear.
 
@@ -669,6 +670,7 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 - [x] **Delete `61m9iNlhgNL._SL1293_.jpg`** — Removed in root cleanup (Session 16).
 - [x] **PRAC skill card images** — Confirmed correct. `NEW CHAPTER 1–4 for PRAC Section.jpg` files were already in use.
 - [ ] **Resilient Forest — "For therapists & clinicians" copy** — Current language in `_layouts/resilient-forest.html` (`.audience-card.therapists`) needs revision. Josh flagged this for rework.
+- [ ] **Revisit resource audience categories** — Current values are `Caregivers` and `Professionals` but most resources apply to both. Discuss whether to consolidate to a `Caregivers / Professionals` combined value, add a "Both" option, or remove the audience filter entirely in favor of a different taxonomy. Affects `data-audience` attributes on `.rcard` elements and the filter UI in `site.js`/`_layouts/home.html` and `_layouts/trauma.html`.
 - [x] **Clean up root image files** — 23 stale files removed from git root (Session 16): 14 images, 3 logos, 3 ZIPs. All confirmed already copied to `assets/img/`. Note: `NEW CHAPTER 1–4 for PRAC Section.jpg` are local-only (not in git) — likely the PRAC card replacements, flag for when that TODO is actioned.
 - [ ] **TORF hub — verify on live site** — Visit `/resilient-forest/` after deploy: confirm all 5 character images load, YouTube embed works, book strip shows correct cover, BRAVE CTA links to `https://app.skillsforchildren.com`.
 - [ ] **Download Leonardo.ai images — Resilient Forest Part 2** — New characters were created in Leonardo.ai for Part 2. Download and archive all new character images before they expire or are lost.
@@ -1639,6 +1641,135 @@ Complete rewrite of `_layouts/capture-kit.html` applying White Glove only model 
 
 ---
 
+### Session 9 — May 24-25, 2026
+**Task:** Session Scribe product build began as a fresh offline Python desktop app, separate from the legacy CTAC-branded prototype. This is now the software product likely to be sold through After Hours Tech and bundled with the Clinical Session Capture Kit.
+**Codebase:** `C:/Users/joshu/Transcriber/`
+**Commits:** None yet — local product build and testing only.
+**Pushed to GitHub:** No.
+
+#### Product Direction
+- **Working product name:** Session Scribe
+- **Business fit:** After Hours Tech product / add-on; likely bundled with Clinical Session Capture Kit and potentially sold separately from Josh's website.
+- **Core promise:** Fully offline clinical session transcription. Video/audio recording goes in; transcript document comes out. Nothing leaves the device.
+- **Privacy posture:** Local-only models and local-only files. No cloud transcription API. No runtime internet dependency.
+- **Brand boundary:** This is an After Hours Tech / clinical tech product, not Skills for Children content. CTAC references must not appear in the app, installer, docs, website copy, or user-facing outputs.
+
+#### What Was Built / Confirmed
+| Area | Status |
+|------|--------|
+| Fresh app shell | Built in `C:/Users/joshu/Transcriber/` as a PySide6 desktop app. |
+| Legacy source | Legacy files were treated as reference only. Active build removes CTAC/UK branding. |
+| Packaging direction | PyInstaller `.exe` path retained; commercial installer path still to be planned. |
+| Runtime model strategy | Whisper/faster-whisper and pyannote models are downloaded ahead of time and loaded from local folders. |
+| Whisper transcription | Working offline. Test transcript output was good. |
+| Speaker diarization | Working offline with pyannote. This is essential to product viability. |
+| Export formats | Word `.docx`, plain text `.txt`, and PDF `.pdf` options added. |
+| UI cleanup | First-open layout fixed so Start button and export options are visible without resizing; completion resets the form to ready state. |
+| Status text | Rotating bottom messages removed. Real progress/status text retained. |
+| Diagnostics | Per-run timing diagnostics added. Next runs write a matching `*_diagnostics.txt` file directly into the selected transcripts folder. |
+
+#### Diarization / Performance Notes
+- First successful diarization run on an 11-minute test video took approximately 48 minutes on Josh's current test PC.
+- A later test reported approximately **3.4x recording length**.
+- First full timing diagnostic file: `C:/Users/joshu/Transcriber/transcripts/20260524_Shorter_Shorter_diagnostics.txt`.
+  - Total: **1:02:08** for an **11:10** recording (**5.56x recording length**).
+  - Slowest stage was **Speech transcription: 45:12**.
+  - Speaker identification was **16:26**.
+  - Audio extraction, model loading, speaker alignment, and file creation were negligible by comparison.
+- Important finding: the first bottleneck is not diarization. On the current CPU-only laptop, the bundled `large-v3` Whisper model is the dominant runtime cost.
+- Second diagnostic after switching Whisper to fast greedy decoding (`beam_size=1`): `C:/Users/joshu/Transcriber/transcripts/20260524_Greedy_Greedy_Mode_diagnostics.txt`.
+  - Total improved to **38:24** for the same **11:10** recording (**3.44x recording length**).
+  - Speech transcription improved from **45:12 → 14:31**.
+  - Speaker identification was **23:21**, making diarization the new slowest stage after the transcription improvement.
+  - Overall runtime improved by about **23:44** compared with the previous diagnostic.
+- Current conclusion: fast greedy decoding is a strong CPU-only default. Next optimization target is diarization, while still evaluating smaller Whisper models for further CPU performance gains.
+- Diarization diagnostics were expanded after this finding:
+  - Future `*_diagnostics.txt` files include a `Runtime` section with CPU count, torch thread counts, and optional benchmarking environment variables.
+  - Future diagnostics include a `Diarization details` section with pyannote hook sub-step timings, so agents can see which internal diarization step is slow.
+  - Optional benchmarking env vars are now supported before launching the app: `SESSION_SCRIBE_TORCH_THREADS` and `SESSION_SCRIBE_TORCH_INTEROP_THREADS`.
+  - Added `C:/Users/joshu/Transcriber/scripts/benchmark_diarization.py` to run isolated diarization benchmarks across thread settings without re-running Whisper each time.
+- Third diagnostic with expanded diarization details: `C:/Users/joshu/Transcriber/transcripts/20260524_Torchy_Turchy_diagnostics.txt`.
+  - Total improved to **24:46** for the same **11:10** recording (**2.22x recording length**).
+  - Speech transcription improved again to **8:54**.
+  - Speaker identification improved to **15:23**.
+  - Runtime reported **CPU count 12**, **Torch threads 4**, **Torch interop threads 6**.
+  - Diarization sub-step bottleneck was **Embeddings: 15:01**. Segmentation was only **0:22**, speaker counting **0:00**, discrete diarization **0:00**.
+- Updated conclusion: pyannote embedding extraction is the diarization bottleneck on CPU. Next optimization should benchmark torch thread settings and investigate whether a faster embedding path/model is possible without losing product-grade speaker labels.
+- Diarization thread benchmark was run on May 25, 2026 using `scripts/benchmark_diarization.py` against `Test Video File.mp4`.
+  - Results saved to `C:/Users/joshu/Transcriber/transcripts/diarization_benchmark_Test Video File_20260525_083037.md` and `.csv`.
+  - Tested configs: default, `4/1`, `6/1`, `8/1`, `12/1`.
+  - Fastest config: **6/1** with diarization **14:46** and embeddings **14:28**.
+  - Default before tuning was **19:15** diarization / **18:40** embeddings.
+  - App default was updated so pyannote now uses **6 torch threads / 1 interop thread** unless overridden by env vars.
+- Transcription model benchmarking support was added:
+  - `C:/Users/joshu/Transcriber/scripts/benchmark_transcription.py` benchmarks faster-whisper model sizes from PowerShell.
+  - Supports `--download-missing` for public Systran faster-whisper models.
+  - Writes CSV/Markdown summaries and per-model text samples into `transcripts/`.
+  - Model-specific local folders are now supported: legacy `models/whisper/` for `large-v3`, plus `models/whisper-small/`, `models/whisper-medium/`, etc.
+  - Benchmark results saved to `C:/Users/joshu/Transcriber/transcripts/transcription_benchmark_Test Video File_20260525_145638.md` and `.csv`.
+  - On the 11:10 test file: `large-v3` took **15:06**, `medium` took **6:53**, and `small` took **2:29**.
+  - Text samples suggest `small` is fastest but has more wording errors; `medium` is the recommended default balance for CPU-only clinical use.
+  - App now includes a **Transcription** selector in Options: `Balanced (medium)`, `Fastest (small)`, and `Best accuracy (slow)` / `large-v3`.
+  - App default was changed from `large-v3` to **medium**.
+- First full app run after switching the default to `medium`: `C:/Users/joshu/Transcriber/transcripts/20260525_Medium_Test_Medium_Test_diagnostics.txt`.
+  - Total: **26:09** for the same **11:10** recording (**2.34x recording length**).
+  - Transcription model: **medium**.
+  - Torch settings: **6 threads / 1 interop**.
+  - Speech transcription: **6:01**.
+  - Speaker model load: **1:34**.
+  - Speaker identification: **18:26**.
+  - Diarization bottleneck remained **Embeddings: 18:00**.
+  - Exports successfully created: `.docx` and `.txt`.
+  - Current conclusion: `medium` is a strong product default for CPU-only transcription speed/quality, but diarization remains the limiting factor. Next optimization should focus on reducing pyannote embedding time and/or making speaker-label mode expectations clearer in the UI.
+- Current test machine: AMD Ryzen 5 5500U laptop-class CPU, 8 GB RAM, integrated AMD graphics; effectively CPU-only for Whisper + pyannote.
+- Performance is expected to improve on stronger CPU-only hardware such as an i5-13600H mini PC with 16 GB RAM, but integrated graphics will not provide CUDA acceleration.
+- True high-speed tier likely requires a supported NVIDIA/CUDA GPU later.
+
+#### Current Technical Shape
+- App entry point: `C:/Users/joshu/Transcriber/session_transcriber.py`
+- Package: `C:/Users/joshu/Transcriber/session_transcriber/`
+- Key modules:
+  - `ui.py` — PySide6 interface, progress, validation, exports, diagnostics
+  - `audio.py` — ffmpeg extraction
+  - `transcription.py` — faster-whisper wrapper
+  - `diarization.py` — pyannote speaker labeling and segment alignment
+  - `document.py` — DOCX/TXT/PDF export generation
+  - `paths.py` — bundled/local paths for ffmpeg, models, temp, transcripts
+- Local resources:
+  - `vendor/ffmpeg.exe`
+  - `vendor/ffprobe.exe`
+  - `models/whisper/`
+  - `models/whisper-medium/`
+  - `models/whisper-small/`
+  - `models/pyannote/`
+
+#### Next Product Work
+- Keep testing the new transcription model selector in real app runs; `medium` is currently the recommended CPU default and `small` is available as the fastest option.
+- Keep `large-v3` as a possible "best accuracy / slower" option if quality difference is meaningful.
+- Continue optimizing diarization. Current known bottleneck is pyannote embedding extraction, not segmentation or file export.
+- Add more durable user-facing status text, including elapsed time now and estimated time remaining later once enough timing data exists.
+- Define minimum / recommended hardware requirements for CPU-only installs.
+- Decide whether the commercial product is bundled-only with Capture Kit, sold separately, or offered in both paths.
+- Later: installer, license compliance check, EULA/privacy language, licensing/activation model, support/update flow, and sales/download flow on the website.
+- Later: OBS API + Stream Deck API custom UI integration for recording sessions directly into the Capture Kit workflow.
+
+---
+
+### Session 10 — May 25, 2026
+**Task:** Capture Kit page — add Install Only tier ($379) + equipment deposit note (Working_File item 9).
+**Commit:** `45ad4c4`
+**Pushed to GitHub:** Yes
+
+#### Files changed
+- `_layouts/capture-kit.html`
+
+#### What changed
+- **Section intro:** Updated from "One service. One flat fee." to "Two ways to get set up. One flat fee either way."
+- **White Glove block:** Added equipment deposit note below $499 price line — "Equipment deposit required prior to scheduling — amount varies based on your configuration. Confirmed on your free consultation call."
+- **Install Only block (new):** Full pricing block at $379 flat service fee. Client orders their own equipment from curated BOM with affiliate links; Josh installs and configures on-site. Includes yellow "Heads up" warning about substitutions, full 9-item service list, $379 price row, booking CTA, and complete travel zone table (same as White Glove).
+
+---
+
 ## Pending / TODOs — After Hours Tech
 
 - [x] **Pricing** — Finalized May 21, 2026. AI Coaching $30/hr, Tech Troubleshooting $30/hr, In-Home $50/hr. Consultation-first for website/app/design. CORS free scoping call.
@@ -1655,7 +1786,9 @@ Complete rewrite of `_layouts/capture-kit.html` applying White Glove only model 
 - [ ] **CapCut** — Explore as a video production tool for SFC/AHT content (YouTube, social clips, educational videos). Assess features, ease of use, and brand fit.
 - [ ] **Google Omni** — Brand new (announced May 2026). Explore for AI-assisted video production. Research capabilities for generating or editing educational/marketing video content.
 - [ ] **Clinical network outreach** — Identify 5 therapists/clinicians for warm outreach re: Clinical Tech Systems service.
-- [ ] **Clinical Observation Recording System (CORS)** — Fully local, offline session recording + transcription kit for clinicians. Nothing leaves the device — strong HIPAA-friendly angle. Full spec in memory: `C:/Users/joshu/.claude/projects/C--Users-joshu-Skills-for-Children/memory/project_cors.md`. When ready to productize: price out hardware BOM, test the Python/Whisper/ffmpeg pipeline, draft the DIY PDF, add a service card to `/tech/`, and write the HIPAA checklist lead magnet.
+- [~] **Clinical Session Capture Kit + Session Scribe** — Fully local, offline session recording + transcription system for clinicians. Nothing leaves the device. Capture Kit is the hardware/install workflow; Session Scribe is the desktop transcription software. Current app build lives at `C:/Users/joshu/Transcriber/`. Diarization now works, but CPU-only runtime is still being benchmarked and optimized. Next: review `*_diagnostics.txt` timing output, improve diarization speed/status UX, define recommended hardware, and plan installer/licensing/sales flow.
+- [ ] **Session Scribe commercial readiness** — Before selling: complete license compliance review, commercial packaging/installer plan, EULA/privacy language, support/update model, and download/payment flow.
+- [ ] **Capture Kit recording integration** — Later product phase: use OBS Python/API and Stream Deck API to build a custom recording UI that can hand recordings directly into Session Scribe.
 
 ---
 
@@ -1733,6 +1866,127 @@ Footer note:    "After Hours Tech is independent of the University of Kentucky
 ## Cowork Prompts — After Hours Tech
 
 > **Claude Cowork:** Paste any prompts you generate for Claude Code here, with a date and description header.
+
+---
+
+### May 25, 2026 #1 — Capture Kit page: add "Install Only" tier + equipment deposit note
+
+**Context:** Adding a second service tier to the pricing section of `_layouts/capture-kit.html`. The existing White Glove tier ($499) needs an equipment deposit note added. A new "Install Only" tier ($379) needs to be added — client orders their own equipment from a curated BOM with affiliate links, then Josh installs and configures on-site. Same travel zone pricing applies to both tiers.
+
+**Read `_layouts/capture-kit.html` in full before starting.**
+
+---
+
+#### Change 1 — Section intro text
+
+Find (approximately line 523):
+```
+<p style="color:var(--mid); font-size:15px; margin-top:12px; max-width:560px; line-height:1.65;">One service. One flat fee. Equipment is sourced separately through major retailers &mdash; easy returns, manufacturer warranties, no markup from us.</p>
+```
+
+Replace with:
+```
+<p style="color:var(--mid); font-size:15px; margin-top:12px; max-width:560px; line-height:1.65;">Two ways to get set up. One flat fee either way. Equipment is always sourced separately through major retailers &mdash; easy returns, manufacturer warranties, no markup from us.</p>
+```
+
+---
+
+#### Change 2 — White Glove pricing block: add equipment deposit note
+
+Find the `.cors-pricing-row` div inside the White Glove block. It contains the `$499` price and the booking CTA button. Add the following paragraph immediately below the `<div class="cors-price-sub">` line:
+
+```html
+<p style="font-size:12px; color:var(--muted); margin-top:10px; line-height:1.55;"><strong>Equipment deposit required prior to scheduling</strong> &mdash; amount varies based on your configuration. Confirmed on your free consultation call.</p>
+```
+
+---
+
+#### Change 3 — Add "Install Only" pricing block
+
+Insert a new pricing block immediately after the closing `</div>` of the White Glove `.cors-pricing-block` and before the `<!-- Add-on strips -->` comment.
+
+```html
+<!-- Install Only pricing block -->
+<div class="cors-pricing-block reveal" style="margin-top:24px;">
+  <div class="cors-pricing-header">
+    <div>
+      <div class="aht-section-eyebrow" style="margin-bottom:8px;">Install Only</div>
+      <h3 class="cors-pricing-title">You order. We install. Done.</h3>
+    </div>
+    <div class="cors-pricing-badge" style="background:var(--green-bg); color:var(--green-text); border:1px solid var(--green-border);">Great Value</div>
+  </div>
+  <p class="cors-pricing-desc">We send you a curated bill of materials with direct ordering links &mdash; the same equipment list we use ourselves, chosen specifically to ensure every component works together reliably. Order it, let us know when it arrives, and we schedule the install.</p>
+  <div style="margin:16px 0 20px; padding:14px 18px; background:#fef9c3; border:1px solid #fde047; border-radius:8px;">
+    <p style="margin:0; font-size:13px; color:#713f12; line-height:1.6;"><strong>Heads up:</strong> Any changes from the recommended equipment list should be reviewed with us before ordering &mdash; the kit was specifically curated to ensure everything works together out of the box. Substitutions may affect system reliability.</p>
+  </div>
+  <ul class="aht-service-list" style="margin: 20px 0;">
+    <li>Curated bill of materials with direct affiliate ordering links provided after booking</li>
+    <li>Install scheduled once all equipment arrives</li>
+    <li>Physical camera mount + professional cable routing</li>
+    <li>Full recording software + controller configuration</li>
+    <li>Local AI transcription configured and tested</li>
+    <li>Test recording before we leave</li>
+    <li>On-site staff training &mdash; everyone knows the two buttons</li>
+    <li>30-day remote support included</li>
+    <li>After-hours scheduling &mdash; evenings and weekends &mdash; so installation never interferes with your client schedule</li>
+  </ul>
+  <div class="cors-pricing-row">
+    <div>
+      <div class="cors-price-main">$379</div>
+      <div class="cors-price-sub">flat service fee &mdash; 1 room &mdash; you purchase equipment separately</div>
+    </div>
+    <a href="https://cal.com/Fisherkeller" target="_blank" rel="noopener" class="btn-green">Book Your Free Consultation &rarr;</a>
+  </div>
+
+  <!-- Travel zone table (same zones apply) -->
+  <div class="cors-travel-block">
+    <div class="cors-travel-label">Travel &amp; Service Area &mdash; Kentucky Only</div>
+    <table class="cors-travel-table">
+      <thead>
+        <tr>
+          <th>Zone</th>
+          <th>Distance from Lexington, KY</th>
+          <th>Travel Fee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Zone 1</td>
+          <td>0&ndash;20 miles</td>
+          <td class="cors-travel-fee included">Included</td>
+        </tr>
+        <tr>
+          <td>Zone 2</td>
+          <td>20&ndash;50 miles</td>
+          <td class="cors-travel-fee">+$75</td>
+        </tr>
+        <tr>
+          <td>Zone 3</td>
+          <td>50&ndash;100 miles</td>
+          <td class="cors-travel-fee">+$150</td>
+        </tr>
+        <tr>
+          <td>100+ miles</td>
+          <td>Overnight required</td>
+          <td class="cors-travel-fee">Quoted separately</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="cors-travel-note">Overnight jobs: hotel and meals reimbursed at cost (receipts provided) plus a $150 travel day fee. Most of central Kentucky is Zone 1 or 2. Louisville falls in Zone 3. <strong>We do not travel outside Kentucky.</strong></p>
+  </div>
+</div>
+```
+
+---
+
+#### Change 4 — Commit and push
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add _layouts/capture-kit.html
+git commit -m "feat(aht): add Install Only tier ($379) + equipment deposit note to Capture Kit pricing"
+git push
+```
 
 ---
 
