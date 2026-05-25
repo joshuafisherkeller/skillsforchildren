@@ -129,7 +129,7 @@ document.addEventListener('submit', (e) => {
       const cardSource   = normalize(card.dataset.source   || '');
 
       const matchSearch   = !query    || cardTitle.includes(query) || cardDesc.includes(query) || cardSource.includes(query);
-      const matchAudience = !audience || cardAudience === audience;
+      const matchAudience = !audience || cardAudience.includes(audience);
       const matchFormat   = !format   || cardFormat   === format;
 
       // Section filter: design uses "Skills for Children" / "Childhood Trauma"
