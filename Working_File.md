@@ -37,6 +37,7 @@
 | ~~7~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: remove all brand/product names from cards — keep copy descriptive only~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026 #5](#may-24-2026-5--capture-kit-page-remove-brand-names-from-cards)~~ |
 | ~~8~~ | ~~May 25, 2026~~ | ~~skillsforchildren.com~~ | ~~Add 76 approved resources across 9 pillars (skills-resources.yml + trauma-resources.yml)~~ | ~~[Section 1 → Cowork Prompts → May 25, 2026](#may-25-2026--add-76-approved-resources-across-9-pillars)~~ |
 | ~~9~~ | ~~May 25, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: add "Install Only" tier ($379) + equipment deposit note to White Glove pricing~~ | ~~[Section 2 → Cowork Prompts → May 25, 2026 #1](#may-25-2026-1--capture-kit-page-add-install-only-tier-equipment-deposit-note)~~ |
+| ~~10~~ | ~~May 25, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: reframe service area to 150-mile radius, add Zone 4 (+$200), replace KY-only restriction with case-by-case email~~ | ~~[Section 2 → Cowork Prompts → May 25, 2026 #2](#may-25-2026-2--capture-kit-page-service-area-reframe-zone-4)~~ |
 
 > When all rows are ~~struck through~~, the queue is clear.
 
@@ -1721,6 +1722,16 @@ Complete rewrite of `_layouts/capture-kit.html` applying White Glove only model 
   - Diarization bottleneck remained **Embeddings: 18:00**.
   - Exports successfully created: `.docx` and `.txt`.
   - Current conclusion: `medium` is a strong product default for CPU-only transcription speed/quality, but diarization remains the limiting factor. Next optimization should focus on reducing pyannote embedding time and/or making speaker-label mode expectations clearer in the UI.
+- A new transcript-guided fast diarization path was added on May 25, 2026:
+  - New app speaker mode: **Fast two speakers (recommended)** / internal value `fast_two`.
+  - Current full pyannote two-speaker path remains available as **Standard two speakers (slower)**.
+  - New benchmark script: `C:/Users/joshu/Transcriber/scripts/benchmark_fast_diarization.py`.
+  - Benchmark result saved to `C:/Users/joshu/Transcriber/transcripts/fast_diarization_benchmark_Test Video File_20260525_155654.md`.
+  - On the same 11:10 test video, fast diarization speaker identification took **0:43**.
+  - Fast path sub-step timing: **Speaker embeddings 0:40**, clustering approximately **0:00**.
+  - Total benchmark time including medium transcription was **9:28**.
+  - Compared with the prior full app medium run, this reduces speaker identification from **18:26 → 0:43** on the test machine.
+  - Quality note: segment-level labeling is much faster and broadly useful for one-on-one clinician/client turns, but mixed Whisper segments can still contain both a clinician question and a client answer under one label. Next quality step is finer-grained segment splitting/alignment, likely with word timestamps or shorter transcript chunks.
 - Current test machine: AMD Ryzen 5 5500U laptop-class CPU, 8 GB RAM, integrated AMD graphics; effectively CPU-only for Whisper + pyannote.
 - Performance is expected to improve on stronger CPU-only hardware such as an i5-13600H mini PC with 16 GB RAM, but integrated graphics will not provide CUDA acceleration.
 - True high-speed tier likely requires a supported NVIDIA/CUDA GPU later.
@@ -1746,12 +1757,30 @@ Complete rewrite of `_layouts/capture-kit.html` applying White Glove only model 
 #### Next Product Work
 - Keep testing the new transcription model selector in real app runs; `medium` is currently the recommended CPU default and `small` is available as the fastest option.
 - Keep `large-v3` as a possible "best accuracy / slower" option if quality difference is meaningful.
-- Continue optimizing diarization. Current known bottleneck is pyannote embedding extraction, not segmentation or file export.
+- Test fast transcript-guided diarization through the GUI and compare output quality against standard pyannote mode.
+- Improve diarization label quality by splitting mixed-speaker Whisper segments more finely before final document generation.
 - Add more durable user-facing status text, including elapsed time now and estimated time remaining later once enough timing data exists.
 - Define minimum / recommended hardware requirements for CPU-only installs.
 - Decide whether the commercial product is bundled-only with Capture Kit, sold separately, or offered in both paths.
 - Later: installer, license compliance check, EULA/privacy language, licensing/activation model, support/update flow, and sales/download flow on the website.
 - Later: OBS API + Stream Deck API custom UI integration for recording sessions directly into the Capture Kit workflow.
+
+---
+
+### Session 11 — May 25, 2026
+**Task:** Capture Kit page — expand service area to 150-mile radius, add Zone 4 (+$200), remove KY-only restriction (Working_File item 10).
+**Commit:** `dc6ad94`
+**Pushed to GitHub:** Yes
+
+#### Files changed
+- `_layouts/capture-kit.html`
+
+#### What changed
+- Both travel zone tables updated identically (White Glove + Install Only blocks)
+- Table label: "Kentucky Only" → "Within 150 Miles of Lexington, KY"
+- Added Zone 4 row: 100–150 miles, +$200
+- Updated 100+ row to 150+ miles (overnight)
+- Travel note: removed "We do not travel outside Kentucky", added Cincinnati to Zone 3, Zone 4 same-day no-overnight note, case-by-case email inquiry for outside service area
 
 ---
 
@@ -1866,6 +1895,80 @@ Footer note:    "After Hours Tech is independent of the University of Kentucky
 ## Cowork Prompts — After Hours Tech
 
 > **Claude Cowork:** Paste any prompts you generate for Claude Code here, with a date and description header.
+
+---
+
+### May 25, 2026 #2 — Capture Kit page: service area reframe + Zone 4
+
+**Context:** The travel zone tables on `_layouts/capture-kit.html` currently restrict service to Kentucky only. The reframe: remove the state-border restriction and anchor the service area to distance from Lexington, KY (max 150 miles without overnight). A new Zone 4 (100–150 miles, +$200) is being added. The "We do not travel outside Kentucky" line is replaced with a case-by-case inquiry note. **Important:** Prompt #9 added a second, identical travel zone table inside the Install Only pricing block — both tables must be updated identically.
+
+**Read `_layouts/capture-kit.html` in full before starting. Apply all changes to BOTH travel zone tables.**
+
+---
+
+#### Change 1 — Travel zone table label (both tables)
+
+Find (appears twice):
+```
+<div class="cors-travel-label">Travel &amp; Service Area &mdash; Kentucky Only</div>
+```
+
+Replace both instances with:
+```html
+<div class="cors-travel-label">Travel &amp; Service Area &mdash; Within 150 Miles of Lexington, KY</div>
+```
+
+---
+
+#### Change 2 — Add Zone 4 row + update 100+ miles row (both tables)
+
+In each travel zone table, find the final `<tbody>` row:
+```html
+<tr>
+  <td>100+ miles</td>
+  <td>Overnight required</td>
+  <td class="cors-travel-fee">Quoted separately</td>
+</tr>
+```
+
+Replace with two rows:
+```html
+<tr>
+  <td>Zone 4</td>
+  <td>100&ndash;150 miles</td>
+  <td class="cors-travel-fee">+$200</td>
+</tr>
+<tr>
+  <td>150+ miles</td>
+  <td>Overnight required</td>
+  <td class="cors-travel-fee">Quoted separately</td>
+</tr>
+```
+
+---
+
+#### Change 3 — Update travel note (both tables)
+
+Find (appears twice):
+```
+Overnight jobs: hotel and meals reimbursed at cost (receipts provided) plus a $150 travel day fee. Most of central Kentucky is Zone 1 or 2. Louisville falls in Zone 3. <strong>We do not travel outside Kentucky.</strong>
+```
+
+Replace both instances with:
+```html
+Overnight jobs: hotel and meals reimbursed at cost (receipts provided) plus a $150 travel day fee. Most of central Kentucky is Zone 1 or 2. Louisville and Cincinnati fall in Zone 3. Zone 4 covers extended regional installs on weekends &mdash; same-day, no overnight required. Installations outside our standard service area are considered on a case-by-case basis &mdash; email <a href="mailto:joshuafisherkeller@gmail.com">joshuafisherkeller@gmail.com</a> to inquire.
+```
+
+---
+
+#### Change 4 — Commit and push
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add _layouts/capture-kit.html
+git commit -m "feat(aht): expand service area to 150-mile radius, add Zone 4 (+\$200), remove KY-only restriction"
+git push
+```
 
 ---
 
