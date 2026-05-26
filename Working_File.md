@@ -38,6 +38,7 @@
 | ~~8~~ | ~~May 25, 2026~~ | ~~skillsforchildren.com~~ | ~~Add 76 approved resources across 9 pillars (skills-resources.yml + trauma-resources.yml)~~ | ~~[Section 1 → Cowork Prompts → May 25, 2026](#may-25-2026--add-76-approved-resources-across-9-pillars)~~ |
 | ~~9~~ | ~~May 25, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: add "Install Only" tier ($379) + equipment deposit note to White Glove pricing~~ | ~~[Section 2 → Cowork Prompts → May 25, 2026 #1](#may-25-2026-1--capture-kit-page-add-install-only-tier-equipment-deposit-note)~~ |
 | ~~10~~ | ~~May 25, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: reframe service area to 150-mile radius, add Zone 4 (+$200), replace KY-only restriction with case-by-case email~~ | ~~[Section 2 → Cowork Prompts → May 25, 2026 #2](#may-25-2026-2--capture-kit-page-service-area-reframe-zone-4)~~ |
+| ~~11~~ | ~~May 25, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit + /tech/ page: flip hero hierarchy, fix Kentucky Only badges, remove "AI" from local transcription, "30-day email support"~~ | ~~[Section 2 → Cowork Prompts → May 25, 2026 #3](#may-25-2026-3--capture-kit-tech-page-hero-hierarchy-ky-badge-transcription-copy-fixes)~~ |
 
 > When all rows are ~~struck through~~, the queue is clear.
 
@@ -1732,6 +1733,83 @@ Complete rewrite of `_layouts/capture-kit.html` applying White Glove only model 
   - Total benchmark time including medium transcription was **9:28**.
   - Compared with the prior full app medium run, this reduces speaker identification from **18:26 → 0:43** on the test machine.
   - Quality note: segment-level labeling is much faster and broadly useful for one-on-one clinician/client turns, but mixed Whisper segments can still contain both a clinician question and a client answer under one label. Next quality step is finer-grained segment splitting/alignment, likely with word timestamps or shorter transcript chunks.
+- First full GUI run using `medium` + `fast_two`: `C:/Users/joshu/Transcriber/transcripts/20260525_Fastest_Fastes_diagnostics.txt`.
+  - Total: **6:16** for the same **11:10** recording (**0.56x recording length**, faster than real time).
+  - Speech transcription: **4:46**.
+  - Speaker model load: **0:51**.
+  - Speaker identification: **0:33**.
+  - Diarization sub-step bottleneck: **Speaker embeddings 0:32**.
+  - Exports successfully created: `.docx` and `.pdf`.
+  - This is the current best product baseline on Josh's Ryzen 5 5500U / 8 GB RAM CPU-only test PC.
+  - Compared with the previous medium + standard diarization GUI run (**26:09**), this is about **19:53 faster** and moves the app from **2.34x recording length** to **0.56x recording length**.
+- Follow-up diarization quality experiment on May 25, 2026:
+  - Added word-timestamp chunking support in code so fast diarization can be tested on smaller transcript chunks.
+  - Initial chunked benchmark created 182 chunks and speaker identification stayed fast (**0:49**), but label quality became less stable because very short chunks produced less reliable embeddings.
+  - Tuned chunking created 97 stronger chunks and speaker identification was **0:28**, but quality still did not beat the original stable 127-segment fast path.
+  - Anchored chunk classification was also tested; speaker identification was **0:58**, but quality still did not justify making it the GUI default.
+  - Decision: keep GUI default fast diarization on the stable unchunked transcript-guided path for now.
+  - `scripts/benchmark_fast_diarization.py` now supports experimental `--chunked` mode, but defaults to the stable unchunked path.
+  - Latest stable benchmark after reverting benchmark default: `C:/Users/joshu/Transcriber/transcripts/fast_diarization_benchmark_Test Video File_20260525_175256.md`.
+    - Total benchmark time: **7:04**.
+    - Fast speaker identification: **1:09**.
+    - Label sample quality matches the earlier stable fast path better than the chunked experiments.
+- Additional full GUI confirmation run on May 25, 2026: `C:/Users/joshu/Transcriber/transcripts/20260525_Balanced_fast_2_Speakers_Balanced_fast_2_Speakers_diagnostics.txt`.
+  - Settings: **Balanced (medium)** + **Fast two speakers (recommended)** / `fast_two`.
+  - Exports: `.docx`, `.txt`, `.pdf`.
+  - Total: **8:00** for the same **11:10** test video (**0.72x recording length**).
+  - Speech transcription: **7:26**.
+  - Speaker identification: **0:32**.
+  - Speaker embeddings: **0:32**.
+  - Confirms the stable fast GUI path remains faster than real time on Josh's current CPU-only test PC.
+- UI/document wording update:
+  - User-facing `Client/Family Name` changed to **Client**.
+  - User-facing `Procedure` changed to **Session Description**.
+  - Generated transcript headers now use `Client:` and `Session Description:`.
+  - Note: the 20260525_Balanced_fast_2_Speakers run still shows the old wording because that app instance was launched before the wording patch.
+- New comparison file tested: `C:/Users/joshu/Transcriber/CBT Demo Socratic Questioning.mp4`.
+  - File size: about **19 MB**.
+  - Duration: about **6:56**.
+  - Codec details from ffprobe: H.264, **640x360**, ~30fps, video bitrate ~**268 kbps**; AAC stereo audio ~**96 kbps**.
+  - Session Scribe output: `C:/Users/joshu/Transcriber/transcripts/20260525_New_Video_Tesst_New_Video_Tesst.docx`.
+  - Diagnostics: `C:/Users/joshu/Transcriber/transcripts/20260525_New_Video_Tesst_New_Video_Tesst_diagnostics.txt`.
+  - Settings: **medium** + **fast_two**.
+  - Runtime: **7:01** for **6:56** recording (**1.01x recording length**).
+  - Speaker identification: **1:22**.
+  - Output confirmed new transcript header wording: `Client:` and `Session Description:`.
+  - Qualitative read: transcription text is generally strong/readable; speaker labels are mixed in some quick demo-style back-and-forth sections, especially when the transcript segment contains both question and answer.
+- User reviewed the CBT demo transcript in Google Docs and marked many speaker-label corrections through roughly the first half.
+  - Key user finding: transcription text is **excellent / almost perfect**.
+  - Key problem: speaker labels are **bad enough that the user stopped halfway** due to repeated label errors.
+  - Google Doc reviewed: `https://docs.google.com/document/d/1VYN5PTQo60iy3-AET9seFazW--poSUYU/edit`.
+  - Inline notes showed a repeated pattern: fast back-and-forth therapist/client dialogue often places the wrong label on short replies or mixed turns.
+- A same-file comparison was run using `scripts/benchmark_fast_diarization.py "CBT Demo Socratic Questioning.mp4" --include-standard`.
+  - Result saved to `C:/Users/joshu/Transcriber/transcripts/fast_diarization_benchmark_CBT Demo Socratic Questioning_20260525_212444.md`.
+  - Fast transcript-guided speaker identification: **1:12**.
+  - Standard full pyannote speaker identification: **13:54**.
+  - Standard pyannote did **not** clearly solve the label-quality problem on this recording; it was much slower and still produced many questionable labels.
+  - Product implication: automatic audio-only diarization is not yet reliable enough to present as final/authoritative speaker labels for all clinical-style videos. Next best product path is likely either (1) hardware-assisted two-channel audio, (2) a built-in speaker review/correction workflow, or (3) presenting speaker labels as draft labels with a quick correction pass.
+- Capture/file-size note:
+  - Original `Test Video File.mp4` came from an Elgato Video Capture device connected to an older video camera and audio mixer.
+  - Local ffprobe showed the file was **854x480** at ~**4.19 Mbps** video and ~**317 kbps** audio, total ~**378 MB** for **11:10**.
+  - Elgato Video Capture is an analog capture/digitizing device, not a 1080p capture path; official specs list **640x480 (4:3)** or **640x360 (16:9)** and H.264 around **1.4 Mbit/sec** with AAC audio.
+  - For Capture Kit, future OBS profiles should target Windows-compatible MP4/H.264/AAC playback while reducing file size: likely 1080p30, H.264, AAC 48kHz 128-160kbps, and video around 1.5-2.5 Mbps for therapy-room static scenes.
+- Capture Kit OBS recording profile should become a configured product preset, not a user decision.
+  - Goal: files remain playable in Windows Media Player, visually acceptable at 1080p, and much smaller than high-bitrate default recordings.
+  - Recommended starter profile: **1080p30 Compact Clinical Recording**.
+  - Container: prefer **MKV recording with automatic remux to MP4** for recording safety, or direct **MP4** if simplicity wins after testing.
+  - Video codec: **H.264** for compatibility.
+  - Hardware encoder when available: Intel **Quick Sync H.264** on mini PCs.
+  - Video quality target: start with **CQP/ICQ 26** or bitrate target around **1.5-2.5 Mbps** for mostly static therapy-room scenes.
+  - Keyframe interval: **2 seconds**.
+  - Profile: **High**.
+  - FPS: **30**.
+  - Canvas/output resolution: **1920x1080**.
+  - Audio: **AAC**, **48 kHz**, **mono or stereo**, **128-160 kbps**. Preserve speech clarity over video size reductions.
+  - Test profiles to compare later:
+    - `1080p Standard`: approx. 2.5 Mbps or CQP/ICQ 24.
+    - `1080p Compact`: approx. 1.5 Mbps or CQP/ICQ 26-28.
+    - `720p Archive`: optional ultra-small mode for practices that prioritize storage over visual detail.
+  - These OBS settings should eventually be installed/configured automatically by the Capture Kit setup workflow.
 - Current test machine: AMD Ryzen 5 5500U laptop-class CPU, 8 GB RAM, integrated AMD graphics; effectively CPU-only for Whisper + pyannote.
 - Performance is expected to improve on stronger CPU-only hardware such as an i5-13600H mini PC with 16 GB RAM, but integrated graphics will not provide CUDA acceleration.
 - True high-speed tier likely requires a supported NVIDIA/CUDA GPU later.
@@ -1764,6 +1842,24 @@ Complete rewrite of `_layouts/capture-kit.html` applying White Glove only model 
 - Decide whether the commercial product is bundled-only with Capture Kit, sold separately, or offered in both paths.
 - Later: installer, license compliance check, EULA/privacy language, licensing/activation model, support/update flow, and sales/download flow on the website.
 - Later: OBS API + Stream Deck API custom UI integration for recording sessions directly into the Capture Kit workflow.
+
+---
+
+### Session 12 — May 25, 2026
+**Task:** Capture Kit + /tech/ page — hero hierarchy flip, service area badge, remove "AI" from transcription copy, remote → email support (Working_File item 11).
+**Commit:** `676fe67`
+**Pushed to GitHub:** Yes
+
+#### Files changed
+- `_layouts/capture-kit.html` (8 changes)
+- `_layouts/after-hours-tech.html` (3 changes)
+
+#### What changed
+- **Hero flip:** h1 is now "Clinical Session Capture Kit"; tagline ("One button to record…") demoted to styled serif `<p>`
+- **Availability strip:** "Kentucky Only" → "Within 150 Miles of Lexington, KY"
+- **"AI" removed** from: Mini PC card body, Local AI Transcription card heading + body, Session Scribe add-on strip
+- **"remote support" → "email support"** in: White Glove bullet, Install Only bullet, FAQ answer, /tech/ card bullet
+- **/tech/ Capture Kit card:** "Kentucky only" → "within 150 miles of Lexington, KY", reflects both tiers
 
 ---
 
@@ -1895,6 +1991,167 @@ Footer note:    "After Hours Tech is independent of the University of Kentucky
 ## Cowork Prompts — After Hours Tech
 
 > **Claude Cowork:** Paste any prompts you generate for Claude Code here, with a date and description header.
+
+---
+
+### May 25, 2026 #3 — Capture Kit + /tech/ page: hero hierarchy, KY badge, transcription copy fixes
+
+**Context:** Several copy and hierarchy issues noticed on the live site. Changes span two files: `_layouts/capture-kit.html` and `_layouts/after-hours-tech.html`. Read both files in full before starting.
+
+---
+
+#### File 1 — `_layouts/capture-kit.html`
+
+**Change 1 — Flip hero hierarchy**
+
+Find:
+```html
+<div class="aht-eyebrow">Clinical Session Capture Kit</div>
+<h1>One button to record.<br>One button to stop.<br>Everything else is handled.</h1>
+```
+
+Replace with:
+```html
+<h1>Clinical Session Capture Kit</h1>
+<p style="font-family:var(--serif); font-size:clamp(20px,3vw,30px); color:#d6d3d1; line-height:1.25; font-weight:400; margin-bottom:22px;">One button to record.<br>One button to stop.<br>Everything else is handled.</p>
+```
+
+**Change 2 — Availability strip: remove Kentucky Only**
+
+Find:
+```html
+<span><strong>On-Site Install:</strong> Kentucky Only</span>
+```
+
+Replace with:
+```html
+<span><strong>On-Site Install:</strong> Within 150 Miles of Lexington, KY</span>
+```
+
+**Change 3 — Mini PC card: remove "AI" from body copy**
+
+Find:
+```
+powerful enough to run recording software and local AI transcription.
+```
+
+Replace with:
+```
+powerful enough to run recording software and local transcription.
+```
+
+**Change 4 — Local AI Transcription card: remove "AI" from header and body**
+
+Find:
+```html
+<h4>Local AI Transcription</h4>
+<p>Local AI transcription runs entirely on your device.
+```
+
+Replace with:
+```html
+<h4>Local Transcription</h4>
+<p>Local transcription runs entirely on your device.
+```
+
+**Change 5 — White Glove bullet: "remote" → "email"**
+
+Find (first instance, inside White Glove service list):
+```
+<li>30-day remote support included</li>
+```
+
+Replace with:
+```html
+<li>30-day email support included</li>
+```
+
+**Change 6 — Install Only bullet: "remote" → "email"**
+
+Find (second instance, inside Install Only service list):
+```
+<li>30-day remote support included</li>
+```
+
+Replace with:
+```html
+<li>30-day email support included</li>
+```
+
+**Change 7 — Session Scribe add-on strip: remove "AI"**
+
+Find:
+```
+Local AI transcription runs automatically after every recording.
+```
+
+Replace with:
+```
+Local transcription runs automatically after every recording.
+```
+
+**Change 8 — FAQ answer: "remote" → "email"**
+
+Find:
+```
+30-day remote support is included with White Glove service.
+```
+
+Replace with:
+```
+30-day email support is included with White Glove service.
+```
+
+---
+
+#### File 2 — `_layouts/after-hours-tech.html`
+
+**Change 9 — Capture Kit service card: remove Kentucky only, reflect two tiers**
+
+Find:
+```
+<p class="aht-service-desc" style="margin-top:8px;">White Glove on-site installation &mdash; we handle everything. Kentucky only.</p>
+```
+
+Replace with:
+```html
+<p class="aht-service-desc" style="margin-top:8px;">White Glove and Install Only options available &mdash; within 150 miles of Lexington, KY.</p>
+```
+
+**Change 10 — Service list: remove "AI" from transcription bullet**
+
+Find:
+```
+<li>Local AI transcription &mdash; offline, automatic, private</li>
+```
+
+Replace with:
+```html
+<li>Local transcription &mdash; offline, automatic, private</li>
+```
+
+**Change 11 — Service list: "remote" → "email"**
+
+Find (in after-hours-tech.html):
+```
+<li>30-day remote support included</li>
+```
+
+Replace with:
+```html
+<li>30-day email support included</li>
+```
+
+---
+
+#### Change 12 — Commit and push
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add _layouts/capture-kit.html _layouts/after-hours-tech.html
+git commit -m "fix(aht): flip hero hierarchy, update service area badge, remove AI from transcription copy, 30-day email support"
+git push
+```
 
 ---
 
