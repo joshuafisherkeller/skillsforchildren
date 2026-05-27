@@ -39,6 +39,10 @@
 | ~~9~~ | ~~May 25, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: add "Install Only" tier ($379) + equipment deposit note to White Glove pricing~~ | ~~[Section 2 → Cowork Prompts → May 25, 2026 #1](#may-25-2026-1--capture-kit-page-add-install-only-tier-equipment-deposit-note)~~ |
 | ~~10~~ | ~~May 25, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: reframe service area to 150-mile radius, add Zone 4 (+$200), replace KY-only restriction with case-by-case email~~ | ~~[Section 2 → Cowork Prompts → May 25, 2026 #2](#may-25-2026-2--capture-kit-page-service-area-reframe-zone-4)~~ |
 | ~~11~~ | ~~May 25, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit + /tech/ page: flip hero hierarchy, fix Kentucky Only badges, remove "AI" from local transcription, "30-day email support"~~ | ~~[Section 2 → Cowork Prompts → May 25, 2026 #3](#may-25-2026-3--capture-kit-tech-page-hero-hierarchy-ky-badge-transcription-copy-fixes)~~ |
+| ~~12~~ | ~~May 26, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: demote Session Scribe to "coming soon" add-on; make White Glove installation the hero~~ | ~~[Section 2 → Cowork Prompts → May 26, 2026 #1](#may-26-2026-1--capture-kit-session-scribe-coming-soon-installation-hero)~~ |
+| ~~13~~ | ~~May 26, 2026~~ | ~~After Hours Tech~~ | ~~/tech/ main page: update AI Coaching price from $30 to $40/hr~~ | ~~[Section 2 → Cowork Prompts → May 26, 2026 #2](#may-26-2026-2--tech-page-ai-coaching-price-update-30-to-40)~~ |
+| ~~14~~ | ~~May 26, 2026~~ | ~~After Hours Tech~~ | ~~In-Home Tech Service: replace vague travel note with flat mileage rate ($0.75/mile, one-way from 40516)~~ | ~~[Section 2 → Cowork Prompts → May 26, 2026 #3](#may-26-2026-3--in-home-tech-service-mileage-rate)~~ |
+| ~~15~~ | ~~May 26, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: remove both zone tables, replace with flat $0.75/mile mileage rate; update availability strip~~ | ~~[Section 2 → Cowork Prompts → May 26, 2026 #4](#may-26-2026-4--capture-kit-remove-zone-tables-mileage-rate)~~ |
 
 > When all rows are ~~struck through~~, the queue is clear.
 
@@ -1810,6 +1814,70 @@ Complete rewrite of `_layouts/capture-kit.html` applying White Glove only model 
     - `1080p Compact`: approx. 1.5 Mbps or CQP/ICQ 26-28.
     - `720p Archive`: optional ultra-small mode for practices that prioritize storage over visual detail.
   - These OBS settings should eventually be installed/configured automatically by the Capture Kit setup workflow.
+- Additional speaker-label test file on May 25, 2026:
+  - Media: `Case study clinical example CBT First session with a client with symptoms of depression (CBT model).mp4`.
+  - Output diagnostics: `C:/Users/joshu/Transcriber/transcripts/20260525_Sara_NEW_TEST_diagnostics.txt`.
+  - Outputs created: `.txt` and `.pdf`.
+  - Settings: **medium** + **fast_two**.
+  - Recording length: **13:54**.
+  - Total processing time: **12:42** (**0.91x recording length**, slightly faster than real time).
+  - Speech transcription: **10:27**.
+  - Speaker identification: **1:51**.
+  - New header wording confirmed in output: `Client: Sara`, `Session Description: NEW TEST`.
+  - Early transcript scan: word transcription appears readable; speaker labels are still mixed in multiple spots. Needs user review to determine if this is acceptable draft-label quality or a v1 blocker.
+- Overnight v1 hardening pass after deciding to position speaker labels as **draft speaker labels**:
+  - Added `C:/Users/joshu/Transcriber/session_transcriber/speaker_cleanup.py`.
+  - The cleanup pass is lightweight/rule-based, not a local LLM.
+  - Current cleanup rules:
+    - Infer likely clinician speaker from first speaker + question/prompt-heavy segments.
+    - Correct obvious clinician prompts back to the inferred clinician speaker.
+    - Correct obvious mid-sentence label breaks, e.g., a label switch before `because...` or other continuation text when the previous segment did not end a sentence.
+    - Correct a small number of very short continuation fragments.
+  - GUI now applies cleanup after `fast_two` speaker alignment only.
+  - GUI speaker mode labels now say **Fast draft two speakers (recommended)** and **Standard draft two speakers (slower)**.
+  - Options hint now says speaker labels are draft labels and should be reviewed.
+  - Transcript exports now include an extra speaker-label note when speaker labels are enabled: speaker labels are generated automatically as draft labels and should be reviewed before relying on them for clinical documentation.
+  - Diagnostics now include a stage like `Draft speaker cleanup (N changes, clinician likely Speaker X, ...)` so agents can see how many labels were changed.
+  - Benchmark script now applies the same cleanup pass and marks changed sample lines with `[cleanup: rule_name]` for review.
+  - Corrected a performance regression from the earlier anchored-speaker experiment: default fast diarization no longer embeds both anchor and label segments unless experimental chunking passes anchor segments explicitly.
+- Validation after cleanup:
+  - `CBT Demo Socratic Questioning.mp4` benchmark after cleanup: `C:/Users/joshu/Transcriber/transcripts/fast_diarization_benchmark_CBT Demo Socratic Questioning_20260525_222512.md`.
+    - Total benchmark time: **5:54** for **6:56** recording.
+    - Fast speaker identification: **0:29**.
+    - Cleanup changed **10** labels: clinician prompt hint **7**, mid-sentence continuation **3**.
+    - Qualitative read: cleanup catches some obvious errors, e.g. the therapist prompt `Is that okay if we move into this?`; it does not make the hard CBT demo product-perfect.
+  - `Case study clinical example CBT First session...` benchmark after cleanup: `C:/Users/joshu/Transcriber/transcripts/fast_diarization_benchmark_Case study clinical example CBT First session with a client with symptoms of depression (CBT model)_20260525_221807.md`.
+    - Total benchmark time: **12:04** for **13:54** recording.
+    - Fast speaker identification: **1:04**.
+    - Cleanup changed **28** labels: clinician prompt hint **17**, mid-sentence continuation **10**, short continuation **1**.
+    - Qualitative read: still needs human review. Cleanup improves obvious structure-level errors but is not a replacement for a speaker review/correction UI.
+  - Product conclusion remains: `medium` transcription is strong; speaker labels should be sold/presented as draft labels, with future work focused on quick correction tools and/or clinician voice calibration.
+- Additional product polish after draft-label decision:
+  - Added `C:/Users/joshu/Transcriber/session_transcriber/review.py`.
+  - When speaker labels are enabled, the GUI now writes a sidecar `*_speaker_review.txt` file next to the transcript outputs.
+  - The speaker review file is intentionally compact: it lists cleanup-changed lines and suggested speaker-label review spots such as unknown speakers, possible mid-sentence speaker switches, short acknowledgement flips, and brief speaker flips between same-speaker context.
+  - The success dialog now includes an **Open Speaker Review** button when that file is created.
+  - Benchmark script also writes the speaker review file so review reports can be tested from PowerShell.
+  - Validation benchmark: `C:/Users/joshu/Transcriber/transcripts/fast_diarization_benchmark_CBT Demo Socratic Questioning_20260525_223526_speaker_review.txt`.
+    - For the CBT stress-test file: 98 segments, 10 cleanup changes, 11 suggested review spots before duplicate-suggestion cleanup.
+  - Intent: reduce user review burden without adding a noisy in-app confidence-warning layer. This is a sidecar review aid, not a blocking workflow.
+- Future UX TODO:
+  - Add an optional completion alert/chime when transcription finishes.
+  - Must be **off by default**.
+  - User can toggle it on/off in settings or options.
+  - Use a subtle local system sound/chime only; avoid anything loud or startling because this may run in clinical spaces.
+  - Purpose: allow clinician/staff to step away while a longer transcription runs and know when output is ready.
+- May 26, 2026 GUI test after speaker-review sidecar:
+  - File: `Case study clinical example CBT First session with a client with symptoms of depression (CBT model).mp4`.
+  - Output base: `C:/Users/joshu/Transcriber/transcripts/20260526_clinical_example_clinical_example`.
+  - Outputs created: `.docx`, `.txt`, `_speaker_review.txt`, `_diagnostics.txt`.
+  - Settings: **medium** + **fast_two**.
+  - Total: **12:24** for **13:54** recording (**0.89x recording length**).
+  - Speech transcription: **9:49**.
+  - Speaker identification: **1:21**.
+  - Speaker review sidecar worked and listed cleanup changes plus only 3 suggested review spots.
+  - Note: this run exposed that cleanup diagnostic rule counts could be confusing because rule attempts could exceed final changed segments. Code was patched immediately after the run so future diagnostics/reporting count only final cleanup changes.
+  - Cleanup was also made slightly more conservative so first-person/client disclosure segments are less likely to be changed by generic question-mark prompt logic.
 - Current test machine: AMD Ryzen 5 5500U laptop-class CPU, 8 GB RAM, integrated AMD graphics; effectively CPU-only for Whisper + pyannote.
 - Performance is expected to improve on stronger CPU-only hardware such as an i5-13600H mini PC with 16 GB RAM, but integrated graphics will not provide CUDA acceleration.
 - True high-speed tier likely requires a supported NVIDIA/CUDA GPU later.
@@ -1842,6 +1910,65 @@ Complete rewrite of `_layouts/capture-kit.html` applying White Glove only model 
 - Decide whether the commercial product is bundled-only with Capture Kit, sold separately, or offered in both paths.
 - Later: installer, license compliance check, EULA/privacy language, licensing/activation model, support/update flow, and sales/download flow on the website.
 - Later: OBS API + Stream Deck API custom UI integration for recording sessions directly into the Capture Kit workflow.
+
+---
+
+### Session 15 — May 26, 2026
+**Task:** Audit + reconciliation — verified items 12–15 from pending table. All four had already been executed and committed in prior sessions; Working_File pending table had NOT been struck through. No code changes made — table strikes and this log entry are the only output.
+**Commits:** None (audit only)
+**Pushed to GitHub:** Yes (table update committed below)
+
+#### Audit results
+| Item | Verified state | Action |
+|------|---------------|--------|
+| #12 Session Scribe → Coming Soon | ✅ Already done — "Coming Soon" badge, `opacity:0.72`, no price, italic dev note | Struck table row only |
+| #13 AI Coaching $30 → $40/hr | ✅ Already done — AI Integration card shows `$40`, Tech Troubleshooting correctly stays `$30` | Struck table row only |
+| #14 In-Home Tech mileage rate | ✅ Already done — price label `+ $0.75/mile travel`, travel note references `$0.75/mile one-way from Lexington, KY (40516)` | Struck table row only |
+| #15 Remove zone tables, flat mileage | ✅ Already done — both cors-travel-block divs replaced with mileage paragraphs, availability strip says "Based in Lexington, KY · $0.75/mile travel", no Zone tables exist in HTML | Struck table row only |
+
+**Root cause of table drift:** Items 12–15 were executed across three commits (`1e4dad4`, `84e92aa`, `3cb2e60`) in the same session that wrote the section headers (~~May 26, 2026 #1~~ through ~~#4~~). The section headers were struck but the master pending table at the top of the file was not updated at that time.
+
+---
+
+### Session 14 — May 26, 2026
+**Task:** Capture Kit page — remove both zone tables, replace with flat $0.75/mile mileage rate; update availability strip (Working_File item 15).
+**Commit:** `3cb2e60`
+**Pushed to GitHub:** Yes
+
+#### Files changed
+- `_layouts/capture-kit.html`
+
+#### What changed
+- **Availability strip:** "Within 150 Miles of Lexington, KY" → "Based in Lexington, KY · $0.75/mile travel"
+- **White Glove travel block:** Full 5-row zone table + label + travel note (79 lines) replaced with single `<p class="cors-travel-note">` mileage paragraph
+- **Install Only travel block:** Same replacement (identical table removed)
+- Both travel blocks now read: *"Travel billed at $0.75/mile one-way from Lexington, KY (40516) — calculated via Google Maps from that zip to your address. Overnight trips quoted separately — email joshuafisherkeller@gmail.com to discuss."*
+- **Note:** `cors-travel-table` CSS class rules remain in the inline stylesheet (dead CSS — harmless, no rendered output)
+
+---
+
+### Session 13 — May 26, 2026
+**Task:** Session Scribe → coming soon; AI Coaching price update; In-Home Tech mileage rate (Working_File items 12, 13, 14).
+**Commits:** `1e4dad4` (item 12), `84e92aa` (items 13 + 14 together — same file, one commit)
+**Pushed to GitHub:** Yes
+
+#### Files changed
+- `_layouts/capture-kit.html` (item 12)
+- `_layouts/after-hours-tech.html` (items 13 + 14)
+
+#### What changed — item 12 (capture-kit.html)
+- **Session Scribe add-on strip:** badge "Add-On" → "Coming Soon" (grey styling), `opacity:0.72`, green border replaced with `#d1d5db`, background `#f9fafb`, body copy updated to dev-in-progress message, price element removed + replaced with italic note
+- **What's Included card:** Local Transcription card now shows "(Coming Soon)" tag, reduced opacity, updated body copy
+- **Workflow step 5:** "saves and transcribes automatically" → "saves automatically"
+- **Workflow note:** transcription sentence removed
+- **Privacy block:** "recording, storage, and transcription" → "recording and storage"; bullet updated to remove "and transcribe"
+- **White Glove service list:** removed "Local Whisper AI transcription configured and tested" line item
+- **Install Only service list:** removed "Local AI transcription configured and tested" line item
+
+#### What changed — items 13 + 14 (after-hours-tech.html)
+- **AI Coaching price:** `$30` → `$40` (Advanced AI Integration & Workflows card only — Tech Troubleshooting stays `$30`)
+- **In-Home Tech price label:** "Central KY area" → "+ $0.75/mile travel"
+- **In-Home Tech travel note:** "Willing to travel to other states" → "Travel billed at $0.75/mile one-way from Lexington, KY (40516) — calculated via Google Maps from that zip to your address."
 
 ---
 
@@ -1897,7 +2024,7 @@ Complete rewrite of `_layouts/capture-kit.html` applying White Glove only model 
 
 ## Pending / TODOs — After Hours Tech
 
-- [x] **Pricing** — Finalized May 21, 2026. AI Coaching $30/hr, Tech Troubleshooting $30/hr, In-Home $50/hr. Consultation-first for website/app/design. CORS free scoping call.
+- [x] **Pricing** — Finalized May 21, 2026; updated May 26, 2026. AI Coaching $40/hr (updated from $30 — item 13), Tech Troubleshooting $30/hr, In-Home $50/hr + $0.75/mile travel. Consultation-first for website/app/design. Capture Kit: White Glove $499, Install Only $379 (both flat fees, equipment separate).
 - [x] **Cal.com hours** — Confirmed set to evenings (6–10 PM ET weekdays) and weekends only. No 9–5 slots visible. Done May 21, 2026.
 - [x] **UK outside employment policy** — Closed May 21, 2026.
 - [ ] **⚠️ Josh action required — Cal.com:** Add a new booking type: **"Free 30-Minute Project Consultation"** (free, 30 min). This will be linked from Website/App Dev, Video Production, and CORS service cards. Currently Cal.com only has the 15-minute paid session types. Until this is added, the "30-minute consultation" CTAs on the site have nowhere to land.
@@ -3567,3 +3694,234 @@ The post body uses `<div class="definition-box">`. If this class doesn't exist i
   color: var(--ink, #1a3a2e);
 }
 ```
+
+---
+
+## Cowork Prompts — After Hours Tech
+
+---
+
+### ~~May 26, 2026 #1 — Capture Kit: Session Scribe "coming soon", installation as hero~~ ✅ DONE
+
+**Read SECOND_BRAIN.md and Working_File.md before starting.**
+
+**Context:** Session Scribe (the AI transcription add-on) is not yet ready to ship as a product. The current `/tech/capture-kit/` page presents it as a fully included and ready feature, which is inaccurate. The White Glove installation service IS ready and solid. This prompt repositions the page to reflect that reality: installation is the product, Session Scribe is a coming-soon add-on.
+
+**File to edit:** `_layouts/capture-kit.html`
+
+---
+
+**Change 1 — Add-on strip: rebrand Session Scribe as "coming soon"**
+
+Find the add-on strip for Session Scribe (the transcription add-on). It currently presents as an available, bookable add-on. Change it to a "coming soon" state:
+
+- Change the `Add-On` label badge to `Coming Soon`
+- Update the heading to: **Session Scribe — Local AI Transcription** *(Coming Soon)*
+- Update the body copy to: `We're finishing development on Session Scribe — a fully offline AI transcription tool built specifically for clinical sessions. Nothing leaves your device. Add your email to be notified when it's ready.`
+- Remove the price (no longer applicable — it isn't for sale yet)
+- Replace the price element with a simple italicized note: *Currently in development. Available soon as a paid add-on.*
+- Style the strip differently from a standard add-on to signal "not available yet" — reduce opacity to ~0.75 or add a muted border treatment if that can be done inline without breaking the existing CSS.
+
+**Change 2 — Hero section: lead with installation, not transcription**
+
+The hero currently positions the full system (installation + transcription) as a unified product. Since transcription is coming soon, shift the hero emphasis to the installation service:
+
+- Update the hero subheadline or lede to focus on: purpose-built therapy room recording setup, one button to record, everything configured and installed by a professional.
+- Remove or soften any hero copy that implies transcription is included or currently available.
+- The hero CTA ("Book Your Free Consultation →") stays unchanged.
+
+**Change 3 — Pricing/services section: remove transcription from what's delivered**
+
+Audit the pricing tier(s) and services listed. Remove any line items that describe Session Scribe transcription as part of the current White Glove package. If the pricing table lists transcription setup as included, either remove it or move it to a "coming soon" note below the table.
+
+**Change 4 — FAQ: update any transcription-related answers**
+
+If any FAQ answers describe Session Scribe or AI transcription as currently available, update them to reflect "in development / coming soon."
+
+---
+
+**After editing, push to GitHub:**
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add _layouts/capture-kit.html
+git commit -m "feat(aht): demote Session Scribe to coming soon; installation as hero on capture-kit page"
+git push
+```
+
+**Verify live at:** `https://skillsforchildren.com/tech/capture-kit/`
+
+---
+
+### ~~May 26, 2026 #2 — /tech/ main page: AI Coaching price update $30 → $40/hr~~ ✅ DONE
+
+**File to edit:** `_layouts/after-hours-tech.html`
+
+**Change:** Find all instances where AI Coaching is priced at `$30/hr` and update to `$40/hr`.
+
+Search for: `$30` in the context of the AI Coaching service card specifically. Do not change pricing for Tech Troubleshooting (also $30/hr) or any other service.
+
+If there is a separate pricing table, summary strip, or any other location on the page where AI Coaching pricing appears, update all of them.
+
+---
+
+**After editing, push to GitHub:**
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add _layouts/after-hours-tech.html
+git commit -m "feat(aht): update AI Coaching price to $40/hr"
+git push
+```
+
+**Verify live at:** `https://skillsforchildren.com/tech/`
+
+---
+
+### ~~May 26, 2026 #3 — In-Home Tech Service: mileage rate~~ ✅ DONE
+
+**File to edit:** `_layouts/after-hours-tech.html`
+
+**Context:** The In-Home Tech Service card currently shows a vague `<p class="aht-travel-note">*Willing to travel to other states</p>` beneath the $50/hr pricing row. Josh has decided on a flat mileage rate to replace the zone system and all vague travel language.
+
+**Change 1 — Replace the travel note paragraph:**
+
+Find:
+```html
+<p class="aht-travel-note">*Willing to travel to other states</p>
+```
+
+Replace with:
+```html
+<p class="aht-travel-note">Travel billed at $0.75/mile one-way from Lexington, KY (40516) &mdash; calculated via Google Maps from that zip to your address.</p>
+```
+
+**Change 2 — Update the service area label in the price row:**
+
+Find:
+```html
+<span class="aht-price-label">Per hour <span>&middot; Central KY area</span></span>
+```
+
+Replace with:
+```html
+<span class="aht-price-label">Per hour <span>&middot; + $0.75/mile travel</span></span>
+```
+
+**Do not touch:** Any other service card, any other pricing row, or any other travel/zone references elsewhere on the page. The Capture Kit page (`_layouts/capture-kit.html`) has its own service area language — do not touch it.
+
+**After editing, push to GitHub:**
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add _layouts/after-hours-tech.html
+git commit -m "feat(aht): replace travel zones with flat mileage rate ($0.75/mile from 40516)"
+git push
+```
+
+**Verify live at:** `https://skillsforchildren.com/tech/` — scroll to In-Home Tech Service card. Confirm pricing row shows "+ $0.75/mile travel" and the travel note reads the new mileage language.
+
+---
+
+### ~~May 26, 2026 #4 — Capture Kit page: remove zone tables, replace with flat mileage rate~~ ✅ DONE
+
+**File to edit:** `_layouts/capture-kit.html`
+
+**Context:** The zone pricing system has been replaced with a flat $0.75/mile one-way mileage rate from Lexington, KY (40516). The Capture Kit page has three places that reference the old zone system — two full zone tables and the availability strip at the top. All three need updating.
+
+---
+
+**Change 1 — Availability strip (line ~383):**
+
+Find:
+```html
+<span><strong>On-Site Install:</strong> Within 150 Miles of Lexington, KY</span>
+```
+
+Replace with:
+```html
+<span><strong>On-Site Install:</strong> Based in Lexington, KY &middot; $0.75/mile travel</span>
+```
+
+---
+
+**Change 2 — White Glove travel block:**
+
+Find and remove the entire `<!-- Travel zone table -->` block inside the White Glove pricing section. This is the div starting with `<!-- Travel zone table -->` and ending at the closing `</div>` after the travel note paragraph. Replace it with a single clean travel line:
+
+Find this entire block:
+```html
+      <!-- Travel zone table -->
+      <div class="cors-travel-block">
+        <div class="cors-travel-label">Travel &amp; Service Area &mdash; Within 150 Miles of Lexington, KY</div>
+        <table class="cors-travel-table">
+          <thead>
+            <tr>
+              <th>Zone</th>
+              <th>Distance from Lexington, KY</th>
+              <th>Travel Fee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Zone 1</td>
+              <td>0&ndash;20 miles</td>
+              <td class="cors-travel-fee included">Included</td>
+            </tr>
+            <tr>
+              <td>Zone 2</td>
+              <td>20&ndash;50 miles</td>
+              <td class="cors-travel-fee">+$75</td>
+            </tr>
+            <tr>
+              <td>Zone 3</td>
+              <td>50&ndash;100 miles</td>
+              <td class="cors-travel-fee">+$150</td>
+            </tr>
+            <tr>
+              <td>Zone 4</td>
+              <td>100&ndash;150 miles</td>
+              <td class="cors-travel-fee">+$200</td>
+            </tr>
+            <tr>
+              <td>150+ miles</td>
+              <td>Overnight required</td>
+              <td class="cors-travel-fee">Quoted separately</td>
+            </tr>
+          </tbody>
+        </table>
+```
+
+Replace the entire block (table + closing paragraph + closing div) with:
+```html
+      <div class="cors-travel-block">
+        <p class="cors-travel-note">Travel billed at $0.75/mile one-way from Lexington, KY (40516) &mdash; calculated via Google Maps from that zip to your address. Overnight trips quoted separately &mdash; email <a href="mailto:joshuafisherkeller@gmail.com">joshuafisherkeller@gmail.com</a> to discuss.</p>
+      </div>
+```
+
+---
+
+**Change 3 — Install Only travel block:**
+
+The Install Only pricing section has an identical zone table with the comment `<!-- Travel zone table (same zones apply) -->`. Apply the exact same replacement as Change 2 — remove the full `cors-travel-block` div and replace with:
+
+```html
+      <div class="cors-travel-block">
+        <p class="cors-travel-note">Travel billed at $0.75/mile one-way from Lexington, KY (40516) &mdash; calculated via Google Maps from that zip to your address. Overnight trips quoted separately &mdash; email <a href="mailto:joshuafisherkeller@gmail.com">joshuafisherkeller@gmail.com</a> to discuss.</p>
+      </div>
+```
+
+---
+
+**Do not touch:** Any other sections, the Session Scribe add-on strip, equipment tables, FAQ, or any other content on this page.
+
+**After editing, push to GitHub:**
+
+```bash
+cd "C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone"
+git add _layouts/capture-kit.html
+git commit -m "feat(aht): replace zone tables with flat mileage rate on capture kit page"
+git push
+```
+
+**Verify live at:** `https://skillsforchildren.com/tech/capture-kit/` — scroll to both pricing sections (White Glove and Install Only). Confirm both zone tables are gone and replaced with the mileage note. Confirm availability strip no longer says "150 Miles".
