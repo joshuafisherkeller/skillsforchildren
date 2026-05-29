@@ -19,6 +19,31 @@
 
 ---
 
+> ## ✅ RECENTLY COMPLETED — Do not re-recommend these
+> Last updated: May 26, 2026
+>
+> - **GA4 + Google Search Console** — Both live. GA4 tag `G-7CP0576RE8` in `_layouts/default.html`. Sitemap submitted, 13 pages in GSC.
+> - **Blog article #1** — "What to Say When Your Child Is Having a Trauma Reminder Response" published May 22, 2026 at `/blog/what-to-say-trauma-reminder-response/`
+> - **AHT pricing** — Fully set and live. AI Coaching $40/hr, Tech Troubleshooting $30/hr, In-Home $50/hr + $0.75/mile one-way from 40516. Zone system removed sitewide.
+> - **AHT Cal.com workflow** — Confirmation trigger, sender name, subject updated. Intake form linked in event description.
+> - **Daily briefing artifact** — Live in Cowork sidebar. Pulls Gmail + Calendar. Fathom test with Julia is the next morning priority.
+> - **All 15 Claude Code prompts** — Cleared as of May 26, 2026. Next prompt starts at #16.
+
+> ## 📡 LIVE PRODUCT STATUS — Read this before the prompt queue
+> Last updated: May 26, 2026 by Claude Cowork
+>
+> | Product | Status | Key Facts |
+> |---------|--------|-----------|
+> | **BRAVE App** | 🟢 Active development (Codex) | Clinician mode live; Phase 1 in progress; app at app.skillsforchildren.com |
+> | **Session Scribe** | 🟡 Working locally — not yet commercial | Offline Python desktop app; draft speaker labels; 4 outputs (.docx/.txt/_speaker_review.txt/_diagnostics.txt); needs license review, packaging, EULA, payment flow before selling |
+> | **Capture Kit installs** | 🟢 Selling now | White Glove $499, Install Only $379; $0.75/mile travel one-way from 40516; within 150mi of Lexington KY |
+> | **skillsforchildren.com** | 🟢 Live | Jekyll on GitHub Pages; 15 Claude Code prompts complete as of May 26 |
+> | **When Feelings Get Loud** | 🔴 Blocked | 8-track album submitted to Amuse; waiting on distribution approval before /songs page goes live |
+> | **AHT consulting** | 🟢 Live | AI Coaching $40/hr; Tech Troubleshooting $30/hr; In-Home $50/hr + $0.75/mile; booked via cal.com/Fisherkeller |
+> | **After Hours Tech website** | 🟢 Live | /tech/ + /tech/capture-kit/ both live and current |
+>
+> **Update this table when any product status changes. Any agent can update it.**
+
 > # ⚡ STOP — READ THE PENDING PROMPTS TABLE BELOW BEFORE DOING ANYTHING ELSE
 > **Claude Code:** Do NOT skip to the session log. Do NOT assume the queue is empty. Check the table below first — every time, no exceptions. If the table has rows that are not struck through, execute them in order before starting any other work.
 
@@ -43,6 +68,8 @@
 | ~~13~~ | ~~May 26, 2026~~ | ~~After Hours Tech~~ | ~~/tech/ main page: update AI Coaching price from $30 to $40/hr~~ | ~~[Section 2 → Cowork Prompts → May 26, 2026 #2](#may-26-2026-2--tech-page-ai-coaching-price-update-30-to-40)~~ |
 | ~~14~~ | ~~May 26, 2026~~ | ~~After Hours Tech~~ | ~~In-Home Tech Service: replace vague travel note with flat mileage rate ($0.75/mile, one-way from 40516)~~ | ~~[Section 2 → Cowork Prompts → May 26, 2026 #3](#may-26-2026-3--in-home-tech-service-mileage-rate)~~ |
 | ~~15~~ | ~~May 26, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: remove both zone tables, replace with flat $0.75/mile mileage rate; update availability strip~~ | ~~[Section 2 → Cowork Prompts → May 26, 2026 #4](#may-26-2026-4--capture-kit-remove-zone-tables-mileage-rate)~~ |
+| ~~16~~ | ~~May 27, 2026~~ | ~~skillsforchildren.com~~ | ~~SEO schema markup: commit new `_includes/schema-trauma.html` + one-line edit to `_layouts/default.html`~~ | ~~[Section 1 → Cowork Prompts → May 27, 2026 #1](#may-27-2026-1--seo-schema-markup-faqpage--book-schema)~~ |
+| ~~17~~ | ~~May 29, 2026~~ | ~~skillsforchildren.com~~ | ~~⚡ URGENT: Rewrite `about.markdown` — expanded bio, authority signals, Person JSON-LD schema~~ | ~~[Section 1 → Cowork Prompts → May 29, 2026 #1](#may-29-2026-1--about-page-rewrite-bio-authority-signals-person-schema)~~ |
 
 > When all rows are ~~struck through~~, the queue is clear.
 
@@ -631,6 +658,39 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 #### Notes
 - Submitted distributor package covers the full 8-track album: "Brain Alarm", "Breathe Like Waves", "Name It, Choose It", "Maybe, Maybe Not", "My Story, My Voice", "One Step Braver", "Say It With Me", and "My Plan, My People".
 - Next website task remains building `skillsforchildren.com/songs` using the prepared per-song copy and artwork once release links are available.
+
+---
+
+### Session 22 — May 29, 2026
+**Task:** About page rewrite — expanded bio, authority signals, Person JSON-LD schema (Working_File item 17).
+**Commit:** `4384370`
+**Pushed to GitHub:** Yes
+
+#### Files changed
+- `about.markdown` — full rewrite
+
+#### What changed
+- **Front matter:** description updated to include "25 years of direct clinical experience"
+- **Person JSON-LD schema (new):** `@type: Person` with name, honorificSuffix, jobTitle, description, url, alumniOf (University of Kentucky), knowsAbout array (6 topics), sameAs (YouTube + Amazon author page)
+- **Hero:** lede updated to include "25 years of direct clinical experience"
+- **Bio section:** expanded from 2 thin sentences to 3 substantive paragraphs covering clinical background, professional development work, and published work — all accurate to Josh's CV, no employer named (CTAC/UKY brand rule preserved)
+
+---
+
+### Session 21 — May 29, 2026
+**Task:** SEO schema markup — FAQPage + Book JSON-LD for /trauma/ page (Working_File item 16).
+**Commit:** `56a7451`
+**Pushed to GitHub:** Yes
+
+#### Files created/changed
+- `_includes/schema-trauma.html` — NEW (Cowork wrote the spec; file not yet on disk; Claude Code created it)
+- `_layouts/default.html` — one-line include already added by prior session; committed alongside new file
+
+#### What's in schema-trauma.html
+- **FAQPage schema:** 5 Q&A pairs drawn from the trauma article — "What is childhood trauma?", "How does trauma affect brain development?", "What is TF-CBT?", "How can caregivers help?", "When does a child need professional help?" — all answers directly sourced from `_includes/articles/understanding-childhood-trauma.md`
+- **Book schema:** *A Journey of Brave Friends* — author Joshua Fisherkeller MSW, audience ages 6–11 / caregivers / clinicians, offer URL `https://amzn.to/4tWqSlG`
+
+**Note:** `default.html` already contained `{% if page.layout == 'trauma' %}{% include schema-trauma.html %}{% endif %}` before the Organization schema block — that edit had been made in a prior session. Only the missing include file needed to be created.
 
 ---
 
@@ -1435,6 +1495,112 @@ Books to remove: `Try Something New`, `The Worry Garden`, `When Mom Gets Big Fee
 Six-phase batch: fix book cover image → replace "evidence-based" sitewide → dark mode default → homepage restructure (8 skills pillars + 1 trauma hub) → create `/trauma` page → update Working_File.
 
 ---
+
+### May 27, 2026 #1 — SEO schema markup: FAQPage + Book schema {#may-27-2026-1--seo-schema-markup-faqpage--book-schema}
+
+**Context:** Claude Cowork wrote both files. This prompt is purely a commit-and-push task — the files are already written to disk.
+
+**What was done:**
+- `_includes/schema-trauma.html` (new file) — Contains two JSON-LD blocks: a `FAQPage` schema with 5 Q&A pairs drawn from the `/trauma/` page content, and a `Book` schema for *A Journey of Brave Friends* with the Amazon affiliate offer URL.
+- `_layouts/default.html` (one-line edit) — Added `{% if page.layout == 'trauma' %}{% include schema-trauma.html %}{% endif %}` immediately before the existing Organization schema block, so the trauma-specific schemas only load on the trauma page.
+
+**Your task:**
+1. Verify both files look correct (quick scan — no Jekyll syntax errors, valid JSON-LD structure).
+2. Commit both files together: `git add _includes/schema-trauma.html _layouts/default.html && git commit -m "SEO: add FAQPage + Book JSON-LD schema to /trauma/ page"`
+3. Push to `main`: `git push origin main`
+4. After GitHub Pages deploys (~2 min), validate the schema at https://validator.schema.org/ using the URL `https://skillsforchildren.com/trauma/` — confirm both FAQPage and Book schemas appear without errors.
+5. Strike item 16 from the PENDING PROMPTS table and log this session.
+
+**Files changed:**
+- `_includes/schema-trauma.html` — NEW
+- `_layouts/default.html` — EDIT (one line added)
+
+---
+
+---
+
+### May 29, 2026 #1 — About page rewrite: bio, authority signals, Person schema {#may-29-2026-1--about-page-rewrite-bio-authority-signals-person-schema}
+
+**Context:** The current `about.markdown` is thin and provides no E-E-A-T signals for Google or AI citation engines. Josh's CV was reviewed; the bio below is accurate and has been approved. Do not exaggerate credentials — the framing below reflects exactly what is true. No employer is named (brand rule: CTAC/UKY must never appear in SFC content). "Evidence-informed" not "evidence-based" throughout.
+
+**Your task:** Replace the contents of `about.markdown` with the following. Do not change the permalink or layout.
+
+```markdown
+---
+layout: default
+title: "About — Skills for Children"
+description: "Skills for Children is a free resource library founded by Joshua Fisherkeller, MSW — a children's mental health practitioner with 25 years of direct clinical experience working with kids and families."
+permalink: /about/
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Joshua Fisherkeller",
+  "honorificSuffix": "MSW",
+  "jobTitle": "Children's Mental Health Practitioner & Author",
+  "description": "Joshua Fisherkeller, MSW is a children's mental health practitioner, author of trauma-informed children's books, and founder of Skills for Children — a free evidence-informed resource library for parents, educators, and clinicians.",
+  "url": "https://skillsforchildren.com/about/",
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "University of Kentucky"
+  },
+  "knowsAbout": ["childhood trauma", "trauma-informed care", "TF-CBT", "children's mental health", "emotional regulation", "resilience building"],
+  "sameAs": [
+    "https://www.youtube.com/@SkillsforChildren",
+    "https://www.amazon.com/stores/Joshua-Fisherkeller/author/B0CRSTF6CF"
+  ]
+}
+</script>
+
+<section class="page-hero container">
+  <div class="eyebrow">About</div>
+  <h1 style="margin-top:18px;max-width:18ch">Built by a clinician, for the people who show up.</h1>
+  <p style="font-size:clamp(17px,1.5vw,19px);line-height:1.6;max-width:56ch;margin-top:16px">
+    Skills for Children is a free resource library founded by Joshua Fisherkeller, MSW — a children's mental health practitioner, author, and educator with 25 years of direct clinical experience.
+  </p>
+</section>
+
+<div class="container" style="max-width:760px;padding-bottom:var(--section-y)">
+  <article style="line-height:1.8;font-size:clamp(16px,1.2vw,17.5px);color:var(--ink-soft)">
+
+## Why this exists
+
+Every resource on this site is free, ungated, and evidence-informed. No paywalls. No email-required downloads. No "buy our curriculum" content.
+
+The site draws from trusted institutions: Harvard's Center on the Developing Child, the National Child Traumatic Stress Network (NCTSN), the CDC, CASEL, Child Mind Institute, Understood.org, Stanford PERTS, and Zero to Three — because credibility matters when you're working with vulnerable kids and families.
+
+## The mission
+
+To put the best free resources in the hands of the parents, educators, and clinicians who need them — organized so they're actually findable, and presented in a way that respects the intelligence of the people using them.
+
+## About Joshua Fisherkeller, MSW
+
+Joshua holds a Master of Social Work from the University of Kentucky and has spent 25 years working directly with children and families in clinical settings — providing therapy, conducting trauma assessments, and working with kids navigating severe emotional disturbances, developmental challenges, and complex trauma.
+
+That clinical background shapes every curation decision on this site. The same lens clinicians use to evaluate whether a resource actually helps — rather than just sounds good — is what determines what makes it here.
+
+He has also spent years embedded in professional development for children's mental health practitioners, coordinating training programs for agencies across state and national levels. That proximity to what practitioners need and don't have shaped the way this site is organized.
+
+Joshua is also the author of trauma-informed children's books and creator of educational music for kids — published work that extends the same mission beyond the resource library.
+
+- [Browse the resource library](/#resources)
+- [See the books](/books)
+- [YouTube channel](https://www.youtube.com/@SkillsforChildren){:target="_blank" rel="noopener"}
+
+  </article>
+</div>
+```
+
+**After completing:**
+1. Commit: `git add about.markdown && git commit -m "About: expanded bio, authority signals, Person JSON-LD schema"`
+2. Push: `git push origin main`
+3. After deploy, validate schema at https://validator.schema.org/ using `https://skillsforchildren.com/about/` — confirm Person schema appears without errors.
+4. Strike item 17 from the PENDING PROMPTS table and log this session.
+
+**Files changed:**
+- `about.markdown` — FULL REWRITE
 
 ---
 
