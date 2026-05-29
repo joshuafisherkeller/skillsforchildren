@@ -47,6 +47,9 @@
   <!-- jekyll-seo-tag (handles additional structured meta) -->
   {% seo %}
 
+  <!-- Page-specific structured data (FAQPage + Book schema for /trauma/) -->
+  {% if page.layout == 'trauma' %}{% include schema-trauma.html %}{% endif %}
+
   <!-- Schema.org Organization -->
   <script type="application/ld+json">
   {
