@@ -61,5 +61,9 @@ Joshua is also the author of trauma-informed children's books and creator of edu
 - [See the books](/books)
 - [YouTube channel](https://www.youtube.com/@SkillsforChildren){:target="_blank" rel="noopener"}
 
+## Get in touch
+
+Questions, feedback, or resource suggestions? Reach out at [josh@skillsforchildren.com](mailto:josh@skillsforchildren.com) — or use the [resource suggestion form](https://docs.google.com/forms/d/e/1FAIpQLScoF2tXwuGt-QduA_ZmUbhquOfx3C2KoSZcyE064N77bZIG-Q/viewform){:target="_blank" rel="noopener"}.
+
   </article>
 </div>
