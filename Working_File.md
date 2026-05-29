@@ -87,6 +87,7 @@
 | ~~16~~ | ~~May 27, 2026~~ | ~~skillsforchildren.com~~ | ~~SEO schema markup: commit new `_includes/schema-trauma.html` + one-line edit to `_layouts/default.html`~~ | ~~[Section 1 → Cowork Prompts → May 27, 2026 #1](#may-27-2026-1--seo-schema-markup-faqpage--book-schema)~~ |
 | ~~17~~ | ~~May 29, 2026~~ | ~~skillsforchildren.com~~ | ~~⚡ URGENT: Rewrite `about.markdown` — expanded bio, authority signals, Person JSON-LD schema~~ | ~~[Section 1 → Cowork Prompts → May 29, 2026 #1](#may-29-2026-1--about-page-rewrite-bio-authority-signals-person-schema)~~ |
 | ~~18~~ | ~~May 29, 2026~~ | ~~skillsforchildren.com + AHT~~ | ~~Update primary contact email sitewide: replace joshuafisherkeller@gmail.com with josh@skillsforchildren.com everywhere. Add contact section to About page.~~ | ~~[Section 1 → Cowork Prompts → May 29, 2026 #2](#may-29-2026-2--email-update-joshjoshskillsforchildrencom-sitewide)~~ |
+| ~~19~~ | ~~May 29, 2026~~ | ~~skillsforchildren.com~~ | ~~About page: fix markdown rendering bug (## not rendering) + full bio rewrite — systems/macro focus, accurate credentials, musician, tech expertise~~ | ~~[Section 1 → Cowork Prompts → May 29, 2026 #3](#may-29-2026-3--about-page-rendering-fix--bio-rewrite)~~ |
 
 > When all rows are ~~struck through~~, the queue is clear.
 
@@ -675,6 +676,25 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 #### Notes
 - Submitted distributor package covers the full 8-track album: "Brain Alarm", "Breathe Like Waves", "Name It, Choose It", "Maybe, Maybe Not", "My Story, My Voice", "One Step Braver", "Say It With Me", and "My Plan, My People".
 - Next website task remains building `skillsforchildren.com/songs` using the prepared per-song copy and artwork once release links are available.
+
+---
+
+### Session 24 — May 29, 2026
+**Task:** About page rendering fix + bio rewrite (Working_File item 19).
+**Commit:** `09f7ab4`
+**Pushed to GitHub:** Yes
+
+#### Files changed
+- `about.markdown` — full rewrite
+
+#### What changed
+- **Rendering fix:** All `##` markdown headers inside `<article>` converted to `<h2>` HTML tags. Bullet list converted to `<ul><li>` HTML. All `<p>` tags explicit. Fixes raw `##` text displaying on the live page.
+- **Person schema updated:** jobTitle, description, and knowsAbout updated to reflect macro-level/systems focus + educational music
+- **Hero lede updated:** Now reads "over 25 years of experience in advocacy, training, and systems of care"
+- **Author headshot added:** `assets/img/resilient-forest/author.png` floated right with rounded corners
+- **Bio rewritten (5 paragraphs):** BSW 1999 / MSW 2005 credentials, macro-level career focus, early direct clinical work as therapist and therapeutic child support worker, TFC director role, systems perspective, curriculum/training/technology background, musician/songwriter (*When Feelings Get Loud*), author + BRAVE app + After Hours Tech reference
+- **Links list + Get in touch section** carried forward from prior session (item 18)
+- **Typo fixed:** Prompt had "and and designing" → corrected to "and designing"
 
 ---
 
@@ -1671,6 +1691,110 @@ Questions, feedback, or resource suggestions? Reach out at [josh@skillsforchildr
 - `_layouts/capture-kit.html`
 - `_layouts/cors-landing.html` (if applicable)
 - `about.markdown` (add contact section)
+
+---
+
+### May 29, 2026 #3 — About page: rendering fix + bio rewrite {#may-29-2026-3--about-page-rendering-fix--bio-rewrite}
+
+**Context:** The About page has two problems:
+1. **Rendering bug** — markdown `##` headers inside the HTML `<article>` block are not being parsed by Jekyll/Kramdown and are displaying as raw text. Fix by converting all markdown headers and body content inside the HTML block to proper HTML elements, OR by adding `markdown="1"` to the container.
+2. **Inaccurate bio** — the existing bio describes Josh as primarily a clinician. He is actually a macro-level practitioner with a systems/training/program development focus. The bio below is approved and accurate. Do not exaggerate or invent credentials — use only what is listed here.
+
+**Brand rules (mandatory):**
+- No employer is named — CTAC/University of Kentucky must never appear in Skills for Children content
+- "Evidence-informed" not "evidence-based"
+- Default author: "Joshua Fisherkeller, MSW | Skills for Children"
+
+**Your task:** Replace `about.markdown` entirely with the following. Fix the rendering issue by using HTML `<h2>` and `<p>` tags inside the article block rather than markdown syntax.
+
+```markdown
+---
+layout: default
+title: "About — Skills for Children"
+description: "Skills for Children is a free resource library founded by Joshua Fisherkeller, MSW — a children's mental health professional with over 25 years of experience in advocacy, training, program development, and systems of care."
+permalink: /about/
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Joshua Fisherkeller",
+  "honorificSuffix": "MSW",
+  "jobTitle": "Children's Mental Health Professional, Author & Educator",
+  "description": "Joshua Fisherkeller, MSW has over 25 years of experience working with children, families, and systems in Kentucky — specializing in advocacy, training, program development, and systems of care. He is the founder of Skills for Children and author of trauma-informed children's books.",
+  "url": "https://skillsforchildren.com/about/",
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "University of Kentucky"
+  },
+  "knowsAbout": ["childhood trauma", "trauma-informed care", "TF-CBT", "children's mental health", "systems of care", "program development", "training delivery", "educational music"],
+  "sameAs": [
+    "https://www.youtube.com/@SkillsforChildren",
+    "https://www.amazon.com/stores/Joshua-Fisherkeller/author/B0CRSTF6CF"
+  ]
+}
+</script>
+
+<section class="page-hero container">
+  <div class="eyebrow">About</div>
+  <h1 style="margin-top:18px;max-width:18ch">Built by a clinician, for the people who show up.</h1>
+  <p style="font-size:clamp(17px,1.5vw,19px);line-height:1.6;max-width:56ch;margin-top:16px">
+    Skills for Children is a free resource library founded by Joshua Fisherkeller, MSW — a children's mental health professional with over 25 years of experience in advocacy, training, and systems of care.
+  </p>
+</section>
+
+<div class="container" style="max-width:760px;padding-bottom:var(--section-y)">
+  <article style="line-height:1.8;font-size:clamp(16px,1.2vw,17.5px);color:var(--ink-soft)">
+
+    <h2>Why this exists</h2>
+
+    <p>Every resource on this site is free, ungated, and evidence-informed. No paywalls. No email-required downloads. No "buy our curriculum" content.</p>
+
+    <p>The site draws from trusted institutions: Harvard's Center on the Developing Child, the National Child Traumatic Stress Network (NCTSN), the CDC, CASEL, Child Mind Institute, Understood.org, Stanford PERTS, and Zero to Three — because credibility matters when you're working with vulnerable kids and families.</p>
+
+    <h2>The mission</h2>
+
+    <p>To put the best free resources in the hands of the parents, educators, and clinicians who need them — organized so they're actually findable, and presented in a way that respects the intelligence of the people using them.</p>
+
+    <h2>About Joshua Fisherkeller, MSW</h2>
+
+    <img src="{{ '/assets/img/resilient-forest/author.png' | relative_url }}" alt="Joshua Fisherkeller, MSW — founder of Skills for Children" style="float:right;width:200px;border-radius:8px;margin:0 0 24px 32px;box-shadow:0 2px 12px rgba(0,0,0,0.12);">
+
+    <p>Joshua holds a Bachelor and Master of Social Work from the University of Kentucky (BSW 1999, MSW 2005) and has spent over 25 years working with children, families, and systems — primarily at the macro level, in advocacy, training, program development, and systems of care.</p>
+
+    <p>His early career included direct clinical work as a therapist and therapeutic child support worker, providing in-home and community-based services to children at risk of being placed in a higher level of care. He later served as the director of a Treatment Foster Care program, where he developed a deep understanding of how systems either support or fail the families navigating them.</p>
+
+    <p>That systems-level perspective shapes everything about how this site is built — not just what resources are here, but how they're organized, explained, and made accessible to the practitioners and caregivers who actually use them.</p>
+
+    <p>Joshua has spent much of his career in education and training — contributing to curriculum development, coordinating professional development programs, and and designing technology solutions that make training more effective and scalable. That background in how adults actually learn is baked into every resource on this site.</p>
+
+    <p>He is also a musician and songwriter. The <em>When Feelings Get Loud</em> album and other educational music releases grew directly out of his belief that children process difficult experiences best when art, story, and skill-building work together.</p>
+
+    <p>Joshua is the author of trauma-informed children's books and creator of the BRAVE app — a TF-CBT companion tool for children, caregivers, and clinicians — as well as a technology consultant through his practice <a href="/tech/">After Hours Tech</a>.</p>
+
+    <ul>
+      <li><a href="/#resources">Browse the resource library</a></li>
+      <li><a href="/books">See the books</a></li>
+      <li><a href="https://www.youtube.com/@SkillsforChildren" target="_blank" rel="noopener">YouTube channel</a></li>
+    </ul>
+
+    <h2>Get in touch</h2>
+
+    <p>Questions, feedback, or resource suggestions? Reach out at <a href="mailto:josh@skillsforchildren.com">josh@skillsforchildren.com</a> — or use the <a href="https://docs.google.com/forms/d/e/1FAIpQLScoF2tXwuGt-QduA_ZmUbhquOfx3C2KoSZcyE064N77bZIG-Q/viewform" target="_blank" rel="noopener">resource suggestion form</a>.</p>
+
+  </article>
+</div>
+```
+
+**After completing:**
+1. Commit: `git add about.markdown && git commit -m "About: fix rendering bug + rewrite bio (systems focus, accurate credentials)"`
+2. Push: `git push origin main`
+3. Verify the live page at https://skillsforchildren.com/about/ — headers should render properly, no raw `##` visible.
+4. Strike item 19 from the PENDING PROMPTS table and log this session.
+
+**Files changed:**
+- `about.markdown` — FULL REWRITE
 
 ---
 
