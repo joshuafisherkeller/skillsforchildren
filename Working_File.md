@@ -19,15 +19,31 @@
 
 ---
 
+> ## 🎯 WEEKLY GOALS — Week of May 26–June 1, 2026
+> Last updated: May 29, 2026 by Claude Cowork
+>
+> | Goal | Status | Notes |
+> |------|--------|-------|
+> | **Fathom test call** | 🟡 Still pending | Need one more real test call — Julia is the target. Don't mark done until a full call is recorded and transcript reviewed. |
+> | **Social media setup** | 🔴 Not started | Claim/verify Instagram, set up Canva Brand Kit (colors, fonts, logo), decide content cadence. Est. 1-2 hrs. |
+> | **/songs page** | 🔴 Hold until weekend | Songlink live: https://album.link/s/1HM7chm30VlXawhHCLq4cP. 1 YouTube video done (track 1). Plan: produce all 8 videos before announcing — full simultaneous launch. Build /songs page this weekend once video strategy is clearer. |
+> | **Email update sitewide** | 🟡 Queued (Prompt #18) | Claude Code prompt written — replace gmail with josh@skillsforchildren.com everywhere + add contact section to About. |
+> | **Google Workspace** | ✅ Done | Acquired May 29, 2026. josh@skillsforchildren.com is now primary business email. |
+> | **When Feelings Get Loud live** | ✅ Done | Album confirmed live on Spotify + Google Music as of May 29. |
+>
+> **How to use this table:** Any agent can update it. Mark goals done when complete. Josh reviews at end of each week. New week = new table (archive old one in session log).
+
 > ## ✅ RECENTLY COMPLETED — Do not re-recommend these
-> Last updated: May 26, 2026
+> Last updated: May 29, 2026
 >
 > - **GA4 + Google Search Console** — Both live. GA4 tag `G-7CP0576RE8` in `_layouts/default.html`. Sitemap submitted, 13 pages in GSC.
 > - **Blog article #1** — "What to Say When Your Child Is Having a Trauma Reminder Response" published May 22, 2026 at `/blog/what-to-say-trauma-reminder-response/`
 > - **AHT pricing** — Fully set and live. AI Coaching $40/hr, Tech Troubleshooting $30/hr, In-Home $50/hr + $0.75/mile one-way from 40516. Zone system removed sitewide.
 > - **AHT Cal.com workflow** — Confirmation trigger, sender name, subject updated. Intake form linked in event description.
-> - **Daily briefing artifact** — Live in Cowork sidebar. Pulls Gmail + Calendar. Fathom test with Julia is the next morning priority.
+> - **Daily briefing artifact** — Live in Cowork sidebar. Pulls Gmail + Calendar.
 > - **All 15 Claude Code prompts** — Cleared as of May 26, 2026. Next prompt starts at #16.
+> - **Google Workspace** — Acquired May 29, 2026. Primary email is now josh@skillsforchildren.com.
+> - **When Feelings Get Loud** — Album live on Spotify and Google Music as of May 29, 2026.
 
 > ## 📡 LIVE PRODUCT STATUS — Read this before the prompt queue
 > Last updated: May 26, 2026 by Claude Cowork
@@ -38,7 +54,7 @@
 > | **Session Scribe** | 🟡 Working locally — not yet commercial | Offline Python desktop app; draft speaker labels; 4 outputs (.docx/.txt/_speaker_review.txt/_diagnostics.txt); needs license review, packaging, EULA, payment flow before selling |
 > | **Capture Kit installs** | 🟢 Selling now | White Glove $499, Install Only $379; $0.75/mile travel one-way from 40516; within 150mi of Lexington KY |
 > | **skillsforchildren.com** | 🟢 Live | Jekyll on GitHub Pages; 15 Claude Code prompts complete as of May 26 |
-> | **When Feelings Get Loud** | 🔴 Blocked | 8-track album submitted to Amuse; waiting on distribution approval before /songs page goes live |
+> | **When Feelings Get Loud** | 🟢 Live | Album live on Spotify, Google Music, and other platforms. /songs page not yet built — pending Songlink smart link generation from Spotify URL. ASCAP registrations for all 8 tracks still pending. |
 > | **AHT consulting** | 🟢 Live | AI Coaching $40/hr; Tech Troubleshooting $30/hr; In-Home $50/hr + $0.75/mile; booked via cal.com/Fisherkeller |
 > | **After Hours Tech website** | 🟢 Live | /tech/ + /tech/capture-kit/ both live and current |
 >
@@ -70,6 +86,7 @@
 | ~~15~~ | ~~May 26, 2026~~ | ~~After Hours Tech~~ | ~~Capture Kit page: remove both zone tables, replace with flat $0.75/mile mileage rate; update availability strip~~ | ~~[Section 2 → Cowork Prompts → May 26, 2026 #4](#may-26-2026-4--capture-kit-remove-zone-tables-mileage-rate)~~ |
 | ~~16~~ | ~~May 27, 2026~~ | ~~skillsforchildren.com~~ | ~~SEO schema markup: commit new `_includes/schema-trauma.html` + one-line edit to `_layouts/default.html`~~ | ~~[Section 1 → Cowork Prompts → May 27, 2026 #1](#may-27-2026-1--seo-schema-markup-faqpage--book-schema)~~ |
 | ~~17~~ | ~~May 29, 2026~~ | ~~skillsforchildren.com~~ | ~~⚡ URGENT: Rewrite `about.markdown` — expanded bio, authority signals, Person JSON-LD schema~~ | ~~[Section 1 → Cowork Prompts → May 29, 2026 #1](#may-29-2026-1--about-page-rewrite-bio-authority-signals-person-schema)~~ |
+| ~~18~~ | ~~May 29, 2026~~ | ~~skillsforchildren.com + AHT~~ | ~~Update primary contact email sitewide: replace joshuafisherkeller@gmail.com with josh@skillsforchildren.com everywhere. Add contact section to About page.~~ | ~~[Section 1 → Cowork Prompts → May 29, 2026 #2](#may-29-2026-2--email-update-joshjoshskillsforchildrencom-sitewide)~~ |
 
 > When all rows are ~~struck through~~, the queue is clear.
 
@@ -658,6 +675,24 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 #### Notes
 - Submitted distributor package covers the full 8-track album: "Brain Alarm", "Breathe Like Waves", "Name It, Choose It", "Maybe, Maybe Not", "My Story, My Voice", "One Step Braver", "Say It With Me", and "My Plan, My People".
 - Next website task remains building `skillsforchildren.com/songs` using the prepared per-song copy and artwork once release links are available.
+
+---
+
+### Session 23 — May 29, 2026
+**Task:** Email update sitewide — replace `joshuafisherkeller@gmail.com` → `josh@skillsforchildren.com`; add contact section to About page (Working_File item 18).
+**Commit:** `7f681c8`
+**Pushed to GitHub:** Yes
+
+#### Files changed
+| File | Occurrences replaced | Notes |
+|------|---------------------|-------|
+| `_includes/footer.html` | 2 | mailto: link text + email icon aria-label link |
+| `_layouts/after-hours-tech.html` | 1 | "Looking for something else?" section |
+| `_layouts/capture-kit.html` | 4 | Both travel blocks (×2) + CTA note + footer email |
+| `_layouts/cors-landing.html` | 2 | CTA note + footer email (redirect page, still present) |
+| `about.markdown` | 0 replaced + contact section added | Added "Get in touch" section with new email + resource suggestion form link |
+
+**Total replacements:** 9 occurrences across 4 layout/include files.
 
 ---
 
@@ -1601,6 +1636,41 @@ Joshua is also the author of trauma-informed children's books and creator of edu
 
 **Files changed:**
 - `about.markdown` — FULL REWRITE
+
+---
+
+### May 29, 2026 #2 — Email update: josh@skillsforchildren.com sitewide {#may-29-2026-2--email-update-joshjoshskillsforchildrencom-sitewide}
+
+**Context:** Josh now has Google Workspace for Skills for Children. Primary contact email is changing from `joshuafisherkeller@gmail.com` to `josh@skillsforchildren.com` for all public-facing pages.
+
+**Your task:** Make the following changes and commit in a single commit.
+
+**Files to update — find/replace `joshuafisherkeller@gmail.com` → `josh@skillsforchildren.com`:**
+
+1. `_includes/footer.html` — 2 occurrences (mailto: link text + aria-label link)
+2. `_layouts/after-hours-tech.html` — 1 occurrence (displayed email address in contact section)
+3. `_layouts/capture-kit.html` — 4 occurrences (overnight trip note ×2, questions CTA, footer email)
+4. `_layouts/cors-landing.html` — check for occurrences and replace any found
+
+**Also update `about.markdown`:** Add a contact section at the bottom of the article, before the closing `</article>` tag:
+
+```html
+## Get in touch
+
+Questions, feedback, or resource suggestions? Reach out at [josh@skillsforchildren.com](mailto:josh@skillsforchildren.com) — or use the [resource suggestion form](https://docs.google.com/forms/d/e/1FAIpQLScoF2tXwuGt-QduA_ZmUbhquOfx3C2KoSZcyE064N77bZIG-Q/viewform){:target="_blank" rel="noopener"}.
+```
+
+**After completing:**
+1. Commit: `git add -A && git commit -m "Email: update primary contact to josh@skillsforchildren.com sitewide"`
+2. Push: `git push origin main`
+3. Strike item 18 from the PENDING PROMPTS table and log this session.
+
+**Files changed:**
+- `_includes/footer.html`
+- `_layouts/after-hours-tech.html`
+- `_layouts/capture-kit.html`
+- `_layouts/cors-landing.html` (if applicable)
+- `about.markdown` (add contact section)
 
 ---
 
