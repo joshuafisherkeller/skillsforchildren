@@ -30,6 +30,7 @@
 > | **Email update sitewide** | 🟡 Queued (Prompt #18) | Claude Code prompt written — replace gmail with josh@skillsforchildren.com everywhere + add contact section to About. |
 > | **Google Workspace** | ✅ Done | Acquired May 29, 2026. josh@skillsforchildren.com is now primary business email. |
 > | **When Feelings Get Loud live** | ✅ Done | Album confirmed live on Spotify + Google Music as of May 29. |
+| **ASCAP registrations** | ✅ Done | All 8 tracks registered and Accepted May 29, 2026. All titles confirmed correct. "Brain Alarm" registered as "MY BRAIN HAS AN ALARM" — fixed May 29. |
 >
 > **How to use this table:** Any agent can update it. Mark goals done when complete. Josh reviews at end of each week. New week = new table (archive old one in session log).
 
@@ -676,6 +677,29 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 #### Notes
 - Submitted distributor package covers the full 8-track album: "Brain Alarm", "Breathe Like Waves", "Name It, Choose It", "Maybe, Maybe Not", "My Story, My Voice", "One Step Braver", "Say It With Me", and "My Plan, My People".
 - Next website task remains building `skillsforchildren.com/songs` using the prepared per-song copy and artwork once release links are available.
+
+---
+
+### Session 25 — May 29, 2026
+**Task:** Site feedback fixes — 4 items from Supabase `site_feedback` table (submitted via admin mode May 30). All 4 marked `done` in Supabase after completion.
+**Commit:** `3cf7e5f`
+**Pushed to GitHub:** Yes
+
+#### Files changed
+- `_includes/footer.html`
+- `about.markdown`
+- `assets/css/site.css`
+
+#### What changed
+
+| Feedback item | Fix |
+|---|---|
+| Footer: remove "Methodology", change "About Josh Fisherkeller" → "About Skills for Children" | Removed Methodology `<li>`, updated link text in footer About column |
+| About page: article text should be left-justified; hero → "Built by a behavioral health professional" | Added `text-align:left` to `<article>` inline style; updated `<h1>` copy |
+| Blog: second card image covering description (image too tall on mobile/tablet) | Added `.post-card:not(.post-card--featured) .post-thumb { aspect-ratio: 16/5; max-height: 200px; }` at mobile breakpoint — prevents the 4/3 aspect ratio from generating a ~450px-tall image when card collapses to single column |
+| Blog: entire card should be clickable, not just "Read Article" link | Added `position: relative` to `.post-card`; added `.post-card-link::after { content:''; position:absolute; inset:0; border-radius:inherit; z-index:1; }` — Bootstrap "stretched link" pattern, makes the full card area a click target |
+
+**Note for Cowork:** The admin feedback system is working correctly. All 4 new items from Josh's May 30 session were picked up from Supabase and resolved in one commit. Feedback queue is now clean (all rows `done`).
 
 ---
 
