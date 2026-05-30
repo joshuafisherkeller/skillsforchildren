@@ -1350,6 +1350,7 @@ img, svg, video { display: block; max-width: 100%; }
   grid-template-columns: 200px 1fr;
   gap: 28px;
   align-items: stretch;
+  position: relative;
   transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .post-card:hover { transform: translateY(-2px); border-color: var(--border-strong); box-shadow: var(--shadow-2); }
@@ -1411,6 +1412,14 @@ img, svg, video { display: block; max-width: 100%; }
   gap: 6px;
 }
 .post-card-link:hover { color: var(--sage); }
+/* Stretched link — makes the entire card clickable */
+.post-card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-xl);
+  z-index: 1;
+}
 
 .blog-sidebar { position: sticky; top: 100px; align-self: start; display: grid; gap: 18px; }
 .sidebar-card {
@@ -1475,6 +1484,7 @@ img, svg, video { display: block; max-width: 100%; }
   .blog-sidebar { position: static; }
   .books-grid { grid-template-columns: repeat(2, 1fr); }
   .post-card { grid-template-columns: 1fr; }
+  .post-card:not(.post-card--featured) .post-thumb { aspect-ratio: 16 / 5; max-height: 200px; }
   .def-card { grid-template-columns: 1fr; }
 }
 

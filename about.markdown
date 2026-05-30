@@ -28,14 +28,14 @@ permalink: /about/
 
 <section class="page-hero container">
   <div class="eyebrow">About</div>
-  <h1 style="margin-top:18px;max-width:18ch">Built by a clinician, for the people who show up.</h1>
+  <h1 style="margin-top:18px;max-width:18ch">Built by a behavioral health professional</h1>
   <p style="font-size:clamp(17px,1.5vw,19px);line-height:1.6;max-width:56ch;margin-top:16px">
     Skills for Children is a free resource library founded by Joshua Fisherkeller, MSW — a children's mental health professional with over 25 years of experience in advocacy, training, and systems of care.
   </p>
 </section>
 
 <div class="container" style="max-width:760px;padding-bottom:var(--section-y)">
-  <article style="line-height:1.8;font-size:clamp(16px,1.2vw,17.5px);color:var(--ink-soft)">
+  <article style="line-height:1.8;font-size:clamp(16px,1.2vw,17.5px);color:var(--ink-soft);text-align:left">
 
     <h2>Why this exists</h2>
 
