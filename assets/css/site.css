@@ -1363,12 +1363,16 @@ img, svg, video { display: block; max-width: 100%; }
 .post-card--featured .post-thumb { aspect-ratio: 16 / 8; }
 .post-card--featured h3 { font-size: clamp(26px, 3vw, 36px); }
 .post-thumb {
-  aspect-ratio: 4 / 3;
   border-radius: var(--r-md);
   background: linear-gradient(135deg, var(--wash-sage), var(--wash-tan));
   position: relative;
   overflow: hidden;
+  min-height: 140px;
 }
+/* Featured card gets an explicit aspect ratio (single-column layout) */
+.post-card--featured .post-thumb { aspect-ratio: 16 / 8; min-height: unset; }
+/* Non-featured: no aspect-ratio — grid stretch sizes the thumb to match content height */
+.post-card:not(.post-card--featured) .post-thumb { width: 200px; align-self: stretch; }
 .post-thumb-label {
   position: absolute;
   bottom: 14px;
