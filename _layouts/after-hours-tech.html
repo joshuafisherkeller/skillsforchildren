@@ -182,7 +182,7 @@
        SERVICE CARDS
     ═══════════════════════════════════ */
     .aht-services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: #e7e5e4; border: 1px solid #e7e5e4; border-radius: var(--radius); overflow: hidden; }
-    .aht-service-card { background: #fff; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px; border-left: 3px solid transparent; transition: background .2s, border-color .2s, transform .22s ease, box-shadow .22s; position: relative; will-change: transform; }
+    .aht-service-card { background: #fff; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px; border-left: 3px solid transparent; transition: background .2s, border-color .2s, transform .22s ease, box-shadow .22s; position: relative; will-change: transform; cursor: pointer; }
     .aht-service-card:hover, .aht-service-card:focus-within { background: #fefefe; border-left-color: var(--green); box-shadow: var(--shadow-2); z-index: 2; }
     .aht-service-card:active { transform: translateY(-1px) !important; }
     .aht-service-card--featured { grid-column: 1 / -1; }
@@ -707,6 +707,25 @@
       hero.addEventListener('mouseleave', function () { spot.style.opacity = '0'; });
     })();
 
+
+    // Clickable service cards — whole card navigates to booking or card-specific link
+    (function () {
+      var BOOKING = 'https://cal.com/Fisherkeller';
+      document.querySelectorAll('.aht-service-card').forEach(function (card) {
+        var link = card.querySelector('a');
+        var href = link ? link.href : BOOKING;
+        var external = link ? link.target === '_blank' : true;
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function (e) {
+          if (e.target.closest('a')) return; // let real <a> elements handle themselves
+          if (external) {
+            window.open(href, '_blank', 'noopener');
+          } else {
+            window.location.href = href;
+          }
+        });
+      });
+    })();
 
     // Service card 3D tilt
     (function () {

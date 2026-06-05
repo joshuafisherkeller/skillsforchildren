@@ -293,3 +293,17 @@ document.addEventListener('submit', (e) => {
 
   syncToTheme();
 })();
+
+
+/* ---------- 9. CLICKABLE POST CARDS ---------- */
+(function () {
+  document.querySelectorAll('.post-card').forEach(function (card) {
+    var link = card.querySelector('.post-card-link');
+    if (!link) return;
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('a')) return; // let real <a> elements handle themselves
+      window.location.href = link.href;
+    });
+  });
+})();
