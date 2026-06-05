@@ -42,6 +42,7 @@
 > | **/songs page + album marketing strategy** | 🟡 In progress | Waiting on all 8 YouTube videos to be done before building page. Also need to submit "All the Feels" to Amuse as standalone single. Songlink live: https://album.link/s/1HM7chm30VlXawhHCLq4cP |
 > | **YouTube versions — When Feelings Get Loud** | 🟡 In progress | Format decided: still images, low-stimulation, song-focused. 1 of 8 done. Complete remaining 7 then upload simultaneously. |
 > | **After Hours Tech — final walkthrough + soft launch** | 🟡 In progress | Dr. Sprang ✅ — no conflicts, blessing given June 2026. Still needed: (1) Final walkthrough of /tech/ page, (2) Add work examples, (3) Launch strategy + outreach to Laura, Christina Dalton, Sara Reichert, Bianca, KY Therapist Page, Ladies of Lexington. |
+| **Review new site pages** | 🔴 Tonight | Review /trauma/ and /songs/ pages in detail — verify PRACTICE components, books section, FAQ, affiliate links, and songs track listing all rendered correctly. Flag any issues for Code to fix. |
 > | **Blog post — Skills for Children website** | 🔴 Not started | Write a blog post about the SFC website itself + produce accompanying NotebookLM podcast/Shorts video. Post on social media and YouTube. |
 > | **NotebookLM infographic workflow** | 🔴 Not started | Test end-to-end workflow: NotebookLM → generate infographic → import to Canva → edit/brand → publish. |
 >
@@ -83,6 +84,8 @@
 
 | # | Date | Project | Description | Location in file |
 |---|------|---------|-------------|-----------------|
+| ~~23~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Add a slim "personal help" section just above the footer on every page of skillsforchildren.com.~~ | ~~[Section 1 → Cowork Prompts → June 5, 2026 #3](#june-5-2026-3--personal-help-strip-above-footer)~~ |
+| 22 | June 5, 2026 | skillsforchildren.com | Update Key Decisions Log in SECOND_BRAIN with all June 5 strategy decisions: dual-audience framework, keyword tiers, content plan, link building outreach, YouTube "Not Made for Kids" policy, Songlinks. No code changes needed — documentation only. | N/A — Cowork to action |
 | ~~20~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Upgrade /trauma/ page into dual-audience TF-CBT hub: 40-60 word definition box, "For Families" + "For Clinicians" sections, all 8 PRACTICE components, book affiliate links, BRAVE app CTA, songs section, curated external links to tfcbt.org + NCTSN, FAQ schema, MSW byline.~~ | ~~[Section 1 → Cowork Prompts → June 5, 2026 #1](#june-5-2026-1--trauma-page-upgrade-dual-audience-tfcbt-hub)~~ |
 | ~~21~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Build /songs page: clinical framing at top, When Feelings Get Loud album (YouTube embed + Songlink), all 8 songs with TF-CBT mapping, Try Something New + Keep on Trying in growth mindset section.~~ | ~~[Section 1 → Cowork Prompts → June 5, 2026 #2](#june-5-2026-2--songs-page-build)~~ |
 | ~~1~~ | ~~May 23, 2026~~ | ~~After Hours Tech~~ | ~~Create CORS landing page at /tech/cors/~~ | ~~[Section 2 → Cowork Prompts → May 23, 2026](#may-23-2026--create-cors-landing-page-at-techcors)~~ |
@@ -185,6 +188,29 @@ Upgrade the existing `/trauma/` page into a dual-audience TF-CBT resource hub th
 - Page title tag: "TF-CBT Resources for Families and Clinicians | Skills for Children"
 - Meta description: "Free TF-CBT resources for parents, caregivers, and therapists. Covers all 8 PRACTICE components with books, songs, a companion app, and curated clinical tools."
 - Keep existing trauma library content — this is additive, not a replacement
+
+---
+
+### June 5, 2026 #3 — Personal help strip above footer
+
+**Prompt for Claude Code:**
+
+Add a slim, personal strip just above the footer on every page of skillsforchildren.com. This is a quiet, non-branded personal note from Josh — not an After Hours Tech advertisement. Keep it subtle and warm.
+
+**Copy:**
+> Want to build a website like this? Write and publish your own children's book? Just need tech help? [I can help. →](https://skillsforchildren.com/tech/)
+
+**Design:**
+- Full-width strip above the footer, clean and simple
+- Use the existing site palette (--sage or --ink on --cream) — consistent with the rest of the site
+- Friendly, readable size — not a hero feature but not hidden either
+- The link "I can help. →" can be a subtle button or styled inline link
+- Keep it personal in tone, not a formal ad unit
+
+**Implementation:**
+- Create `_includes/help-strip.html` with the strip markup
+- Include it in `_layouts/default.html` just before `{% include footer.html %}` (or equivalent footer include)
+- Should appear on all pages including /trauma/, /songs/, blog posts, and homepage
 
 ---
 
@@ -793,6 +819,19 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 #### Notes
 - Submitted distributor package covers the full 8-track album: "Brain Alarm", "Breathe Like Waves", "Name It, Choose It", "Maybe, Maybe Not", "My Story, My Voice", "One Step Braver", "Say It With Me", and "My Plan, My People".
 - Next website task remains building `skillsforchildren.com/songs` using the prepared per-song copy and artwork once release links are available.
+
+---
+
+### Session 28 — June 5, 2026
+**Task:** Add personal help strip above footer sitewide (Working_File item 23).
+**Commit:** `7b63935`
+**Pushed to GitHub:** Yes
+
+#### Files created/changed
+- `_includes/help-strip.html` — NEW: slim strip with inline styles; `var(--paper-2)` background, `var(--muted)` text, `var(--sage)` link color. Copy: "Want to build a website like this? Write and publish your own children's book? Just need tech help? I can help. →" linking to `/tech/`
+- `_layouts/default.html` — added `{% include help-strip.html %}` one line above `{% include footer.html %}`
+
+**Note re: item 22** — "Update SECOND_BRAIN Key Decisions Log" — this is documentation-only and flagged as a Cowork session task (no code changes needed). Left unstrruck in the pending table for Cowork to action.
 
 ---
 
