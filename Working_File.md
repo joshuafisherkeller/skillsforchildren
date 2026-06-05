@@ -19,20 +19,33 @@
 
 ---
 
-> ## 🎯 WEEKLY GOALS — Week of May 26–June 1, 2026
-> Last updated: May 29, 2026 by Claude Cowork
+> ## 🎯 WEEKLY GOALS — Week of May 26–June 1, 2026 (ARCHIVED)
+>
+> | Goal | Final Status |
+> |------|-------------|
+> | Fathom test call | ❌ Dropped — too invasive |
+> | Google Workspace | ✅ Done |
+> | When Feelings Get Loud live | ✅ Done |
+> | ASCAP registrations | ✅ Done |
+> | Email update sitewide | ✅ Done |
+> | Onboard Julia | 🔴 Carried forward |
+> | Social media setup | 🔴 Carried forward |
+> | /songs page | 🔴 Carried forward |
+
+> ## 🎯 WEEKLY GOALS — Week of June 1–7, 2026
+> Last updated: June 1, 2026 by Claude Cowork
 >
 > | Goal | Status | Notes |
 > |------|--------|-------|
-> | **Fathom test call** | 🟡 Still pending | Need one more real test call — Julia is the target. Don't mark done until a full call is recorded and transcript reviewed. |
-> | **Social media setup** | 🔴 Not started | Claim/verify Instagram, set up Canva Brand Kit (colors, fonts, logo), decide content cadence. Est. 1-2 hrs. |
-> | **/songs page** | 🔴 Hold until weekend | Songlink live: https://album.link/s/1HM7chm30VlXawhHCLq4cP. 1 YouTube video done (track 1). Plan: produce all 8 videos before announcing — full simultaneous launch. Build /songs page this weekend once video strategy is clearer. |
-> | **Email update sitewide** | 🟡 Queued (Prompt #18) | Claude Code prompt written — replace gmail with josh@skillsforchildren.com everywhere + add contact section to About. |
-> | **Google Workspace** | ✅ Done | Acquired May 29, 2026. josh@skillsforchildren.com is now primary business email. |
-> | **When Feelings Get Loud live** | ✅ Done | Album confirmed live on Spotify + Google Music as of May 29. |
-| **ASCAP registrations** | ✅ Done | All 8 tracks registered and Accepted May 29, 2026. All titles confirmed correct. "Brain Alarm" registered as "MY BRAIN HAS AN ALARM" — fixed May 29. |
+> | **Onboard Julia** | 🔴 Not started | Strategy session needed — define her role, what she owns, tools setup (Canva access, content calendar). Julia has Meta Business Suite admin access already. |
+> | **Social media setup** | 🔴 Not started | Bio, Canva Brand Kit, Brand Voice, content cadence — Julia's domain once onboarded. Brand Guidelines PDF ready. |
+> | **/songs page + album marketing strategy** | 🟡 In progress | Waiting on all 8 YouTube videos to be done before building page. Also need to submit "All the Feels" to Amuse as standalone single. Songlink live: https://album.link/s/1HM7chm30VlXawhHCLq4cP |
+> | **YouTube versions — When Feelings Get Loud** | 🟡 In progress | Format decided: still images, low-stimulation, song-focused. 1 of 8 done. Complete remaining 7 then upload simultaneously. |
+> | **After Hours Tech — final walkthrough + soft launch** | 🟡 In progress | Dr. Sprang ✅ — no conflicts, blessing given June 2026. Still needed: (1) Final walkthrough of /tech/ page, (2) Add work examples, (3) Launch strategy + outreach to Laura, Christina Dalton, Sara Reichert, Bianca, KY Therapist Page, Ladies of Lexington. |
+> | **Blog post — Skills for Children website** | 🔴 Not started | Write a blog post about the SFC website itself + produce accompanying NotebookLM podcast/Shorts video. Post on social media and YouTube. |
+> | **NotebookLM infographic workflow** | 🔴 Not started | Test end-to-end workflow: NotebookLM → generate infographic → import to Canva → edit/brand → publish. |
 >
-> **How to use this table:** Any agent can update it. Mark goals done when complete. Josh reviews at end of each week. New week = new table (archive old one in session log).
+> **How to use this table:** Any agent can update it. Mark goals done when complete. Josh reviews at end of each week.
 
 > ## ✅ RECENTLY COMPLETED — Do not re-recommend these
 > Last updated: May 29, 2026
@@ -70,6 +83,8 @@
 
 | # | Date | Project | Description | Location in file |
 |---|------|---------|-------------|-----------------|
+| ~~20~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Upgrade /trauma/ page into dual-audience TF-CBT hub: 40-60 word definition box, "For Families" + "For Clinicians" sections, all 8 PRACTICE components, book affiliate links, BRAVE app CTA, songs section, curated external links to tfcbt.org + NCTSN, FAQ schema, MSW byline.~~ | ~~[Section 1 → Cowork Prompts → June 5, 2026 #1](#june-5-2026-1--trauma-page-upgrade-dual-audience-tfcbt-hub)~~ |
+| ~~21~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Build /songs page: clinical framing at top, When Feelings Get Loud album (YouTube embed + Songlink), all 8 songs with TF-CBT mapping, Try Something New + Keep on Trying in growth mindset section.~~ | ~~[Section 1 → Cowork Prompts → June 5, 2026 #2](#june-5-2026-2--songs-page-build)~~ |
 | ~~1~~ | ~~May 23, 2026~~ | ~~After Hours Tech~~ | ~~Create CORS landing page at /tech/cors/~~ | ~~[Section 2 → Cowork Prompts → May 23, 2026](#may-23-2026--create-cors-landing-page-at-techcors)~~ |
 | ~~2~~ | ~~May 23, 2026~~ | ~~skillsforchildren.com~~ | ~~Replace "207" resource count with "100+" sitewide~~ | ~~[Section 1 → Cowork Prompts → May 23, 2026](#may-23-2026--replace-207-resource-count-with-100-sitewide)~~ |
 | ~~3~~ | ~~May 24, 2026~~ | ~~After Hours Tech~~ | ~~CORS page: White Glove only, flat $499 pricing, travel zones — full services section restructure~~ | ~~[Section 2 → Cowork Prompts → May 24, 2026](#may-24-2026--cors-page-white-glove-only-flat-pricing-travel-zones)~~ |
@@ -112,6 +127,107 @@
 **Repo:** https://github.com/joshuafisherkeller/skillsforchildren
 **Live:** https://skillsforchildren.com
 **Framework:** Jekyll → GitHub Pages
+
+---
+
+## Cowork Prompts
+
+---
+
+### June 5, 2026 #1 — /trauma/ page upgrade: dual-audience TF-CBT hub
+
+**Prompt for Claude Code:**
+
+Upgrade the existing `/trauma/` page into a dual-audience TF-CBT resource hub that serves both parents/caregivers and clinicians/therapists. This is the #1 SEO priority — there is no accessible, browsable TF-CBT resource hub currently ranking for "TF-CBT resources for parents and children" or "TF-CBT activities for therapists." We need to fill that gap.
+
+**Page structure (in order):**
+
+1. **40-60 word definition box** at the very top, directly under the page title:
+   > "Trauma-Focused Cognitive Behavioral Therapy (TF-CBT) is an evidence-informed treatment that helps children ages 3–18 and their caregivers overcome the effects of trauma. Developed by Cohen, Mannarino, and Deblinger, TF-CBT uses the PRACTICE framework to build coping skills, process trauma memories, and restore safe family relationships."
+
+2. **Two audience paths** — a brief "whether you're a parent or a clinician, you're in the right place" intro that acknowledges both audiences
+
+3. **All 8 PRACTICE components** — listed with: component name, one-sentence plain-language description, and link to relevant resources on the site where they exist (BRAVE app module, a song from the album, the book)
+   - Psychoeducation (P)
+   - Relaxation (R)
+   - Affective Modulation (A)
+   - Cognitive Coping (C)
+   - Trauma Narrative (T)
+   - In Vivo Mastery (I)
+   - Conjoint Sessions (C)
+   - Enhancing Safety (E)
+
+4. **Books section** — "Books for TF-CBT":
+   - *A Journey of Brave Friends* — featured, with Amazon affiliate link https://amzn.to/4tWqSlG, described as "a TF-CBT companion storybook that walks children through the Resilient Forest with Timothy, Rex, Bella, Olive, and Kiki"
+   - Resilient Forest Notebook — affiliate link https://amzn.to/3RkOZNd
+
+5. **Songs section** — "TF-CBT Songs for Clinicians and Families":
+   - Brief intro: "When Feelings Get Loud is a therapeutic album with one song per PRACTICE component, designed for use in session and at home."
+   - Embed or link to /songs page
+   - Songlink: https://album.link/s/1HM7chm30VlXawhHCLq4cP
+
+6. **BRAVE App CTA** — "For clinicians: the BRAVE app (Building Resilience: Activities, Voices & Empowerment) is a free TF-CBT companion app for children ages 4–18. Available at app.skillsforchildren.com."
+
+7. **External resources** (link to these — genuine curation, also supports our outreach strategy):
+   - TF-CBT Certification Program: https://tfcbt.org
+   - National Child Traumatic Stress Network: https://www.nctsn.org
+   - "Your Very Own TF-CBT Workbook" (tfcbt.org PDF)
+
+8. **FAQ section** with JSON-LD schema — at minimum:
+   - "What does TF-CBT stand for?"
+   - "Who is TF-CBT for?"
+   - "How long does TF-CBT take?"
+   - "Can parents be involved in TF-CBT?"
+
+9. **Author byline** at bottom: "Resources curated by Joshua Fisherkeller, MSW"
+
+**SEO notes:**
+- Page title tag: "TF-CBT Resources for Families and Clinicians | Skills for Children"
+- Meta description: "Free TF-CBT resources for parents, caregivers, and therapists. Covers all 8 PRACTICE components with books, songs, a companion app, and curated clinical tools."
+- Keep existing trauma library content — this is additive, not a replacement
+
+---
+
+### June 5, 2026 #2 — /songs page build
+
+**Prompt for Claude Code:**
+
+Build a new `/songs` page on skillsforchildren.com. This page serves both parents and clinicians discovering therapeutic music for children. Target keywords: "therapeutic songs for kids therapy," "TF-CBT songs," "music for child trauma therapy."
+
+**Page structure:**
+
+1. **Clinical framing header:**
+   > "Therapeutic Music for Children — Made for Session, Made for Home"
+   > Brief intro: "These songs were created as clinical tools — each one maps to a specific therapeutic concept or TF-CBT PRACTICE component. Designed for therapists to use in session and for families to use at home."
+
+2. ***When Feelings Get Loud* album section:**
+   - Album title, brief description: "An 8-track album with one song per TF-CBT PRACTICE component"
+   - YouTube embed for any completed video OR placeholder note
+   - Songlink button: "Listen on your favorite platform →" linking to https://album.link/s/1HM7chm30VlXawhHCLq4cP
+   - Track listing with TF-CBT component each song maps to:
+     - "Brain Alarm" (My Brain Has an Alarm) — Psychoeducation
+     - "Breathe Like Waves" — Relaxation
+     - "Name It, Choose It" — Affective Modulation
+     - "Maybe, Maybe Not" — Cognitive Coping
+     - "My Story, My Voice" — Trauma Narrative
+     - "One Step Braver" — In Vivo Mastery
+     - "Say It With Me" — Conjoint / trusted-adult communication
+     - "My Plan, My People" — Enhancing Safety
+
+3. **Growth Mindset Songs section:**
+   - "Try Something New" — YouTube embed + Spotify link
+   - "Keep on Trying" — YouTube embed + Spotify link
+   - Brief description: "Songs to help children build resilience, embrace mistakes, and develop a growth mindset."
+
+4. **Clinical note** (small text, bottom of page):
+   > "These songs are intended as therapeutic tools for use by trained professionals and caregivers in intentional settings. They are not designed for unsupervised independent listening by children."
+
+5. **CTA to /trauma/** — "Looking for TF-CBT resources? Visit our full Trauma Resources Hub."
+
+**SEO notes:**
+- Page title: "Therapeutic Songs for Children | TF-CBT Music for Session and Home | Skills for Children"
+- Meta description: "Therapeutic children's songs mapped to TF-CBT PRACTICE components. Free to stream — designed for use by clinicians, therapists, and families."
+- Add page to Jekyll nav if appropriate
 
 ---
 
@@ -677,6 +793,61 @@ Entry: `title: "What to Say When Your Child Is Having a Trauma Reminder Response
 #### Notes
 - Submitted distributor package covers the full 8-track album: "Brain Alarm", "Breathe Like Waves", "Name It, Choose It", "Maybe, Maybe Not", "My Story, My Voice", "One Step Braver", "Say It With Me", and "My Plan, My People".
 - Next website task remains building `skillsforchildren.com/songs` using the prepared per-song copy and artwork once release links are available.
+
+---
+
+### Session 27 — June 5, 2026
+**Task:** Build /songs page + upgrade /trauma/ page to full TF-CBT hub (Working_File items 20 + 21).
+**Commit:** `5acb128`
+**Pushed to GitHub:** Yes
+
+#### Files changed
+- `trauma.html` — updated title + meta description for TF-CBT SEO
+- `_layouts/trauma.html` — 6 new sections inserted between featured article and resource library; FAQ + byline added before newsletter
+- `_includes/schema-trauma.html` — 4 new FAQ Q&As added to FAQPage schema (TF-CBT specific)
+- `songs.html` — NEW full page
+
+#### /trauma/ upgrades (item 20)
+New sections added (all additive — existing library/article/book sections preserved):
+| Section | What was added |
+|---|---|
+| TF-CBT definition box | 40-60 word definition (Cohen, Mannarino, Deblinger attribution), reuses `.def-card` pattern |
+| Dual audience cards | "For Families" + "For Clinicians" two-column grid with bullet lists |
+| 8 PRACTICE components grid | Auto-fit card grid, each card: letter badge, component name, plain-language description, link to companion song on /songs page |
+| Books for TF-CBT | A Journey of Brave Friends (amzn.to/4tWqSlG) + Resilient Forest Notebook (amzn.to/3RkOZNd) with covers |
+| Songs section | WFGL album strip with Songlink (album.link/s/1HM7chm30VlXawhHCLq4cP) + link to /songs |
+| BRAVE app CTA | Green card with app description + link to app.skillsforchildren.com |
+| External resources | 3 cards: tfcbt.org, nctsn.org, tfcbt.org workbook materials page |
+| FAQ (visible) | 4 `<details>` Q&As: "What does TF-CBT stand for?", "Who is it for?", "How long?", "Can parents be involved?" |
+| Author byline | "Resources curated by Joshua Fisherkeller, MSW" |
+- Schema: 4 new Q&As appended to existing FAQPage `mainEntity` array
+- SEO: title → "TF-CBT Resources for Families and Clinicians | Skills for Children"; description updated
+
+#### /songs page (item 21)
+New file `songs.html` with `layout: default`, permalink `/songs/`:
+- Page hero: "Made for session. Made for home." with clinical framing
+- WFGL album section: 8 track cards each showing PRACTICE letter badge + track name + clinical use description. Songlink button.
+- Growth mindset songs: "Try Something New" (YT: fITPTH62DAo) + "Keep on Trying" (YT: 8dPCCZyDASo) with YouTube embeds. Reuses `.featured-video` CSS.
+- CTA strip → /trauma/#tfcbt
+- Clinical note (italicized footer disclaimer)
+- Newsletter include
+
+**Note for Cowork:** PRACTICE component anchor links on /trauma/ point to `/songs#brain-alarm`, `/songs#breathe-like-waves` etc. — each track card has a matching `id` attribute. These links are live and working.
+
+---
+
+### Session 26 — May 29–June 5, 2026
+**Task:** Blog card image bug fix (root cause: aspect-ratio overflow) + clickable cards for blog + AHT.
+**Commits:** `6a6a919` (image fix), `3caae05` (clickable cards)
+**Pushed to GitHub:** Yes
+
+#### Files changed
+- `assets/css/site.css` — removed `aspect-ratio: 4/3` from general `.post-thumb`; featured card keeps `aspect-ratio: 16/8`; non-featured gets explicit `width: 200px; align-self: stretch`
+- `assets/js/site.js` — module 9 added: click handler on `.post-card` navigates to post URL
+- `_layouts/after-hours-tech.html` — click handler on `.aht-service-card`; cards without existing link default to cal.com/Fisherkeller; Capture Kit navigates to /tech/capture-kit/; `cursor: pointer` added to CSS
+
+#### Root cause of image bug
+`aspect-ratio: 4/3` on `.post-thumb` in a grid with `align-items: stretch`: when row height (determined by content column) exceeded 200px, the browser tried to maintain 4:3 by expanding the thumb width to `4/3 × row-height`, overflowing into the content column and visually covering the description text. Fix: removed aspect-ratio from non-featured thumbs entirely.
 
 ---
 
@@ -4309,3 +4480,65 @@ git push
 ```
 
 **Verify live at:** `https://skillsforchildren.com/tech/capture-kit/` — scroll to both pricing sections (White Glove and Install Only). Confirm both zone tables are gone and replaced with the mileage note. Confirm availability strip no longer says "150 Miles".
+ 
+---
+
+### June 4, 2026 - Session Scribe: safe Whisper CPU speed tuning added
+
+**Project folder:** `C:\Users\joshu\Transcriber`
+
+**Context:** We reviewed an outside/experimental "Anti Gravity Transcriber" copy at `C:\Users\joshu\Anti Gravity Transcriber\Transcriber`. Its speaker-label changes were rejected because the generated `Therapist` / `Client` labels were highly inaccurate and made draft labels look more certain than they are. We only blended the safe speed-related ideas.
+
+**Implemented in the main Session Scribe app:**
+- `session_transcriber\paths.py`: `configure_offline_environment()` now sets conservative math-library thread defaults using `os.environ.setdefault()` for `OMP_NUM_THREADS`, `MKL_NUM_THREADS`, `OPENBLAS_NUM_THREADS`, `NUMEXPR_NUM_THREADS`, and `VECLIB_MAXIMUM_THREADS`. Default comes from `SESSION_SCRIBE_TORCH_THREADS` or falls back to `min(6, os.cpu_count())`.
+- `session_transcriber\transcription.py`: added `default_cpu_threads()` and `cpu_threads` support for faster-whisper `WhisperModel`. The cache key now includes model size, device, compute type, and resolved CPU thread count.
+- `scripts\benchmark_whisper_threads.py`: new PowerShell-friendly benchmark script. It extracts audio once, runs each thread count in a clean subprocess, and writes `.csv` / `.md` summaries into `transcripts`.
+
+**Verification completed:**
+```powershell
+.\.venv\Scripts\python.exe -m py_compile session_transcriber\paths.py session_transcriber\transcription.py scripts\benchmark_whisper_threads.py
+.\.venv\Scripts\python.exe scripts\benchmark_whisper_threads.py --help
+.\.venv\Scripts\python.exe -c "from session_transcriber.transcription import default_cpu_threads; print(default_cpu_threads())"
+```
+
+**Suggested next test command:**
+```powershell
+cd "C:\Users\joshu\Transcriber"
+.\.venv\Scripts\python.exe scripts\benchmark_whisper_threads.py "CBT Demo Socratic Questioning.mp4" --model medium --threads 2 4 6 8
+```
+
+**Important product decision:** Do not merge the experimental automatic `Therapist` / `Client` relabeling. Speaker labels remain draft labels unless/until a clinician-confirmed mapping or correction workflow is added.
+
+---
+
+### June 4, 2026 - Session Scribe: field-test beta build prepared
+
+**Project folder:** `C:\Users\joshu\Transcriber`
+
+**Purpose:** Prepare a local/offline beta build for an in-home tester install before shipping.
+
+**Build/package changes:**
+- `SessionTranscriber.spec`: now bundles `models\whisper-medium` and `models\whisper-small` in addition to legacy `models\whisper` and `models\pyannote`. This matters because the UI defaults to `Balanced (medium)`.
+- `scripts\build_exe.bat`: now checks for `whisper-medium` and `whisper-small`, and uses `.venv\Scripts\pyinstaller.exe` when available.
+- `FIELD_TEST_CHECKLIST.md`: added a controlled beta install/test checklist.
+
+**Build result:**
+- Built successfully with:
+```powershell
+.\.venv\Scripts\pyinstaller.exe --noconfirm SessionTranscriber.spec
+```
+- Output folder:
+  `C:\Users\joshu\Transcriber\dist\SessionTranscriber`
+- Approximate package size:
+  6.36 GB
+- The checklist was copied to:
+  `C:\Users\joshu\Transcriber\dist\SessionTranscriber\FIELD_TEST_CHECKLIST.md`
+
+**Smoke test:**
+- Launched:
+  `C:\Users\joshu\Transcriber\dist\SessionTranscriber\SessionTranscriber.exe`
+- Confirmed main window title:
+  `Session Transcriber`
+- Closed after smoke check.
+
+**Field-test recommendation:** Copy the entire `dist\SessionTranscriber` folder to the tester PC. Do not copy only the `.exe`; the `_internal` folder contains the bundled models and runtime dependencies.
