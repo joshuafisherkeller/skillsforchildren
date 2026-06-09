@@ -225,6 +225,22 @@
     .bloom.in .frame{ transform:scale(1) !important; }
     .chapter{ text-align:left; }
   }
+
+  /* mobile hero: match the square album art so nothing is cropped */
+  @media (max-width:640px){
+    .hero{
+      height: auto;
+      aspect-ratio: 1 / 1;
+      max-height: 94vw;
+    }
+    .hero-frame{
+      inset: 0;           /* remove bottom bleed — no parallax on touch */
+    }
+    .hero-frame img{
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
 </style>
 </head>
 <body>
