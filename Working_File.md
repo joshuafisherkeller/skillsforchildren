@@ -32,6 +32,35 @@
 > | Social media setup | 🔴 Carried forward |
 > | /songs page | 🔴 Carried forward |
 
+> ## 📅 TOMORROW — June 7, 2026 (Priority List)
+> Last updated: June 6, 2026 by Claude Cowork
+>
+> 1. ✅ Finish remaining 3 YouTube videos: One Step Braver, Say It With Me, My Plan My People
+> 2. 📤 Upload all 8 videos to YouTube (titles + descriptions in Google Doc: https://docs.google.com/document/d/1A4iRJ60Y-4YK5SH0LsAHJbdLO1nQD9IMblVnM6SA3w8/edit)
+> 3. 🎨 Use Claude Design to build a product page for When Feelings Get Loud
+>
+> **YouTube Release Strategy — When Feelings Get Loud**
+> Decided June 7, 2026
+> - **Step 1:** Upload all 8 videos at once as **Unlisted**. No public notifications, no search indexing. Embed codes work immediately.
+> - **Step 2:** Embed all 8 unlisted videos on the website /songs page on day one — clinicians and parents can access everything from launch.
+> - **Step 3:** Schedule each video to transition from Unlisted → Public on a staggered cadence (twice a week, Tuesday + Friday mornings). Each public transition fires its own subscriber notification.
+> - **Source:** Strategy suggested by Google Gemini. Confirmed rationale: avoids 8 videos competing simultaneously, each gets own notification window. Specific algorithmic claim ("treated as new release") is unverified — not found in our YouTube database. Strategy proceeds on confirmed merits.
+> - **Note:** Fix Songlink (album.link) before launch — Apple Music and Amazon Music not showing despite being live on those platforms. Log into odesli.com and add manually.
+>
+> **Public Release Schedule:**
+> | Date | Day | Song |
+> |------|-----|------|
+> | June 7 ✅ | Sun | My Brain Has an Alarm — https://youtu.be/ubHZr-PsEMY |
+> | June 10 | Wed | Breathe Like Waves — https://youtu.be/ZjnOLPM8Qi4 |
+> | June 12 | Fri | Name It Choose It — https://youtu.be/gMHskiyg1Vc |
+> | June 16 | Tue | Maybe Maybe Not — https://youtu.be/oWAdU2-k8P0 |
+> | June 19 | Fri | My Story My Voice — https://youtu.be/M09PqtmxiiE |
+> | June 23 | Tue | One Step Braver — https://youtu.be/XKWSkW8BTTg |
+> | June 26 | Fri | Say It With Me — https://youtu.be/O31Pg7aWx54 |
+> | June 30 | Tue | My Plan My People — https://youtu.be/hfh7hzUKsVk |
+>
+> ---
+>
 > ## 🎯 WEEKLY GOALS — Week of June 1–7, 2026
 > Last updated: June 1, 2026 by Claude Cowork
 >
@@ -40,7 +69,7 @@
 > | **Onboard Julia** | 🔴 Not started | Strategy session needed — define her role, what she owns, tools setup (Canva access, content calendar). Julia has Meta Business Suite admin access already. |
 > | **Social media setup** | 🔴 Not started | Bio, Canva Brand Kit, Brand Voice, content cadence — Julia's domain once onboarded. Brand Guidelines PDF ready. |
 > | **/songs page + album marketing strategy** | 🟡 In progress | Waiting on all 8 YouTube videos to be done before building page. Also need to submit "All the Feels" to Amuse as standalone single. Songlink live: https://album.link/s/1HM7chm30VlXawhHCLq4cP |
-> | **YouTube versions — When Feelings Get Loud** | 🟡 In progress | Format decided: still images, low-stimulation, song-focused. 1 of 8 done. Complete remaining 7 then upload simultaneously. |
+> | **YouTube versions — When Feelings Get Loud** | 🟡 In progress | Format decided: still images, low-stimulation, song-focused. 5 of 8 done: Brain Alarm ✅, Breathe Like Waves ✅, Maybe Maybe Not ✅, Name It Choose It ✅, My Story My Voice ✅. Remaining: One Step Braver, Say It With Me, My Plan My People. YouTube live: My Brain Has an Alarm → https://youtu.be/ubHZr-PsEMY Keep on Trying YouTube description written and confirmed (real lyrics provided by Josh June 5, 2026). |
 > | **After Hours Tech — final walkthrough + soft launch** | 🟡 In progress | Dr. Sprang ✅ — no conflicts, blessing given June 2026. Still needed: (1) Final walkthrough of /tech/ page, (2) Add work examples, (3) Launch strategy + outreach to Laura, Christina Dalton, Sara Reichert, Bianca, KY Therapist Page, Ladies of Lexington. |
 | **Review new site pages** | 🔴 Tonight | Review /trauma/ and /songs/ pages in detail — verify PRACTICE components, books section, FAQ, affiliate links, and songs track listing all rendered correctly. Flag any issues for Code to fix. |
 > | **Blog post — Skills for Children website** | 🔴 Not started | Write a blog post about the SFC website itself + produce accompanying NotebookLM podcast/Shorts video. Post on social media and YouTube. |
@@ -85,7 +114,8 @@
 | # | Date | Project | Description | Location in file |
 |---|------|---------|-------------|-----------------|
 | ~~23~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Add a slim "personal help" section just above the footer on every page of skillsforchildren.com.~~ | ~~[Section 1 → Cowork Prompts → June 5, 2026 #3](#june-5-2026-3--personal-help-strip-above-footer)~~ |
-| 22 | June 5, 2026 | skillsforchildren.com | Update Key Decisions Log in SECOND_BRAIN with all June 5 strategy decisions: dual-audience framework, keyword tiers, content plan, link building outreach, YouTube "Not Made for Kids" policy, Songlinks. No code changes needed — documentation only. | N/A — Cowork to action |
+| ~~24~~ | ~~June 8, 2026~~ | ~~skillsforchildren.com~~ | ~~Deploy `/whenfeelingsgetloud` album product page: commit `whenfeelingsgetloud/` folder (index.html + art/ images) to repo and push to main.~~ | ~~[Section 1 → Cowork Prompts → June 8, 2026 #1](#june-8-2026-1--deploy-whenfeelingsgetloud-album-page)~~ |
+| ~~22~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Update Key Decisions Log in SECOND_BRAIN with all June 5 strategy decisions: dual-audience framework, keyword tiers, content plan, link building outreach, YouTube "Not Made for Kids" policy, Songlinks. No code changes needed — documentation only.~~ | ~~N/A — Cowork to action~~ |
 | ~~20~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Upgrade /trauma/ page into dual-audience TF-CBT hub: 40-60 word definition box, "For Families" + "For Clinicians" sections, all 8 PRACTICE components, book affiliate links, BRAVE app CTA, songs section, curated external links to tfcbt.org + NCTSN, FAQ schema, MSW byline.~~ | ~~[Section 1 → Cowork Prompts → June 5, 2026 #1](#june-5-2026-1--trauma-page-upgrade-dual-audience-tfcbt-hub)~~ |
 | ~~21~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Build /songs page: clinical framing at top, When Feelings Get Loud album (YouTube embed + Songlink), all 8 songs with TF-CBT mapping, Try Something New + Keep on Trying in growth mindset section.~~ | ~~[Section 1 → Cowork Prompts → June 5, 2026 #2](#june-5-2026-2--songs-page-build)~~ |
 | ~~1~~ | ~~May 23, 2026~~ | ~~After Hours Tech~~ | ~~Create CORS landing page at /tech/cors/~~ | ~~[Section 2 → Cowork Prompts → May 23, 2026](#may-23-2026--create-cors-landing-page-at-techcors)~~ |
@@ -211,6 +241,23 @@ Add a slim, personal strip just above the footer on every page of skillsforchild
 - Create `_includes/help-strip.html` with the strip markup
 - Include it in `_layouts/default.html` just before `{% include footer.html %}` (or equivalent footer include)
 - Should appear on all pages including /trauma/, /songs/, blog posts, and homepage
+
+---
+
+### June 8, 2026 #1 — Deploy /whenfeelingsgetloud album page
+
+**Prompt for Claude Code:**
+
+A self-contained album product page for *When Feelings Get Loud* has been prepared by Claude Cowork and is already in the repo at `whenfeelingsgetloud/index.html` with images at `whenfeelingsgetloud/art/`. All you need to do is commit and push.
+
+**Steps:**
+1. `git add whenfeelingsgetloud/`
+2. `git commit -m "Add /whenfeelingsgetloud album product page (Claude Design output)"`
+3. `git push origin main`
+
+That's it — no code changes needed. The page is a self-contained Claude Design HTML output with its own CSS, fonts, and JS. It will be live at `https://skillsforchildren.com/whenfeelingsgetloud/` after GitHub Pages deploys.
+
+After pushing, verify the page loads at `https://skillsforchildren.com/whenfeelingsgetloud/`. If any image paths are broken (images are referenced as `art/*.jpg` relative to the page), flag it in the session log.
 
 ---
 
@@ -4579,5 +4626,23 @@ cd "C:\Users\joshu\Transcriber"
 - Confirmed main window title:
   `Session Transcriber`
 - Closed after smoke check.
+
+---
+
+### June 8, 2026 — Deploy /whenfeelingsgetloud album product page (Item #24)
+
+**Prompt executed by:** Claude Code
+**Commit:** `0e510af`
+
+**What was done:**
+- Verified `whenfeelingsgetloud/index.html` and `whenfeelingsgetloud/art/` (9 images) were already in the local repo, generated by Claude Design.
+- Ran `git add whenfeelingsgetloud/` → `git commit` → `git push origin main`.
+- 10 files committed (index.html + brain-alarm.jpg, breathe-like-waves.jpg, hero.jpg, maybe-maybe-not.jpg, my-plan-my-people.jpg, my-story-my-voice.jpg, name-it-choose-it.jpg, one-step-braver.jpg, say-it-with-me.jpg).
+
+**Live at:** `https://skillsforchildren.com/whenfeelingsgetloud/` (after GitHub Pages deploys)
+
+**Image paths:** All images referenced as `art/*.jpg` relative to the page — should resolve correctly since they're in the same folder as `index.html`.
+
+**Pending queue:** All code items now complete. Only item #22 (Cowork documentation task — SECOND_BRAIN.md update) remains unstruck.
 
 **Field-test recommendation:** Copy the entire `dist\SessionTranscriber` folder to the tester PC. Do not copy only the `.exe`; the `_internal` folder contains the bundled models and runtime dependencies.
