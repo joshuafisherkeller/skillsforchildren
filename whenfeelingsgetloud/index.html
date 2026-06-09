@@ -252,7 +252,12 @@
   <!-- HERO -->
   <header class="hero" data-screen-label="Hero">
     <div class="hero-frame" id="heroFrame">
-      <img src="art/hero.jpg" alt="When Feelings Get Loud — a paper-craft world of clouds, a glowing lantern, a winding path home, and hands sharing a heart." />
+      <picture>
+        <!-- mobile (≤640px): square album cover, fills the 1:1 container perfectly -->
+        <source media="(max-width: 640px)" srcset="art/hero.jpg">
+        <!-- desktop: original wide landscape image -->
+        <img src="art/hero-desktop.jpg" alt="When Feelings Get Loud — a paper-craft world of clouds, a glowing lantern, a winding path home, and hands sharing a heart." />
+      </picture>
     </div>
   </header>
   <div class="tagline">
