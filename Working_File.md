@@ -4645,4 +4645,57 @@ cd "C:\Users\joshu\Transcriber"
 
 **Pending queue:** All code items now complete. Only item #22 (Cowork documentation task — SECOND_BRAIN.md update) remains unstruck.
 
+---
+
+### June 9, 2026 — /whenfeelingsgetloud page fixes + homepage album integration
+
+**Commits:** `e316488`, `56f7e0b`, `420963f`, `a1062b7`, `54058d5`, `173bc38`
+
+#### /whenfeelingsgetloud fixes
+
+**Hero image cut off (desktop):**
+- Removed top bleed: `inset:-8% 0 -8% 0` → `inset:0 0 -18% 0` so full artwork shows from the top
+- Added `object-position: top center` to anchor to top of image
+
+**SEO — added visible h1:**
+- Added `<h1 class="album-title">When Feelings Get Loud</h1>` above the tagline/streaming buttons
+- Styled in Fredoka at `clamp(2.4rem, 6vw, 4rem)` — readable heading, not just pixels in an image
+
+**Mobile hero fix:**
+- Added `@media (max-width:640px)` rule: `aspect-ratio: 1/1; height:auto; max-height:94vw`
+- Removes bottom bleed on mobile, locks container to square to match album art
+
+**Replaced hero.jpg with true square album cover:**
+- Source: `C:\Users\joshu\Skills for Children\Songs\When Feelings Get Loud\Upscaled Album Art\Cover.png` (3000×3000, 13MB PNG)
+- Resized to 1400×1400 JPEG at quality 88 using Pillow → 672KB
+- Overwrote `whenfeelingsgetloud/art/hero.jpg`
+
+**Restored original wide hero for desktop via `<picture>`:**
+- Recovered original wide hero from git (`0e510af`) → saved as `whenfeelingsgetloud/art/hero-desktop.jpg` (534KB)
+- Replaced `<img>` with `<picture>`: `(max-width:640px)` → `hero.jpg` (square); default → `hero-desktop.jpg` (wide landscape)
+
+**Floating notes fade on scroll:**
+- Added IntersectionObserver watching `<main id="songs">`
+- When songs section enters viewport: `#notes` fades out over 1.4s
+- Scrolling back up: notes return (opacity resets to 1)
+
+#### skillsforchildren.com homepage
+
+**Featured resource — replaced "Try Something New" with album card:**
+- Tag: "Album · Therapeutic music"
+- Title: *When Feelings Get Loud*, description + 4 bullet points
+- Right side: square album cover (`/whenfeelingsgetloud/art/hero.jpg`) using existing `.featured-img` class with `aspect-ratio:1/1` override
+- Entire card clickable to `/whenfeelingsgetloud/` via JS click handler
+- Section subtitle updated to reflect album
+
+**New "Songs by Skills for Children" section:**
+- Added between Books section and YouTube Videos section
+- Album card with: cover image, eyebrow, h3, description, streaming pills (Spotify, Apple Music "soon", Pandora, YouTube Music), "Explore the album" CTA
+- Self-contained `<style>` block: `.album-card`, `.album-cover`, `.album-body`, `.stream-pills`, `.stream-pill` classes
+- Responsive: stacks to single column on mobile (≤700px)
+
+**Videos grid — swapped Keep on Trying for My Brain Has an Alarm:**
+- `8dPCCZyDASo` (Keep on Trying) → `ubHZr-PsEMY` (My Brain Has an Alarm)
+- Keep on Trying to be redone and re-added later
+
 **Field-test recommendation:** Copy the entire `dist\SessionTranscriber` folder to the tester PC. Do not copy only the `.exe`; the `_internal` folder contains the bundled models and runtime dependencies.
