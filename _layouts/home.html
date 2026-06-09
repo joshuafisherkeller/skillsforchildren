@@ -68,32 +68,40 @@ layout: default
     <div class="section-head-text">
       <div class="eyebrow">Resource spotlight</div>
       <h2 style="margin-top:14px">A resource we keep coming back to.</h2>
-      <p>This week &mdash; a song that teaches kids the power of <em>"yet"</em>.</p>
+      <p>8 original therapeutic songs mapped to the TF-CBT PRACTICE components.</p>
     </div>
     <a href="#resources" class="btn btn--ghost btn--sm">See all resources
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" class="arrow"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
     </a>
   </div>
 
-  <div class="featured reveal">
+  <div class="featured reveal" id="featured-album" style="cursor:pointer;">
     <div>
-      <div class="featured-tag">Now playing &middot; Growth mindset</div>
-      <h3>Try Something New</h3>
-      <p class="featured-desc">A fun, upbeat song designed to teach children the power of a growth mindset. Bright piano, happy ukulele, and a chorus that reminds kids that mistakes are part of learning &mdash; and their brains get stronger every time they try.</p>
+      <div class="featured-tag">Album &middot; Therapeutic music</div>
+      <h3><em>When Feelings Get Loud</em></h3>
+      <p class="featured-desc">A complete album of 8 original therapeutic songs for children — one per TF-CBT PRACTICE component. Designed for use in session, at home, and in the car. Clinician-crafted, child-friendly.</p>
       <ul class="featured-list">
-        <li><strong>The power of &ldquo;YET&rdquo;</strong>&nbsp;&mdash; you can&rsquo;t do it&hellip; <em>yet</em>.</li>
-        <li><strong>Neuroplasticity</strong>&nbsp;&mdash; your brain grows like a muscle.</li>
-        <li><strong>Resilience</strong>&nbsp;&mdash; getting back up when you fall.</li>
-        <li><strong>Sensory-friendly design</strong>&nbsp;&mdash; slow pacing, gentle visuals.</li>
+        <li><strong>8 PRACTICE components</strong>&nbsp;&mdash; Psychoeducation through Enhancing Safety.</li>
+        <li><strong>TF-CBT aligned</strong>&nbsp;&mdash; maps directly to the therapeutic arc.</li>
+        <li><strong>Dual audience</strong>&nbsp;&mdash; works for families and clinicians alike.</li>
+        <li><strong>Free to stream</strong>&nbsp;&mdash; Spotify, Apple Music, YouTube &amp; more.</li>
       </ul>
-      <a href="https://www.youtube.com/@SkillsforChildren" target="_blank" rel="noopener" class="btn btn--primary">More songs like this
+      <a href="/whenfeelingsgetloud/" class="btn btn--primary" style="position:relative;z-index:1;">Explore the album
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="arrow"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
-    <div class="featured-video">
-      <iframe src="https://www.youtube.com/embed/fITPTH62DAo" title="Try Something New — Skills for Children" allowfullscreen loading="lazy"></iframe>
-    </div>
+    <a href="/whenfeelingsgetloud/" class="featured-img" style="aspect-ratio:1/1;position:relative;z-index:1;" tabindex="-1" aria-hidden="true">
+      <img src="/whenfeelingsgetloud/art/hero.jpg" alt="When Feelings Get Loud — album cover">
+    </a>
   </div>
+  <script>
+  (function(){
+    var card = document.getElementById('featured-album');
+    if(card) card.addEventListener('click', function(e){
+      if(!e.target.closest('a')) window.location.href = '/whenfeelingsgetloud/';
+    });
+  })();
+  </script>
 </section>
 
 <!-- ============================================================
@@ -315,6 +323,104 @@ layout: default
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ============================================================
+     SONGS BY SKILLS FOR CHILDREN
+     ============================================================ -->
+<style>
+.album-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--r-2xl);
+  padding: clamp(24px, 4vw, 48px);
+  position: relative;
+  overflow: hidden;
+}
+.album-card::before {
+  content: "";
+  position: absolute;
+  top: -80px; left: -80px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, color-mix(in oklch, var(--sage) 20%, transparent), transparent 70%);
+  pointer-events: none;
+}
+.album-cover {
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  box-shadow: var(--shadow-3);
+  flex-shrink: 0;
+}
+.album-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.album-body { position: relative; z-index: 1; }
+.album-body h3 { font-size: clamp(22px, 2.8vw, 32px); margin-bottom: 12px; }
+.album-body p { font-size: 15px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 22px; }
+.stream-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.stream-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 999px;
+  background: var(--paper-2); border: 1.5px solid var(--border);
+  color: var(--ink); text-decoration: none; font-size: 13.5px; font-weight: 600;
+  transition: border-color .2s, background .2s, transform .2s;
+}
+.stream-pill:hover { border-color: var(--sage); background: var(--wash-sage); transform: translateY(-2px); }
+.stream-pill svg { flex: none; }
+.stream-pill.soon { opacity: .55; cursor: default; }
+.stream-pill.soon:hover { transform: none; border-color: var(--border); background: var(--paper-2); }
+@media (max-width: 700px) {
+  .album-card { grid-template-columns: 1fr; }
+  .album-cover { max-width: 220px; }
+}
+</style>
+<section class="container section" id="songs-section">
+  <div class="section-head reveal">
+    <div class="section-head-text">
+      <div class="eyebrow">Music</div>
+      <h2 style="margin-top:14px">Songs by Skills for Children</h2>
+      <p>Original therapeutic music for kids — free to stream everywhere.</p>
+    </div>
+    <a href="/songs/" class="btn btn--ghost btn--sm">All songs
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" class="arrow"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <div class="album-card reveal">
+    <div class="album-cover">
+      <img src="/whenfeelingsgetloud/art/hero.jpg" alt="When Feelings Get Loud — album cover">
+    </div>
+    <div class="album-body">
+      <div class="eyebrow" style="margin-bottom:10px;">8 tracks &middot; TF-CBT PRACTICE components</div>
+      <h3><em>When Feelings Get Loud</em></h3>
+      <p>One song for each step of the therapeutic journey — from understanding the brain&rsquo;s alarm system all the way through safety planning. Made for clinicians, caregivers, and kids.</p>
+      <div class="stream-pills">
+        <a class="stream-pill" href="https://open.spotify.com/album/1HM7chm30VlXawhHCLq4cP" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#1DB954"/><path d="M6.5 9.2c3.6-1 7.4-.7 10.4 1M7 12.3c3-.8 6-.5 8.4 1M7.6 15.2c2.3-.6 4.6-.4 6.5.8" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Spotify
+        </a>
+        <span class="stream-pill soon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#c9b8a3"/><path d="M14.5 7.3l-4.6 1.1c-.4.1-.6.4-.6.8v5.1a2 2 0 10.9 1.7V10l4-.95v3.2a2 2 0 10.9 1.7V8.1c0-.6-.4-.95-.6-.8z" fill="#fff"/></svg>
+          Apple Music <span style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-left:2px;">soon</span>
+        </span>
+        <a class="stream-pill" href="https://www.pandora.com/AL:66807905" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#3668FF"/><path d="M8.5 6.5h4.3c2.4 0 4 1.4 4 3.7s-1.7 3.8-4.1 3.8H11v3H8.5V6.5z" fill="#fff"/></svg>
+          Pandora
+        </a>
+        <a class="stream-pill" href="https://music.youtube.com/playlist?list=OLAK5uy_lhHmAy1zV8dOR1Yh0jaT_RFJU8LAKtdJ8" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#FF0000"/><path d="M10 8.5l5 3.5-5 3.5z" fill="#fff"/></svg>
+          YouTube Music
+        </a>
+      </div>
+      <a href="/whenfeelingsgetloud/" class="btn btn--primary">Explore the album
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="arrow"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 

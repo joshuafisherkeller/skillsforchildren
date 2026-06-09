@@ -794,6 +794,21 @@ const io = new IntersectionObserver((entries)=>{
 }, { threshold:0.18, rootMargin:"0px 0px -8% 0px" });
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 
+/* ============ NOTES FADE ON SCROLL INTO SONGS ============ */
+(function(){
+  const notesLayer = document.getElementById('notes');
+  if(!notesLayer) return;
+  notesLayer.style.transition = 'opacity 1.4s ease';
+  const songsEl = document.getElementById('songs');
+  if(!songsEl) return;
+  const fadeOut = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      notesLayer.style.opacity = en.isIntersecting ? '0' : '1';
+    });
+  }, { threshold: 0.08 });
+  fadeOut.observe(songsEl);
+})();
+
 /* ============ HERO PARALLAX ============ */
 const heroImg = document.querySelector("#heroFrame img");
 let ticking = false;
