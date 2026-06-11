@@ -115,6 +115,8 @@
 |---|------|---------|-------------|-----------------|
 | ~~23~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Add a slim "personal help" section just above the footer on every page of skillsforchildren.com.~~ | ~~[Section 1 → Cowork Prompts → June 5, 2026 #3](#june-5-2026-3--personal-help-strip-above-footer)~~ |
 | ~~24~~ | ~~June 8, 2026~~ | ~~skillsforchildren.com~~ | ~~Deploy `/whenfeelingsgetloud` album product page: commit `whenfeelingsgetloud/` folder (index.html + art/ images) to repo and push to main.~~ | ~~[Section 1 → Cowork Prompts → June 8, 2026 #1](#june-8-2026-1--deploy-whenfeelingsgetloud-album-page)~~ |
+| ~~25~~ | ~~June 8, 2026~~ | ~~skillsforchildren.com~~ | ~~Build dedicated `/tfcbt` page — expanded TF-CBT resource hub with all 8 PRACTICE components, When Feelings Get Loud album section, books/journals, FAQ schema, and link from /trauma/.~~ | ~~[Section 1 → Cowork Prompts → June 8, 2026 #2](#june-8-2026-2--tfcbt-dedicated-hub-page)~~ |
+| ~~26~~ | ~~June 8, 2026~~ | ~~skillsforchildren.com~~ | ~~Apple Music link live — commit updated `whenfeelingsgetloud/index.html` (already edited by Cowork) + add Apple Music link to `songs.html`. Push to main.~~ | ~~[Section 1 → Cowork Prompts → June 8, 2026 #3](#june-8-2026-3--apple-music-link-update)~~ |
 | ~~22~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Update Key Decisions Log in SECOND_BRAIN with all June 5 strategy decisions: dual-audience framework, keyword tiers, content plan, link building outreach, YouTube "Not Made for Kids" policy, Songlinks. No code changes needed — documentation only.~~ | ~~N/A — Cowork to action~~ |
 | ~~20~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Upgrade /trauma/ page into dual-audience TF-CBT hub: 40-60 word definition box, "For Families" + "For Clinicians" sections, all 8 PRACTICE components, book affiliate links, BRAVE app CTA, songs section, curated external links to tfcbt.org + NCTSN, FAQ schema, MSW byline.~~ | ~~[Section 1 → Cowork Prompts → June 5, 2026 #1](#june-5-2026-1--trauma-page-upgrade-dual-audience-tfcbt-hub)~~ |
 | ~~21~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Build /songs page: clinical framing at top, When Feelings Get Loud album (YouTube embed + Songlink), all 8 songs with TF-CBT mapping, Try Something New + Keep on Trying in growth mindset section.~~ | ~~[Section 1 → Cowork Prompts → June 5, 2026 #2](#june-5-2026-2--songs-page-build)~~ |
@@ -241,6 +243,166 @@ Add a slim, personal strip just above the footer on every page of skillsforchild
 - Create `_includes/help-strip.html` with the strip markup
 - Include it in `_layouts/default.html` just before `{% include footer.html %}` (or equivalent footer include)
 - Should appear on all pages including /trauma/, /songs/, blog posts, and homepage
+
+---
+
+### June 8, 2026 #3 — Apple Music link update
+
+**Prompt for Claude Code:**
+
+Apple Music link for *When Feelings Get Loud* is now live: `https://music.apple.com/us/album/when-feelings-get-loud/6773287780`
+
+Two tasks:
+
+1. **`whenfeelingsgetloud/index.html`** — already updated by Cowork. Just `git add` and commit — no further edits needed.
+
+2. **`songs.html`** — find any Apple Music placeholder or mention and make sure it links to `https://music.apple.com/us/album/when-feelings-get-loud/6773287780`. The Songlink button (`https://album.link/s/1HM7chm30VlXawhHCLq4cP`) can stay as-is since Odesli may now auto-detect Apple Music. No other changes needed to songs.html.
+
+Commit message: `Add Apple Music link for When Feelings Get Loud`
+
+---
+
+### June 8, 2026 #2 — /tfcbt dedicated hub page
+
+**Prompt for Claude Code:**
+
+Create a dedicated TF-CBT resource hub at `/tfcbt/`. This is a high-priority SEO page targeting "TF-CBT resources," "TF-CBT activities for therapists," and AI citation for "what is TF-CBT." Goal: become the most comprehensive, structured TF-CBT resource page outside of tfcbt.org and NCTSN.
+
+---
+
+**File to create:** `tfcbt.html` at repo root
+
+```yaml
+---
+layout: default
+title: "TF-CBT Resources: Free Tools for Every PRACTICE Component | Skills for Children"
+description: "Free TF-CBT resources for therapists, parents, and caregivers — all 8 PRACTICE components, companion songs, books, and clinical tools. Curated by Joshua Fisherkeller, MSW."
+permalink: /tfcbt/
+---
+```
+
+---
+
+**Page sections in order:**
+
+**1. Hero**
+- Eyebrow: `TF-CBT Resources`
+- H1: `Trauma-Focused Cognitive Behavioral Therapy: A Complete Resource Guide`
+- Lede: "Everything you need across all 8 PRACTICE components — free tools, therapeutic songs, companion books, and clinical guides. Curated by Joshua Fisherkeller, MSW."
+- Two CTA buttons: "Jump to PRACTICE Components" (anchor #practice) and "Free TF-CBT Training at tfcbt.org" (external, target blank, btn--ghost)
+
+**2. GEO Definition Box** (40-60 words, styled as `def-card`)
+```
+What is TF-CBT?
+Trauma-Focused Cognitive Behavioral Therapy (TF-CBT) is an evidence-informed treatment for children ages 3–18 and their caregivers. Developed by Cohen, Mannarino, and Deblinger, it uses the PRACTICE framework to build coping skills, process trauma memories, and restore healthy caregiver relationships — typically delivered in 12–25 sessions.
+```
+
+**3. Dual Audience Cards** (2-column grid, same pattern as trauma.html)
+- **For Families:** "Your child doesn't have to carry this alone." — bullets: understand what TF-CBT is and what to expect / find songs and books designed for home use / caregiver resources for every stage
+- **For Clinicians:** "Session-ready tools across all 8 PRACTICE components." — bullets: free resources mapped to each component / therapeutic songs for use in session and as homework / BRAVE app for child-facing TF-CBT work / free 10-hour web training at tfcbt.org
+
+**4. PRACTICE Components Grid** (id="practice", same 8-card grid as trauma.html but EXPANDED)
+
+Each card gets: letter badge, component name, clinical description, song badge linking to /songs#[slug], AND a small "Free resources for this component" list of 2-3 bullet links inline. Use the resources from `_data/trauma-resources.yml` (the tfcbt pillar) where relevant. Song → component mapping:
+
+| Letter | Component | Song | /songs anchor | Key free resource to link |
+|--------|-----------|------|---------------|--------------------------|
+| P | Psychoeducation | My Brain Has an Alarm | #brain-alarm | NCTSN "12 Core Concepts" PDF |
+| R | Relaxation | Breathe Like Waves | #breathe-like-waves | Anxiety Canada PMR PDF + Butterfly Hug (NCTSN) |
+| A | Affective Modulation | Name It, Choose It | #name-it-choose-it | NCTSN TF-CBT Workbook "My Feelings Book" |
+| C | Cognitive Coping | Maybe, Maybe Not | #maybe-maybe-not | Therapist Aid Grounding Worksheet |
+| T | Trauma Narrative | My Story, My Voice | #my-story-my-voice | NCTSN Trauma Narrative Guidelines |
+| I | In Vivo Mastery | One Step Braver | #one-step-braver | NCTSN Coping Skills Toolkit |
+| C | Conjoint Sessions | Say It With Me | #say-it-with-me | NCTSN Conjoint Sessions guide |
+| E | Enhancing Safety | My Plan, My People | #my-plan-my-people | Therapist Aid Safety Plan worksheet |
+
+**5. When Feelings Get Loud Album Section** (id="album", `background: var(--wash-sage)` band, full-width)
+- Eyebrow: `Free Therapeutic Resource`
+- H2: `When Feelings Get Loud — A Song for Every PRACTICE Component`
+- Description: "The only TF-CBT-mapped music album for children — one song for each of the 8 PRACTICE components. Designed for use in session, as take-home practice, and for families. Free to stream everywhere."
+- Two buttons: "Listen Free on Spotify" (https://open.spotify.com/album/1HM7chm30VlXawhHCLq4cP) and "Explore the Full Album →" linking to /whenfeelingsgetloud
+- Small track list showing all 8 songs with their PRACTICE component label (e.g., "My Brain Has an Alarm — Psychoeducation")
+- Note: "Also on YouTube, Apple Music, Amazon Music, and all major platforms"
+
+**6. Books & Journals Section** (id="books")
+- Eyebrow: `Curated Resources`
+- H2: `Books and Journals for TF-CBT`
+- Brief intro: "These materials are designed as companions to TF-CBT work — for use in session, as take-home reading, or as gifts for families."
+
+Cards (same book card pattern as trauma.html):
+
+**A Journey of Brave Friends** — `https://amzn.to/4tWqSlG`
+- Badge: `TF-CBT Companion · Ages 6–11`
+- Description: "A storybook that walks children through the Resilient Forest with five animal friends — each chapter maps to one PRACTICE component. Designed as a TF-CBT companion for use in session and at home."
+- Button: "View on Amazon →"
+
+**Resilient Forest Notebook** — `https://amzn.to/3RkOZNd`
+- Badge: `Companion Journal · Ages 6–11`
+- Description: "Writing and drawing activities for each chapter of A Journey of Brave Friends. Structured for use alongside the book or as a standalone clinical journaling tool."
+- Button: "View on Amazon →"
+
+**Mother Earth in the Mountains** — `https://amzn.to/4wN3GZJ`
+- Badge: `Nature Journal`
+- Description: "A mindfulness-oriented nature journal for children — supports the relaxation and grounding work in TF-CBT's R component."
+- Button: "View on Amazon →"
+
+**7. BRAVE App CTA Band**
+- Eyebrow: `Companion App`
+- H2: `BRAVE: A TF-CBT Companion App`
+- Description: "A free Progressive Web App supporting children through all 8 PRACTICE components — with activities, the Resilient Forest story, and a dedicated calm space. For ages 4–18."
+- Button: "Try BRAVE Free →" linking to https://app.skillsforchildren.com
+
+**8. Free Clinical Training Section** (id="training")
+- Eyebrow: `For Clinicians`
+- H2: `Free TF-CBT Training & Clinical Resources`
+- Cards or styled list for:
+  - **TF-CBT Web Training** — tfcbt.org — "10+ hour free online training for certified TF-CBT practice. Developed by the model's creators at MUSC and Penn State."
+  - **NCTSN TF-CBT Resources** — nctsn.org — "The National Child Traumatic Stress Network's full TF-CBT resource library — guidelines, fidelity checklists, adaptations for young children, schools, and group formats."
+  - **TF-CBT for Young Children (Ages 3–6)** — link from trauma-resources.yml tfcbt pillar
+  - **Group TF-CBT Protocols** — link from trauma-resources.yml tfcbt pillar
+
+**9. FAQ Section** (id="faq") with FAQ JSON-LD schema in a `<script type="application/ld+json">` block
+
+Include these 5 questions:
+1. **What does PRACTICE stand for in TF-CBT?** — Psychoeducation, Relaxation, Affective Modulation, Cognitive Coping, Trauma Narrative, In Vivo Mastery, Conjoint Sessions, Enhancing Safety.
+2. **How long does TF-CBT take?** — Typically 12–25 sessions over 3–6 months, delivered weekly. Each session is usually 60–90 minutes, split between child and caregiver work with a conjoint session toward the end.
+3. **What age range is TF-CBT designed for?** — Children ages 3–18. Adaptations exist for young children (ages 3–6) and for group delivery in schools.
+4. **Is TF-CBT only for sexual abuse?** — No. TF-CBT was originally developed for sexual abuse but is now widely used for all types of childhood trauma including physical abuse, neglect, grief, domestic violence, natural disasters, and community violence.
+5. **Where can I find a TF-CBT therapist?** — The NCTSN treatment locator at nctsn.org and the Psychology Today therapist finder (filter by TF-CBT) are the two best starting points. Ask a potential therapist directly whether they have completed TF-CBT training through tfcbt.org.
+
+**10. Breadcrumb / link back**
+At the bottom, a simple "← Back to Trauma Resources Hub" link to /trauma/.
+
+---
+
+**Also update `_layouts/trauma.html`:**
+
+In the existing TF-CBT section (after the dual-audience cards and before the PRACTICE grid, or after the PRACTICE grid), add a callout band:
+
+```html
+<div style="background:var(--wash-sage);border:1px solid var(--border);border-radius:var(--r-xl);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:32px" class="reveal">
+  <div>
+    <div class="eyebrow" style="margin-bottom:8px;">Deep dive</div>
+    <h3 style="font-size:18px;font-weight:600;color:var(--ink);margin-bottom:6px;">Explore our full TF-CBT resource hub</h3>
+    <p style="font-size:14px;color:var(--ink-soft);margin:0;">All 8 PRACTICE components, companion songs, books, clinical training links, and FAQ — in one place.</p>
+  </div>
+  <a href="/tfcbt/" class="btn btn--primary">TF-CBT Hub
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="arrow"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  </a>
+</div>
+```
+
+Place this callout immediately after the closing `</section>` of the PRACTICE components grid (before the Books section).
+
+---
+
+**SEO notes:**
+- Page title: exactly as in front matter above
+- H1 must contain "TF-CBT Resources"
+- Use `<strong>TF-CBT</strong>` in first paragraph of def-card
+- The FAQ JSON-LD must be a valid `FAQPage` schema block in `<script type="application/ld+json">` at the bottom of the page
+
+**Commit message:** `Add /tfcbt dedicated hub page with PRACTICE components, album section, books, FAQ schema`
 
 ---
 
@@ -4697,5 +4859,37 @@ cd "C:\Users\joshu\Transcriber"
 **Videos grid — swapped Keep on Trying for My Brain Has an Alarm:**
 - `8dPCCZyDASo` (Keep on Trying) → `ubHZr-PsEMY` (My Brain Has an Alarm)
 - Keep on Trying to be redone and re-added later
+
+---
+
+### June 11, 2026 — Items #25 + #26: /tfcbt hub page + Apple Music links
+
+**Commit:** `4b51b7a`
+
+#### Item #26 — Apple Music link update
+- `whenfeelingsgetloud/index.html`: Already updated by Cowork with real Apple Music link (`https://music.apple.com/us/album/when-feelings-get-loud/6773287780`). "soon" span → real `<a>` element. Committed as-is.
+- `songs.html`: No changes needed per prompt (Songlink auto-detects).
+- `_layouts/home.html`: Also updated Apple Music "soon" pill in the Songs section to a real link (same URL). Icon color updated from grey `#c9b8a3` → Apple red `#fc3c44`.
+
+#### Item #25 — /tfcbt dedicated hub page
+
+**New file:** `tfcbt.html` → live at `https://skillsforchildren.com/tfcbt/`
+
+**10 sections built:**
+1. **Hero** — H1 with "TF-CBT Resources", lede with MSW byline, two CTAs (PRACTICE anchor + tfcbt.org external)
+2. **GEO Definition Box** — `def-card` with 40–55 word definition using existing CSS class
+3. **Dual Audience Cards** — "For Families" (wash-sage) + "For Clinicians" (wash-tan) with bullet lists
+4. **PRACTICE Components Grid** (`id="practice"`) — 8 cards, each with: letter badge, component name, clinical description, song badge linking to `/songs/#[slug]`, 3 free resource links (NCTSN, Therapist Aid, tfcbt.org)
+5. **When Feelings Get Loud Album Band** (`id="album"`) — wash-sage full-width band, 8-track listing, Spotify + full album CTAs
+6. **Books & Journals** (`id="books"`) — 3 cards: A Journey of Brave Friends, Resilient Forest Notebook, Mother Earth in the Mountains (all with Amazon affiliate links)
+7. **BRAVE App CTA** — gradient band, link to app.skillsforchildren.com
+8. **Free Clinical Training** (`id="training"`) — 4 cards: TF-CBT Web Training, NCTSN resources, Young Children adaptation, Group TF-CBT protocols
+9. **FAQ** (`id="faq"`) — 5 `<details>` accordions with chevron animation + `FAQPage` JSON-LD schema block at top of page
+10. **Back link** — "← Back to Trauma Resources Hub" to `/trauma/`
+- Ends with newsletter include
+
+**`_layouts/trauma.html`** — Added "Deep dive" callout band between PRACTICE grid and Books section, linking to `/tfcbt/`
+
+**Pending queue:** All code items complete. Only item #22 (Cowork documentation) remains.
 
 **Field-test recommendation:** Copy the entire `dist\SessionTranscriber` folder to the tester PC. Do not copy only the `.exe`; the `_internal` folder contains the bundled models and runtime dependencies.
