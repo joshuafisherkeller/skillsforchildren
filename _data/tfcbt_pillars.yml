@@ -1,0 +1,265 @@
+# TF-CBT PRACTICE pillar pages — content source for /tfcbt/<component>/
+# Rendered by _includes/tfcbt-pillar.html, one thin wrapper page per pillar in tfcbt_pillars/.
+# Phase 1 (skeletons): definition, clinical objectives, vetted (page-ready) L1/L2 links only,
+# Level 3 SFC supports per the asset map. Unverified per-component links are deferred to Phase 2.
+# Source levels: 1 = official model resource, 2 = authoritative adaptation, 3 = SFC creative (supplemental).
+
+pillars:
+  - slug: psychoeducation
+    letter: P
+    number: 1
+    name: Psychoeducation
+    title: "Psychoeducation in TF-CBT: The P in PRACTICE | Skills for Children"
+    description: "What psychoeducation means in TF-CBT — its clinical objectives, free official resources, and optional Skills for Children companions. Curated by Joshua Fisherkeller, MSW."
+    definition: "Psychoeducation teaches children and caregivers about trauma — how common it is, how it affects the brain and body, and why their reactions make sense. By naming what is happening in plain language, it lowers fear and shame and lays the groundwork for every skill that follows in TF-CBT."
+    objectives:
+      - objective: "Normalize trauma reactions"
+        mechanism: "Plain-language education about the brain and body's stress response"
+        audience: "Child &amp; caregiver"
+      - objective: "Build understanding of treatment"
+        mechanism: "Explaining how TF-CBT works and what to expect"
+        audience: "Caregiver"
+      - objective: "Reduce shame and isolation"
+        mechanism: "Framing reactions as common and understandable"
+        audience: "Child"
+    level1:
+      - title: "NCTSN — TF-CBT Fact Sheet (2024)"
+        note: "Plain-language overview approved by the model developers."
+        url: "https://www.nctsn.org/sites/default/files/interventions/trauma-focused-cognitive-behavioral-therapy-2024.pdf"
+    level2: []
+    song:
+      title: "My Brain Has an Alarm"
+      url: "https://youtu.be/ubHZr-PsEMY"
+    book_character: "Timothy the Turtle"
+    brave: true
+    family_summary: "Before anything else, TF-CBT helps your child understand that what they feel after something scary is normal — and that their brain is doing its job. Learning the “why” together takes away some of the fear."
+    faq:
+      - q: "When does psychoeducation happen in TF-CBT?"
+        a: "It is one of the first components, but it continues throughout treatment as new questions come up."
+
+  - slug: relaxation
+    letter: R
+    number: 2
+    name: Relaxation
+    title: "Relaxation in TF-CBT: The R in PRACTICE | Skills for Children"
+    description: "What the relaxation component of TF-CBT involves — clinical objectives, free official resources, and optional Skills for Children companions. Curated by Joshua Fisherkeller, MSW."
+    definition: "Relaxation gives children practical, body-based ways to calm a stress response — focused breathing, progressive muscle relaxation, and grounding. Practiced in session and at home, these skills help a child lower physical tension on their own, making it possible to face difficult feelings and memories later in treatment."
+    objectives:
+      - objective: "Lower physiological arousal"
+        mechanism: "Diaphragmatic breathing, progressive muscle relaxation, grounding"
+        audience: "Child"
+      - objective: "Create portable calming tools"
+        mechanism: "Rehearsal in session plus home practice"
+        audience: "Child &amp; caregiver"
+      - objective: "Prepare for trauma processing"
+        mechanism: "Building self-regulation before exposure work"
+        audience: "Clinician"
+    level1: []
+    level2: []
+    song:
+      title: "Breathe Like Waves"
+      url: "https://youtu.be/ZjnOLPM8Qi4"
+    book_character: "Rex the Rabbit"
+    brave: true
+    family_summary: "When big feelings show up in the body, relaxation skills give your child something to do about it. A few minutes of practice at calm times makes the skills easier to reach for during a hard moment."
+    faq:
+      - q: "Can we practice relaxation skills at home?"
+        a: "Yes — relaxation skills are meant to be rehearsed between sessions; home practice is part of how they become automatic."
+
+  - slug: affective-modulation
+    letter: A
+    number: 3
+    name: Affective Modulation
+    title: "Affective Modulation in TF-CBT: The A in PRACTICE | Skills for Children"
+    description: "What affective (emotion) modulation means in TF-CBT — clinical objectives, free official resources, and optional Skills for Children companions. Curated by Joshua Fisherkeller, MSW."
+    definition: "Affective modulation helps children recognize, name, and manage strong emotions. Through a wider feelings vocabulary, emotion thermometers, and a personalized coping menu, a child learns to move from “I feel bad” to “I feel scared, and here is what helps.” It builds the regulation skills that trauma processing later depends on."
+    objectives:
+      - objective: "Expand emotional vocabulary"
+        mechanism: "Feelings identification and noticing body cues"
+        audience: "Child"
+      - objective: "Build a coping menu"
+        mechanism: "Matching strategies to emotion intensity"
+        audience: "Child &amp; caregiver"
+      - objective: "Increase distress tolerance"
+        mechanism: "Practicing regulation across everyday situations"
+        audience: "Child"
+    level1: []
+    level2: []
+    song:
+      title: "Name It, Choose It"
+      url: "https://youtu.be/gMHskiyg1Vc"
+    book_character: "Bella the Bear"
+    brave: true
+    family_summary: "This part of TF-CBT helps your child put words to feelings and pick a coping skill that fits. Naming an emotion is often the first step to it feeling less overwhelming."
+    faq:
+      - q: "What is an emotion thermometer?"
+        a: "A simple 0&ndash;10 scale a child uses to rate how strong a feeling is, which helps match the right coping skill to the moment."
+
+  - slug: cognitive-coping
+    letter: C
+    number: 4
+    name: Cognitive Coping
+    title: "Cognitive Coping in TF-CBT: The C in PRACTICE | Skills for Children"
+    description: "What cognitive coping means in TF-CBT and the cognitive triangle — clinical objectives, free official resources, and optional Skills for Children companions. Curated by Joshua Fisherkeller, MSW."
+    definition: "Cognitive coping introduces the connection between thoughts, feelings, and behaviors &mdash; the cognitive triangle. Children and caregivers learn to notice unhelpful or inaccurate thoughts and practice more balanced, accurate ones. The skill is built on everyday situations first, so it is ready before the trauma itself is addressed."
+    objectives:
+      - objective: "Teach the cognitive triangle"
+        mechanism: "Linking thoughts, feelings, and behaviors with everyday examples"
+        audience: "Child &amp; caregiver"
+      - objective: "Identify unhelpful thoughts"
+        mechanism: "Guided noticing and gentle questioning"
+        audience: "Child"
+      - objective: "Build the skill before trauma focus"
+        mechanism: "Practicing on non-trauma situations first"
+        audience: "Clinician"
+    level1: []
+    level2:
+      - title: "UW Harborview (CBT+) — Cognitive Coping &amp; Processing materials"
+        note: "Free clinician-facing handouts and worksheets."
+        url: "https://depts.washington.edu/uwhatc/PDF/TF-%20CBT/pages/cognitive_coping.html"
+      - title: "National Children's Alliance (NCA Engage) — TF-CBT Cognitive Coping"
+        note: "Training and practice materials for the cognitive coping component."
+        url: "https://learn.nationalchildrensalliance.org/cognitive-coping"
+    song:
+      title: "Maybe, Maybe Not"
+      url: "https://youtu.be/oWAdU2-k8P0"
+    book_character: "Olive the Owl"
+    brave: true
+    family_summary: "Cognitive coping helps your child see that thoughts, feelings, and actions are connected &mdash; and that some thoughts can be checked and rebalanced. It is practiced on everyday worries first, long before the trauma is discussed."
+    faq:
+      - q: "What is the cognitive triangle?"
+        a: "A simple model showing how thoughts, feelings, and behaviors influence one another; cognitive coping teaches children to work with it."
+
+  - slug: trauma-narrative
+    letter: T
+    number: 5
+    name: Trauma Narrative
+    title: "Trauma Narrative in TF-CBT: The T in PRACTICE | Skills for Children"
+    description: "What the trauma narrative and processing component of TF-CBT involves — clinical objectives, free official resources, and optional Skills for Children companions. Curated by Joshua Fisherkeller, MSW."
+    definition: "The trauma narrative is the gradual, supported telling of what happened &mdash; through writing, drawing, or storytelling. Sharing the memory in small, manageable steps reduces its emotional charge over time and lets the therapist gently correct distorted beliefs, such as guilt or self-blame, that often follow trauma."
+    objectives:
+      - objective: "Reduce avoidance of memories"
+        mechanism: "Gradual, titrated recounting of the experience"
+        audience: "Child"
+      - objective: "Correct distorted cognitions"
+        mechanism: "Therapist-supported processing of beliefs like guilt"
+        audience: "Child"
+      - objective: "Lower the emotional charge"
+        mechanism: "Repeated, supported exposure over sessions"
+        audience: "Clinician"
+    level1:
+      - title: "NCTSN — Trauma Narrative guidance"
+        note: "Overview of the narrative and processing phase of treatment."
+        url: "https://www.nctsn.org/resources/trauma-narrative"
+    level2:
+      - title: "UW Harborview (CBT+) — Trauma Narrative &amp; In-Vivo Exposure materials"
+        note: "Free clinician-facing guidance and worksheets."
+        url: "https://depts.washington.edu/uwhatc/PDF/TF-%20CBT/pages/8%20Trauma%20Narrative%20and%20In-vivo%20Exposure/"
+    song:
+      title: "My Story, My Voice"
+      url: "https://youtu.be/M09PqtmxiiE"
+    book_character: "Kiki the Koala"
+    brave: true
+    family_summary: "Telling the story of what happened is done slowly, at your child's pace, with a trained therapist &mdash; it is supported telling, not reliving. Over time the memory loses some of its power to frighten."
+    faq:
+      - q: "Does my child have to relive the trauma?"
+        a: "No. The narrative is built gradually and at the child's pace; it is supported telling, not reliving, and the therapist keeps it manageable."
+
+  - slug: in-vivo-mastery
+    letter: I
+    number: 6
+    name: In Vivo Mastery
+    title: "In Vivo Mastery in TF-CBT: The I in PRACTICE | Skills for Children"
+    description: "What in vivo mastery of trauma reminders means in TF-CBT — clinical objectives, free official resources, and optional Skills for Children companions. Curated by Joshua Fisherkeller, MSW."
+    definition: "In vivo mastery means facing safe situations a child now avoids because they are linked to the trauma. With a gradual, planned “ladder” of steps, the child rebuilds confidence and learns that the reminder is not the danger. It is used only when avoidance is genuinely interfering with daily life."
+    objectives:
+      - objective: "Reduce trauma-related avoidance"
+        mechanism: "Graded, planned in-vivo exposure ladder"
+        audience: "Child"
+      - objective: "Rebuild daily functioning"
+        mechanism: "Step-by-step return to safe, avoided activities"
+        audience: "Child &amp; caregiver"
+      - objective: "Distinguish reminder from danger"
+        mechanism: "Repeated mastery experiences"
+        audience: "Clinician"
+    level1: []
+    level2:
+      - title: "UW Harborview (CBT+) — Trauma Narrative &amp; In-Vivo Exposure materials"
+        note: "Free clinician-facing guidance on graded in-vivo work."
+        url: "https://depts.washington.edu/uwhatc/PDF/TF-%20CBT/pages/8%20Trauma%20Narrative%20and%20In-vivo%20Exposure/"
+    song:
+      title: "One Step Braver"
+      url: "https://youtu.be/XKWSkW8BTTg"
+    book_character: null
+    brave: true
+    family_summary: "If your child has started avoiding safe things that remind them of the trauma, this part of TF-CBT helps them face those things one small, supported step at a time &mdash; never all at once."
+    faq:
+      - q: "Is in vivo mastery always part of TF-CBT?"
+        a: "No &mdash; it is used only when trauma-related avoidance is significantly interfering with a child's daily life."
+
+  - slug: conjoint-sessions
+    letter: C
+    number: 7
+    name: Conjoint Sessions
+    title: "Conjoint Child-Parent Sessions in TF-CBT: The C in PRACTICE | Skills for Children"
+    description: "What conjoint child-parent sessions in TF-CBT involve — clinical objectives, free official resources, and optional Skills for Children companions. Curated by Joshua Fisherkeller, MSW."
+    definition: "Conjoint sessions bring child and caregiver together with the therapist. Often the child shares part of their trauma narrative, and the family practices open, supportive communication. These joint meetings strengthen the caregiving relationship and help caregivers respond in ways that reinforce their child's recovery."
+    objectives:
+      - objective: "Strengthen caregiver-child communication"
+        mechanism: "Joint, therapist-facilitated sessions"
+        audience: "Child &amp; caregiver"
+      - objective: "Share the trauma narrative safely"
+        mechanism: "Prepared, supported disclosure to the caregiver"
+        audience: "Child"
+      - objective: "Reinforce gains at home"
+        mechanism: "Coaching the caregiver's responses"
+        audience: "Caregiver"
+    level1: []
+    level2:
+      - title: "UW Harborview (CBT+) — Preparing &amp; Conducting Parent-Child (Conjoint) Sessions"
+        note: "Free clinician technique guide (PDF)."
+        url: "https://depts.washington.edu/uwhatc/wp-content/uploads/2022/07/Technique-for-Preparing-for-and-Conducting-Parent.pdf"
+    song:
+      title: "Say It With Me"
+      url: "https://youtu.be/O31Pg7aWx54"
+    book_character: null
+    brave: true
+    family_summary: "Caregivers are part of TF-CBT from the start. In conjoint sessions you and your child meet together with the therapist to share, communicate, and practice supporting each other."
+    faq:
+      - q: "Will I be involved as a parent?"
+        a: "Yes &mdash; caregiver involvement is central to TF-CBT, and conjoint sessions are a planned part of the model."
+
+  - slug: enhancing-safety
+    letter: E
+    number: 8
+    name: Enhancing Safety
+    title: "Enhancing Safety in TF-CBT: The E in PRACTICE | Skills for Children"
+    description: "What enhancing safety and future development means in TF-CBT — clinical objectives, free official resources, and optional Skills for Children companions. Curated by Joshua Fisherkeller, MSW."
+    definition: "Enhancing safety helps a child build a personal plan for staying safe &mdash; identifying trusted adults, recognizing unsafe situations, and knowing what to do and who to tell. It consolidates the coping skills learned in treatment into a concrete plan the child can carry into everyday life."
+    objectives:
+      - objective: "Build a personal safety plan"
+        mechanism: "Identifying trusted adults and safe next steps"
+        audience: "Child &amp; caregiver"
+      - objective: "Teach body-safety and boundaries"
+        mechanism: "Developmentally-appropriate psychoeducation"
+        audience: "Child"
+      - objective: "Plan for life after treatment"
+        mechanism: "Consolidating coping skills into a usable plan"
+        audience: "Child &amp; caregiver"
+    level1:
+      - title: "NCTSN — Child Sexual Abuse Fact Sheet (for parents &amp; caregivers)"
+        note: "Body-safety psychoeducation for families and caregivers."
+        url: "https://www.nctsn.org/resources/child-sexual-abuse-fact-sheet-parents-teachers-and-other-caregivers"
+    level2:
+      - title: "National Children's Alliance (NCA Engage) — Enhancing Safety &amp; Future Healthy Development"
+        note: "Training and practice materials for the safety component."
+        url: "https://learn.nationalchildrensalliance.org/tf-cbt-enhancing-safety-and-future-healthy-development"
+    song:
+      title: "My Plan, My People"
+      url: "https://youtu.be/hfh7hzUKsVk"
+    book_character: null
+    brave: true
+    family_summary: "The final part of TF-CBT helps your child name their safe people and make a simple plan for what to do if something feels unsafe &mdash; so the skills they built keep working after therapy ends."
+    faq:
+      - q: "Is enhancing safety only about “stranger danger”?"
+        a: "No &mdash; it is a personalized safety plan covering trusted adults, boundaries, and what to do if something feels unsafe."

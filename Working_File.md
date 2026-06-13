@@ -89,6 +89,11 @@
 > - **Google Workspace** — Acquired May 29, 2026. Primary email is now josh@skillsforchildren.com.
 > - **When Feelings Get Loud** — Album live on Spotify and Google Music as of May 29, 2026.
 
+> ## 📚 ON THE HORIZON — Backlog projects (not active yet)
+> Last updated: June 13, 2026
+>
+> - **_Tio Sam_ — grief picture book (working title).** A children's book on grief / traumatic grief, written by Josh, grounded in the TF-CBT Grief-Focused (GRIEF) components. **Source material being collected in `tfcbt/`:** the two free tfcbt.org grief workbooks (child + teen versions, both saved locally) + the GRIEF-components page (https://tfcbt.org/grief-focused-components/). Extends the anchor-book ecosystem into grief, parallel to *A Journey of Brave Friends* for trauma. Also logged in SECOND_BRAIN → Queued/When Ready. Revisit when book-writing bandwidth opens up.
+
 > ## 📡 LIVE PRODUCT STATUS — Read this before the prompt queue
 > Last updated: May 26, 2026 by Claude Cowork
 >
@@ -113,6 +118,7 @@
 
 | # | Date | Project | Description | Location in file |
 |---|------|---------|-------------|-----------------|
+| ~~28~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Rebuild `/tfcbt` as a HUB + 8 PRACTICE pillar pages (Phase 1: hub + 8 skeletons, hardcoded Schema.org JSON-LD, Level 1/2/3 source tagging). Spec + resources now in `_tfcbt-reference/` (renamed from `tfcbt/`).~~ | ~~[Section 1 → Cowork Prompts → June 13, 2026 #2](#june-13-2026-2--tfcbt-hub--8-practice-pillar-pages-phase-1)~~ |
 | ~~27~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — De-duplicate TF-CBT: strip the duplicated TF-CBT hub sections off `/trauma/`, make the TF-CBT entry point a single bar/link to `/tfcbt`, and reorganize `/tfcbt` into a clean, usable hub (free resources → paid books/affiliate → book page link → songs page link → blog placeholder).~~ | ~~[Section 1 → Cowork Prompts → June 13, 2026 #1](#june-13-2026-1--de-duplicate-tf-cbt-trauma-page-cleanup--tfcbt-reorg)~~ |
 | ~~23~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Add a slim "personal help" section just above the footer on every page of skillsforchildren.com.~~ | ~~[Section 1 → Cowork Prompts → June 5, 2026 #3](#june-5-2026-3--personal-help-strip-above-footer)~~ |
 | ~~24~~ | ~~June 8, 2026~~ | ~~skillsforchildren.com~~ | ~~Deploy `/whenfeelingsgetloud` album product page: commit `whenfeelingsgetloud/` folder (index.html + art/ images) to repo and push to main.~~ | ~~[Section 1 → Cowork Prompts → June 8, 2026 #1](#june-8-2026-1--deploy-whenfeelingsgetloud-album-page)~~ |
@@ -167,6 +173,25 @@
 ---
 
 ## Cowork Prompts
+
+---
+
+### June 13, 2026 #2 — /tfcbt HUB + 8 PRACTICE pillar pages (Phase 1)
+
+**🔴 PRIORITY 1. Architecture LOCKED by Josh (June 13): build `/tfcbt` as a hub + one pillar page per PRACTICE component.** This supersedes the single-page version from #27 (which is live — evolve it, don't discard the content).
+
+**Read first:** `WEB SITE skillsforchildren-clone/tfcbt/TFCBT_BUILD_SPEC.md` (full blueprint) and `tfcbt/RESOURCES.md` (the vetted resource set + the SFC asset map). The spec is the source of truth; this prompt scopes the first build phase.
+
+**Phase 1 scope (this prompt):**
+1. **`/tfcbt` hub page** — "What is TF-CBT?" 40–60 word definition box, PRACTICE overview (link to each pillar), dual-audience (families / clinicians) intro, evidence/E-E-A-T anchors (CEBC "Well-Supported"; NCTSN "25 RCTs"), FAQ (FAQPage JSON-LD), and links to all 8 pillars. Keep the existing /tfcbt content; restructure into this hub.
+2. **8 pillar page skeletons** at `/tfcbt/<component>` — psychoeducation, relaxation, affective-modulation, cognitive-coping, trauma-narrative, in-vivo-mastery, conjoint-sessions, enhancing-safety. Each skeleton: `<h1>` + 40–60 word definition box, a clinical-objectives table high in the DOM, placeholder sections for Level 1 / Level 2 resources and the Level 3 "Optional Skill-Building Supports" block.
+3. **Schema (day one, hardcoded):** MedicalWebPage on hub + pillars; FAQPage where Q&A exists. (AudioObject/Book schema come in Phase 3.)
+4. **Source-Level tagging** baked into the resource rendering: Level 1 (official), Level 2 (authoritative adaptation), Level 3 (SFC creative — labeled supplemental, never "official"). UX guardrails per spec §6 — neutral styling, no storefront language.
+5. **`/trauma/` bar** continues to link to the `/tfcbt` hub.
+
+**Defer to later phases (do NOT do now):** populating every L1/L2 link (Phase 2 — verify URLs first), embedding songs/book/app per the asset map (Phase 3), dynamic filter library (Phase 4).
+
+**Guardrails:** link out to official resources, do not host proprietary PDFs; "evidence-informed" not "evidence-based"; MSW byline; do not fabricate blog content (placeholder only).
 
 ---
 
@@ -4988,3 +5013,29 @@ cd "C:\Users\joshu\Transcriber"
 - **Updated** album band: added third button "See all songs →" linking to `/songs/` alongside existing Spotify and album page buttons
 - **Added** blog placeholder section after album band: "More reading on TF-CBT — coming soon" with newsletter subscribe link
 - **Added** author byline (Joshua Fisherkeller, MSW) above back link
+
+---
+
+### June 13, 2026 — Item #28: TF-CBT hub + 8 PRACTICE pillar pages (V3 Phase 1)
+
+**Commit:** (see below) · Built per the V3 spec; supersedes the single-page #27 layout (content evolved, not discarded).
+
+**Architecture (hub + 8 pillars), built DRY:**
+- **`_data/tfcbt_pillars.yml`** (NEW) — single source of truth for all 8 components: slug, letter, number, SEO title/description, 40–60 word GEO definition (validated 44–51 words), clinical-objectives rows, vetted Level 1/Level 2 links, Level 3 asset map (song + book character + BRAVE), family summary, FAQ, used by both hub and pillar pages.
+- **`_includes/tfcbt-pillar.html`** (NEW) — renders one pillar from the data in the spec's DOM order: H1 + definition box → clinical-objectives table (high in DOM for GEO) → Level 1 official → Level 2 authoritative → Level 3 "Optional skill-building supports" (with the standard supplemental disclaimer, neutral styling, quiet "View access options" links) → "What this means for parents" callout → FAQ → disclaimers + prev/next cross-links. Emits **MedicalWebPage + FAQPage JSON-LD** (hardcoded).
+- **`tfcbt_pillars/<slug>.html`** ×8 (NEW) — thin wrappers, each `permalink: /tfcbt/<component>/` + front-matter SEO, calling the include. Slugs: psychoeducation, relaxation, affective-modulation, cognitive-coping, trauma-narrative, in-vivo-mastery, conjoint-sessions, enhancing-safety.
+
+**Hub restructure (`tfcbt.html`):**
+- Added **MedicalWebPage** JSON-LD (kept existing FAQPage).
+- Added **evidence / E-E-A-T anchor band**: CEBC "Well-Supported, Effective Practice", NCTSN "25+ RCTs", developed by Cohen/Mannarino/Deblinger (all linked).
+- Replaced the 8 static component cards (which linked to songs/external resources) with a **data-driven grid linking to each pillar page** (`/tfcbt/<slug>/`) — stays in sync with the data file.
+- Retagged the clinical-training section as **`id="official"`** with Level 1/2 tags (pillar placeholders link to `/tfcbt/#official`).
+- Reframed the 3 **Level 3 (SFC)** sections — album, books, BRAVE — with neutral "Supplemental · Skills for Children" tags, the boundary disclaimer, and softened CTAs (no bright "Listen Free"/"Try BRAVE Free"; quiet "View access options") per spec §6 UX guardrails.
+
+**Source-Level tagging:** L1 = official model resource, L2 = authoritative adaptation, L3 = SFC creative (always labeled supplemental, never "official"). Neutral badge styling shared across hub + pillars.
+
+**Build-safety fix:** the reference/working folder `tfcbt/` (34 MB of PDFs incl. copyrighted "link-only" manuals + research notes) was **not** excluded from the Jekyll build and would have deployed to the live site. Renamed it to **`_tfcbt-reference/`** (leading underscore → Jekyll auto-ignores; avoids the prefix-collision that `exclude: tfcbt` would have with `tfcbt.html`). Verified no site files link to the local PDFs. **Spec + resources now live in `_tfcbt-reference/TFCBT_BUILD_SPEC.md` and `_tfcbt-reference/RESOURCES.md`.**
+
+**Deferred (later phases, per spec):** Phase 2 = populate every L1/L2 link (verify URLs first); Phase 3 = embed songs/book/app; Phase 4 = dynamic filter library + noindex on thin filter pages. Phase-1 pillar pages are substantive landing pages, so they index normally.
+
+**Validation:** YAML parses (Ruby); Liquid if/for tags balanced; `<section>` tags balanced (hub 11/11, include 8/8); no local-PDF links remain; no external pages link to old `/tfcbt#…` anchors. Could not run a local Jekyll build (Jekyll not installed in this environment) — relied on static checks.
