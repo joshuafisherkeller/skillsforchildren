@@ -1,6 +1,18 @@
 {% assign pillar = include.pillar %}
 {% assign section_id = include.section %}
 
+{% if pillar.link %}
+<a href="{{ pillar.link }}" class="pillar pillar--link reveal" style="text-decoration:none;display:flex;align-items:center;cursor:pointer;">
+  <div class="pillar-icon">{{ pillar.icon }}</div>
+  <div class="pillar-title-wrap" style="flex:1;">
+    <div class="pillar-title">{{ pillar.name }}</div>
+    {% if pillar.description %}
+      <div class="pillar-desc">{{ pillar.description }}</div>
+    {% endif %}
+  </div>
+  <span class="pillar-count" style="white-space:nowrap;">Full hub &rarr;</span>
+</a>
+{% else %}
 <details class="pillar reveal">
   <summary>
     <div class="pillar-icon">{{ pillar.icon }}</div>
@@ -21,3 +33,4 @@
     {% endfor %}
   </div>
 </details>
+{% endif %}

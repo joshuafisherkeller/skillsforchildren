@@ -47,17 +47,17 @@
 > - **Source:** Strategy suggested by Google Gemini. Confirmed rationale: avoids 8 videos competing simultaneously, each gets own notification window. Specific algorithmic claim ("treated as new release") is unverified — not found in our YouTube database. Strategy proceeds on confirmed merits.
 > - **Note:** Fix Songlink (album.link) before launch — Apple Music and Amazon Music not showing despite being live on those platforms. Log into odesli.com and add manually.
 >
-> **Public Release Schedule:**
+> **Public Release Schedule** — RESCHEDULED June 13, 2026 (was running behind; re-cadenced to Tue/Fri from June 16). **Next up: Name It Choose It → Tue June 16.**
 > | Date | Day | Song |
 > |------|-----|------|
 > | June 7 ✅ | Sun | My Brain Has an Alarm — https://youtu.be/ubHZr-PsEMY |
-> | June 10 | Wed | Breathe Like Waves — https://youtu.be/ZjnOLPM8Qi4 |
-> | June 12 | Fri | Name It Choose It — https://youtu.be/gMHskiyg1Vc |
-> | June 16 | Tue | Maybe Maybe Not — https://youtu.be/oWAdU2-k8P0 |
-> | June 19 | Fri | My Story My Voice — https://youtu.be/M09PqtmxiiE |
-> | June 23 | Tue | One Step Braver — https://youtu.be/XKWSkW8BTTg |
-> | June 26 | Fri | Say It With Me — https://youtu.be/O31Pg7aWx54 |
-> | June 30 | Tue | My Plan My People — https://youtu.be/hfh7hzUKsVk |
+> | June 13 ✅ | Sat | Breathe Like Waves — https://youtu.be/ZjnOLPM8Qi4 *(published late)* |
+> | June 16 | Tue | Name It Choose It — https://youtu.be/gMHskiyg1Vc |
+> | June 19 | Fri | Maybe Maybe Not — https://youtu.be/oWAdU2-k8P0 |
+> | June 23 | Tue | My Story My Voice — https://youtu.be/M09PqtmxiiE |
+> | June 26 | Fri | One Step Braver — https://youtu.be/XKWSkW8BTTg |
+> | June 30 | Tue | Say It With Me — https://youtu.be/O31Pg7aWx54 |
+> | July 3 | Fri | My Plan My People — https://youtu.be/hfh7hzUKsVk |
 >
 > ---
 >
@@ -113,6 +113,7 @@
 
 | # | Date | Project | Description | Location in file |
 |---|------|---------|-------------|-----------------|
+| ~~27~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — De-duplicate TF-CBT: strip the duplicated TF-CBT hub sections off `/trauma/`, make the TF-CBT entry point a single bar/link to `/tfcbt`, and reorganize `/tfcbt` into a clean, usable hub (free resources → paid books/affiliate → book page link → songs page link → blog placeholder).~~ | ~~[Section 1 → Cowork Prompts → June 13, 2026 #1](#june-13-2026-1--de-duplicate-tf-cbt-trauma-page-cleanup--tfcbt-reorg)~~ |
 | ~~23~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Add a slim "personal help" section just above the footer on every page of skillsforchildren.com.~~ | ~~[Section 1 → Cowork Prompts → June 5, 2026 #3](#june-5-2026-3--personal-help-strip-above-footer)~~ |
 | ~~24~~ | ~~June 8, 2026~~ | ~~skillsforchildren.com~~ | ~~Deploy `/whenfeelingsgetloud` album product page: commit `whenfeelingsgetloud/` folder (index.html + art/ images) to repo and push to main.~~ | ~~[Section 1 → Cowork Prompts → June 8, 2026 #1](#june-8-2026-1--deploy-whenfeelingsgetloud-album-page)~~ |
 | ~~25~~ | ~~June 8, 2026~~ | ~~skillsforchildren.com~~ | ~~Build dedicated `/tfcbt` page — expanded TF-CBT resource hub with all 8 PRACTICE components, When Feelings Get Loud album section, books/journals, FAQ schema, and link from /trauma/.~~ | ~~[Section 1 → Cowork Prompts → June 8, 2026 #2](#june-8-2026-2--tfcbt-dedicated-hub-page)~~ |
@@ -166,6 +167,52 @@
 ---
 
 ## Cowork Prompts
+
+---
+
+### June 13, 2026 #1 — De-duplicate TF-CBT: /trauma/ page cleanup + /tfcbt reorg
+
+**🔴 PRIORITY 1. Two pages currently duplicate each other.** On June 5 the `/trauma/` page was rebuilt into a full TF-CBT hub (Prompt #20), and on June 11 a *separate* dedicated `/tfcbt` page was built (Prompt #25). The TF-CBT content now lives in both places. Goal: `/tfcbt` becomes the single home for all TF-CBT content; `/trauma/` keeps only general trauma content plus one clear link into `/tfcbt`.
+
+**Part A — Clean up `/trauma/` (`_layouts/trauma.html`)**
+
+Remove the duplicated TF-CBT hub sections (they all now live, or will live, on `/tfcbt`):
+- `id="tfcbt"` — "TF-CBT Hub — Definition + Audience Paths" (def-card + For Families / For Clinicians grid)
+- "TF-CBT Hub — 8 PRACTICE Components" grid
+- `id="tfcbt-books"` — "Books for TF-CBT"
+- `id="tfcbt-songs"` — "TF-CBT Songs for Clinicians and Families"
+- `id="brave-app"` — "TF-CBT Hub — BRAVE App" (this can live on /tfcbt instead)
+- `id="tfcbt-external"` — "Essential TF-CBT resources"
+- `id="faq"` — the TF-CBT FAQ accordion (move the FAQ + its JSON-LD to /tfcbt if not already there; /tfcbt already has a FAQ block from #25, so just delete the duplicate here)
+
+Replace ALL of the above with **one** compact callout/bar (reuse the existing "Deep dive" callout styling at lines ~166–178) titled something like **"Looking for TF-CBT resources?"** with a single primary button → `/tfcbt/`. Place it where the TF-CBT hub used to start (just after the Featured Article section).
+
+In the **resource library** (`id="resources"`), the TF-CBT pillar is the 9th pillar in `_data/trauma-resources.yml` (`name: "TF-CBT (Trauma-Focused Cognitive Behavioral Therapy)"`).
+
+**DECISION LOCKED by Josh (June 13): KEEP the TF-CBT bar in the library, but make it a LINK to `/tfcbt/` — it must NOT expand inline.** Keep the bar visually consistent with the other pillar bars (same header/styling), so a browsing user still sees "TF-CBT" in the list, but clicking it navigates to the dedicated `/tfcbt/` page instead of opening an accordion. `/tfcbt` is intentionally its own standalone page because Josh will be promoting it heavily.
+
+Implementation: special-case this one pillar so its header renders as an `<a href="/tfcbt/">` (no toggle/expand, no resource cards rendered inline). Simplest approach is likely a small flag in the YAML (e.g. `link: "/tfcbt/"` on this pillar) handled in `_includes/pillar.html`, or a hardcoded link bar — Code's call. **Move the actual TF-CBT resources from this pillar into the `/tfcbt` free-resources section (Part B).** Then update the resource counts so they reflect what's actually browsable inline on `/trauma/` ("99 free…", "118 resources · 9 pillars", search placeholder "Search 99…") — the TF-CBT bar stays in the pillar list as a navigational link but its individual resources are no longer counted as inline-browsable on this page.
+
+Keep on `/trauma/`: hero, featured article, the resource library (now 8 pillars), the featured book, the "Understanding childhood trauma" article, author byline, newsletter.
+
+**Part B — Reorganize `/tfcbt` (`tfcbt.html`) into Josh's structure**
+
+Target order, top to bottom:
+1. **Hero + GEO definition box** (keep existing) + brief dual-audience intro.
+2. **Free resources** — the primary section. Fold in the TF-CBT resources moved out of `trauma-resources.yml` (TF-CBT At-A-Glance, What is TF-CBT? video, free web training, NCTSN workbooks/guides, relaxation/affective/narrative guides, etc.) alongside the existing PRACTICE-component grid. Everything free and clearly grouped (e.g., "Free resources by PRACTICE component" + "Essential external resources"). This is the heart of the page.
+3. **Paid resources / books** — Amazon affiliate links: *A Journey of Brave Friends* (https://amzn.to/4tWqSlG), Resilient Forest Notebook (https://amzn.to/3RkOZNd), Mother Earth in the Mountains (https://amzn.to/4wN3GZJ). Clearly framed as optional paid companions.
+4. **Link to the book page** → `/books`.
+5. **Link to the songs page** → `/songs` (keep the When Feelings Get Loud album band, but make sure it ends in a clear "See all songs" → /songs link).
+6. **Blog placeholder** — a small "More reading coming soon" section or a commented-out block ready for the TF-CBT blog post Josh is still writing. Do NOT fabricate a blog post.
+7. Keep: BRAVE app CTA, FAQ + FAQPage JSON-LD, author byline, newsletter.
+
+**Guardrails**
+- Do not break existing anchor links from other pages that point at `/tfcbt#...` or `/songs#...`.
+- Preserve all Amazon affiliate URLs exactly.
+- After deploy, verify `/trauma/` no longer shows duplicated TF-CBT sections and that the single bar links to `/tfcbt/`; verify `/tfcbt/` renders in the new order with all moved resources present and counts on /trauma updated.
+- "Evidence-informed" language throughout. MSW byline (not "licensed").
+
+**Note for Cowork (not Code):** Josh is still writing the TF-CBT blog post — leave a placeholder only; we'll queue a follow-up prompt to drop it in when ready.
 
 ---
 
@@ -2825,8 +2872,36 @@ Complete rewrite of `_layouts/capture-kit.html` applying White Glove only model 
 
 ---
 
+### Session 11 — June 8–11, 2026 (Cowork) — Promotion push + first client lead
+**Task:** First real AHT marketing push and handling of the first inbound lead. No code changes — promotion + lead tracking.
+
+#### Social promotion — what went live
+- **Personal Facebook page** — short post published (websites · AI coaching · recording systems · design · troubleshooting, + children's-book hook, link to /tech/).
+- **Therapist Facebook group** — value-first post published (offline session recording setup framed as a useful workflow, MSW angle, soft service mention).
+- **Drafted but NOT yet posted:** LinkedIn, Nextdoor, Craigslist versions (see TODOs below — drafts saved in this session).
+
+#### Platform lesson learned
+- **Facebook Marketplace rejects service listings** (products only) — two Marketplace ads were written and auto-rejected. Channel strategy for services is now **Nextdoor, Craigslist, LinkedIn**, plus organic FB page/group posts. Do not write Marketplace service ads again.
+
+#### Copy corrections locked in (apply to all future AHT copy)
+- Josh is an **MSW** (master's degree) — **not** a "licensed MSW." Licensure terms (CSW/LCSW) do not apply.
+- Josh is **no longer a clinician** — do not reference "my own clinical work" / using tools in session.
+- The **Capture Kit is hardware recording only** (4K camera, dedicated mini PC, one-button workflow, fully offline). **Local transcription / Session Scribe is "coming soon"** — do not claim it captures audio *and* outputs transcripts/notes yet.
+
+#### First client lead — IN PROGRESS (warm inbound from therapist-group post)
+- Inbound via Messenger: family member asking for help for elderly relatives (80s) who were scammed — remote-access compromise (scammer seen operating the mouse remotely), gift-card payments, ongoing phone/text threats. Primarily **Windows**-based; currently on burner phones with internet shut off as a stopgap.
+- **Plan discussed:** treat machine as fully compromised → **factory reset PC** + fresh Windows install; standard (non-admin) user account; **OpenDNS FamilyShield** at router (`208.67.222.123` / `208.67.220.123`); Microsoft Family Safety for family oversight; factory reset/replace phones, consider new number, minimal/no email. "Senior controls" = parental-controls approach applied to at-risk seniors.
+- **Pricing frame:** in-home job, $50/hr + $0.75/mile from 40516; ~2–3 hrs sweep/setup.
+- **Status:** Josh advising the family by message; awaiting whether they DIY or hire. **First potential paying AHT client — follow up.**
+
+---
+
 ## Pending / TODOs — After Hours Tech
 
+- [ ] **🔴 Post Craigslist ad** (Services → Computer Services) — draft ready: "Tech, Web Design & Digital Services — Evenings & Weekends | Lexington KY" covering websites, graphic design, children's-book concept/design, AI coaching, troubleshooting, Capture Kit ($379 + equipment). Include josh@skillsforchildren.com + /tech/ link.
+- [ ] **🔴 Post Nextdoor ad** — draft ready: neighborhood-casual version (websites, design, AI coaching, troubleshooting, clinical recording setup; MSW by training; free 15-min call; /tech/ link).
+- [ ] **Post LinkedIn version** — draft ready (entrepreneur/small-business + clinician framing). Lower priority than Craigslist/Nextdoor.
+- [ ] **Follow up: elderly-relatives scam-recovery lead** — first potential paying client (see Session 11). Awaiting family's decision to DIY or hire; check back in if no reply.
 - [x] **Pricing** — Finalized May 21, 2026; updated May 26, 2026. AI Coaching $40/hr (updated from $30 — item 13), Tech Troubleshooting $30/hr, In-Home $50/hr + $0.75/mile travel. Consultation-first for website/app/design. Capture Kit: White Glove $499, Install Only $379 (both flat fees, equipment separate).
 - [x] **Cal.com hours** — Confirmed set to evenings (6–10 PM ET weekdays) and weekends only. No 9–5 slots visible. Done May 21, 2026.
 - [x] **UK outside employment policy** — Closed May 21, 2026.
@@ -4893,3 +4968,23 @@ cd "C:\Users\joshu\Transcriber"
 **Pending queue:** All code items complete. Only item #22 (Cowork documentation) remains.
 
 **Field-test recommendation:** Copy the entire `dist\SessionTranscriber` folder to the tester PC. Do not copy only the `.exe`; the `_internal` folder contains the bundled models and runtime dependencies.
+
+---
+
+### June 13, 2026 — Item #27: TF-CBT de-duplication
+
+**Commit:** (see below)
+
+#### Part A — `/trauma/` cleanup (`_layouts/trauma.html`)
+- **Removed** all duplicated TF-CBT hub sections: definition + audience paths (`id="tfcbt"`), 8 PRACTICE components grid, Books (`id="tfcbt-books"`), Songs (`id="tfcbt-songs"`), BRAVE App (`id="brave-app"`), External Resources (`id="tfcbt-external"`), TF-CBT FAQ (`id="faq"`)
+- **Replaced** all of the above with a single "Looking for TF-CBT resources?" callout bar → `/tfcbt/`
+- **Resource library counts updated:** 99→85 free (removed 14 free TF-CBT resources), 118→103 total, search placeholder updated to match
+- **`_includes/pillar.html`** — Added `{% if pillar.link %}` branch: renders pillar as an `<a>` navigation bar instead of a `<details>` accordion when a `link:` field is present in the YAML
+- **`_data/trauma-resources.yml`** — Added `link: "/tfcbt/"` to the TF-CBT pillar so it renders as a link bar (not expanded inline)
+
+#### Part B — `/tfcbt/` reorganization (`tfcbt.html`)
+- **Moved** Free Clinical Training section (`id="training"`) up to after the PRACTICE grid (was after BRAVE app) — free resources now precede paid resources per Josh's target order
+- **Added** "See all books →" link below the books section pointing to `/books/`
+- **Updated** album band: added third button "See all songs →" linking to `/songs/` alongside existing Spotify and album page buttons
+- **Added** blog placeholder section after album band: "More reading on TF-CBT — coming soon" with newsletter subscribe link
+- **Added** author byline (Joshua Fisherkeller, MSW) above back link

@@ -782,6 +782,7 @@ pillars:
     name: "TF-CBT (Trauma-Focused Cognitive Behavioral Therapy)"
     icon: "🎓"
     description: "Gold-standard evidence-informed treatment for childhood trauma"
+    link: "/tfcbt/"
     resources:
       - title: "TF-CBT: At-A-Glance"
         url: "https://tfcbt.org/wp-content/uploads/2025/02/Trauma-Focused-Cognitive-Behavioral-Therapy-2024.pdf"
