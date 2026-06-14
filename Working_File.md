@@ -125,6 +125,7 @@
 
 | # | Date | Project | Description | Location in file |
 |---|------|---------|-------------|-----------------|
+| ~~30~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Expand the `libraries:` lists in `_data/tfcbt_pillars.yml` with the LINK-CHECKED resource set (verified June 13): UW Harborview `?cbt-topics=9` (Coping Skills) + `?cbt-topics=12` (CBT for Trauma) filtered views + Parent-Child-Session-Guidelines.pdf. Avoid the dead NCTSN slugs + old UW `/PDF/TF-%20CBT/pages/` paths.~~ | ~~[Section 1 → Cowork Prompts → June 13, 2026 #4](#june-13-2026-4--populate-tfcbt-pillars-verified-link-checked-resources)~~ |
 | ~~29~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Reclassify the live /tfcbt hub + 8 pillars: retire "Level 1/2/3", use role labels ("From the model developers", "Trusted resource libraries", "Skills for Children original tools"); NCTSN is trusted not official; FEATURE the SFC tools; Phase 2: populate vetted (link-checked) resource links.~~ | ~~[Section 1 → Cowork Prompts → June 13, 2026 #3](#june-13-2026-3--reclassify-tfcbt-role-based-not-level-feature-sfc)~~ |
 | ~~28~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Rebuild `/tfcbt` as a HUB + 8 PRACTICE pillar pages (Phase 1: hub + 8 skeletons, hardcoded Schema.org JSON-LD, Level 1/2/3 source tagging). Spec + resources now in `_tfcbt-reference/` (renamed from `tfcbt/`).~~ | ~~[Section 1 → Cowork Prompts → June 13, 2026 #2](#june-13-2026-2--tfcbt-hub--8-practice-pillar-pages-phase-1)~~ |
 | ~~27~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — De-duplicate TF-CBT: strip the duplicated TF-CBT hub sections off `/trauma/`, make the TF-CBT entry point a single bar/link to `/tfcbt`, and reorganize `/tfcbt` into a clean, usable hub (free resources → paid books/affiliate → book page link → songs page link → blog placeholder).~~ | ~~[Section 1 → Cowork Prompts → June 13, 2026 #1](#june-13-2026-1--de-duplicate-tf-cbt-trauma-page-cleanup--tfcbt-reorg)~~ |
@@ -181,6 +182,30 @@
 ---
 
 ## Cowork Prompts
+
+---
+
+### June 13, 2026 #4 — Populate /tfcbt pillars: verified, link-checked resources
+
+**🔴 PRIORITY 1. Phase 2 population.** Add these to each pillar's `libraries:` list in `_data/tfcbt_pillars.yml`. **Every URL below was link-checked June 13, 2026** (loads real content). Keep entries as `{title, note, url}`. Link to the resource page — do NOT rehost PDFs.
+
+**⛔ DO NOT USE (verified dead/stale June 13):**
+- `nctsn.org/resources/tf-cbt-relaxation`, `…/tf-cbt-affective-modulation`, `…/trauma-narrative`, `…/tf-cbt-practice-workbook-my-feelings-book` — these load an EMPTY NCTSN search page ("Sorry there are no results"). They were in the old `_data/trauma-resources.yml`; never reuse them.
+- `depts.washington.edu/uwhatc/PDF/TF-%20CBT/pages/...` (any) — now 301-redirects to /training. Use the cbt-notebook URLs below instead.
+
+**Verified library links by component:**
+- **Psychoeducation** — NCTSN TF-CBT overview: https://www.nctsn.org/interventions/trauma-focused-cognitive-behavioral-therapy · UW Harborview CBT for Trauma (psychoed handouts): https://depts.washington.edu/uwhatc/cbt-notebook/?cbt-topics=12
+- **Relaxation** — UW Harborview Coping Skills (Relaxation handouts): https://depts.washington.edu/uwhatc/cbt-notebook/?cbt-topics=9
+- **Affective Modulation** — UW Harborview Coping Skills (Identifying & Rating Feelings): https://depts.washington.edu/uwhatc/cbt-notebook/?cbt-topics=9
+- **Cognitive Coping** — NCA Engage Cognitive Coping: https://learn.nationalchildrensalliance.org/cognitive-coping · UW Harborview Coping Skills (Challenging Thoughts): https://depts.washington.edu/uwhatc/cbt-notebook/?cbt-topics=9
+- **Trauma Narrative** — UW Harborview CBT for Trauma (Creating the Trauma Narrative handouts): https://depts.washington.edu/uwhatc/cbt-notebook/?cbt-topics=12
+- **In Vivo Mastery** — UW Harborview CBT for Trauma (Exposure handouts; incl. In Vivo Exposure Homework, Hercules/Hydra avoidance): https://depts.washington.edu/uwhatc/cbt-notebook/?cbt-topics=12
+- **Conjoint Sessions** — UW Harborview "Technique for Preparing & Conducting Parent-Child Sessions" (PDF): https://depts.washington.edu/uwhatc/wp-content/uploads/2022/07/Parent-Child-Session-Guidelines.pdf
+- **Enhancing Safety** — NCA Engage Enhancing Safety & Future Healthy Development: https://learn.nationalchildrensalliance.org/tf-cbt-enhancing-safety-and-future-healthy-development · NCTSN Child Sexual Abuse Fact Sheet (body-safety psychoed): https://www.nctsn.org/resources/child-sexual-abuse-fact-sheet-parents-teachers-and-other-caregivers
+
+**Hub-level (already present, keep / confirm):** developers = tfcbt.org + TF-CBTWeb (https://tfcbt.musc.edu/); evidence = CEBC https://www.cebc4cw.org/program/trauma-focused-cognitive-behavioral-therapy/ + NCTSN intervention page; assessments = ISTSS https://istss.org/clinical-resources/child-adolescent-trauma-assessments/ (CATS, CPSS-5).
+
+**Notes:** Oklahoma TF-CBT + the rest of `_tfcbt-reference/RESOURCES.md` have more options if you want depth, but **link-check any not on this list before adding** (several in that file are still `🔎 verify`). "Evidence-informed" not "evidence-based"; preserve affiliate links; MSW byline.
 
 ---
 
@@ -5088,3 +5113,28 @@ cd "C:\Users\joshu\Transcriber"
 **Guardrails:** "evidence-informed" throughout; Amazon affiliate links unchanged; MSW byline kept; no proprietary PDFs hosted (link-out only).
 
 **Validation:** YAML parses (Ruby); Liquid tags balanced (if 11/11, for 5/5); `<section>` balanced (hub 13/13, include 8/8); no "Level/Supplemental" strings remain except an explanatory YAML comment. No local Jekyll build available — static checks + live URL verification.
+
+---
+
+### June 13, 2026 — Item #30: Populate /tfcbt pillar libraries (verified links)
+
+**Commit:** (see below) · Phase-2 link population using Cowork's June-13 link-checked set. Only `_data/tfcbt_pillars.yml` changed (the include already renders `libraries:`).
+
+**Re-verified every new/changed URL with WebFetch before swapping** (3 differed from what #29 shipped):
+- `…/cbt-notebook/?cbt-topics=12` → UW Harborview **CBT for Trauma** filtered view (trauma info, Creating the Trauma Narrative, Exposure handouts). Live ✅
+- `…/cbt-notebook/?cbt-topics=9` → UW Harborview **Coping Skills** filtered view (Relaxation, Identifying &amp; Rating Feelings, Challenging Thoughts). Live ✅
+- `…/wp-content/uploads/2022/07/Parent-Child-Session-Guidelines.pdf` → conjoint guide PDF (replaces the `Technique-for-Preparing-…` URL from #29). Live ✅
+
+**Final per-component `libraries:`:**
+- **P** Psychoeducation → NCTSN TF-CBT overview + UW CBT-for-Trauma (cbt-topics=12)
+- **R** Relaxation → UW Coping Skills — Relaxation (cbt-topics=9)
+- **A** Affective Modulation → UW Coping Skills — Identifying &amp; Rating Feelings (cbt-topics=9)
+- **C** Cognitive Coping → NCA Engage Cognitive Coping + UW Coping Skills — Challenging Thoughts (cbt-topics=9)
+- **T** Trauma Narrative → UW CBT-for-Trauma — Creating the Trauma Narrative (cbt-topics=12)
+- **I** In Vivo Mastery → UW CBT-for-Trauma — Exposure (cbt-topics=12)
+- **C** Conjoint Sessions → UW Parent-Child Session Guidelines (PDF)
+- **E** Enhancing Safety → NCTSN Child Sexual Abuse Fact Sheet + NCA Engage Enhancing Safety (already matched the verified set; unchanged)
+
+**Avoided (verified dead, per prompt + my own #29 checks):** `nctsn.org/resources/tf-cbt-relaxation`, `…/tf-cbt-affective-modulation`, `…/trauma-narrative`, `…/my-feelings-book` (empty NCTSN search pages); all `depts.washington.edu/uwhatc/PDF/TF-%20CBT/pages/...` paths (301 → /training). Confirmed none remain in the data file.
+
+**Note:** hub `tfcbt.html` keeps the bare `cbt-notebook/` hub link in its libraries card (valid; the prompt scoped only per-component pillar lists). Guardrails held: evidence-informed; affiliate links untouched; MSW byline.
