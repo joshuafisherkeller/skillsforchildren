@@ -9,6 +9,13 @@
 **Local path:** `C:/Users/joshu/Skills for Children/WEB SITE skillsforchildren-clone/`
 **Framework:** Jekyll → GitHub Pages (auto-deploys from `main` branch)
 
+> **⚙️ Build environment — read before "verifying" a build:** This machine is **not set up to build Jekyll locally.** There is no `jekyll`/`bundler` install, no `_site/` is committed (it's gitignored), and there is no GitHub Actions workflow — GitHub Pages runs Jekyll natively on push. So a local `jekyll build`/`serve` is not available to preview or smoke-test changes before deploy.
+>
+> What that means for an agent making site changes:
+> - You **cannot** render the site locally to confirm Liquid/HTML output. Rely on **static checks** instead — YAML parses (use `ruby -ryaml`; PyYAML is not installed), Liquid `{% if/for %}` tag balance, `<section>` balance, and link-checking URLs with WebFetch.
+> - Jekyll's `exclude:` matching is **prefix-based**, so excluding a folder named `tfcbt` would also catch `tfcbt.html`. To keep a working/reference folder out of the build, **prefix it with `_`** (Jekyll auto-ignores `_`-folders) rather than adding it to `exclude:`. This is why the TF-CBT reference folder is `_tfcbt-reference/`.
+> - After pushing, the only real verification is the **live site** once Pages finishes (~1–2 min). If a build setup is ever wanted, it would need Ruby + `bundle install` here, or a GH Actions Pages workflow.
+
 > **For Claude Cowork:** When you generate prompts or task briefs for Claude Code, paste them into the "Cowork Prompts" section of the relevant sub-project below.
 
 > **For all agents:** `AHT_Working_File.md` no longer exists. It was merged into this file on May 20, 2026. Do not create a new `AHT_Working_File.md`. All After Hours Tech session logs, TODOs, and Cowork prompts go in **Section 2** of this file. All skillsforchildren.com logs go in **Section 1**.
@@ -92,7 +99,7 @@
 > ## 📚 ON THE HORIZON — Backlog projects (not active yet)
 > Last updated: June 13, 2026
 >
-> - **_Tio Sam_ — grief picture book (working title).** A children's book on grief / traumatic grief, written by Josh, grounded in the TF-CBT Grief-Focused (GRIEF) components. **Source material being collected in `tfcbt/`:** the two free tfcbt.org grief workbooks (child + teen versions, both saved locally) + the GRIEF-components page (https://tfcbt.org/grief-focused-components/). Extends the anchor-book ecosystem into grief, parallel to *A Journey of Brave Friends* for trauma. Also logged in SECOND_BRAIN → Queued/When Ready. Revisit when book-writing bandwidth opens up.
+> - **_Tio Sam_ — grief picture book (working title).** A children's book on grief / traumatic grief, written by Josh, grounded in the TF-CBT Grief-Focused (GRIEF) components. **Source material being collected in `_tfcbt-reference/`:** the two free tfcbt.org grief workbooks (child + teen versions, both saved locally) + the GRIEF-components page (https://tfcbt.org/grief-focused-components/). Extends the anchor-book ecosystem into grief, parallel to *A Journey of Brave Friends* for trauma. Also logged in SECOND_BRAIN → Queued/When Ready. Revisit when book-writing bandwidth opens up.
 
 > ## 📡 LIVE PRODUCT STATUS — Read this before the prompt queue
 > Last updated: May 26, 2026 by Claude Cowork
