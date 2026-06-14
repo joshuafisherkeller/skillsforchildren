@@ -118,6 +118,7 @@
 
 | # | Date | Project | Description | Location in file |
 |---|------|---------|-------------|-----------------|
+| ~~29~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Reclassify the live /tfcbt hub + 8 pillars: retire "Level 1/2/3", use role labels ("From the model developers", "Trusted resource libraries", "Skills for Children original tools"); NCTSN is trusted not official; FEATURE the SFC tools; Phase 2: populate vetted (link-checked) resource links.~~ | ~~[Section 1 → Cowork Prompts → June 13, 2026 #3](#june-13-2026-3--reclassify-tfcbt-role-based-not-level-feature-sfc)~~ |
 | ~~28~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Rebuild `/tfcbt` as a HUB + 8 PRACTICE pillar pages (Phase 1: hub + 8 skeletons, hardcoded Schema.org JSON-LD, Level 1/2/3 source tagging). Spec + resources now in `_tfcbt-reference/` (renamed from `tfcbt/`).~~ | ~~[Section 1 → Cowork Prompts → June 13, 2026 #2](#june-13-2026-2--tfcbt-hub--8-practice-pillar-pages-phase-1)~~ |
 | ~~27~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — De-duplicate TF-CBT: strip the duplicated TF-CBT hub sections off `/trauma/`, make the TF-CBT entry point a single bar/link to `/tfcbt`, and reorganize `/tfcbt` into a clean, usable hub (free resources → paid books/affiliate → book page link → songs page link → blog placeholder).~~ | ~~[Section 1 → Cowork Prompts → June 13, 2026 #1](#june-13-2026-1--de-duplicate-tf-cbt-trauma-page-cleanup--tfcbt-reorg)~~ |
 | ~~23~~ | ~~June 5, 2026~~ | ~~skillsforchildren.com~~ | ~~Add a slim "personal help" section just above the footer on every page of skillsforchildren.com.~~ | ~~[Section 1 → Cowork Prompts → June 5, 2026 #3](#june-5-2026-3--personal-help-strip-above-footer)~~ |
@@ -173,6 +174,26 @@
 ---
 
 ## Cowork Prompts
+
+---
+
+### June 13, 2026 #3 — Reclassify /tfcbt (role-based, not "Level"); feature SFC
+
+**🔴 PRIORITY 1. Correction to the live hub + pillars built in #28.** Josh's directive (June 13): the "Level 1/2/3" system reads as a *quality ranking* and makes Skills for Children's own material look third-rate, when it's actually more current and useful than most of the field. Also, **NCTSN was mislabeled as "official."** Fix both.
+
+**Apply across `_data/tfcbt_pillars.yml`, `_includes/tfcbt-pillar.html`, and `tfcbt.html`:**
+
+1. **Retire "Level 1 / Level 2 / Level 3" labels entirely.** Replace with role-based categories (these describe provenance, NOT quality):
+   - **"From the model developers"** — ONLY tfcbt.org + TF-CBTWeb (tfcbt.musc.edu). Nothing else goes here.
+   - **"Trusted resource libraries"** — NCTSN, UW Harborview, Oklahoma TF-CBT, ISTSS, CEBC, SAMHSA, NCA Engage, etc. **NCTSN is trusted, NOT official** — move it out of any "official" grouping.
+   - **"Skills for Children tools"** — album, book, BRAVE app, printables.
+2. **Feature the SFC tools — do not bury them.** Currently they're a "Level 3 Optional skill-building supports" block placed last with self-minimizing copy. Instead: move the SFC block UP (prominent on each pillar, and a featured SFC strip on the hub), and reframe the copy to confident-but-honest. Use this intro (from spec §3/§6): *"Original Skills for Children resources, created by an MSW to bring each TF-CBT skill to life and built on the model's principles. These are not the official TF-CBT model and don't replace clinical care — they're current, practical tools to use alongside it."* Drop "optional / supplemental" as the framing.
+3. **Keep** the non-salesy UX guardrails (neutral styling, quiet "View access options", no bright CTAs) — that tone earns clinician trust and is NOT a signal the tools are lesser.
+4. Check the `id="official"` hub section: it should contain only developer resources; relabel to match.
+
+**Then Phase 2 (resource population):** populate the vetted resource links per component from `_tfcbt-reference/RESOURCES.md` (verify each URL first; link out, don't host proprietary PDFs). Josh wants the resources actually live on the pages.
+
+**Guardrails:** "evidence-informed" not "evidence-based"; preserve Amazon affiliate links; MSW byline. Reference docs are in `_tfcbt-reference/` (TFCBT_BUILD_SPEC.md §3 has the full classification).
 
 ---
 
@@ -5039,3 +5060,24 @@ cd "C:\Users\joshu\Transcriber"
 **Deferred (later phases, per spec):** Phase 2 = populate every L1/L2 link (verify URLs first); Phase 3 = embed songs/book/app; Phase 4 = dynamic filter library + noindex on thin filter pages. Phase-1 pillar pages are substantive landing pages, so they index normally.
 
 **Validation:** YAML parses (Ruby); Liquid if/for tags balanced; `<section>` tags balanced (hub 11/11, include 8/8); no local-PDF links remain; no external pages link to old `/tfcbt#…` anchors. Could not run a local Jekyll build (Jekyll not installed in this environment) — relied on static checks.
+
+---
+
+### June 13, 2026 — Item #29: Reclassify /tfcbt (role-based) + feature SFC + Phase 2 links
+
+**Commit:** (see below) · Correction to #28 per Josh: "Level 1/2/3" read as a quality ranking (made SFC look third-rate) and mislabeled NCTSN as "official." Fixed both, then populated vetted resource links.
+
+**Reclassification (across `_data/tfcbt_pillars.yml`, `_includes/tfcbt-pillar.html`, `tfcbt.html`):**
+- **Retired "Level 1/2/3" everywhere.** New role-based categories (provenance, not quality):
+  - **From the model developers** — ONLY tfcbt.org + TF-CBTWeb (tfcbt.musc.edu).
+  - **Trusted resource libraries** — NCTSN, UW Harborview, NCA Engage, Oklahoma, ISTSS, SAMHSA, CEBC. **NCTSN explicitly relabeled "trusted," not "official."**
+  - **Skills for Children original tools** — album, book chapters, BRAVE app.
+- **Featured the SFC tools, no longer buried:** on each pillar the SFC block moved UP (now directly after the clinical-objectives table, before the external resources) with confident copy (the approved "created by an MSW to bring each TF-CBT skill to life…" intro); dropped all "optional / supplemental" framing. On the hub, added a "Skills for Children original tools" featured lead-in and reframed the album/books/BRAVE eyebrows + copy to confident-but-honest.
+- **Kept the non-salesy UX:** neutral styling, quiet "View access options" links, softened CTAs (no "Listen Free"/"Try BRAVE Free") — tone retained as a trust signal, not a quality signal.
+- **Hub `#official` section replaced** with two correctly-scoped sections: `id="developers"` (tfcbt.org + MUSC only) and `id="libraries"` (NCTSN/UW/NCA/Oklahoma/ISTSS/SAMHSA/CEBC). Pillar placeholders now point to `/tfcbt/#developers` and `/tfcbt/#libraries`.
+
+**Phase 2 — resource population (link-checked first):** Verified every per-component and hub link with WebFetch before publishing. **Dead/placeholder URLs caught and excluded:** `nctsn.org/resources/tf-cbt-relaxation`, `…/tf-cbt-affective-modulation`, `…/trauma-narrative` (all 404 / "no results"), the NCTSN TF-CBT 2024 fact-sheet **PDF** path (404), and `tfcbt.musc.edu/en/practice_pdf.pdf` (404). **Verified live and used:** NCTSN TF-CBT overview, NCTSN CSA fact sheet, NCTSN How-to-Implement PDF, UW Harborview CBT+ notebook, UW conjoint-sessions PDF, NCA Engage cognitive-coping & enhancing-safety, TF-CBTWeb, tfcbt.org At-A-Glance PDF, tfcbt.org GRIEF, CEBC. (SAMHSA / Oklahoma / ISTSS / tfcbt.org home carried from Josh's ✅-vetted RESOURCES.md.) Each pillar now shows 1–2 verified library links; the hub lists 4 developer + 8 library resources.
+
+**Guardrails:** "evidence-informed" throughout; Amazon affiliate links unchanged; MSW byline kept; no proprietary PDFs hosted (link-out only).
+
+**Validation:** YAML parses (Ruby); Liquid tags balanced (if 11/11, for 5/5); `<section>` balanced (hub 13/13, include 8/8); no "Level/Supplemental" strings remain except an explanatory YAML comment. No local Jekyll build available — static checks + live URL verification.

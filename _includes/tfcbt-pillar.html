@@ -6,7 +6,7 @@
 {% assign next = all | where: "number", next_n | first %}
 
 <!-- ============================================================
-     SCHEMA — MedicalWebPage + FAQPage (hardcoded, Phase 1)
+     SCHEMA — MedicalWebPage + FAQPage (hardcoded)
      ============================================================ -->
 <script type="application/ld+json">
 {
@@ -44,7 +44,7 @@
 {% endif %}
 
 <style>
-  .pillar-page .lvl-tag{display:inline-block;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:3px 9px;border-radius:999px;border:1px solid var(--border);color:var(--ink-soft);background:var(--paper-2);white-space:nowrap;}
+  .pillar-page .cat-eyebrow{display:inline-block;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--sage);}
   .pillar-page .obj-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px;}
   .pillar-page .obj-table th{text-align:left;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:10px 14px;border-bottom:1px solid var(--border);}
   .pillar-page .obj-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--ink-soft);line-height:1.55;vertical-align:top;}
@@ -55,9 +55,9 @@
   .pillar-page .res-row a.res-link:hover{color:var(--sage);}
   .pillar-page .res-note{font-size:13px;color:var(--ink-soft);margin-top:3px;line-height:1.55;}
   .pillar-page .quiet-link{font-size:12.5px;color:var(--sage);text-decoration:none;font-weight:500;}
-  .pillar-page .l3-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px;}
-  .pillar-page .l3-card h4{font-size:14.5px;font-weight:600;color:var(--ink);margin:0 0 4px;}
-  .pillar-page .l3-card p{font-size:13px;color:var(--ink-soft);margin:0 0 10px;line-height:1.55;}
+  .pillar-page .sfc-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px;}
+  .pillar-page .sfc-card h4{font-size:14.5px;font-weight:600;color:var(--ink);margin:0 0 4px;}
+  .pillar-page .sfc-card p{font-size:13px;color:var(--ink-soft);margin:0 0 10px;line-height:1.55;}
 </style>
 
 <div class="pillar-page">
@@ -104,92 +104,36 @@
 </section>
 
 <!-- ============================================================
-     LEVEL 1 — OFFICIAL MODEL RESOURCES
+     SKILLS FOR CHILDREN ORIGINAL TOOLS  (featured)
      ============================================================ -->
 <section class="container section" style="padding-top:0">
   <div class="section-head reveal">
     <div class="section-head-text">
-      <div class="eyebrow"><span class="lvl-tag">Level 1 &middot; Official model resource</span></div>
-      <h2 style="margin-top:14px">Official resources</h2>
-      <p>Primary resources from the model developers and national authorities. Links open on their original sites.</p>
+      <div class="cat-eyebrow">Skills for Children original tools</div>
+      <h2 style="margin-top:12px">Bring {{ p.name | downcase }} to life</h2>
     </div>
   </div>
-  <div class="reveal" style="margin-top:8px;">
-    {% if p.level1 and p.level1.size > 0 %}
-      {% for r in p.level1 %}
-      <div class="res-row">
-        <span class="lvl-tag" style="margin-top:2px;">L1</span>
-        <div>
-          <a class="res-link" href="{{ r.url }}" target="_blank" rel="noopener">{{ r.title }} &nearr;</a>
-          {% if r.note %}<div class="res-note">{{ r.note }}</div>{% endif %}
-        </div>
-      </div>
-      {% endfor %}
-    {% else %}
-      <p style="font-size:13.5px;color:var(--muted);font-style:italic;">Vetted official resources for this component are being added in the next phase. In the meantime, see the <a href="/tfcbt/#official" style="color:var(--sage);">official resources on the TF-CBT hub</a>.</p>
-    {% endif %}
-  </div>
-</section>
-
-<!-- ============================================================
-     LEVEL 2 — AUTHORITATIVE ADAPTATIONS
-     ============================================================ -->
-<section class="container section" style="padding-top:0">
-  <div class="section-head reveal">
-    <div class="section-head-text">
-      <div class="eyebrow"><span class="lvl-tag">Level 2 &middot; Authoritative adaptation</span></div>
-      <h2 style="margin-top:14px">Authoritative clinical resources</h2>
-      <p>Validated, system-level toolkits and adaptations from established trauma centers and networks.</p>
-    </div>
-  </div>
-  <div class="reveal" style="margin-top:8px;">
-    {% if p.level2 and p.level2.size > 0 %}
-      {% for r in p.level2 %}
-      <div class="res-row">
-        <span class="lvl-tag" style="margin-top:2px;">L2</span>
-        <div>
-          <a class="res-link" href="{{ r.url }}" target="_blank" rel="noopener">{{ r.title }} &nearr;</a>
-          {% if r.note %}<div class="res-note">{{ r.note }}</div>{% endif %}
-        </div>
-      </div>
-      {% endfor %}
-    {% else %}
-      <p style="font-size:13.5px;color:var(--muted);font-style:italic;">Additional authoritative adaptations for this component are being added in the next phase.</p>
-    {% endif %}
-  </div>
-</section>
-
-<!-- ============================================================
-     LEVEL 3 — OPTIONAL SKILL-BUILDING SUPPORTS (SFC)
-     ============================================================ -->
-<section class="container section" style="padding-top:0">
-  <div class="section-head reveal">
-    <div class="section-head-text">
-      <div class="eyebrow"><span class="lvl-tag">Level 3 &middot; Supplemental &middot; Skills for Children</span></div>
-      <h2 style="margin-top:14px">Optional skill-building supports</h2>
-    </div>
-  </div>
-  <div class="reveal" style="background:var(--paper-2);border:1px solid var(--border);border-radius:var(--r-xl);padding:20px 22px;margin-top:8px;">
-    <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin:0 0 18px;">These materials are supplemental creative supports made by Skills for Children. They are <strong>not official TF-CBT model materials, not required,</strong> and should not replace clinical training, supervision, or therapist judgment. They may help reinforce this component as an optional companion at home or in session.</p>
+  <div class="reveal" style="background:var(--wash-sage);border:1px solid var(--border);border-radius:var(--r-xl);padding:24px 26px;margin-top:8px;">
+    <p style="font-size:14px;color:var(--ink-soft);line-height:1.65;margin:0 0 20px;max-width:70ch;">Original Skills for Children resources, created by an MSW to bring each TF-CBT skill to life and built on the model&rsquo;s principles. These are not the official TF-CBT model and don&rsquo;t replace clinical care &mdash; they&rsquo;re current, practical tools to use alongside it.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
       {% if p.song %}
-      <div class="l3-card">
+      <div class="sfc-card">
         <h4>&#9834; Song &mdash; “{{ p.song.title }}”</h4>
-        <p>A companion song from <em>When Feelings Get Loud</em> mapped to this component.</p>
+        <p>A child-friendly song from <em>When Feelings Get Loud</em> written for this component.</p>
         <a class="quiet-link" href="{{ p.song.url }}" target="_blank" rel="noopener">View access options &nearr;</a>
       </div>
       {% endif %}
       {% if p.book_character %}
-      <div class="l3-card">
+      <div class="sfc-card">
         <h4>&#128214; Book chapter &mdash; {{ p.book_character }}</h4>
-        <p>This component's chapter in <em>A Journey of Brave Friends</em>, the Resilient Forest storybook.</p>
+        <p>This component&rsquo;s chapter in <em>A Journey of Brave Friends</em>, the Resilient Forest storybook.</p>
         <a class="quiet-link" href="/tfcbtbook/">View access options &nearr;</a>
       </div>
       {% endif %}
       {% if p.brave %}
-      <div class="l3-card">
-        <h4>&#128241; BRAVE app module</h4>
-        <p>A child-facing activity module in the free BRAVE companion app (ages 4&ndash;18).</p>
+      <div class="sfc-card">
+        <h4>&#128241; BRAVE app activity</h4>
+        <p>A child-facing activity for this component in the free BRAVE app (ages 4&ndash;18).</p>
         <a class="quiet-link" href="https://app.skillsforchildren.com" target="_blank" rel="noopener">View access options &nearr;</a>
       </div>
       {% endif %}
@@ -198,10 +142,64 @@
 </section>
 
 <!-- ============================================================
+     FROM THE MODEL DEVELOPERS
+     ============================================================ -->
+<section class="container section" style="padding-top:0">
+  <div class="section-head reveal">
+    <div class="section-head-text">
+      <div class="cat-eyebrow">From the model developers</div>
+      <h2 style="margin-top:12px">Core model resources</h2>
+      <p>Published by TF-CBT&rsquo;s developers &mdash; <a href="https://tfcbt.org/" target="_blank" rel="noopener" style="color:var(--sage);text-decoration:none;">tfcbt.org</a> and TF-CBTWeb (MUSC).</p>
+    </div>
+  </div>
+  <div class="reveal" style="margin-top:8px;">
+    {% if p.developers and p.developers.size > 0 %}
+      {% for r in p.developers %}
+      <div class="res-row">
+        <div>
+          <a class="res-link" href="{{ r.url }}" target="_blank" rel="noopener">{{ r.title }} &nearr;</a>
+          {% if r.note %}<div class="res-note">{{ r.note }}</div>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <p style="font-size:13.5px;color:var(--ink-soft);">The developers publish the model&rsquo;s core training and materials for every component together. See the <a href="/tfcbt/#developers" style="color:var(--sage);">From the model developers</a> section on the TF-CBT hub &mdash; including TF-CBTWeb training and the official At-A-Glance overview.</p>
+    {% endif %}
+  </div>
+</section>
+
+<!-- ============================================================
+     TRUSTED RESOURCE LIBRARIES
+     ============================================================ -->
+<section class="container section" style="padding-top:0">
+  <div class="section-head reveal">
+    <div class="section-head-text">
+      <div class="cat-eyebrow">Trusted resource libraries</div>
+      <h2 style="margin-top:12px">Resources for {{ p.name | downcase }}</h2>
+      <p>Free materials from trusted national libraries and trauma centers (NCTSN, UW Harborview, NCA Engage). These organizations are independent of TF-CBT&rsquo;s developers.</p>
+    </div>
+  </div>
+  <div class="reveal" style="margin-top:8px;">
+    {% if p.libraries and p.libraries.size > 0 %}
+      {% for r in p.libraries %}
+      <div class="res-row">
+        <div>
+          <a class="res-link" href="{{ r.url }}" target="_blank" rel="noopener">{{ r.title }} &nearr;</a>
+          {% if r.note %}<div class="res-note">{{ r.note }}</div>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <p style="font-size:13.5px;color:var(--ink-soft);">Browse more trusted libraries on the <a href="/tfcbt/#libraries" style="color:var(--sage);">TF-CBT hub</a>.</p>
+    {% endif %}
+  </div>
+</section>
+
+<!-- ============================================================
      WHAT THIS MEANS FOR PARENTS
      ============================================================ -->
 <section class="container section" style="padding-top:0">
-  <div class="reveal" style="background:var(--wash-sage);border:1px solid var(--border);border-radius:var(--r-xl);padding:26px 30px;">
+  <div class="reveal" style="background:var(--wash-tan);border:1px solid var(--border);border-radius:var(--r-xl);padding:26px 30px;">
     <div class="eyebrow" style="margin-bottom:10px;">What this means for parents</div>
     <p style="font-size:15px;color:var(--ink-soft);line-height:1.65;margin:0;max-width:62ch;">{{ p.family_summary }}</p>
   </div>
@@ -237,7 +235,7 @@
      ============================================================ -->
 <section class="container section" style="padding-top:0">
   <p style="font-size:12.5px;color:var(--muted);line-height:1.6;max-width:70ch;margin:0 0 28px;">
-    This page is an evidence-informed educational resource, not clinical advice or a substitute for treatment by a trained TF-CBT therapist. TF-CBT was developed by Cohen, Mannarino, and Deblinger. Official model resources are linked to their original publishers; Skills for Children does not host proprietary clinical materials. Resources curated by Joshua Fisherkeller, MSW.
+    This page is an evidence-informed educational resource, not clinical advice or a substitute for treatment by a trained TF-CBT therapist. TF-CBT was developed by Cohen, Mannarino, and Deblinger. Resources are linked to their original publishers; Skills for Children does not host proprietary clinical materials. Resources curated by Joshua Fisherkeller, MSW.
   </p>
 
   <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:24px;">
