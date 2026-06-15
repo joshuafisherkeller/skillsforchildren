@@ -126,6 +126,8 @@
 
 | # | Date | Project | Description | Location in file |
 |---|------|---------|-------------|-----------------|
+| ~~37~~ | ~~June 15, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Add Amazon Music link (https://music.amazon.com/albums/B0H2Z2RVZ4) alongside Spotify/Apple Music. Added pills to `whenfeelingsgetloud/index.html` + `_layouts/home.html`; quiet link in `tfcbt.html` album band. `songs.html` uses the album.link aggregator (no pills) — Amazon covered there once Josh updates Odesli.~~ | [Section 1 → Cowork Prompts → June 15, 2026 #1](#june-15-2026-1--add-amazon-music-link-for-when-feelings-get-loud) |
+| ~~36~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Publish the "What Is TF-CBT?" blog post: `published: true`, FAQPage JSON-LD (5 Q&As inline), remove the 2.6MB `.png` hero (keep the 159KB `.jpg`). Commit + push.~~ | [Section 1 → Cowork Prompts → June 13, 2026 #10](#june-13-2026-10--publish-what-is-tfcbt-blog-post) |
 | ~~35~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Embed the "What Is TF-CBT?" video near the TOP of `/tfcbt` (after hero/definition box). Video `0uUH2NlcDRA`, responsive 16:9 youtube-nocookie iframe, lazy, heading + caption, VideoObject JSON-LD, /songs embed pattern.~~ | [Section 1 → Cowork Prompts → June 13, 2026 #9](#june-13-2026-9--embed-what-is-tfcbt-video-on-tfcbt) |
 | ~~34~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🟡 (after #33) — Make the `/tfcbt` HUB a complete browsable directory: render each PRACTICE component's resources INLINE on the hub (loop `_data/tfcbt_pillars.yml`) + jump nav; pillar pages stay canonical deep-dives. DRY — one data file feeds both.~~ | [Section 1 → Cowork Prompts → June 13, 2026 #8](#june-13-2026-8--make-the-tfcbt-hub-a-complete-inline-directory) |
 | ~~33~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Populate /tfcbt with Josh's CURATED + LINK-CHECKED set: hub developers + 9 adaptation-manual PDFs + assessments + CEBC + clinician books; pillars get Oklahoma (all 8) + NCA on Cognitive Coping & Enhancing Safety + per-component items. Supersedes #30; honors #31 (no UW) + #32 (no BRAVE).~~ | [Section 1 → Cowork Prompts → June 13, 2026 #7](#june-13-2026-7--populate-tfcbt-with-joshs-curated-verified-set) |
@@ -188,6 +190,37 @@
 ---
 
 ## Cowork Prompts
+
+---
+
+### June 15, 2026 #1 — Add Amazon Music link for When Feelings Get Loud
+
+**🔴 PRIORITY 1.** The album is now live on Amazon Music. Add it everywhere the *When Feelings Get Loud* streaming links/pills appear.
+
+- **Link:** https://music.amazon.com/albums/B0H2Z2RVZ4 *(clean canonical — the share-tracking `?ref=dm_sh_…` tail was stripped on purpose; do not re-add it)*
+- **Add an "Amazon Music" pill/link** next to the existing Spotify / Apple Music pills in these 4 files:
+  1. `whenfeelingsgetloud/index.html` (album page streaming pills)
+  2. `songs.html`
+  3. `_layouts/home.html` (Songs section stream-pills)
+  4. `tfcbt.html` (When Feelings Get Loud album band)
+- Match the existing pill markup, classes, and styling exactly (icon or text label "Amazon Music"; Amazon Music brand color is teal `#00A8E1` if an icon tint is used). `target="_blank" rel="noopener"`.
+- If any file lists platforms in a set order (Spotify, Apple Music, …), append Amazon Music consistently across all four.
+- Commit + push. After deploy, click each Amazon Music link to confirm it opens the album.
+
+*(Separately, non-code: Josh should also add Amazon Music to the Odesli/album.link smart link at odesli.com so the song.link button covers it too.)*
+
+---
+
+### June 13, 2026 #10 — Publish "What Is TF-CBT?" blog post
+
+**🔴 PRIORITY 1.** The post is drafted and reviewed (Josh approved). File: `_posts/2026-06-13-what-is-tf-cbt-guide-for-parents.md`.
+
+1. **Set `published: true`** in the front matter.
+2. **Add FAQPage JSON-LD** for this post's 5 FAQs ("How long does TF-CBT take?", "Do I have to be in the room…", "Will my child have to talk about the trauma…", "Is TF-CBT only for sexual abuse?", "How do I find a TF-CBT therapist?") — match however the existing posts get schema (e.g., `_includes/schema-*` or inline in `_layouts/post.html`). Keep questions/answers verbatim from the post.
+3. **Image:** hero is `/assets/img/blog/what-is-tfcbt-hero.jpg` (155KB, optimized). **`git rm assets/img/blog/what-is-tfcbt-hero.png`** — the unoptimized 2.6MB PNG is superseded and should not deploy.
+4. **Commit + push.** Then verify: the post renders at its `/blog/...` URL, appears in the blog index, the YouTube embed plays, the hero + OG image load, and internal links (`/tfcbt/`, `/whenfeelingsgetloud/`, the Amazon affiliate) all work.
+
+Note: the post embeds the new video (`0uUH2NlcDRA`) and features the *When Feelings Get Loud* album + *A Journey of Brave Friends* book. "Evidence-informed" for SFC framing; the post correctly uses "evidence-based" for the TF-CBT model itself.
 
 ---
 
@@ -5284,3 +5317,23 @@ Executed four chained prompts together (the data end-state is defined by #33, wh
 - Heading "What Is TF-CBT? (Video Guide for Parents & Caregivers)" + 1-line caption.
 - Added **VideoObject JSON-LD** (name, description, `thumbnailUrl` hqdefault, `uploadDate` 2026-06-13, `embedUrl`, `contentUrl`, publisher Skills for Children) alongside the existing MedicalWebPage + FAQPage schema (3 ld+json blocks total).
 - Verified the video ID resolves (hqdefault thumbnail returns a real 20.5KB JPEG). Sections balanced 16/16.
+
+---
+
+### June 15, 2026 — Items #36 + #37: publish "What Is TF-CBT?" post + Amazon Music links
+
+**Commit:** (see below)
+
+**#36 — Publish the "What Is TF-CBT?" blog post** (`_posts/2026-06-13-what-is-tf-cbt-guide-for-parents.md`):
+- `published: false` → `true`.
+- Added **FAQPage JSON-LD inline** at the top of the post body (the established pattern — no post-layout schema hook exists; `/tfcbt` and the trauma include also inline their schema). All 5 Q&As verbatim from the post (How long…, Do I have to be in the room…, Will my child have to talk…, Is TF-CBT only for sexual abuse…, How do I find a therapist…). Validated as parseable JSON.
+- **Image:** the 2.6 MB `assets/img/blog/what-is-tfcbt-hero.png` was *untracked* (so `git rm` N/A) — deleted from disk so it can't deploy. The 159 KB `.jpg` (front-matter `image:` + post layout hero) was also untracked → **`git add`ed** so the hero/OG image actually ships.
+- Post is dated 2026-06-13 (past), so it appears in the blog index; layout renders the hero + inline video embed + Amazon affiliate/`/tfcbt/` links from the body.
+
+**#37 — Amazon Music link** (`https://music.amazon.com/albums/B0H2Z2RVZ4`, clean canonical, no `?ref=` tail):
+- `whenfeelingsgetloud/index.html` — added an Amazon Music `.pill` after Apple Music (teal `#00A8E1` equalizer icon, matching the existing pill markup).
+- `_layouts/home.html` — added an Amazon Music `.stream-pill` after Apple Music (same icon/style).
+- `tfcbt.html` album band — added a quiet Amazon Music text link beside the existing streaming link, and relabeled the Spotify one "Spotify" so they're parallel. **Did not add a bright branded pill here** — the TF-CBT page uses #29's locked neutral-CTA styling (quiet "View access options" links, no DSP pills); a pill would violate that guardrail.
+- `songs.html` — **no change**: it has no individual platform pills, only the `album.link`/Odesli smart-link buttons, which already route to Amazon Music once Josh adds it on odesli.com (the prompt's own non-code note). Adding a lone Amazon pill there would break the page's aggregator pattern. Flagged for Josh.
+
+**Validation:** post FAQ JSON-LD parses; `.png` removed, `.jpg` retained; pill/link markup matches each file's existing pattern. No local Jekyll build available — static checks only; verify live after deploy (post URL + blog index render, video plays, Amazon Music links open the album).
