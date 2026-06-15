@@ -188,36 +188,6 @@ layout: default
 .torf-book-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 [data-theme="dark"] .torf-book-strip { background: var(--paper-2); }
 
-/* BRAVE app */
-.torf-brave-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: center;
-}
-.torf-brave-img {
-  border-radius: 18px;
-  overflow: hidden;
-  aspect-ratio: 4/5;
-  box-shadow: var(--shadow-2);
-}
-.torf-brave-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.torf-brave-text .eyebrow { margin-bottom: 14px; }
-.torf-brave-text h2 {
-  font-size: clamp(28px, 3.5vw, 46px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  margin: 0 0 18px;
-  line-height: 1.08;
-}
-.torf-brave-text p {
-  font-size: 16.5px;
-  line-height: 1.7;
-  color: var(--ink-soft);
-  margin: 0 0 28px;
-  max-width: 48ch;
-}
-
 /* Future series */
 .torf-series {
   text-align: center;
@@ -240,8 +210,6 @@ layout: default
 /* Responsive */
 @media (max-width: 980px) {
   .torf-chars { grid-template-columns: repeat(3, 1fr); }
-  .torf-brave-grid { grid-template-columns: 1fr; gap: 40px; }
-  .torf-brave-img { max-width: 420px; }
   .torf-book-strip { padding: 32px 36px; gap: 36px; }
 }
 @media (max-width: 640px) {
@@ -373,25 +341,6 @@ layout: default
         </a>
         <a href="https://amzn.to/4tWqSlG" target="_blank" rel="noopener" class="btn btn--ghost">Buy on Amazon</a>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     BRAVE APP
-     ============================================================ -->
-<section class="container section" id="brave">
-  <div class="torf-brave-grid">
-    <div class="torf-brave-img reveal">
-      <img src="{{ '/assets/img/resilient-forest/characters/timothy.jpg' | relative_url }}" alt="Timothy the Turtle &mdash; BRAVE app companion" loading="lazy">
-    </div>
-    <div class="torf-brave-text reveal" style="transition-delay:.1s">
-      <div class="eyebrow">Digital Companion</div>
-      <h2>Walk Through the Forest with BRAVE</h2>
-      <p>The BRAVE app brings the Resilient Forest to life as an interactive TF-CBT companion for children ages 4&ndash;18. Follow the friends through exercises, stories, and skills &mdash; at the child&rsquo;s own pace.</p>
-      <a href="https://app.skillsforchildren.com" target="_blank" rel="noopener" class="btn btn--primary">Open the App
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="arrow"><path d="M7 17 17 7M9 7h8v8"/></svg>
-      </a>
     </div>
   </div>
 </section>

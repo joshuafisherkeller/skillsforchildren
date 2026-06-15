@@ -100,13 +100,14 @@
 > Last updated: June 13, 2026
 >
 > - **_Tio Sam_ — grief picture book (working title).** A children's book on grief / traumatic grief, written by Josh, grounded in the TF-CBT Grief-Focused (GRIEF) components. **Source material being collected in `_tfcbt-reference/`:** the two free tfcbt.org grief workbooks (child + teen versions, both saved locally) + the GRIEF-components page (https://tfcbt.org/grief-focused-components/). Extends the anchor-book ecosystem into grief, parallel to *A Journey of Brave Friends* for trauma. Also logged in SECOND_BRAIN → Queued/When Ready. Revisit when book-writing bandwidth opens up.
+> - **TF-CBT developer outreach (later).** Contact info for the model developers (Cohen, Deblinger, + Mannarino) saved in `_tfcbt-reference/TFCBT_DEVELOPER_CONTACTS.md`. Goal: eventually introduce SFC / get /tfcbt listed in their resources. Not yet — when Josh is ready.
 
 > ## 📡 LIVE PRODUCT STATUS — Read this before the prompt queue
 > Last updated: May 26, 2026 by Claude Cowork
 >
 > | Product | Status | Key Facts |
 > |---------|--------|-----------|
-> | **BRAVE App** | 🟢 Active development (Codex) | Clinician mode live; Phase 1 in progress; app at app.skillsforchildren.com |
+> | **BRAVE App** | 🟠 In development — NOT ready, do NOT feature/promote publicly (Josh, June 13 2026) | Far from done; removed from the public site (see Prompt #32). Do not link app.skillsforchildren.com anywhere on skillsforchildren.com until Josh says it's ready. |
 > | **Session Scribe** | 🟡 Working locally — not yet commercial | Offline Python desktop app; draft speaker labels; 4 outputs (.docx/.txt/_speaker_review.txt/_diagnostics.txt); needs license review, packaging, EULA, payment flow before selling |
 > | **Capture Kit installs** | 🟢 Selling now | White Glove $499, Install Only $379; $0.75/mile travel one-way from 40516; within 150mi of Lexington KY |
 > | **skillsforchildren.com** | 🟢 Live | Jekyll on GitHub Pages; 15 Claude Code prompts complete as of May 26 |
@@ -125,6 +126,10 @@
 
 | # | Date | Project | Description | Location in file |
 |---|------|---------|-------------|-----------------|
+| ~~34~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🟡 (after #33) — Make the `/tfcbt` HUB a complete browsable directory: render each PRACTICE component's resources INLINE on the hub (loop `_data/tfcbt_pillars.yml`) + jump nav; pillar pages stay canonical deep-dives. DRY — one data file feeds both.~~ | [Section 1 → Cowork Prompts → June 13, 2026 #8](#june-13-2026-8--make-the-tfcbt-hub-a-complete-inline-directory) |
+| ~~33~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Populate /tfcbt with Josh's CURATED + LINK-CHECKED set: hub developers + 9 adaptation-manual PDFs + assessments + CEBC + clinician books; pillars get Oklahoma (all 8) + NCA on Cognitive Coping & Enhancing Safety + per-component items. Supersedes #30; honors #31 (no UW) + #32 (no BRAVE).~~ | [Section 1 → Cowork Prompts → June 13, 2026 #7](#june-13-2026-7--populate-tfcbt-with-joshs-curated-verified-set) |
+| ~~32~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — REMOVE the BRAVE app from the live site everywhere (NOT ready — Josh). App only — KEEP all *A Journey of Brave Friends* book/character refs. Removed from tfcbt.html, tfcbt-pillar.html, tfcbt_pillars.yml (brave:false all 8), resilient-forest-hub.html, about.markdown, songs.html, resilient-forest.html. No app.skillsforchildren.com left in shipped files.~~ | [Section 1 → Cowork Prompts → June 13, 2026 #6](#june-13-2026-6--remove-brave-app-from-the-live-site) |
+| ~~31~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — ROLLBACK (Josh): REMOVE every UW Harborview (`depts.washington.edu/uwhatc`) entry from `_data/tfcbt_pillars.yml` — generic CBT+, not TF-CBT-specific. Keep only genuine TF-CBT sources. (Satisfied by the #33 data rewrite — zero uwhatc entries remain.)~~ | [Section 1 → Cowork Prompts → June 13, 2026 #5](#june-13-2026-5--rollback-remove-uw-harborview-from-tfcbt-pillars) |
 | ~~30~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Expand the `libraries:` lists in `_data/tfcbt_pillars.yml` with the LINK-CHECKED resource set (verified June 13): UW Harborview `?cbt-topics=9` (Coping Skills) + `?cbt-topics=12` (CBT for Trauma) filtered views + Parent-Child-Session-Guidelines.pdf. Avoid the dead NCTSN slugs + old UW `/PDF/TF-%20CBT/pages/` paths.~~ | ~~[Section 1 → Cowork Prompts → June 13, 2026 #4](#june-13-2026-4--populate-tfcbt-pillars-verified-link-checked-resources)~~ |
 | ~~29~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Reclassify the live /tfcbt hub + 8 pillars: retire "Level 1/2/3", use role labels ("From the model developers", "Trusted resource libraries", "Skills for Children original tools"); NCTSN is trusted not official; FEATURE the SFC tools; Phase 2: populate vetted (link-checked) resource links.~~ | ~~[Section 1 → Cowork Prompts → June 13, 2026 #3](#june-13-2026-3--reclassify-tfcbt-role-based-not-level-feature-sfc)~~ |
 | ~~28~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Rebuild `/tfcbt` as a HUB + 8 PRACTICE pillar pages (Phase 1: hub + 8 skeletons, hardcoded Schema.org JSON-LD, Level 1/2/3 source tagging). Spec + resources now in `_tfcbt-reference/` (renamed from `tfcbt/`).~~ | ~~[Section 1 → Cowork Prompts → June 13, 2026 #2](#june-13-2026-2--tfcbt-hub--8-practice-pillar-pages-phase-1)~~ |
@@ -182,6 +187,94 @@
 ---
 
 ## Cowork Prompts
+
+---
+
+### June 13, 2026 #8 — Make the /tfcbt hub a complete inline directory
+
+**🟡 Do AFTER #33 (needs the curated resources in place first).** Decision (Josh, June 13): the hub should be a **one-page comprehensive directory** for clinicians, while the pillar pages remain the focused SEO/GEO landing pages. Both fed from the same data — no duplication of effort.
+
+**Changes to `tfcbt.html`:**
+1. For each of the 8 PRACTICE components, render an **inline section on the hub** showing that component's resources (loop `_data/tfcbt_pillars.yml` — the same data the pillar pages use). Today the hub only shows a grid that *links* to pillars; keep that as a nav element but ALSO show the resources inline below.
+2. Each hub component section: component name + 1-line definition + its SFC tool(s) (song/book, featured) + its trusted resources (Oklahoma, NCA, etc.) + a "Full {Component} page →" link to `/tfcbt/<component>/`.
+3. Add **anchor/jump navigation** near the top: "Jump to: Psychoeducation · Relaxation · Affective Modulation · Cognitive Coping · Trauma Narrative · In-Vivo Mastery · Conjoint · Enhancing Safety" (links to `#` anchors on each hub section).
+4. Keep the hub's developer / adaptation-manuals / assessments / evidence / books sections (from #33).
+
+**Duplicate-content handling:** the pillar pages stay **canonical** for each component (they carry the unique prose — 40–60 word definition box, clinical-objectives table, FAQ, MedicalWebPage/FAQPage schema). The hub's inline sections are a **summarized directory view** (resource links + short blurb), not a copy of the full pillar prose. Shared *link lists* across hub + pillars are fine (not a duplicate-content risk); just don't duplicate the long unique prose. Pillar `<link rel="canonical">` points to itself.
+
+Guardrails: DRY (single data source); SFC tools featured; "evidence-informed"; don't bloat — the hub can be long, anchor nav handles it.
+
+---
+
+### June 13, 2026 #7 — Populate /tfcbt with Josh's curated, verified set
+
+**🔴 PRIORITY 1. Final resource population — curated by Josh, every URL link-checked June 13 2026.** This is the definitive set. Replace the pillar `libraries:` + hub resource sections with the below. No UW Harborview (#31); no BRAVE app (#32). Link out; don't rehost PDFs. SFC tools stay featured on top of each pillar.
+
+**HUB (`tfcbt.html`) sections:**
+
+*From the model developers:*
+- TF-CBT Certification Program — https://tfcbt.org/
+- TF-CBTWeb online course (MUSC) — https://tfcbt.musc.edu/
+- TF-CBT At-A-Glance (2024) — https://tfcbt.org/wp-content/uploads/2025/02/Trauma-Focused-Cognitive-Behavioral-Therapy-2024.pdf
+- Your Very Own TF-CBT Workbook (child) — https://tfcbt.org/wp-content/uploads/2014/07/Your-Very-Own-TF-CBT-Workbook-Final.pdf
+- Dealing with Trauma: TF-CBT Workbook for Teens — https://tfcbt.org/wp-content/uploads/2025/10/Dealing-with-Trauma-A-TF-CBT-Workbook-for-Teens.pdf
+- Your Very Own TF-CBT Grief Workbook — https://tfcbt.org/wp-content/uploads/2023/02/Your-Very-Own-TF-CBT-Grief-Workbook.pdf
+- TF-CBT Grief-Focused (GRIEF) components — https://tfcbt.org/grief-focused-components/
+
+*Population-specific TF-CBT adaptation manuals (NEW hub section — direct PDFs):*
+- Parental Substance Use — https://tfcbt.org/wp-content/uploads/2026/06/2025-TF-CBT-for-PSA-Implementation-Manual-FINAL-1.pdf
+- IDD (Developmental Disabilities) — https://tfcbt.org/wp-content/uploads/2023/10/TF-CBT-IDD-Implementation-Guide.pdf
+- IDD Annotated Supplemental Guide — https://tfcbt.org/wp-content/uploads/2023/10/TFCBTA-Annotated-Bibliography-8.23.23.pdf
+- Racial Socialization (Black youth) — https://tfcbt.org/wp-content/uploads/2023/07/TF-CBTRS-Implementation-Manual-FINAL.pdf
+- CSEC — https://tfcbt.org/wp-content/uploads/2022/05/CSEC-Imp-Manual-Final.pdf
+- LGBTQ — https://tfcbt.org/wp-content/uploads/2019/10/TF-CBT-LGBTQ-Implementation-Manual-FINAL.pdf
+- Military — https://tfcbt.org/wp-content/uploads/2018/05/Military-implementation-manual.pdf
+- Residential (RTF) — https://tfcbt.org/wp-content/uploads/2018/05/RTF-Implementation-Manual-09-09-13-FINAL.pdf
+- Foster Care — https://tfcbt.org/wp-content/uploads/2018/05/FosterCareManual-FINAL.pdf
+
+*Assessments:* ISTSS hub — https://istss.org/clinical-resources/child-adolescent-trauma-assessments/ · CATS — https://istss.org/clinical-resources/child-adolescent-trauma-assessments/child-and-adolescent-trauma-screen/ · CPSS-5 (PDF) — https://istss.org/wp-content/uploads/2024/08/THE-CHILD-PTSD-SYMPTOM-SCALE-FOR-DSM-V.pdf
+
+*Evidence:* CEBC "Well-Supported" — https://www.cebc4cw.org/program/trauma-focused-cognitive-behavioral-therapy/ (drop SAMHSA + Title IV-E per Josh)
+
+*Books (clinician, affiliate):* Treating Trauma & Traumatic Grief — https://amzn.to/4fFo2hi · Child Sexual Abuse: A Primer — https://amzn.to/4uBGTO7
+
+**PER-PILLAR `libraries:` (in `_data/tfcbt_pillars.yml`):**
+- **Every pillar:** Oklahoma TF-CBT — https://oklahomatfcbt.org/audiences/assessment-resources/ (Josh: include on all; it's a hub with its own handouts)
+- **Psychoeducation:** NCTSN — TF-CBT overview (PDF) — https://www.nctsn.org/sites/default/files/interventions/TF-CBT_042726.pdf · NCTSN — How to Implement TF-CBT — https://www.nctsn.org/sites/default/files/resources/how_to_implement_tfcbt.pdf · *What Do You Know?* card game — https://tfcbt.org/what-do-you-know/
+- **Cognitive Coping:** NCA Engage — Cognitive Coping — https://learn.nationalchildrensalliance.org/cognitive-coping
+- **Enhancing Safety:** NCA Engage — Enhancing Safety — https://learn.nationalchildrensalliance.org/tf-cbt-enhancing-safety-and-future-healthy-development · *AJ's Story about Not OK Touches* — https://tfcbt.org/ajs-story-about-not-ok-touches/
+- (Relaxation, Affective Modulation, Trauma Narrative, In-Vivo, Conjoint: Oklahoma + the SFC song/book only for now — intentionally lean; Josh will add more after a deeper NCA Engage review.)
+
+**Flagged follow-ups (NOT this prompt):** Josh wants to (a) dive into the NCA Engage hubs to see if individual handouts can be linked / SFC content featured there, and (b) potentially expand per-pillar from Oklahoma's individual handouts. Leave as future work.
+
+Guardrails: "evidence-informed" not "evidence-based"; preserve affiliate links; MSW byline; SFC tools featured on top.
+
+---
+
+### June 13, 2026 #6 — Remove the BRAVE app from the live site
+
+**🔴 PRIORITY 1. Josh: the BRAVE app is NOT ready (not close) — pull it off the public site entirely until it is.** Remove the **app** only. **KEEP** every reference to the book *A Journey of Brave Friends* / "Brave Friends" art / Resilient Forest characters — those stay.
+
+Remove these (verified locations June 13):
+1. **`tfcbt.html`** (~line 296) — the "Open the BRAVE app →" CTA and its surrounding BRAVE-app section/band. Remove the whole section cleanly.
+2. **`_includes/tfcbt-pillar.html`** (~line 137) — the BRAVE app entry in the "Skills for Children tools" block (the `app.skillsforchildren.com` "View access options" link). Remove the BRAVE item; keep the song + book items.
+3. **`_data/tfcbt_pillars.yml`** — set `brave: false` for all 8 pillars (or delete the `brave:` field) so the include stops rendering a BRAVE block.
+4. **`_layouts/resilient-forest-hub.html`** (~line 392) — the BRAVE-app "Open the App" CTA section. Remove it.
+5. **Scan the repo** for any remaining `app.skillsforchildren.com` link or "BRAVE app" / "Open the BRAVE app" text (e.g. `about.markdown`) and remove those too.
+
+Guardrails: do not remove book/character content. Don't leave an empty section header or dangling grid where a BRAVE block was — close the layout cleanly. After removal, `grep -ri "app.skillsforchildren.com"` should return nothing in shipped files.
+
+---
+
+### June 13, 2026 #5 — ROLLBACK: remove UW Harborview from /tfcbt pillars
+
+**🔴 PRIORITY 1. Curator decision (Josh):** the UW Harborview CBT+ Notebook resources added in #4 are **generic CBT+, not TF-CBT-specific** — pull them.
+
+1. In `_data/tfcbt_pillars.yml`, **delete every `libraries:` entry whose URL contains `depts.washington.edu/uwhatc`** (there are ~7). Do not add any UW resources.
+2. **Keep** only genuinely TF-CBT sources already present / appropriate: NCA Engage TF-CBT folders (e.g. `learn.nationalchildrensalliance.org/cognitive-coping`, `.../tf-cbt-enhancing-safety-and-future-healthy-development`), NCTSN TF-CBT pages (the TF-CBT intervention overview; CSA fact sheet), Oklahoma TF-CBT, the developer hub (tfcbt.org / TF-CBTWeb), and ISTSS assessments.
+3. Any component left **without** a library link is fine — the include already shows the "browse the hub" fallback. **Josh will personally curate which TF-CBT-specific resources get added per component.** Do not auto-fill.
+
+SFC tools stay featured at the top of each pillar. "Evidence-informed" not "evidence-based."
 
 ---
 
@@ -5138,3 +5231,29 @@ cd "C:\Users\joshu\Transcriber"
 **Avoided (verified dead, per prompt + my own #29 checks):** `nctsn.org/resources/tf-cbt-relaxation`, `…/tf-cbt-affective-modulation`, `…/trauma-narrative`, `…/my-feelings-book` (empty NCTSN search pages); all `depts.washington.edu/uwhatc/PDF/TF-%20CBT/pages/...` paths (301 → /training). Confirmed none remain in the data file.
 
 **Note:** hub `tfcbt.html` keeps the bare `cbt-notebook/` hub link in its libraries card (valid; the prompt scoped only per-component pillar lists). Guardrails held: evidence-informed; affiliate links untouched; MSW byline.
+
+---
+
+### June 13, 2026 — Items #31–#34: /tfcbt rollback, BRAVE removal, curated repopulation, hub directory
+
+Executed four chained prompts together (the data end-state is defined by #33, which already excludes UW and BRAVE). Single deploy.
+
+**#31 — Rollback UW Harborview:** removed all `depts.washington.edu/uwhatc` entries from `_data/tfcbt_pillars.yml` (generic CBT+, not TF-CBT-specific). Satisfied by the #33 rewrite — `grep uwhatc` now returns 0.
+
+**#32 — Remove the BRAVE app (app only; books/characters kept):**
+- `tfcbt.html` — deleted the BRAVE-app CTA band + the "BRAVE app" clinician bullet.
+- `_includes/tfcbt-pillar.html` — removed the BRAVE card from the SFC-tools block (song + book remain).
+- `_data/tfcbt_pillars.yml` — `brave: false` on all 8 (verified brave-true=0).
+- `_layouts/resilient-forest-hub.html` — removed the "Walk Through the Forest with BRAVE" section + its CSS + responsive rules.
+- `about.markdown`, `songs.html`, `resilient-forest.html` — stripped BRAVE-app mentions (kept book/After Hours Tech). Verified: **no `app.skillsforchildren.com` in any shipped file.** Kept all *A Journey of Brave Friends* / Resilient Forest character content.
+
+**#33 — Josh's curated, link-checked set (supersedes #30):**
+- *Re-verified the novel/risky URLs with WebFetch* (What Do You Know card game, AJ's Story, Oklahoma, NCTSN TF-CBT_042726.pdf, CSEC + PSA adaptation PDFs) — all live.
+- Hub `tfcbt.html`: **Developers** section → 7 items (TF-CBT Cert, TF-CBTWeb, At-A-Glance, Your Very Own Workbook [child], Dealing with Trauma [teen], Grief Workbook, GRIEF components). NEW **Population-specific adaptation manuals** section (9 direct PDFs: Parental Substance Use, IDD + annotated, Racial Socialization, CSEC, LGBTQ, Military, Residential, Foster Care). NEW **Assessments & evidence** (ISTSS hub, CATS, CPSS-5, CEBC). NEW **Clinician books** (Treating Trauma & Traumatic Grief `amzn.to/4fFo2hi`; Child Sexual Abuse: A Primer `amzn.to/4uBGTO7`). Removed the old generic "Trusted resource libraries" grid + SAMHSA per Josh.
+- Per-pillar `libraries:` — Oklahoma TF-CBT on all 8; Psychoeducation += NCTSN TF-CBT overview PDF + How to Implement + "What Do You Know?" card game; Cognitive Coping += NCA Cognitive Coping; Enhancing Safety += NCA Enhancing Safety + "AJ's Story about Not OK Touches". (R/A/T/I/Conjoint = Oklahoma + SFC song/book only, intentionally lean per Josh.)
+
+**#34 — Hub as inline directory:** added an `id="directory"` section after the PRACTICE grid — a "Jump to:" chip nav + one inline block per component (looping the same `_data/tfcbt_pillars.yml`): letter badge, name, **summarized** 24-word definition (not the full pillar prose), SFC song/book, the component's trusted resources, and a "Full {component} page →" link. Pillar pages stay canonical (full definition box + objectives + FAQ + schema; self-canonical). Kept the PRACTICE link-grid as nav.
+
+**Validation:** YAML parses; brave-true=0; no `uwhatc`; Liquid balanced (tfcbt if 2/2, for 4/4; include if 10/10, for 5/5); `<section>` balanced (tfcbt 15/15, include 8/8, resilient-forest-hub 5/5); no `app.skillsforchildren.com` / `#libraries` / "Level" strings in shipped files; blog placeholder + byline + back-link intact. No local Jekyll build available — static checks + live URL verification. Hub section order: practice → directory → sfc-tools → album → books → developers → adaptations → assessments → clinician-books → faq.
+
+**Deferred (Josh, future):** deeper NCA Engage handout linking + Oklahoma per-handout expansion per component.

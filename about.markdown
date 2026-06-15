@@ -61,7 +61,7 @@ permalink: /about/
 
     <p>He is also a musician and songwriter. The <em>When Feelings Get Loud</em> album and other educational music releases grew directly out of his belief that children process difficult experiences best when art, story, and skill-building work together.</p>
 
-    <p>Joshua is the author of trauma-informed children's books and creator of the BRAVE app — a TF-CBT companion tool for children, caregivers, and clinicians — as well as a technology consultant through his practice <a href="/tech/">After Hours Tech</a>.</p>
+    <p>Joshua is the author of trauma-informed children's books, as well as a technology consultant through his practice <a href="/tech/">After Hours Tech</a>.</p>
 
     <ul>
       <li><a href="/#resources">Browse the resource library</a></li>

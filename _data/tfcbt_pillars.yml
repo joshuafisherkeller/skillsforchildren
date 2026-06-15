@@ -4,7 +4,7 @@
 # Resource categories are ROLE-BASED (provenance, not a quality ranking):
 #   developers  = from the model developers — ONLY tfcbt.org + tfcbt.musc.edu (TF-CBTWeb)
 #   libraries   = trusted resource libraries — NCTSN, UW Harborview, NCA Engage, Oklahoma, ISTSS, CEBC, SAMHSA (NCTSN is trusted, NOT "official")
-#   SFC tools   = Skills for Children original tools — song + book chapter + BRAVE app (featured, not "supplemental")
+#   SFC tools   = Skills for Children original tools — song + book chapter (featured, not "supplemental"). BRAVE app removed from the live site June 13 2026 (not ready); brave: false on all pillars.
 #
 # All URLs below were link-checked (June 13, 2026). Developer-level resources are general to TF-CBT
 # and live on the hub; per-component lists carry trusted-library links verified for that component.
@@ -29,17 +29,23 @@ pillars:
         audience: "Child"
     developers: []
     libraries:
-      - title: "NCTSN — Trauma-Focused Cognitive Behavioral Therapy (overview)"
-        note: "Plain-language overview of the model and who it helps."
-        url: "https://www.nctsn.org/interventions/trauma-focused-cognitive-behavioral-therapy"
-      - title: "UW Harborview (CBT+) — CBT for Trauma handouts"
-        note: "Free trauma-information and psychoeducation handouts for youth, caregivers, and clinicians."
-        url: "https://depts.washington.edu/uwhatc/cbt-notebook/?cbt-topics=12"
+      - title: "Oklahoma TF-CBT — therapy resources &amp; handouts"
+        note: "Open-access TF-CBT resource library with assessments, psychoeducation, and clinical handouts."
+        url: "https://oklahomatfcbt.org/audiences/assessment-resources/"
+      - title: "NCTSN — TF-CBT overview (PDF)"
+        note: "The National Child Traumatic Stress Network's TF-CBT fact sheet."
+        url: "https://www.nctsn.org/sites/default/files/interventions/TF-CBT_042726.pdf"
+      - title: "NCTSN — How to Implement TF-CBT (PDF)"
+        note: "Practical guide for agencies and clinicians implementing TF-CBT."
+        url: "https://www.nctsn.org/sites/default/files/resources/how_to_implement_tfcbt.pdf"
+      - title: "What Do You Know? — bilingual TF-CBT card game"
+        note: "A therapeutic card game for psychoeducation about abuse and family violence (from tfcbt.org)."
+        url: "https://tfcbt.org/what-do-you-know/"
     song:
       title: "My Brain Has an Alarm"
       url: "https://youtu.be/ubHZr-PsEMY"
     book_character: "Timothy the Turtle"
-    brave: true
+    brave: false
     family_summary: "Before anything else, TF-CBT helps your child understand that what they feel after something scary is normal — and that their brain is doing its job. Learning the “why” together takes away some of the fear."
     faq:
       - q: "When does psychoeducation happen in TF-CBT?"
@@ -64,14 +70,14 @@ pillars:
         audience: "Clinician"
     developers: []
     libraries:
-      - title: "UW Harborview (CBT+) — Coping Skills handouts (Relaxation)"
-        note: "Free relaxation handouts and guides from the CBT+ coping-skills library."
-        url: "https://depts.washington.edu/uwhatc/cbt-notebook/?cbt-topics=9"
+      - title: "Oklahoma TF-CBT — therapy resources &amp; handouts"
+        note: "Open-access TF-CBT resource library with relaxation and coping handouts."
+        url: "https://oklahomatfcbt.org/audiences/assessment-resources/"
     song:
       title: "Breathe Like Waves"
       url: "https://youtu.be/ZjnOLPM8Qi4"
     book_character: "Rex the Rabbit"
-    brave: true
+    brave: false
     family_summary: "When big feelings show up in the body, relaxation skills give your child something to do about it. A few minutes of practice at calm times makes the skills easier to reach for during a hard moment."
     faq:
       - q: "Can we practice relaxation skills at home?"
@@ -96,14 +102,14 @@ pillars:
         audience: "Child"
     developers: []
     libraries:
-      - title: "UW Harborview (CBT+) — Coping Skills handouts (Identifying &amp; Rating Feelings)"
-        note: "Free feelings-identification and emotion-rating handouts from the CBT+ coping-skills library."
-        url: "https://depts.washington.edu/uwhatc/cbt-notebook/?cbt-topics=9"
+      - title: "Oklahoma TF-CBT — therapy resources &amp; handouts"
+        note: "Open-access TF-CBT resource library with feelings-identification and coping handouts."
+        url: "https://oklahomatfcbt.org/audiences/assessment-resources/"
     song:
       title: "Name It, Choose It"
       url: "https://youtu.be/gMHskiyg1Vc"
     book_character: "Bella the Bear"
-    brave: true
+    brave: false
     family_summary: "This part of TF-CBT helps your child put words to feelings and pick a coping skill that fits. Naming an emotion is often the first step to it feeling less overwhelming."
     faq:
       - q: "What is an emotion thermometer?"
@@ -128,17 +134,17 @@ pillars:
         audience: "Clinician"
     developers: []
     libraries:
+      - title: "Oklahoma TF-CBT — therapy resources &amp; handouts"
+        note: "Open-access TF-CBT resource library with cognitive-coping handouts."
+        url: "https://oklahomatfcbt.org/audiences/assessment-resources/"
       - title: "National Children's Alliance (NCA Engage) — TF-CBT Cognitive Coping"
         note: "Free downloadable practice materials for the cognitive coping component."
         url: "https://learn.nationalchildrensalliance.org/cognitive-coping"
-      - title: "UW Harborview (CBT+) — Coping Skills handouts (Challenging Thoughts)"
-        note: "Free cognitive-coping handouts for challenging unhelpful thoughts."
-        url: "https://depts.washington.edu/uwhatc/cbt-notebook/?cbt-topics=9"
     song:
       title: "Maybe, Maybe Not"
       url: "https://youtu.be/oWAdU2-k8P0"
     book_character: "Olive the Owl"
-    brave: true
+    brave: false
     family_summary: "Cognitive coping helps your child see that thoughts, feelings, and actions are connected &mdash; and that some thoughts can be checked and rebalanced. It is practiced on everyday worries first, long before the trauma is discussed."
     faq:
       - q: "What is the cognitive triangle?"
@@ -163,14 +169,14 @@ pillars:
         audience: "Clinician"
     developers: []
     libraries:
-      - title: "UW Harborview (CBT+) — CBT for Trauma handouts (Creating the Trauma Narrative)"
-        note: "Free trauma-narrative workbooks and worksheets, several available in Spanish."
-        url: "https://depts.washington.edu/uwhatc/cbt-notebook/?cbt-topics=12"
+      - title: "Oklahoma TF-CBT — therapy resources &amp; handouts"
+        note: "Open-access TF-CBT resource library with trauma-narrative handouts."
+        url: "https://oklahomatfcbt.org/audiences/assessment-resources/"
     song:
       title: "My Story, My Voice"
       url: "https://youtu.be/M09PqtmxiiE"
     book_character: "Kiki the Koala"
-    brave: true
+    brave: false
     family_summary: "Telling the story of what happened is done slowly, at your child's pace, with a trained therapist &mdash; it is supported telling, not reliving. Over time the memory loses some of its power to frighten."
     faq:
       - q: "Does my child have to relive the trauma?"
@@ -195,14 +201,14 @@ pillars:
         audience: "Clinician"
     developers: []
     libraries:
-      - title: "UW Harborview (CBT+) — CBT for Trauma handouts (Exposure)"
-        note: "Free in-vivo exposure homework and avoidance worksheets for graded exposure."
-        url: "https://depts.washington.edu/uwhatc/cbt-notebook/?cbt-topics=12"
+      - title: "Oklahoma TF-CBT — therapy resources &amp; handouts"
+        note: "Open-access TF-CBT resource library with exposure and coping handouts."
+        url: "https://oklahomatfcbt.org/audiences/assessment-resources/"
     song:
       title: "One Step Braver"
       url: "https://youtu.be/XKWSkW8BTTg"
     book_character: null
-    brave: true
+    brave: false
     family_summary: "If your child has started avoiding safe things that remind them of the trauma, this part of TF-CBT helps them face those things one small, supported step at a time &mdash; never all at once."
     faq:
       - q: "Is in vivo mastery always part of TF-CBT?"
@@ -227,14 +233,14 @@ pillars:
         audience: "Caregiver"
     developers: []
     libraries:
-      - title: "UW Harborview (CBT+) — Parent-Child (Conjoint) Session Guidelines"
-        note: "Free clinician guide for preparing and conducting parent-child sessions (PDF)."
-        url: "https://depts.washington.edu/uwhatc/wp-content/uploads/2022/07/Parent-Child-Session-Guidelines.pdf"
+      - title: "Oklahoma TF-CBT — therapy resources &amp; handouts"
+        note: "Open-access TF-CBT resource library with conjoint-session and parenting handouts."
+        url: "https://oklahomatfcbt.org/audiences/assessment-resources/"
     song:
       title: "Say It With Me"
       url: "https://youtu.be/O31Pg7aWx54"
     book_character: null
-    brave: true
+    brave: false
     family_summary: "Caregivers are part of TF-CBT from the start. In conjoint sessions you and your child meet together with the therapist to share, communicate, and practice supporting each other."
     faq:
       - q: "Will I be involved as a parent?"
@@ -259,17 +265,20 @@ pillars:
         audience: "Child &amp; caregiver"
     developers: []
     libraries:
-      - title: "NCTSN — Child Sexual Abuse Fact Sheet (for parents &amp; caregivers)"
-        note: "Body-safety psychoeducation for families and caregivers."
-        url: "https://www.nctsn.org/resources/child-sexual-abuse-fact-sheet-parents-teachers-and-other-caregivers"
+      - title: "Oklahoma TF-CBT — therapy resources &amp; handouts"
+        note: "Open-access TF-CBT resource library with safety-planning and body-safety handouts."
+        url: "https://oklahomatfcbt.org/audiences/assessment-resources/"
       - title: "National Children's Alliance (NCA Engage) — Enhancing Safety &amp; Future Healthy Development"
         note: "Free practice materials for the safety component."
         url: "https://learn.nationalchildrensalliance.org/tf-cbt-enhancing-safety-and-future-healthy-development"
+      - title: "AJ's Story about Not OK Touches"
+        note: "A body-safety story resource for children (from tfcbt.org)."
+        url: "https://tfcbt.org/ajs-story-about-not-ok-touches/"
     song:
       title: "My Plan, My People"
       url: "https://youtu.be/hfh7hzUKsVk"
     book_character: null
-    brave: true
+    brave: false
     family_summary: "The final part of TF-CBT helps your child name their safe people and make a simple plan for what to do if something feels unsafe &mdash; so the skills they built keep working after therapy ends."
     faq:
       - q: "Is enhancing safety only about “stranger danger”?"
