@@ -126,6 +126,7 @@
 
 | # | Date | Project | Description | Location in file |
 |---|------|---------|-------------|-----------------|
+| ~~35~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Embed the "What Is TF-CBT?" video near the TOP of `/tfcbt` (after hero/definition box). Video `0uUH2NlcDRA`, responsive 16:9 youtube-nocookie iframe, lazy, heading + caption, VideoObject JSON-LD, /songs embed pattern.~~ | [Section 1 → Cowork Prompts → June 13, 2026 #9](#june-13-2026-9--embed-what-is-tfcbt-video-on-tfcbt) |
 | ~~34~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🟡 (after #33) — Make the `/tfcbt` HUB a complete browsable directory: render each PRACTICE component's resources INLINE on the hub (loop `_data/tfcbt_pillars.yml`) + jump nav; pillar pages stay canonical deep-dives. DRY — one data file feeds both.~~ | [Section 1 → Cowork Prompts → June 13, 2026 #8](#june-13-2026-8--make-the-tfcbt-hub-a-complete-inline-directory) |
 | ~~33~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Populate /tfcbt with Josh's CURATED + LINK-CHECKED set: hub developers + 9 adaptation-manual PDFs + assessments + CEBC + clinician books; pillars get Oklahoma (all 8) + NCA on Cognitive Coping & Enhancing Safety + per-component items. Supersedes #30; honors #31 (no UW) + #32 (no BRAVE).~~ | [Section 1 → Cowork Prompts → June 13, 2026 #7](#june-13-2026-7--populate-tfcbt-with-joshs-curated-verified-set) |
 | ~~32~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — REMOVE the BRAVE app from the live site everywhere (NOT ready — Josh). App only — KEEP all *A Journey of Brave Friends* book/character refs. Removed from tfcbt.html, tfcbt-pillar.html, tfcbt_pillars.yml (brave:false all 8), resilient-forest-hub.html, about.markdown, songs.html, resilient-forest.html. No app.skillsforchildren.com left in shipped files.~~ | [Section 1 → Cowork Prompts → June 13, 2026 #6](#june-13-2026-6--remove-brave-app-from-the-live-site) |
@@ -187,6 +188,20 @@
 ---
 
 ## Cowork Prompts
+
+---
+
+### June 13, 2026 #9 — Embed "What Is TF-CBT?" video on /tfcbt
+
+**🔴 PRIORITY 1.** Embed the new YouTube explainer high on the `/tfcbt` hub — it's the page's anchor "What is TF-CBT?" content and helps both clinicians/caregivers and SEO/GEO (video high in the DOM).
+
+- **Video:** https://youtu.be/0uUH2NlcDRA · ID `0uUH2NlcDRA` · embed URL `https://www.youtube-nocookie.com/embed/0uUH2NlcDRA`
+- **Placement:** near the top of `tfcbt.html`, right after the hero + 40–60 word definition box (before the resource directory). Should be one of the first things a visitor sees.
+- **Markup:** responsive 16:9 wrapper (`padding-bottom:56.25%`), `loading="lazy"`, `title="What Is TF-CBT? A Guide for Parents & Caregivers"`, `allowfullscreen`. Use the same embed/styling pattern as the `/songs` page YouTube embeds for consistency.
+- **Heading + caption:** `<h2>` "What Is TF-CBT? (Video Guide for Parents & Caregivers)" and a one-line caption, e.g. "A short, plain-language overview of what TF-CBT is, the evidence behind it, and what to expect — for parents, caregivers, and clinicians."
+- **Schema:** add **VideoObject** JSON-LD (name, description, `thumbnailUrl` = `https://i.ytimg.com/vi/0uUH2NlcDRA/hqdefault.jpg`, `uploadDate`, `embedUrl`, publisher Skills for Children). Keep the existing MedicalWebPage/FAQPage schema.
+
+Guardrails: don't push the definition box below the fold on mobile — hero/definition first, then video, then directory. "Evidence-informed" for SFC framing.
 
 ---
 
@@ -5257,3 +5272,15 @@ Executed four chained prompts together (the data end-state is defined by #33, wh
 **Validation:** YAML parses; brave-true=0; no `uwhatc`; Liquid balanced (tfcbt if 2/2, for 4/4; include if 10/10, for 5/5); `<section>` balanced (tfcbt 15/15, include 8/8, resilient-forest-hub 5/5); no `app.skillsforchildren.com` / `#libraries` / "Level" strings in shipped files; blog placeholder + byline + back-link intact. No local Jekyll build available — static checks + live URL verification. Hub section order: practice → directory → sfc-tools → album → books → developers → adaptations → assessments → clinician-books → faq.
 
 **Deferred (Josh, future):** deeper NCA Engage handout linking + Oklahoma per-handout expansion per component.
+
+---
+
+### June 13, 2026 — Item #35: Embed "What Is TF-CBT?" video on /tfcbt
+
+**Commit:** (see below) · `tfcbt.html` only.
+
+- Added a **`id="video"`** section directly after the hero + definition box (before the evidence band / directory) so the explainer is high in the DOM for caregivers and GEO, without pushing the definition box below the fold.
+- Responsive 16:9 embed reusing the site's `.featured-video` wrapper (rounded corners + shadow) with an inline `aspect-ratio:16/9` override (the class default is 16:10), `max-width:880px`. Privacy embed `https://www.youtube-nocookie.com/embed/0uUH2NlcDRA`, `loading="lazy"`, `allowfullscreen`, titled "What Is TF-CBT? A Guide for Parents & Caregivers".
+- Heading "What Is TF-CBT? (Video Guide for Parents & Caregivers)" + 1-line caption.
+- Added **VideoObject JSON-LD** (name, description, `thumbnailUrl` hqdefault, `uploadDate` 2026-06-13, `embedUrl`, `contentUrl`, publisher Skills for Children) alongside the existing MedicalWebPage + FAQPage schema (3 ld+json blocks total).
+- Verified the video ID resolves (hqdefault thumbnail returns a real 20.5KB JPEG). Sections balanced 16/16.
