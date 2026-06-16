@@ -20,6 +20,21 @@
 
 > **For all agents:** `AHT_Working_File.md` no longer exists. It was merged into this file on May 20, 2026. Do not create a new `AHT_Working_File.md`. All After Hours Tech session logs, TODOs, and Cowork prompts go in **Section 2** of this file. All skillsforchildren.com logs go in **Section 1**.
 
+> ## 📌 TONIGHT / TOMORROW — June 15, 2026 (Josh's focus list)
+>
+> **⏳ In motion — let it run, don't touch:**
+> - Claude Code is working through the whole TF-CBT queue (Prompts #31–#37: hub cleanup, curated resources, hub-as-directory, video embed, blog publish, Amazon Music).
+> - The *When Feelings Get Loud* YouTube videos are auto-releasing Tue/Fri.
+>
+> **👉 Actually waiting on you — short list:**
+> - [ ] Review the TF-CBT site once Code finishes (hub `/tfcbt` + 8 pillar pages + blog).
+> - [ ] Add Amazon Music to the Odesli / album.link smart link at odesli.com (~2 min).
+> - [ ] Post the Craigslist + Nextdoor After Hours Tech ads (drafts already written — see Section 2 / Session 11).
+> - [ ] Follow up the scam-recovery client lead (first potential AHT client — see Section 2 Session 11).
+> - [ ] Decide whether to bring Julia in (the force-multiplier — would reduce load on everything else).
+>
+> **🎯 North star (decided June 15):** Josh's focus once the TF-CBT page is done = **distribution to clinicians** (drives resource usage + book sales + AHT clients — one audience, three wins). Goal isn't thousands of views; it's the **first five real clinicians** who use it. Build phase is basically done; next phase = promote + get help + close revenue. *(Emotional context: low/near-zero current views are a distribution gap, not a quality verdict — the experiment hasn't been run yet.)*
+
 > **Agent responsibilities — do not cross these lines:**
 > - **Claude Code** — owns the Skills for Children website (`skillsforchildren.com`), After Hours Tech pages (`/tech/`), all Jekyll files, CSS, JS, layouts, data files, and this Working_File. All website commits come from Claude Code.
 > - **Codex** — owns the BRAVE app only. Does not touch the website repo or this Working_File.
@@ -97,8 +112,9 @@
 > - **When Feelings Get Loud** — Album live on Spotify and Google Music as of May 29, 2026.
 
 > ## 📚 ON THE HORIZON — Backlog projects (not active yet)
-> Last updated: June 13, 2026
+> Last updated: June 15, 2026
 >
+> - **⭐ SFC original printables — FINISH THE SET (top creative goal, don't lose).** First 3 are built and saved in `_tfcbt-reference/printables/`: **Olive's Thinking Triangle** (Cognitive Coping), **Bella's Feelings Thermometer** (Affective Modulation), **Rex's Calm Breathing** (Relaxation) — each pairs with its *When Feelings Get Loud* song. Built as HTML→PDF (source HTML in the outputs pipeline; easy to revise). **Still to build:** Timothy/Psychoeducation, Kiki/Trauma Narrative, a Safety Plan (Enhancing Safety), and a gentle grief activity (for *Tio Sam*). **Blocker / next step:** swap the placeholder drawn figures for the **real TORF character art** — Josh to provide the character files, then Cowork finishes + restyles the set. These are the featured Level-3 (SFC original) differentiator nobody else has. *(Built June 13–15, 2026.)*
 > - **_Tio Sam_ — grief picture book (working title).** A children's book on grief / traumatic grief, written by Josh, grounded in the TF-CBT Grief-Focused (GRIEF) components. **Source material being collected in `_tfcbt-reference/`:** the two free tfcbt.org grief workbooks (child + teen versions, both saved locally) + the GRIEF-components page (https://tfcbt.org/grief-focused-components/). Extends the anchor-book ecosystem into grief, parallel to *A Journey of Brave Friends* for trauma. Also logged in SECOND_BRAIN → Queued/When Ready. Revisit when book-writing bandwidth opens up.
 > - **TF-CBT developer outreach (later).** Contact info for the model developers (Cohen, Deblinger, + Mannarino) saved in `_tfcbt-reference/TFCBT_DEVELOPER_CONTACTS.md`. Goal: eventually introduce SFC / get /tfcbt listed in their resources. Not yet — when Josh is ready.
 
@@ -190,6 +206,30 @@
 ---
 
 ## Cowork Prompts
+
+---
+
+### 🗒️ COWORK SESSION SUMMARY — June 15, 2026 (big TF-CBT build day)
+
+Everything accomplished today, so nothing is lost. Code prompts **#27–#37** were generated this session (details in the prompt bodies below).
+
+**TF-CBT hub — major rebuild:**
+- `/tfcbt` reorganized from a single page → **hub + 8 PRACTICE pillar pages** (`tfcbt_pillars/<slug>.html`, data in `_data/tfcbt_pillars.yml`, rendered by `_includes/tfcbt-pillar.html`).
+- **Removed UW Harborview** (generic CBT+, not TF-CBT — curator call) and the **BRAVE app** (not ready) from the site.
+- **Curated + link-checked resource set** (Josh curated via a Google Sheet): developer materials, **8 population-specific adaptation manuals as direct PDFs**, assessments (CATS/CPSS-5/ISTSS), CEBC evidence, books. Oklahoma TF-CBT on all pillars + NCA Engage on Cognitive Coping & Enhancing Safety.
+- **Retired "Level 1/2/3"** → role-based labels: *From the model developers* / *Trusted resource libraries* / *Skills for Children tools* (featured). **NCTSN = trusted, NOT official.** Only tfcbt.org + tfcbt.musc.edu are "official."
+- Hub made into a **complete inline directory** + jump-nav (pillars stay canonical for SEO).
+- **"What Is TF-CBT?" video embedded** near the top.
+
+**Content created:**
+- **"What Is TF-CBT?" explainer video published** → https://youtu.be/0uUH2NlcDRA (titles/description/A-B thumbnails in `_tfcbt-reference/VIDEO_what-is-tfcbt_youtube_copy.md`).
+- **Blog post drafted** "What Is TF-CBT? A Guide for Parents and Caregivers" (`_posts/2026-06-13-what-is-tf-cbt-guide-for-parents.md`, `published: false`, hero optimized to 155KB, queued to publish in #36).
+- **Amazon Music link** for *When Feelings Get Loud* captured → queued in #37.
+- **3 Resilient Forest printables** built (Olive's Thinking Triangle, Bella's Feelings Thermometer, Rex's Calm Breathing) in `_tfcbt-reference/printables/` — first SFC original TF-CBT tools.
+
+**Reference material** (all in `_tfcbt-reference/`): `RESOURCES.md`, `TFCBT_BUILD_SPEC.md`, `CURATION_LIST.md`, `Oklahoma_TFCBT_resources.md`, `NC_CTP_resource_inventory_reference.md`, `Foundations_of_TFCBT_reference.md`, `TFCBT_DEVELOPER_CONTACTS.md` (Cohen/Deblinger/Mannarino — for future outreach), the video copy, 7 source PDFs.
+
+**Decisions / records updated:** BRAVE app marked NOT public (SECOND_BRAIN + memory); TF-CBT source-level rule recorded; *Tio Sam* grief book logged as horizon project; AHT Session 11 logged (promotion push + first scam-recovery client lead); *When Feelings Get Loud* YouTube release schedule re-cadenced (next: Name It Choose It). **North star set: distribution to clinicians.**
 
 ---
 
@@ -5337,3 +5377,19 @@ Executed four chained prompts together (the data end-state is defined by #33, wh
 - `songs.html` — **no change**: it has no individual platform pills, only the `album.link`/Odesli smart-link buttons, which already route to Amazon Music once Josh adds it on odesli.com (the prompt's own non-code note). Adding a lone Amazon pill there would break the page's aggregator pattern. Flagged for Josh.
 
 **Validation:** post FAQ JSON-LD parses; `.png` removed, `.jpg` retained; pill/link markup matches each file's existing pattern. No local Jekyll build available — static checks only; verify live after deploy (post URL + blog index render, video plays, Amazon Music links open the album).
+
+---
+
+### June 16, 2026 — Site feedback (Supabase `site_feedback`): 4 fix_now items
+
+Pulled the open feedback queue via Supabase MCP (project `utqyxpdevkniwrhajodg`). 4 `fix_now` items, all resolved + marked `done`.
+
+**`/tfcbt` (3 items, `tfcbt.html`):**
+1. **Move "Core model resources" up** — relocated the `id="developers"` section to directly after the For Families / For Clinicians cards (under the video), where the redundant PRACTICE grid used to be. New section order: video → developers → directory → sfc-tools → album → books → adaptations → assessments → clinician-books → faq.
+2. **Redesign the album band with flair** — replaced the text-only band with a cover-image + streaming-pills layout (Spotify, Apple Music, Amazon Music, YouTube Music, Pandora), cover and "Explore the album" button both link to `/whenfeelingsgetloud/` (not `/songs/`, per the request). Added a scoped `.wfgl-*` style block (responsive: cover stacks on mobile). Note: this intentionally adds branded pills to the TF-CBT page, superseding the earlier #29/#37 neutral-CTA styling for this section per Josh's direct request.
+3. **Remove the redundant PRACTICE grid** — deleted the `id="practice"` "A page for every PRACTICE component" link-grid (the inline `#directory` below already lists all 8 with Explore links). Repointed the hero "Jump to PRACTICE Components" button from `#practice` → `#directory`.
+
+**Site-wide (1 item, `_includes/header.html`):**
+4. **Add "After Hours Tech" to the top menu** — added a nav item linking to `/tech/` in both the desktop `nav-links` and the mobile `nav-drawer` (with `is-active` on `/tech` pages).
+
+**Validation:** sections balanced 15/15; Liquid balanced; no orphan `#practice`/`href="#practice"`; one `id="developers"`; 3 JSON-LD blocks intact. All 4 Supabase rows set `status='done'` with session notes. No local Jekyll build — verify live after deploy.

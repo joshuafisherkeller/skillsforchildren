@@ -10,6 +10,7 @@
       <li><a href="{{ '/books' | relative_url }}" {% if page.url contains '/books' %}class="is-active"{% endif %}>Books</a></li>
       <li><a href="{{ '/blog' | relative_url }}" {% if page.url contains '/blog' %}class="is-active"{% endif %}>Blog</a></li>
       <li><a href="https://www.youtube.com/@SkillsforChildren" target="_blank" rel="noopener">Videos</a></li>
+      <li><a href="{{ '/tech/' | relative_url }}" {% if page.url contains '/tech' %}class="is-active"{% endif %}>After Hours Tech</a></li>
     </ul>
     <div class="nav-cta">
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
@@ -32,6 +33,7 @@
         <li><a href="{{ '/books' | relative_url }}" {% if page.url contains '/books' %}class="is-active"{% endif %}>Books</a></li>
         <li><a href="{{ '/blog' | relative_url }}" {% if page.url contains '/blog' %}class="is-active"{% endif %}>Blog</a></li>
         <li><a href="https://www.youtube.com/@SkillsforChildren" target="_blank" rel="noopener">Videos</a></li>
+        <li><a href="{{ '/tech/' | relative_url }}" {% if page.url contains '/tech' %}class="is-active"{% endif %}>After Hours Tech</a></li>
         <li><a href="{{ '/#newsletter' | relative_url }}" class="nav-drawer-subscribe">Subscribe →</a></li>
       </ul>
     </div>

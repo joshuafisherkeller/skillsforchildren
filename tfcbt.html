@@ -92,7 +92,7 @@ permalink: /tfcbt/
     <h1 style="margin-top:18px">Trauma-Focused Cognitive Behavioral Therapy:<br>A Complete Resource Guide</h1>
     <p class="hero-lede">A curated index of the official TF-CBT authorities &mdash; organized into a page for every one of the 8 PRACTICE components, with optional companion songs, books, and an app. Curated by <a href="/about/" style="color:var(--sage);text-decoration:none;font-weight:500;">Joshua Fisherkeller, MSW</a>.</p>
     <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;">
-      <a href="#practice" class="btn btn--primary">Jump to PRACTICE Components
+      <a href="#directory" class="btn btn--primary">Jump to PRACTICE Components
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="arrow"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
       <a href="https://tfcbt.org/" target="_blank" rel="noopener" class="btn btn--ghost">Free TF-CBT Training at tfcbt.org
@@ -199,34 +199,67 @@ permalink: /tfcbt/
 </section>
 
 <!-- ============================================================
-     8 PRACTICE COMPONENTS
+     FROM THE MODEL DEVELOPERS
      ============================================================ -->
-<section class="container section" id="practice">
+<section class="container section" id="developers">
   <div class="section-head reveal">
     <div class="section-head-text">
-      <div class="eyebrow">The framework</div>
-      <h2 style="margin-top:14px">A page for every PRACTICE component</h2>
-      <p>TF-CBT is organized around 8 skill-building components. Each has its own page with clinical objectives, vetted official resources, and optional companions.</p>
+      <div class="tfcbt-cat">From the model developers</div>
+      <h2 style="margin-top:12px">Core model resources</h2>
+      <p>Published by TF-CBT&rsquo;s developers &mdash; tfcbt.org and TF-CBTWeb at the Medical University of South Carolina. These are the model&rsquo;s own materials.</p>
     </div>
-    <a href="/songs/" class="btn btn--ghost btn--sm">All songs &rarr;</a>
   </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:8px;">
 
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:8px;">
-    {% for p in site.data.tfcbt_pillars.pillars %}
-    <a href="/tfcbt/{{ p.slug }}/" class="reveal pillar-link-card" style="display:block;text-decoration:none;background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:24px 22px;">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
-        <div style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:9px;background:var(--wash-sage);color:var(--sage);font-family:var(--font-mono);font-size:14px;font-weight:700;flex-shrink:0;">{{ p.letter }}</div>
-        <div>
-          <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Component {{ p.number }}</div>
-          <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin:2px 0 0;">{{ p.name }}</h3>
-        </div>
-      </div>
-      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">{{ p.definition | strip_html | truncatewords: 22 }}</p>
-      <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--sage);">Explore {{ p.name | downcase }}
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </span>
-    </a>
-    {% endfor %}
+    <div class="reveal" style="background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 20px;">
+      <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:8px;">Developers' hub</div>
+      <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;">TF-CBT Certification Program</h3>
+      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">The developers&rsquo; home for certification, training, the therapist directory, and model materials.</p>
+      <a href="https://tfcbt.org/" target="_blank" rel="noopener" style="font-size:13px;color:var(--sage);font-weight:600;text-decoration:none;">tfcbt.org &nearr;</a>
+    </div>
+
+    <div class="reveal" style="background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 20px;">
+      <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:8px;">Training &middot; Certification</div>
+      <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;">TF-CBTWeb online course (MUSC)</h3>
+      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">The web-based curriculum clinicians complete toward TF-CBT certification, from the Medical University of South Carolina.</p>
+      <a href="https://tfcbt.musc.edu/" target="_blank" rel="noopener" style="font-size:13px;color:var(--sage);font-weight:600;text-decoration:none;">tfcbt.musc.edu &nearr;</a>
+    </div>
+
+    <div class="reveal" style="background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 20px;">
+      <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:8px;">Overview &middot; PDF</div>
+      <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;">TF-CBT At-A-Glance (2024)</h3>
+      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">A one-page overview of the model and the PRACTICE components, from tfcbt.org.</p>
+      <a href="https://tfcbt.org/wp-content/uploads/2025/02/Trauma-Focused-Cognitive-Behavioral-Therapy-2024.pdf" target="_blank" rel="noopener" style="font-size:13px;color:var(--sage);font-weight:600;text-decoration:none;">View PDF &nearr;</a>
+    </div>
+
+    <div class="reveal" style="background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 20px;">
+      <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:8px;">Child workbook &middot; PDF</div>
+      <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;">Your Very Own TF-CBT Workbook</h3>
+      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">A free child-facing workbook that walks children through the TF-CBT components.</p>
+      <a href="https://tfcbt.org/wp-content/uploads/2014/07/Your-Very-Own-TF-CBT-Workbook-Final.pdf" target="_blank" rel="noopener" style="font-size:13px;color:var(--sage);font-weight:600;text-decoration:none;">View PDF &nearr;</a>
+    </div>
+
+    <div class="reveal" style="background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 20px;">
+      <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:8px;">Teen workbook &middot; PDF</div>
+      <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;">Dealing with Trauma: TF-CBT Workbook for Teens</h3>
+      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">A free teen-facing TF-CBT workbook from tfcbt.org.</p>
+      <a href="https://tfcbt.org/wp-content/uploads/2025/10/Dealing-with-Trauma-A-TF-CBT-Workbook-for-Teens.pdf" target="_blank" rel="noopener" style="font-size:13px;color:var(--sage);font-weight:600;text-decoration:none;">View PDF &nearr;</a>
+    </div>
+
+    <div class="reveal" style="background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 20px;">
+      <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:8px;">Grief workbook &middot; PDF</div>
+      <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;">Your Very Own TF-CBT Grief Workbook</h3>
+      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">A free child-facing workbook for the traumatic-grief components of TF-CBT.</p>
+      <a href="https://tfcbt.org/wp-content/uploads/2023/02/Your-Very-Own-TF-CBT-Grief-Workbook.pdf" target="_blank" rel="noopener" style="font-size:13px;color:var(--sage);font-weight:600;text-decoration:none;">View PDF &nearr;</a>
+    </div>
+
+    <div class="reveal" style="background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 20px;">
+      <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:8px;">Grief &middot; Free workbooks</div>
+      <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;">TF-CBT Grief-Focused (GRIEF) components</h3>
+      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">The traumatic-grief extension of TF-CBT, with free downloadable child and teen workbooks in several languages.</p>
+      <a href="https://tfcbt.org/grief-focused-components/" target="_blank" rel="noopener" style="font-size:13px;color:var(--sage);font-weight:600;text-decoration:none;">View resource &nearr;</a>
+    </div>
+
   </div>
 </section>
 
@@ -293,22 +326,54 @@ permalink: /tfcbt/
 <!-- ============================================================
      WHEN FEELINGS GET LOUD — ALBUM BAND
      ============================================================ -->
+<style>
+  .wfgl-grid{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:clamp(24px,4vw,48px);align-items:center;}
+  .wfgl-cover{display:block;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-3);aspect-ratio:1/1;}
+  .wfgl-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease;}
+  .wfgl-cover:hover img{transform:scale(1.03);}
+  .wfgl-pills{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px;}
+  .wfgl-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--border);border-radius:999px;background:var(--paper);font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;transition:border-color .2s,background .2s,transform .2s;}
+  .wfgl-pill:hover{border-color:var(--sage);background:var(--wash-sage);transform:translateY(-2px);}
+  @media (max-width:640px){ .wfgl-grid{grid-template-columns:1fr;} .wfgl-cover{max-width:280px;margin:0 auto;} }
+</style>
 <section class="section" id="album" style="background:var(--wash-sage);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div class="container">
-    <div class="section-head reveal">
-      <div class="section-head-text">
+    <div class="wfgl-grid reveal">
+      <a href="/whenfeelingsgetloud/" class="wfgl-cover" aria-label="When Feelings Get Loud — album page">
+        <img src="/whenfeelingsgetloud/art/hero.jpg" alt="When Feelings Get Loud — album cover">
+      </a>
+      <div>
         <div class="tfcbt-cat">When Feelings Get Loud &middot; Original album</div>
-        <h2 style="margin-top:14px"><em>When Feelings Get Loud</em> &mdash; A Song for Every PRACTICE Component</h2>
-        <p>An original Skills for Children album with one child-friendly song mapped to each PRACTICE component &mdash; written by an MSW to help the skills stick at home and in session. Not the official TF-CBT model; a practical tool to use alongside it.</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px;flex-shrink:0;">
-        <a href="/songs/" class="btn btn--ghost">See all songs &rarr;</a>
-        <a href="/whenfeelingsgetloud/" class="btn btn--ghost">Album page &rarr;</a>
-        <a href="https://open.spotify.com/album/1HM7chm30VlXawhHCLq4cP" target="_blank" rel="noopener" style="font-size:12.5px;color:var(--sage);text-decoration:none;font-weight:500;text-align:center;">Spotify &nearr;</a>
-        <a href="https://music.amazon.com/albums/B0H2Z2RVZ4" target="_blank" rel="noopener" style="font-size:12.5px;color:var(--sage);text-decoration:none;font-weight:500;text-align:center;">Amazon Music &nearr;</a>
+        <h2 style="margin:12px 0 14px;"><em>When Feelings Get Loud</em> &mdash; A Song for Every PRACTICE Component</h2>
+        <p style="font-size:15px;color:var(--ink-soft);line-height:1.65;margin:0 0 20px;max-width:58ch;">An original Skills for Children album with one child-friendly song mapped to each PRACTICE component &mdash; written by an MSW to help the skills stick at home and in session. Free to stream everywhere.</p>
+        <div class="wfgl-pills">
+          <a class="wfgl-pill" href="https://open.spotify.com/album/1HM7chm30VlXawhHCLq4cP" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#1DB954"/><path d="M6.5 9.2c3.6-1 7.4-.7 10.4 1M7 12.3c3-.8 6-.5 8.4 1M7.6 15.2c2.3-.6 4.6-.4 6.5.8" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Spotify
+          </a>
+          <a class="wfgl-pill" href="https://music.apple.com/us/album/when-feelings-get-loud/6773287780" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#fc3c44"/><path d="M14.5 7.3l-4.6 1.1c-.4.1-.6.4-.6.8v5.1a2 2 0 10.9 1.7V10l4-.95v3.2a2 2 0 10.9 1.7V8.1c0-.6-.4-.95-.6-.8z" fill="#fff"/></svg>
+            Apple Music
+          </a>
+          <a class="wfgl-pill" href="https://music.amazon.com/albums/B0H2Z2RVZ4" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#00A8E1"/><path d="M8 13.5v-3M10.7 15v-6M13.3 15v-6M16 13.5v-3" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Amazon Music
+          </a>
+          <a class="wfgl-pill" href="https://music.youtube.com/playlist?list=OLAK5uy_lhHmAy1zV8dOR1Yh0jaT_RFJU8LAKtdJ8" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#FF0000"/><path d="M10 8.5l5 3.5-5 3.5z" fill="#fff"/></svg>
+            YouTube Music
+          </a>
+          <a class="wfgl-pill" href="https://www.pandora.com/AL:66807905" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#3668FF"/><path d="M8.5 6.5h4.3c2.4 0 4 1.4 4 3.7s-1.7 3.8-4.1 3.8H11v3H8.5V6.5z" fill="#fff"/></svg>
+            Pandora
+          </a>
+        </div>
+        <a href="/whenfeelingsgetloud/" class="btn btn--primary">Explore the album
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="arrow"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:8px;" class="reveal">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:32px;" class="reveal">
       <div style="background:rgba(255,255,255,.55);border:1px solid var(--border);border-radius:var(--r-lg);padding:12px 16px;font-size:13px;color:var(--ink-soft);">&#9834; <strong style="color:var(--ink);">My Brain Has an Alarm</strong> &mdash; Psychoeducation</div>
       <div style="background:rgba(255,255,255,.55);border:1px solid var(--border);border-radius:var(--r-lg);padding:12px 16px;font-size:13px;color:var(--ink-soft);">&#9834; <strong style="color:var(--ink);">Breathe Like Waves</strong> &mdash; Relaxation</div>
       <div style="background:rgba(255,255,255,.55);border:1px solid var(--border);border-radius:var(--r-lg);padding:12px 16px;font-size:13px;color:var(--ink-soft);">&#9834; <strong style="color:var(--ink);">Name It, Choose It</strong> &mdash; Affective Modulation</div>
@@ -359,71 +424,6 @@ permalink: /tfcbt/
   </div>
   <div style="margin-top:20px;" class="reveal">
     <a href="/books/" style="font-size:14px;color:var(--sage);font-weight:500;text-decoration:none;">See all books &rarr;</a>
-  </div>
-</section>
-
-<!-- ============================================================
-     FROM THE MODEL DEVELOPERS
-     ============================================================ -->
-<section class="container section" id="developers">
-  <div class="section-head reveal">
-    <div class="section-head-text">
-      <div class="tfcbt-cat">From the model developers</div>
-      <h2 style="margin-top:12px">Core model resources</h2>
-      <p>Published by TF-CBT&rsquo;s developers &mdash; tfcbt.org and TF-CBTWeb at the Medical University of South Carolina. These are the model&rsquo;s own materials.</p>
-    </div>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:8px;">
-
-    <div class="reveal" style="background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 20px;">
-      <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:8px;">Developers' hub</div>
-      <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;">TF-CBT Certification Program</h3>
-      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">The developers&rsquo; home for certification, training, the therapist directory, and model materials.</p>
-      <a href="https://tfcbt.org/" target="_blank" rel="noopener" style="font-size:13px;color:var(--sage);font-weight:600;text-decoration:none;">tfcbt.org &nearr;</a>
-    </div>
-
-    <div class="reveal" style="background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 20px;">
-      <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:8px;">Training &middot; Certification</div>
-      <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;">TF-CBTWeb online course (MUSC)</h3>
-      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">The web-based curriculum clinicians complete toward TF-CBT certification, from the Medical University of South Carolina.</p>
-      <a href="https://tfcbt.musc.edu/" target="_blank" rel="noopener" style="font-size:13px;color:var(--sage);font-weight:600;text-decoration:none;">tfcbt.musc.edu &nearr;</a>
-    </div>
-
-    <div class="reveal" style="background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 20px;">
-      <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:8px;">Overview &middot; PDF</div>
-      <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;">TF-CBT At-A-Glance (2024)</h3>
-      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">A one-page overview of the model and the PRACTICE components, from tfcbt.org.</p>
-      <a href="https://tfcbt.org/wp-content/uploads/2025/02/Trauma-Focused-Cognitive-Behavioral-Therapy-2024.pdf" target="_blank" rel="noopener" style="font-size:13px;color:var(--sage);font-weight:600;text-decoration:none;">View PDF &nearr;</a>
-    </div>
-
-    <div class="reveal" style="background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 20px;">
-      <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:8px;">Child workbook &middot; PDF</div>
-      <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;">Your Very Own TF-CBT Workbook</h3>
-      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">A free child-facing workbook that walks children through the TF-CBT components.</p>
-      <a href="https://tfcbt.org/wp-content/uploads/2014/07/Your-Very-Own-TF-CBT-Workbook-Final.pdf" target="_blank" rel="noopener" style="font-size:13px;color:var(--sage);font-weight:600;text-decoration:none;">View PDF &nearr;</a>
-    </div>
-
-    <div class="reveal" style="background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 20px;">
-      <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:8px;">Teen workbook &middot; PDF</div>
-      <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;">Dealing with Trauma: TF-CBT Workbook for Teens</h3>
-      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">A free teen-facing TF-CBT workbook from tfcbt.org.</p>
-      <a href="https://tfcbt.org/wp-content/uploads/2025/10/Dealing-with-Trauma-A-TF-CBT-Workbook-for-Teens.pdf" target="_blank" rel="noopener" style="font-size:13px;color:var(--sage);font-weight:600;text-decoration:none;">View PDF &nearr;</a>
-    </div>
-
-    <div class="reveal" style="background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 20px;">
-      <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:8px;">Grief workbook &middot; PDF</div>
-      <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;">Your Very Own TF-CBT Grief Workbook</h3>
-      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">A free child-facing workbook for the traumatic-grief components of TF-CBT.</p>
-      <a href="https://tfcbt.org/wp-content/uploads/2023/02/Your-Very-Own-TF-CBT-Grief-Workbook.pdf" target="_blank" rel="noopener" style="font-size:13px;color:var(--sage);font-weight:600;text-decoration:none;">View PDF &nearr;</a>
-    </div>
-
-    <div class="reveal" style="background:var(--paper);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 20px;">
-      <div style="font-size:10px;font-family:var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-bottom:8px;">Grief &middot; Free workbooks</div>
-      <h3 style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;">TF-CBT Grief-Focused (GRIEF) components</h3>
-      <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px;">The traumatic-grief extension of TF-CBT, with free downloadable child and teen workbooks in several languages.</p>
-      <a href="https://tfcbt.org/grief-focused-components/" target="_blank" rel="noopener" style="font-size:13px;color:var(--sage);font-weight:600;text-decoration:none;">View resource &nearr;</a>
-    </div>
-
   </div>
 </section>
 
