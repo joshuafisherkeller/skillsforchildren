@@ -5393,3 +5393,8 @@ Pulled the open feedback queue via Supabase MCP (project `utqyxpdevkniwrhajodg`)
 4. **Add "After Hours Tech" to the top menu** — added a nav item linking to `/tech/` in both the desktop `nav-links` and the mobile `nav-drawer` (with `is-active` on `/tech` pages).
 
 **Validation:** sections balanced 15/15; Liquid balanced; no orphan `#practice`/`href="#practice"`; one `id="developers"`; 3 JSON-LD blocks intact. All 4 Supabase rows set `status='done'` with session notes. No local Jekyll build — verify live after deploy.
+
+#### Round 2 — 2 more fix_now items (same day)
+5. **Move clinician-resource sections up** (`tfcbt.html`) — relocated the three clinician sections (Population-specific adaptation manuals, Assessments & evidence, Clinician reference books) to directly after the "Browse by component" directory. New order: video → developers → directory → **adaptations → assessments → clinician-books** → sfc-tools → album → books → faq.
+6. **Hero pill → album** (`tfcbt.html`) — added a pill in the hero, "&#9834; Skills for Children Resource: *When Feelings Get Loud* album", linking to `#album` (added `scroll-margin-top:80px` to the album band so it lands cleanly under the sticky header).
+Both validated (sections 15/15, Liquid 3/3); both Supabase rows marked `done`.
