@@ -20,20 +20,63 @@
 
 > **For all agents:** `AHT_Working_File.md` no longer exists. It was merged into this file on May 20, 2026. Do not create a new `AHT_Working_File.md`. All After Hours Tech session logs, TODOs, and Cowork prompts go in **Section 2** of this file. All skillsforchildren.com logs go in **Section 1**.
 
-> ## 📌 TONIGHT / TOMORROW — June 15, 2026 (Josh's focus list)
+> ## 📌 STATUS UPDATE — June 19, 2026
+>
+> **✅ Closed out from June 15 list:**
+> - [x] TF-CBT hub review — **DONE. Good spot, no changes needed.**
+> - [x] Scam-recovery AHT lead — **Dead. Family relative took over, no longer needs help.**
+> - [x] LinkedIn ad — **Live.** Not much response yet.
+> - [x] Julia decision — **YES. Julia is in.** Managing Instagram + Facebook.
+>
+> **⏳ Still open:**
+> - [ ] **Meta admin for Julia** — 🔴 TOP PRIORITY this weekend. Julia says she never got a notification and doesn't have admin access. Josh needs to add her manually in Meta Business Suite. (She's managing IG + FB for the weekend promotion push.)
+> - [x] Post AHT ad on **Nextdoor** ✅ Done June 19 — posted as a new member intro, which performed better than a straight ad post.
+>
+> **🔄 Platform strategy change — Streaming links:**
+> Odesli/album.link abandoned. Won't let you edit without paying. All streaming CTAs will use **direct platform links** (Spotify, Apple Music, Amazon Music) going forward. Update any site pages that still use album.link.
+>
+> **🎯 This weekend's focus:** Social media promotion push (IG + FB with Julia) + YouTube Shorts (Josh making content). Julia needs Meta admin access before this can start.
+>
+> **YouTube release today (June 19):** *Maybe Maybe Not* → https://youtu.be/oWAdU2-k8P0 goes public today (auto-scheduled).
+>
+> **🎵 All the Feels — confirmed LIVE on platforms (June 19, 2026)**
+> Josh's best song. Standalone single, live on Spotify and other platforms. **Top of production list: needs a full YouTube video** (not just a Short). Short-form clips can come after the main video exists.
+> - Spotify: https://open.spotify.com/album/5IRuiRvsteeWelLdk2HVBb?si=q23wDVBCRA6_AMbWeEPgMQ
+> - YouTube Music: https://music.youtube.com/playlist?list=OLAK5uy_ncaL7hTXCmJO8bR0p4K7PQzipVpHncjQ8&si=_Wwbqt0kmRLd13bk
+> - YouTube full video: not yet produced — PRIORITY 1 on production list
+> - First Short for "All the Feels": pending full video
+>
+> **🎬 Brain Alarm Short — already live:** https://www.youtube.com/shorts/GoWAsKarxVU
+> 45 seconds. Hook: "Did you know your brain has an alarm?" Closer: "Check out the full song." Pinned comment with link. Title/description/hashtags may need updating per revised upload template (see Cowork Prompts → June 19, 2026).
+>
+> **📺 TF-CBT Explainer Video — confirmed live:** https://youtu.be/0uUH2NlcDRA — embedded on /tfcbt. "What Is TF-CBT? A Guide for Parents and Caregivers."
+
+> ## 📌 TONIGHT / TOMORROW — June 15, 2026 (Josh's focus list) [ARCHIVED]
 >
 > **⏳ In motion — let it run, don't touch:**
 > - Claude Code is working through the whole TF-CBT queue (Prompts #31–#37: hub cleanup, curated resources, hub-as-directory, video embed, blog publish, Amazon Music).
 > - The *When Feelings Get Loud* YouTube videos are auto-releasing Tue/Fri.
 >
 > **👉 Actually waiting on you — short list:**
-> - [ ] Review the TF-CBT site once Code finishes (hub `/tfcbt` + 8 pillar pages + blog).
-> - [ ] Add Amazon Music to the Odesli / album.link smart link at odesli.com (~2 min).
-> - [ ] Post the Craigslist + Nextdoor After Hours Tech ads (drafts already written — see Section 2 / Session 11).
-> - [ ] Follow up the scam-recovery client lead (first potential AHT client — see Section 2 Session 11).
-> - [ ] Decide whether to bring Julia in (the force-multiplier — would reduce load on everything else).
+> - [x] Review the TF-CBT site once Code finishes (hub `/tfcbt` + 8 pillar pages + blog). ✅ Done June 19
+> - [x] Add Amazon Music to the Odesli / album.link smart link at odesli.com (~2 min). ❌ Abandoned — Odesli requires payment to edit. Switching to direct platform links.
+> - [x] Post the After Hours Tech ads on **Nextdoor + LinkedIn**. LinkedIn ✅ live (low response). Nextdoor ⏳ still pending.
+> - [x] Follow up the scam-recovery client lead. ❌ Lead dead — family relative took over.
+> - [x] Decide whether to bring Julia in. ✅ Yes — Julia managing IG + FB. Needs Meta admin access.
 >
 > **🎯 North star (decided June 15):** Josh's focus once the TF-CBT page is done = **distribution to clinicians** (drives resource usage + book sales + AHT clients — one audience, three wins). Goal isn't thousands of views; it's the **first five real clinicians** who use it. Build phase is basically done; next phase = promote + get help + close revenue. *(Emotional context: low/near-zero current views are a distribution gap, not a quality verdict — the experiment hasn't been run yet.)*
+
+> ## 📣 CLINICIAN OUTREACH LOG — *When Feelings Get Loud* (started June 16, 2026)
+> First wave of the "distribution to clinicians" plan: warm, personal emails to past TF-CBT trainers/colleagues sharing the album (https://skillsforchildren.com/whenfeelingsgetloud/). Kept non-salesy; noted it's a non-CTAC / Skills for Children endeavor.
+>
+> | Person | Relationship | Status | Notes |
+> |---|---|---|---|
+> | **Alison Hendricks** | TF-CBT workbook co-author | ✅ **Responded** — "so cool," said she'll **share** | High-value, credible amplifier |
+> | Melissa Runyon | Past TF-CBT trainer/colleague | ⏳ Sent, awaiting | |
+> | Heather Risk | Past TF-CBT trainer/colleague | ⏳ Sent, awaiting | |
+> | **Roy Van Tassell** | Approved National TF-CBT Trainer; Director of Trauma & EBIs, Cenpatico (Centene Corp), Tulsa OK | ✅ **Responded TWICE** — (1) listened to all songs, browsed site/resources, called it "a tremendous set of helpful tools"; will share with his trainers + consultation contacts + **trainer colleagues who run state program resource sites** (specifically Oklahoma TF-CBT); (2) came back to praise the artwork unprompted — "They are really good! Bravo!" Josh replied: green light to share, pointed to /tfcbt/, noted Oklahoma page is a goal to get listed on. | 🔴 **High-value lead** — active national trainer network + state resource page access. Oklahoma listing is now a live opportunity, not a backlog item. |
+>
+> **Follow-up habit:** when someone replies, thank them, and (if they're open) ask whether they'd share it with their network or include it in any resource lists. Add new contacts/responses here as they come.
 
 > **Agent responsibilities — do not cross these lines:**
 > - **Claude Code** — owns the Skills for Children website (`skillsforchildren.com`), After Hours Tech pages (`/tech/`), all Jekyll files, CSS, JS, layouts, data files, and this Working_File. All website commits come from Claude Code.
@@ -142,6 +185,7 @@
 
 | # | Date | Project | Description | Location in file |
 |---|------|---------|-------------|-----------------|
+| ~~38~~ | ~~June 20, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Replace all `album.link` aggregator buttons with direct platform buttons (Spotify + Apple Music + Amazon Music). `songs.html` (2 button groups + description text) + `whenfeelingsgetloud/index.html` (footer links). Used `btn--ghost` (the site's outline button; `btn--outline` isn't defined).~~ | [Section 1 → Cowork Prompts → June 20, 2026 #1](#june-20-2026-1--replace-albumlink-with-direct-platform-buttons) |
 | ~~37~~ | ~~June 15, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Add Amazon Music link (https://music.amazon.com/albums/B0H2Z2RVZ4) alongside Spotify/Apple Music. Added pills to `whenfeelingsgetloud/index.html` + `_layouts/home.html`; quiet link in `tfcbt.html` album band. `songs.html` uses the album.link aggregator (no pills) — Amazon covered there once Josh updates Odesli.~~ | [Section 1 → Cowork Prompts → June 15, 2026 #1](#june-15-2026-1--add-amazon-music-link-for-when-feelings-get-loud) |
 | ~~36~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Publish the "What Is TF-CBT?" blog post: `published: true`, FAQPage JSON-LD (5 Q&As inline), remove the 2.6MB `.png` hero (keep the 159KB `.jpg`). Commit + push.~~ | [Section 1 → Cowork Prompts → June 13, 2026 #10](#june-13-2026-10--publish-what-is-tfcbt-blog-post) |
 | ~~35~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Embed the "What Is TF-CBT?" video near the TOP of `/tfcbt` (after hero/definition box). Video `0uUH2NlcDRA`, responsive 16:9 youtube-nocookie iframe, lazy, heading + caption, VideoObject JSON-LD, /songs embed pattern.~~ | [Section 1 → Cowork Prompts → June 13, 2026 #9](#june-13-2026-9--embed-what-is-tfcbt-video-on-tfcbt) |
@@ -230,6 +274,80 @@ Everything accomplished today, so nothing is lost. Code prompts **#27–#37** we
 **Reference material** (all in `_tfcbt-reference/`): `RESOURCES.md`, `TFCBT_BUILD_SPEC.md`, `CURATION_LIST.md`, `Oklahoma_TFCBT_resources.md`, `NC_CTP_resource_inventory_reference.md`, `Foundations_of_TFCBT_reference.md`, `TFCBT_DEVELOPER_CONTACTS.md` (Cohen/Deblinger/Mannarino — for future outreach), the video copy, 7 source PDFs.
 
 **Decisions / records updated:** BRAVE app marked NOT public (SECOND_BRAIN + memory); TF-CBT source-level rule recorded; *Tio Sam* grief book logged as horizon project; AHT Session 11 logged (promotion push + first scam-recovery client lead); *When Feelings Get Loud* YouTube release schedule re-cadenced (next: Name It Choose It). **North star set: distribution to clinicians.**
+
+---
+
+### June 20, 2026 #1 — Replace album.link with direct platform buttons
+
+**🔴 PRIORITY 1.** Odesli/album.link is abandoned — can't edit without paying. Replace all `album.link` aggregator links with direct platform buttons (Spotify + Apple Music + Amazon Music).
+
+**Platform links:**
+- Spotify: `https://open.spotify.com/album/1HM7chm30VlXawhHCLq4cP`
+- Apple Music: `https://music.apple.com/us/album/when-feelings-get-loud/6773287780`
+- Amazon Music: `https://music.amazon.com/albums/B0H2Z2RVZ4`
+
+---
+
+**File 1: `songs.html`**
+
+Two album.link instances to replace:
+
+**Instance 1** (line ~29) — in the `.section-head` div, currently:
+```html
+<a href="https://album.link/s/1HM7chm30VlXawhHCLq4cP" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Listen on your platform &rarr;</a>
+```
+Replace with a flex group of three `btn--outline btn--sm` buttons:
+```html
+<div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;">
+  <a href="https://open.spotify.com/album/1HM7chm30VlXawhHCLq4cP" target="_blank" rel="noopener" class="btn btn--outline btn--sm">Spotify &rarr;</a>
+  <a href="https://music.apple.com/us/album/when-feelings-get-loud/6773287780" target="_blank" rel="noopener" class="btn btn--outline btn--sm">Apple Music &rarr;</a>
+  <a href="https://music.amazon.com/albums/B0H2Z2RVZ4" target="_blank" rel="noopener" class="btn btn--outline btn--sm">Amazon Music &rarr;</a>
+</div>
+```
+
+**Instance 2** (line ~126) — bottom CTA, currently:
+```html
+<a href="https://album.link/s/1HM7chm30VlXawhHCLq4cP" target="_blank" rel="noopener" class="btn btn--primary">Listen on Spotify, Apple Music &amp; more &rarr;</a>
+```
+Replace with:
+```html
+<div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+  <a href="https://open.spotify.com/album/1HM7chm30VlXawhHCLq4cP" target="_blank" rel="noopener" class="btn btn--primary">Spotify &rarr;</a>
+  <a href="https://music.apple.com/us/album/when-feelings-get-loud/6773287780" target="_blank" rel="noopener" class="btn btn--outline">Apple Music &rarr;</a>
+  <a href="https://music.amazon.com/albums/B0H2Z2RVZ4" target="_blank" rel="noopener" class="btn btn--outline">Amazon Music &rarr;</a>
+</div>
+```
+
+Also update the `<p>` description text on line ~27 from:
+```
+available now on Spotify, Apple Music, and all major platforms.
+```
+to:
+```
+available now on Spotify, Apple Music, Amazon Music, and all major platforms.
+```
+
+---
+
+**File 2: `whenfeelingsgetloud/index.html`**
+
+One album.link instance in the footer (line ~320), currently:
+```html
+<a href="https://album.link/s/1HM7chm30VlXawhHCLq4cP" target="_blank" rel="noopener">Stream everywhere ↗</a>
+```
+Replace with:
+```html
+<a href="https://open.spotify.com/album/1HM7chm30VlXawhHCLq4cP" target="_blank" rel="noopener">Spotify ↗</a>
+<a href="https://music.apple.com/us/album/when-feelings-get-loud/6773287780" target="_blank" rel="noopener">Apple Music ↗</a>
+<a href="https://music.amazon.com/albums/B0H2Z2RVZ4" target="_blank" rel="noopener">Amazon Music ↗</a>
+```
+(The `.links` div already has flexbox styling so these will lay out correctly.)
+
+---
+
+**Commit message:** `Replace album.link with direct platform buttons (Spotify, Apple Music, Amazon Music)`
+
+**After deploy:** verify each button opens the correct album on its platform.
 
 ---
 
@@ -5398,3 +5516,14 @@ Pulled the open feedback queue via Supabase MCP (project `utqyxpdevkniwrhajodg`)
 5. **Move clinician-resource sections up** (`tfcbt.html`) — relocated the three clinician sections (Population-specific adaptation manuals, Assessments & evidence, Clinician reference books) to directly after the "Browse by component" directory. New order: video → developers → directory → **adaptations → assessments → clinician-books** → sfc-tools → album → books → faq.
 6. **Hero pill → album** (`tfcbt.html`) — added a pill in the hero, "&#9834; Skills for Children Resource: *When Feelings Get Loud* album", linking to `#album` (added `scroll-margin-top:80px` to the album band so it lands cleanly under the sticky header).
 Both validated (sections 15/15, Liquid 3/3); both Supabase rows marked `done`.
+
+---
+
+### June 20, 2026 — Item #38: replace album.link with direct platform buttons
+
+**Commit:** (see below) · Odesli/album.link abandoned (can't edit without paying) → swapped all aggregator links for direct Spotify/Apple Music/Amazon Music buttons. This also closes the loop on #37's deferred `songs.html` (it had used the album.link smart link).
+
+- **`songs.html`** — (1) section-head: replaced the single "Listen on your platform" button with a right-aligned flex group of 3 buttons; (2) bottom CTA: replaced with a centered group (Spotify primary, Apple/Amazon secondary); (3) intro `<p>`: added "Amazon Music" to the platform list.
+- **`whenfeelingsgetloud/index.html`** — footer: replaced the single "Stream everywhere" link with 3 direct platform links (the `.links` flexbox lays them out).
+- **Substitution:** the spec called for `btn--outline`, which **isn't defined** in `site.css`. Used `btn--ghost` instead (the site's existing outline/secondary button, used throughout) so the buttons render correctly rather than as unstyled base `.btn`.
+- Verified **no `album.link` remains** in any shipped file. Direct platform URLs: Spotify `…/album/1HM7chm30VlXawhHCLq4cP`, Apple `…/when-feelings-get-loud/6773287780`, Amazon `…/albums/B0H2Z2RVZ4`.
