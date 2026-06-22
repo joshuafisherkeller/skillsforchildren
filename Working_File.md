@@ -20,6 +20,37 @@
 
 > **For all agents:** `AHT_Working_File.md` no longer exists. It was merged into this file on May 20, 2026. Do not create a new `AHT_Working_File.md`. All After Hours Tech session logs, TODOs, and Cowork prompts go in **Section 2** of this file. All skillsforchildren.com logs go in **Section 1**.
 
+> ## 📅 MANUAL RELEASE REMINDERS — YouTube (videos are Unlisted, NOT Private — must flip manually in YouTube Studio)
+> - [ ] **June 23** — Flip **My Story My Voice** from Unlisted → Public
+> - [ ] **June 26** — Flip **One Step Braver** from Unlisted → Public
+> - [ ] **June 30** — Flip **Say It With Me** from Unlisted → Public
+> - [ ] **July 3** — Flip **My Plan My People** from Unlisted → Public
+
+> ## 📌 STATUS UPDATE — June 20, 2026
+>
+> **✅ Done today (June 20):**
+> - [x] Roy Van Tassell outreach log updated — responded twice, high-value lead, Oklahoma TF-CBT listing opportunity live
+> - [x] Julia invited to Meta Business Suite ✅ — access to FB + IG Skills for Children. Pending invite acceptance (account-level issue on her end, she's resolving)
+> - [x] Brain Alarm clinician Short live → https://youtube.com/shorts/6ZnBMzEf-sk
+> - [x] Breathe Like Waves clinician Short live → https://youtube.com/shorts/A6moAX36MMQ
+> - [x] Maybe Maybe Not full video flipped public → https://youtu.be/oWAdU2-k8P0
+> - [x] Prompt #38 (album.link → direct platform buttons) — already executed by Code, no action needed
+> - [x] YouTube Shorts template updated with all live Shorts + song notes
+> - [x] SECOND_BRAIN updated: catalog, Odesli abandoned, Julia active, Shorts campaign, YouTube status
+>
+> **📅 Scheduled:**
+> - June 21 12:30pm — Breathe Like Waves parent Short (YouTube)
+> - June 21 — Breathe Like Waves clinician + parent Reels (Facebook/Instagram, scheduled in Meta Business Suite)
+> - June 25 — Name It Choose It clinician Short + Reel
+> - June 27 — Name It Choose It parent Short + Reel
+>
+> **⏳ Still open:**
+> - [ ] Julia accepting Meta Business Suite invite
+> - [ ] My Story My Voice Shorts (clip: Pre-Chorus + Chorus) — clinician slide: "This song helps kids own their trauma narrative 🎵" · parent slide: "Help your child know their voice matters 🎵" — produce when ready
+> - [x] Roy Van Tassell reply ✅ — replied June 17, green light given, Oklahoma listing mentioned, thread complete
+> - [ ] LinkedIn — try personal post angle instead of service listing
+> - [ ] All the Feels full YouTube video — top production priority
+
 > ## 📌 STATUS UPDATE — June 19, 2026
 >
 > **✅ Closed out from June 15 list:**
@@ -74,7 +105,7 @@
 > | **Alison Hendricks** | TF-CBT workbook co-author | ✅ **Responded** — "so cool," said she'll **share** | High-value, credible amplifier |
 > | Melissa Runyon | Past TF-CBT trainer/colleague | ⏳ Sent, awaiting | |
 > | Heather Risk | Past TF-CBT trainer/colleague | ⏳ Sent, awaiting | |
-> | **Roy Van Tassell** | Approved National TF-CBT Trainer; Director of Trauma & EBIs, Cenpatico (Centene Corp), Tulsa OK | ✅ **Responded TWICE** — (1) listened to all songs, browsed site/resources, called it "a tremendous set of helpful tools"; will share with his trainers + consultation contacts + **trainer colleagues who run state program resource sites** (specifically Oklahoma TF-CBT); (2) came back to praise the artwork unprompted — "They are really good! Bravo!" Josh replied: green light to share, pointed to /tfcbt/, noted Oklahoma page is a goal to get listed on. | 🔴 **High-value lead** — active national trainer network + state resource page access. Oklahoma listing is now a live opportunity, not a backlog item. |
+> | **Roy Van Tassell** | Approved National TF-CBT Trainer; Director of Trauma & EBIs, Cenpatico (Centene Corp), Tulsa OK | ✅ **Full thread complete.** Roy (June 16): listened to all songs + browsed site, called it "a tremendous set of helpful tools," will share with trainers + consultation contacts + state program resource site colleagues (Oklahoma TF-CBT specifically). Josh replied (June 17): green light to share, pointed to /tfcbt/, mentioned Oklahoma listing is a goal, explained Canva + AI graphics process. Roy also praised artwork unprompted ("They are really good! Bravo!"). GA4 data suggests Roy spent ~15 min on the TF-CBT hub (908 sec avg, 12 views). | 🔴 **High-value lead — thread complete, ball is in Roy's court.** Monitor for any further response or evidence of sharing. Oklahoma listing remains a live goal. |
 >
 > **Follow-up habit:** when someone replies, thank them, and (if they're open) ask whether they'd share it with their network or include it in any resource lists. Add new contacts/responses here as they come.
 
@@ -134,7 +165,7 @@
 > | **Onboard Julia** | 🔴 Not started | Strategy session needed — define her role, what she owns, tools setup (Canva access, content calendar). Julia has Meta Business Suite admin access already. |
 > | **Social media setup** | 🔴 Not started | Bio, Canva Brand Kit, Brand Voice, content cadence — Julia's domain once onboarded. Brand Guidelines PDF ready. |
 > | **/songs page + album marketing strategy** | 🟡 In progress | Waiting on all 8 YouTube videos to be done before building page. Also need to submit "All the Feels" to Amuse as standalone single. Songlink live: https://album.link/s/1HM7chm30VlXawhHCLq4cP |
-> | **YouTube versions — When Feelings Get Loud** | 🟡 In progress | Format decided: still images, low-stimulation, song-focused. 5 of 8 done: Brain Alarm ✅, Breathe Like Waves ✅, Maybe Maybe Not ✅, Name It Choose It ✅, My Story My Voice ✅. Remaining: One Step Braver, Say It With Me, My Plan My People. YouTube live: My Brain Has an Alarm → https://youtu.be/ubHZr-PsEMY Keep on Trying YouTube description written and confirmed (real lyrics provided by Josh June 5, 2026). |
+> | **YouTube versions — When Feelings Get Loud** | 🟡 In progress | Format decided: still images, low-stimulation, song-focused. Public: Brain Alarm ✅ https://youtu.be/ubHZr-PsEMY · Breathe Like Waves ✅ https://www.youtube.com/watch?v=ZjnOLPM8Qi4 · Maybe Maybe Not ✅ https://youtu.be/oWAdU2-k8P0 (June 20) · Name It Choose It ✅. Unlisted/pending: My Story My Voice (flip June 23), One Step Braver (June 26), Say It With Me (June 30), My Plan My People (July 3). ⚠️ Unlisted NOT Private — cannot schedule, must manually flip each date in YouTube Studio. |
 > | **After Hours Tech — final walkthrough + soft launch** | 🟡 In progress | Dr. Sprang ✅ — no conflicts, blessing given June 2026. Still needed: (1) Final walkthrough of /tech/ page, (2) Add work examples, (3) Launch strategy + outreach to Laura, Christina Dalton, Sara Reichert, Bianca, KY Therapist Page, Ladies of Lexington. |
 | **Review new site pages** | 🔴 Tonight | Review /trauma/ and /songs/ pages in detail — verify PRACTICE components, books section, FAQ, affiliate links, and songs track listing all rendered correctly. Flag any issues for Code to fix. |
 > | **Blog post — Skills for Children website** | 🔴 Not started | Write a blog post about the SFC website itself + produce accompanying NotebookLM podcast/Shorts video. Post on social media and YouTube. |
@@ -185,6 +216,7 @@
 
 | # | Date | Project | Description | Location in file |
 |---|------|---------|-------------|-----------------|
+| ~~39~~ | ~~June 21, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Publish "Why Trying New Things Is Hard for Kids" blog post + 5 images. Found + fixed a real bug: post used `class="video-wrap"` with no matching CSS anywhere (would've rendered as a tiny unstyled default iframe) — added a reusable `.video-wrap` rule to `site.css`. Verified front matter, all 5 images, video domain, and the Spotify track link.~~ | [Section 1 → Cowork Prompts → June 21, 2026 #1](#june-21-2026-1--publish-trying-new-things-blog-post) |
 | ~~38~~ | ~~June 20, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Replace all `album.link` aggregator buttons with direct platform buttons (Spotify + Apple Music + Amazon Music). `songs.html` (2 button groups + description text) + `whenfeelingsgetloud/index.html` (footer links). Used `btn--ghost` (the site's outline button; `btn--outline` isn't defined).~~ | [Section 1 → Cowork Prompts → June 20, 2026 #1](#june-20-2026-1--replace-albumlink-with-direct-platform-buttons) |
 | ~~37~~ | ~~June 15, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Add Amazon Music link (https://music.amazon.com/albums/B0H2Z2RVZ4) alongside Spotify/Apple Music. Added pills to `whenfeelingsgetloud/index.html` + `_layouts/home.html`; quiet link in `tfcbt.html` album band. `songs.html` uses the album.link aggregator (no pills) — Amazon covered there once Josh updates Odesli.~~ | [Section 1 → Cowork Prompts → June 15, 2026 #1](#june-15-2026-1--add-amazon-music-link-for-when-feelings-get-loud) |
 | ~~36~~ | ~~June 13, 2026~~ | ~~skillsforchildren.com~~ | ~~🔴 PRIORITY 1 — Publish the "What Is TF-CBT?" blog post: `published: true`, FAQPage JSON-LD (5 Q&As inline), remove the 2.6MB `.png` hero (keep the 159KB `.jpg`). Commit + push.~~ | [Section 1 → Cowork Prompts → June 13, 2026 #10](#june-13-2026-10--publish-what-is-tfcbt-blog-post) |
@@ -274,6 +306,29 @@ Everything accomplished today, so nothing is lost. Code prompts **#27–#37** we
 **Reference material** (all in `_tfcbt-reference/`): `RESOURCES.md`, `TFCBT_BUILD_SPEC.md`, `CURATION_LIST.md`, `Oklahoma_TFCBT_resources.md`, `NC_CTP_resource_inventory_reference.md`, `Foundations_of_TFCBT_reference.md`, `TFCBT_DEVELOPER_CONTACTS.md` (Cohen/Deblinger/Mannarino — for future outreach), the video copy, 7 source PDFs.
 
 **Decisions / records updated:** BRAVE app marked NOT public (SECOND_BRAIN + memory); TF-CBT source-level rule recorded; *Tio Sam* grief book logged as horizon project; AHT Session 11 logged (promotion push + first scam-recovery client lead); *When Feelings Get Loud* YouTube release schedule re-cadenced (next: Name It Choose It). **North star set: distribution to clinicians.**
+
+---
+
+### June 21, 2026 #1 — Publish "Why Trying New Things Is Hard for Kids" blog post
+
+**🔴 PRIORITY 1.** New blog post is fully written and ready to publish. All files are already in place — this is commit and push only.
+
+**Files to commit:**
+- `_posts/2026-06-21-why-trying-new-things-is-hard-for-kids.md` — the post (already written)
+- `assets/img/blog/try-something-new-hero.png` — hero image
+- `assets/img/blog/try-something-new-brain.png` — section 1 image
+- `assets/img/blog/try-something-new-adult-child.png` — section 2 image
+- `assets/img/blog/try-something-new-small-steps.png` — section 3 image
+- `assets/img/blog/try-something-new-joy.png` — section 4 image
+
+**Before committing — verify:**
+1. Front matter parses correctly (YAML valid)
+2. All 5 image files exist in `assets/img/blog/`
+3. Video embed uses `youtube-nocookie.com` (already in the file — confirm)
+4. Post appears in blog index at `/blog/` after deploy
+5. Click the YouTube embed to confirm it plays
+
+**Commit message:** `Add blog post: Why Trying New Things Is Hard for Kids`
 
 ---
 
@@ -5527,3 +5582,17 @@ Both validated (sections 15/15, Liquid 3/3); both Supabase rows marked `done`.
 - **`whenfeelingsgetloud/index.html`** — footer: replaced the single "Stream everywhere" link with 3 direct platform links (the `.links` flexbox lays them out).
 - **Substitution:** the spec called for `btn--outline`, which **isn't defined** in `site.css`. Used `btn--ghost` instead (the site's existing outline/secondary button, used throughout) so the buttons render correctly rather than as unstyled base `.btn`.
 - Verified **no `album.link` remains** in any shipped file. Direct platform URLs: Spotify `…/album/1HM7chm30VlXawhHCLq4cP`, Apple `…/when-feelings-get-loud/6773287780`, Amazon `…/albums/B0H2Z2RVZ4`.
+
+---
+
+### June 21, 2026 — Item #39: publish "Why Trying New Things Is Hard for Kids" blog post
+
+**Commit:** (see below) · `_posts/2026-06-21-why-trying-new-things-is-hard-for-kids.md` + 5 images.
+
+Prompt said "commit and push only" (post + images already written), but pre-publish verification caught a real bug:
+
+- **Found:** the post body uses `<div class="video-wrap"><iframe>…</iframe></div>` for the YouTube embed, but **no CSS rule named `.video-wrap` existed anywhere in the site** (only a layout-scoped `.torf-video-wrap` in `resilient-forest-hub.html`, which doesn't apply to posts). Unfixed, the iframe would have rendered as a tiny, unstyled, non-responsive default-size embed in the post body.
+- **Fixed:** added a reusable `.video-wrap` rule to `assets/css/site.css` (16:9 responsive wrapper, rounded corners + shadow, modeled on the existing `.featured-video` pattern) right after `.featured-video` so any future post using this same markup convention also works.
+- **Verified before publishing:** front matter parses (matches the date format of the 3 existing posts); all 5 referenced images exist in `assets/img/blog/` (hero, brain, adult-child, small-steps, joy); video embed already uses `youtube-nocookie.com`; the Spotify track link (`open.spotify.com/track/0YJoQbAPYmhiV59JCoAxE6`) resolves live to "Try Something New."
+- **Flag (not actioned — outside this prompt's scope):** all 5 images are unoptimized PNGs, ~2.5MB each (~12.5MB total). The prior post (#36) explicitly dropped a 2.6MB unoptimized PNG in favor of a 155KB JPG for this exact reason. Did not re-encode these without being asked — flagging for Josh/Cowork to decide whether to optimize in a follow-up.
+- No `published: false` in front matter — Jekyll posts publish by default, so this ships live on deploy.
